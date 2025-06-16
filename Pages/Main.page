@@ -82,6 +82,13 @@
 				"OnPress": "/driverapp/Actions/action/Service/SyncStartedMessage.action",
 				"Position": "Right",
 				"Caption": "Sync"
+			},
+			{
+				"_Type": "Control.Type.ActionBarItem",
+				"_Name": "Logout",
+				"OnPress": "/driverapp/Actions/Application/Logout.action",
+				"Position": "Right",
+				"Caption": "Logout"
 			}
 
 		],
