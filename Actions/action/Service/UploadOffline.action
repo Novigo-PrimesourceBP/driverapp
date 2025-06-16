@@ -1,0 +1,9 @@
+{
+    "Service": "/driverapp/Services/action.service",
+    "_Type": "Action.Type.OfflineOData.Upload",
+    "ActionResult": {
+        "_Name": "sync"
+    },
+    "OnSuccess": "/driverapp/Actions/action/Service/DownloadStartedMessage.action",
+    "OnFailure": "/driverapp/Actions/action/Service/SyncFailureMessage.action"
+}

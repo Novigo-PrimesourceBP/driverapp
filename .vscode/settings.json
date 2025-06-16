@@ -1,0 +1,16 @@
+{
+    "css.customData": [
+        "./.vscode/my-less.css-data.json"
+    ],
+    "SAP HANA Database Explorer.ShowXsAdvancedConnections": true,
+    "mdk.uieditor": {
+        "left": {
+            "visible": true
+        },
+        "right": {
+            "visible": true,
+            "width": 440
+        },
+        "device": "tablet"
+    }
+}

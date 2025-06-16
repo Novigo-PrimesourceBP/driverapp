@@ -1,0 +1,30 @@
+{
+    "Service": "/driverapp/Services/main.service",
+    "DefiningRequests": [{
+            "Name": "ZTM_C_DDL_DA_ROOT",
+            "Query": "ZTM_C_DDL_DA_ROOT"
+        },
+        {
+            "Name": "ZTM_I_DDL_DA_ATTC",
+            "Query": "ZTM_I_DDL_DA_ATTC"
+        },
+        {
+            "Name": "ZTM_I_DDL_DA_EVTL",
+            "Query": "ZTM_I_DDL_DA_EVTL"
+        },
+        {
+            "Name": "ZTM_I_DDL_DA_STIT",
+            "Query": "ZTM_I_DDL_DA_STIT"
+        },
+        {
+            "Name": "ZTM_I_DDL_DA_STOP",
+            "Query": "ZTM_I_DDL_DA_STOP"
+        }
+    ],
+    "_Type": "Action.Type.OfflineOData.Download",
+    "ActionResult": {
+        "_Name": "sync"
+    },
+    "OnFailure": "/driverapp/Actions/main/Service/SyncFailureMessage.action",
+    "OnSuccess": "/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js"
+}

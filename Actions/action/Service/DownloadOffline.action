@@ -1,0 +1,18 @@
+{
+    "Service": "/driverapp/Services/action.service",
+    "DefiningRequests": [{
+            "Name": "AttachmentSet",
+            "Query": "AttachmentSet"
+        },
+        {
+            "Name": "EventSet",
+            "Query": "EventSet"
+        }
+    ],
+    "_Type": "Action.Type.OfflineOData.Download",
+    "ActionResult": {
+        "_Name": "sync"
+    },
+    "OnFailure": "/driverapp/Actions/action/Service/SyncFailureMessage.action",
+    "OnSuccess": "/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js"
+}

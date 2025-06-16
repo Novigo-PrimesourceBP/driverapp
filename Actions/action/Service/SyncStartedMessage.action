@@ -1,0 +1,8 @@
+{
+    "Message": "Upload in progress...",
+    "CompletionMessage": "Sync completed",
+    "CompletionTimeout": 7,
+    "OnSuccess": "/driverapp/Actions/action/Service/UploadOffline.action",
+    "OnFailure": "/driverapp/Actions/action/Service/SyncFailureMessage.action",
+    "_Type": "Action.Type.ProgressBanner"
+}

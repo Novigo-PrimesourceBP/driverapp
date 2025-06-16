@@ -1,0 +1,8 @@
+{
+    "_Type": "Action.Type.ApplicationUpdate",
+    "ActionResult": {
+        "_Name": "AppUpdate"
+    },
+    "OnFailure": "/driverapp/Rules/Application/AppUpdateFailure.js",
+    "OnSuccess": "/driverapp/Rules/Application/AppUpdateSuccess.js"
+}

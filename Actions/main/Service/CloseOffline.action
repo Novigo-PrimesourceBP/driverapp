@@ -1,0 +1,10 @@
+{
+    "_Type": "Action.Type.OfflineOData.Close",
+    "Service": "/driverapp/Services/main.service",
+    "Force": true,
+    "ActionResult": {
+        "_Name": "close"
+    },
+    "OnSuccess": "/driverapp/Actions/main/Service/CloseOfflineSuccessMessage.action",
+    "OnFailure": "/driverapp/Actions/main/Service/CloseOfflineFailureMessage.action"
+}

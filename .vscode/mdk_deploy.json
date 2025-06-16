@@ -1,0 +1,10 @@
+{
+	"Application": "/home/user/projects/driverapp/Application.app",
+	"Target": "Mobile Services",
+	"OtherApps": [
+		{
+			"Application": "/home/user/projects/driverapp/Application.app",
+			"Target": "Mobile Services"
+		}
+	]
+}

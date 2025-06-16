@@ -1,0 +1,19 @@
+{
+    "Service": "/driverapp/Services/action.service",
+    "DefiningRequests": [{
+            "Name": "AttachmentSet",
+            "Query": "AttachmentSet"
+        },
+        {
+            "Name": "EventSet",
+            "Query": "EventSet"
+        }
+    ],
+    "_Type": "Action.Type.ODataService.Initialize",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": "Downloading...",
+    "ActionResult": {
+        "_Name": "init"
+    },
+    "OnFailure": "/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action"
+}

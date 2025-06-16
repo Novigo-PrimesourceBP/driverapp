@@ -1,0 +1,1905 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./build.definitions/driverapp/i18n/i18n.properties":
+/*!**********************************************************!*\
+  !*** ./build.definitions/driverapp/i18n/i18n.properties ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./build.definitions/application-index.js":
+/*!************************************************!*\
+  !*** ./build.definitions/application-index.js ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+let application_app = __webpack_require__(/*! ./Application.app */ "./build.definitions/Application.app")
+let driverapp_actions_action_service_closeoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/CloseOffline.action */ "./build.definitions/driverapp/Actions/action/Service/CloseOffline.action")
+let driverapp_actions_action_service_closeofflinefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/CloseOfflineFailureMessage.action */ "./build.definitions/driverapp/Actions/action/Service/CloseOfflineFailureMessage.action")
+let driverapp_actions_action_service_closeofflinesuccessmessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/CloseOfflineSuccessMessage.action */ "./build.definitions/driverapp/Actions/action/Service/CloseOfflineSuccessMessage.action")
+let driverapp_actions_action_service_downloadoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/DownloadOffline.action */ "./build.definitions/driverapp/Actions/action/Service/DownloadOffline.action")
+let driverapp_actions_action_service_downloadstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/DownloadStartedMessage.action */ "./build.definitions/driverapp/Actions/action/Service/DownloadStartedMessage.action")
+let driverapp_actions_action_service_initializeoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/InitializeOffline.action */ "./build.definitions/driverapp/Actions/action/Service/InitializeOffline.action")
+let driverapp_actions_action_service_initializeofflinefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action */ "./build.definitions/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action")
+let driverapp_actions_action_service_syncfailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/SyncFailureMessage.action */ "./build.definitions/driverapp/Actions/action/Service/SyncFailureMessage.action")
+let driverapp_actions_action_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/action/Service/SyncStartedMessage.action")
+let driverapp_actions_action_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/action/Service/UploadOffline.action")
+let driverapp_actions_application_appupdate_action = __webpack_require__(/*! ./driverapp/Actions/Application/AppUpdate.action */ "./build.definitions/driverapp/Actions/Application/AppUpdate.action")
+let driverapp_actions_application_appupdatefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/Application/AppUpdateFailureMessage.action */ "./build.definitions/driverapp/Actions/Application/AppUpdateFailureMessage.action")
+let driverapp_actions_application_appupdateprogressbanner_action = __webpack_require__(/*! ./driverapp/Actions/Application/AppUpdateProgressBanner.action */ "./build.definitions/driverapp/Actions/Application/AppUpdateProgressBanner.action")
+let driverapp_actions_application_appupdatesuccessmessage_action = __webpack_require__(/*! ./driverapp/Actions/Application/AppUpdateSuccessMessage.action */ "./build.definitions/driverapp/Actions/Application/AppUpdateSuccessMessage.action")
+let driverapp_actions_application_logout_action = __webpack_require__(/*! ./driverapp/Actions/Application/Logout.action */ "./build.definitions/driverapp/Actions/Application/Logout.action")
+let driverapp_actions_application_navtoabout_action = __webpack_require__(/*! ./driverapp/Actions/Application/NavToAbout.action */ "./build.definitions/driverapp/Actions/Application/NavToAbout.action")
+let driverapp_actions_application_navtoactivitylog_action = __webpack_require__(/*! ./driverapp/Actions/Application/NavToActivityLog.action */ "./build.definitions/driverapp/Actions/Application/NavToActivityLog.action")
+let driverapp_actions_application_navtosupport_action = __webpack_require__(/*! ./driverapp/Actions/Application/NavToSupport.action */ "./build.definitions/driverapp/Actions/Application/NavToSupport.action")
+let driverapp_actions_application_onwillupdate_action = __webpack_require__(/*! ./driverapp/Actions/Application/OnWillUpdate.action */ "./build.definitions/driverapp/Actions/Application/OnWillUpdate.action")
+let driverapp_actions_application_reset_action = __webpack_require__(/*! ./driverapp/Actions/Application/Reset.action */ "./build.definitions/driverapp/Actions/Application/Reset.action")
+let driverapp_actions_application_resetmessage_action = __webpack_require__(/*! ./driverapp/Actions/Application/ResetMessage.action */ "./build.definitions/driverapp/Actions/Application/ResetMessage.action")
+let driverapp_actions_application_usermenupopover_action = __webpack_require__(/*! ./driverapp/Actions/Application/UserMenuPopover.action */ "./build.definitions/driverapp/Actions/Application/UserMenuPopover.action")
+let driverapp_actions_closemodalpage_cancel_action = __webpack_require__(/*! ./driverapp/Actions/CloseModalPage_Cancel.action */ "./build.definitions/driverapp/Actions/CloseModalPage_Cancel.action")
+let driverapp_actions_closemodalpage_complete_action = __webpack_require__(/*! ./driverapp/Actions/CloseModalPage_Complete.action */ "./build.definitions/driverapp/Actions/CloseModalPage_Complete.action")
+let driverapp_actions_closepage_action = __webpack_require__(/*! ./driverapp/Actions/ClosePage.action */ "./build.definitions/driverapp/Actions/ClosePage.action")
+let driverapp_actions_errorarchive_errorarchive_syncfailure_action = __webpack_require__(/*! ./driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action */ "./build.definitions/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action")
+let driverapp_actions_errorarchive_navtoerrorarchive_detail_action = __webpack_require__(/*! ./driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action */ "./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action")
+let driverapp_actions_errorarchive_navtoerrorarchive_list_action = __webpack_require__(/*! ./driverapp/Actions/ErrorArchive/NavToErrorArchive_List.action */ "./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_List.action")
+let driverapp_actions_genericbannermessage_action = __webpack_require__(/*! ./driverapp/Actions/GenericBannerMessage.action */ "./build.definitions/driverapp/Actions/GenericBannerMessage.action")
+let driverapp_actions_genericmessagebox_action = __webpack_require__(/*! ./driverapp/Actions/GenericMessageBox.action */ "./build.definitions/driverapp/Actions/GenericMessageBox.action")
+let driverapp_actions_genericnavigation_action = __webpack_require__(/*! ./driverapp/Actions/GenericNavigation.action */ "./build.definitions/driverapp/Actions/GenericNavigation.action")
+let driverapp_actions_generictoastmessage_action = __webpack_require__(/*! ./driverapp/Actions/GenericToastMessage.action */ "./build.definitions/driverapp/Actions/GenericToastMessage.action")
+let driverapp_actions_logging_loguploadfailure_action = __webpack_require__(/*! ./driverapp/Actions/Logging/LogUploadFailure.action */ "./build.definitions/driverapp/Actions/Logging/LogUploadFailure.action")
+let driverapp_actions_logging_loguploadsuccessful_action = __webpack_require__(/*! ./driverapp/Actions/Logging/LogUploadSuccessful.action */ "./build.definitions/driverapp/Actions/Logging/LogUploadSuccessful.action")
+let driverapp_actions_logging_uploadlog_action = __webpack_require__(/*! ./driverapp/Actions/Logging/UploadLog.action */ "./build.definitions/driverapp/Actions/Logging/UploadLog.action")
+let driverapp_actions_logging_uploadlogprogress_action = __webpack_require__(/*! ./driverapp/Actions/Logging/UploadLogProgress.action */ "./build.definitions/driverapp/Actions/Logging/UploadLogProgress.action")
+let driverapp_actions_main_service_closeoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/CloseOffline.action */ "./build.definitions/driverapp/Actions/main/Service/CloseOffline.action")
+let driverapp_actions_main_service_closeofflinefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/CloseOfflineFailureMessage.action */ "./build.definitions/driverapp/Actions/main/Service/CloseOfflineFailureMessage.action")
+let driverapp_actions_main_service_closeofflinesuccessmessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/CloseOfflineSuccessMessage.action */ "./build.definitions/driverapp/Actions/main/Service/CloseOfflineSuccessMessage.action")
+let driverapp_actions_main_service_downloadoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/DownloadOffline.action */ "./build.definitions/driverapp/Actions/main/Service/DownloadOffline.action")
+let driverapp_actions_main_service_downloadstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/DownloadStartedMessage.action */ "./build.definitions/driverapp/Actions/main/Service/DownloadStartedMessage.action")
+let driverapp_actions_main_service_initializeoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/InitializeOffline.action */ "./build.definitions/driverapp/Actions/main/Service/InitializeOffline.action")
+let driverapp_actions_main_service_initializeofflinefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action */ "./build.definitions/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action")
+let driverapp_actions_main_service_syncfailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncFailureMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncFailureMessage.action")
+let driverapp_actions_main_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncStartedMessage.action")
+let driverapp_actions_main_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/main/Service/UploadOffline.action")
+let driverapp_globals_application_appdefinition_version_global = __webpack_require__(/*! ./driverapp/Globals/Application/AppDefinition_Version.global */ "./build.definitions/driverapp/Globals/Application/AppDefinition_Version.global")
+let driverapp_globals_application_applicationname_global = __webpack_require__(/*! ./driverapp/Globals/Application/ApplicationName.global */ "./build.definitions/driverapp/Globals/Application/ApplicationName.global")
+let driverapp_globals_application_supportemail_global = __webpack_require__(/*! ./driverapp/Globals/Application/SupportEmail.global */ "./build.definitions/driverapp/Globals/Application/SupportEmail.global")
+let driverapp_globals_application_supportphone_global = __webpack_require__(/*! ./driverapp/Globals/Application/SupportPhone.global */ "./build.definitions/driverapp/Globals/Application/SupportPhone.global")
+let driverapp_i18n_i18n_properties = __webpack_require__(/*! ./driverapp/i18n/i18n.properties */ "./build.definitions/driverapp/i18n/i18n.properties")
+let driverapp_jsconfig_json = __webpack_require__(/*! ./driverapp/jsconfig.json */ "./build.definitions/driverapp/jsconfig.json")
+let driverapp_pages_application_about_page = __webpack_require__(/*! ./driverapp/Pages/Application/About.page */ "./build.definitions/driverapp/Pages/Application/About.page")
+let driverapp_pages_application_support_page = __webpack_require__(/*! ./driverapp/Pages/Application/Support.page */ "./build.definitions/driverapp/Pages/Application/Support.page")
+let driverapp_pages_application_useractivitylog_page = __webpack_require__(/*! ./driverapp/Pages/Application/UserActivityLog.page */ "./build.definitions/driverapp/Pages/Application/UserActivityLog.page")
+let driverapp_pages_errorarchive_errorarchive_detail_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page")
+let driverapp_pages_errorarchive_errorarchive_list_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_List.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_List.page")
+let driverapp_pages_main_page = __webpack_require__(/*! ./driverapp/Pages/Main.page */ "./build.definitions/driverapp/Pages/Main.page")
+let driverapp_rules_action_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/action/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js")
+let driverapp_rules_application_appupdatefailure_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateFailure.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateFailure.js")
+let driverapp_rules_application_appupdatesuccess_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateSuccess.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateSuccess.js")
+let driverapp_rules_application_clientismultiusermode_js = __webpack_require__(/*! ./driverapp/Rules/Application/ClientIsMultiUserMode.js */ "./build.definitions/driverapp/Rules/Application/ClientIsMultiUserMode.js")
+let driverapp_rules_application_getclientsupportversions_js = __webpack_require__(/*! ./driverapp/Rules/Application/GetClientSupportVersions.js */ "./build.definitions/driverapp/Rules/Application/GetClientSupportVersions.js")
+let driverapp_rules_application_getclientversion_js = __webpack_require__(/*! ./driverapp/Rules/Application/GetClientVersion.js */ "./build.definitions/driverapp/Rules/Application/GetClientVersion.js")
+let driverapp_rules_application_onwillupdate_js = __webpack_require__(/*! ./driverapp/Rules/Application/OnWillUpdate.js */ "./build.definitions/driverapp/Rules/Application/OnWillUpdate.js")
+let driverapp_rules_application_resetappsettingsandlogout_js = __webpack_require__(/*! ./driverapp/Rules/Application/ResetAppSettingsAndLogout.js */ "./build.definitions/driverapp/Rules/Application/ResetAppSettingsAndLogout.js")
+let driverapp_rules_formatters_executionstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStyle.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js")
+let driverapp_rules_formatters_pickup_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Pickup.js */ "./build.definitions/driverapp/Rules/Formatters/Pickup.js")
+let driverapp_rules_logging_loglevels_js = __webpack_require__(/*! ./driverapp/Rules/Logging/LogLevels.js */ "./build.definitions/driverapp/Rules/Logging/LogLevels.js")
+let driverapp_rules_logging_settracecategories_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetTraceCategories.js */ "./build.definitions/driverapp/Rules/Logging/SetTraceCategories.js")
+let driverapp_rules_logging_setuserloglevel_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetUserLogLevel.js */ "./build.definitions/driverapp/Rules/Logging/SetUserLogLevel.js")
+let driverapp_rules_logging_togglelogging_js = __webpack_require__(/*! ./driverapp/Rules/Logging/ToggleLogging.js */ "./build.definitions/driverapp/Rules/Logging/ToggleLogging.js")
+let driverapp_rules_logging_tracecategories_js = __webpack_require__(/*! ./driverapp/Rules/Logging/TraceCategories.js */ "./build.definitions/driverapp/Rules/Logging/TraceCategories.js")
+let driverapp_rules_logging_userlogsetting_js = __webpack_require__(/*! ./driverapp/Rules/Logging/UserLogSetting.js */ "./build.definitions/driverapp/Rules/Logging/UserLogSetting.js")
+let driverapp_rules_main_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/main/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js")
+let driverapp_rules_service_initialize_js = __webpack_require__(/*! ./driverapp/Rules/Service/Initialize.js */ "./build.definitions/driverapp/Rules/Service/Initialize.js")
+let driverapp_services_action_service = __webpack_require__(/*! ./driverapp/Services/action.service */ "./build.definitions/driverapp/Services/action.service")
+let driverapp_services_main_service = __webpack_require__(/*! ./driverapp/Services/main.service */ "./build.definitions/driverapp/Services/main.service")
+let driverapp_styles_styles_css = __webpack_require__(/*! ./driverapp/Styles/Styles.css */ "./build.definitions/driverapp/Styles/Styles.css")
+let driverapp_styles_styles_less = __webpack_require__(/*! ./driverapp/Styles/Styles.less */ "./build.definitions/driverapp/Styles/Styles.less")
+let driverapp_styles_styles_light_css = __webpack_require__(/*! ./driverapp/Styles/Styles.light.css */ "./build.definitions/driverapp/Styles/Styles.light.css")
+let driverapp_styles_styles_light_json = __webpack_require__(/*! ./driverapp/Styles/Styles.light.json */ "./build.definitions/driverapp/Styles/Styles.light.json")
+let driverapp_styles_styles_light_nss = __webpack_require__(/*! ./driverapp/Styles/Styles.light.nss */ "./build.definitions/driverapp/Styles/Styles.light.nss")
+let tsconfig_json = __webpack_require__(/*! ./tsconfig.json */ "./build.definitions/tsconfig.json")
+let version_mdkbundlerversion = __webpack_require__(/*! ./version.mdkbundlerversion */ "./build.definitions/version.mdkbundlerversion")
+
+module.exports = {
+	application_app : application_app,
+	driverapp_actions_action_service_closeoffline_action : driverapp_actions_action_service_closeoffline_action,
+	driverapp_actions_action_service_closeofflinefailuremessage_action : driverapp_actions_action_service_closeofflinefailuremessage_action,
+	driverapp_actions_action_service_closeofflinesuccessmessage_action : driverapp_actions_action_service_closeofflinesuccessmessage_action,
+	driverapp_actions_action_service_downloadoffline_action : driverapp_actions_action_service_downloadoffline_action,
+	driverapp_actions_action_service_downloadstartedmessage_action : driverapp_actions_action_service_downloadstartedmessage_action,
+	driverapp_actions_action_service_initializeoffline_action : driverapp_actions_action_service_initializeoffline_action,
+	driverapp_actions_action_service_initializeofflinefailuremessage_action : driverapp_actions_action_service_initializeofflinefailuremessage_action,
+	driverapp_actions_action_service_syncfailuremessage_action : driverapp_actions_action_service_syncfailuremessage_action,
+	driverapp_actions_action_service_syncstartedmessage_action : driverapp_actions_action_service_syncstartedmessage_action,
+	driverapp_actions_action_service_uploadoffline_action : driverapp_actions_action_service_uploadoffline_action,
+	driverapp_actions_application_appupdate_action : driverapp_actions_application_appupdate_action,
+	driverapp_actions_application_appupdatefailuremessage_action : driverapp_actions_application_appupdatefailuremessage_action,
+	driverapp_actions_application_appupdateprogressbanner_action : driverapp_actions_application_appupdateprogressbanner_action,
+	driverapp_actions_application_appupdatesuccessmessage_action : driverapp_actions_application_appupdatesuccessmessage_action,
+	driverapp_actions_application_logout_action : driverapp_actions_application_logout_action,
+	driverapp_actions_application_navtoabout_action : driverapp_actions_application_navtoabout_action,
+	driverapp_actions_application_navtoactivitylog_action : driverapp_actions_application_navtoactivitylog_action,
+	driverapp_actions_application_navtosupport_action : driverapp_actions_application_navtosupport_action,
+	driverapp_actions_application_onwillupdate_action : driverapp_actions_application_onwillupdate_action,
+	driverapp_actions_application_reset_action : driverapp_actions_application_reset_action,
+	driverapp_actions_application_resetmessage_action : driverapp_actions_application_resetmessage_action,
+	driverapp_actions_application_usermenupopover_action : driverapp_actions_application_usermenupopover_action,
+	driverapp_actions_closemodalpage_cancel_action : driverapp_actions_closemodalpage_cancel_action,
+	driverapp_actions_closemodalpage_complete_action : driverapp_actions_closemodalpage_complete_action,
+	driverapp_actions_closepage_action : driverapp_actions_closepage_action,
+	driverapp_actions_errorarchive_errorarchive_syncfailure_action : driverapp_actions_errorarchive_errorarchive_syncfailure_action,
+	driverapp_actions_errorarchive_navtoerrorarchive_detail_action : driverapp_actions_errorarchive_navtoerrorarchive_detail_action,
+	driverapp_actions_errorarchive_navtoerrorarchive_list_action : driverapp_actions_errorarchive_navtoerrorarchive_list_action,
+	driverapp_actions_genericbannermessage_action : driverapp_actions_genericbannermessage_action,
+	driverapp_actions_genericmessagebox_action : driverapp_actions_genericmessagebox_action,
+	driverapp_actions_genericnavigation_action : driverapp_actions_genericnavigation_action,
+	driverapp_actions_generictoastmessage_action : driverapp_actions_generictoastmessage_action,
+	driverapp_actions_logging_loguploadfailure_action : driverapp_actions_logging_loguploadfailure_action,
+	driverapp_actions_logging_loguploadsuccessful_action : driverapp_actions_logging_loguploadsuccessful_action,
+	driverapp_actions_logging_uploadlog_action : driverapp_actions_logging_uploadlog_action,
+	driverapp_actions_logging_uploadlogprogress_action : driverapp_actions_logging_uploadlogprogress_action,
+	driverapp_actions_main_service_closeoffline_action : driverapp_actions_main_service_closeoffline_action,
+	driverapp_actions_main_service_closeofflinefailuremessage_action : driverapp_actions_main_service_closeofflinefailuremessage_action,
+	driverapp_actions_main_service_closeofflinesuccessmessage_action : driverapp_actions_main_service_closeofflinesuccessmessage_action,
+	driverapp_actions_main_service_downloadoffline_action : driverapp_actions_main_service_downloadoffline_action,
+	driverapp_actions_main_service_downloadstartedmessage_action : driverapp_actions_main_service_downloadstartedmessage_action,
+	driverapp_actions_main_service_initializeoffline_action : driverapp_actions_main_service_initializeoffline_action,
+	driverapp_actions_main_service_initializeofflinefailuremessage_action : driverapp_actions_main_service_initializeofflinefailuremessage_action,
+	driverapp_actions_main_service_syncfailuremessage_action : driverapp_actions_main_service_syncfailuremessage_action,
+	driverapp_actions_main_service_syncstartedmessage_action : driverapp_actions_main_service_syncstartedmessage_action,
+	driverapp_actions_main_service_uploadoffline_action : driverapp_actions_main_service_uploadoffline_action,
+	driverapp_globals_application_appdefinition_version_global : driverapp_globals_application_appdefinition_version_global,
+	driverapp_globals_application_applicationname_global : driverapp_globals_application_applicationname_global,
+	driverapp_globals_application_supportemail_global : driverapp_globals_application_supportemail_global,
+	driverapp_globals_application_supportphone_global : driverapp_globals_application_supportphone_global,
+	driverapp_i18n_i18n_properties : driverapp_i18n_i18n_properties,
+	driverapp_jsconfig_json : driverapp_jsconfig_json,
+	driverapp_pages_application_about_page : driverapp_pages_application_about_page,
+	driverapp_pages_application_support_page : driverapp_pages_application_support_page,
+	driverapp_pages_application_useractivitylog_page : driverapp_pages_application_useractivitylog_page,
+	driverapp_pages_errorarchive_errorarchive_detail_page : driverapp_pages_errorarchive_errorarchive_detail_page,
+	driverapp_pages_errorarchive_errorarchive_list_page : driverapp_pages_errorarchive_errorarchive_list_page,
+	driverapp_pages_main_page : driverapp_pages_main_page,
+	driverapp_rules_action_errorarchive_checkforsyncerror_js : driverapp_rules_action_errorarchive_checkforsyncerror_js,
+	driverapp_rules_application_appupdatefailure_js : driverapp_rules_application_appupdatefailure_js,
+	driverapp_rules_application_appupdatesuccess_js : driverapp_rules_application_appupdatesuccess_js,
+	driverapp_rules_application_clientismultiusermode_js : driverapp_rules_application_clientismultiusermode_js,
+	driverapp_rules_application_getclientsupportversions_js : driverapp_rules_application_getclientsupportversions_js,
+	driverapp_rules_application_getclientversion_js : driverapp_rules_application_getclientversion_js,
+	driverapp_rules_application_onwillupdate_js : driverapp_rules_application_onwillupdate_js,
+	driverapp_rules_application_resetappsettingsandlogout_js : driverapp_rules_application_resetappsettingsandlogout_js,
+	driverapp_rules_formatters_executionstyle_js : driverapp_rules_formatters_executionstyle_js,
+	driverapp_rules_formatters_pickup_js : driverapp_rules_formatters_pickup_js,
+	driverapp_rules_logging_loglevels_js : driverapp_rules_logging_loglevels_js,
+	driverapp_rules_logging_settracecategories_js : driverapp_rules_logging_settracecategories_js,
+	driverapp_rules_logging_setuserloglevel_js : driverapp_rules_logging_setuserloglevel_js,
+	driverapp_rules_logging_togglelogging_js : driverapp_rules_logging_togglelogging_js,
+	driverapp_rules_logging_tracecategories_js : driverapp_rules_logging_tracecategories_js,
+	driverapp_rules_logging_userlogsetting_js : driverapp_rules_logging_userlogsetting_js,
+	driverapp_rules_main_errorarchive_checkforsyncerror_js : driverapp_rules_main_errorarchive_checkforsyncerror_js,
+	driverapp_rules_service_initialize_js : driverapp_rules_service_initialize_js,
+	driverapp_services_action_service : driverapp_services_action_service,
+	driverapp_services_main_service : driverapp_services_main_service,
+	driverapp_styles_styles_css : driverapp_styles_styles_css,
+	driverapp_styles_styles_less : driverapp_styles_styles_less,
+	driverapp_styles_styles_light_css : driverapp_styles_styles_light_css,
+	driverapp_styles_styles_light_json : driverapp_styles_styles_light_json,
+	driverapp_styles_styles_light_nss : driverapp_styles_styles_light_nss,
+	tsconfig_json : tsconfig_json,
+	version_mdkbundlerversion : version_mdkbundlerversion
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Application/AppUpdateFailure.js":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Application/AppUpdateFailure.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AppUpdateFailure)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function AppUpdateFailure(clientAPI) {
+  let result = clientAPI.actionResults.AppUpdate.error.toString();
+  var message;
+  console.log(result);
+  if (result.startsWith('Error: Uncaught app extraction failure:')) {
+    result = 'Error: Uncaught app extraction failure:';
+  }
+  if (result.startsWith('Error: LCMS GET Version Response Error Response Status: 404 | Body: 404 Not Found: Requested route')) {
+    result = 'Application instance is not up or running';
+  }
+  if (result.startsWith('Error: LCMS GET Version Response Error Response Status: 404 | Body')) {
+    result = 'Service instance not found.';
+  }
+  switch (result) {
+    case 'Service instance not found.':
+      message = 'Mobile App Update feature is not assigned or not running for your application. Please add the Mobile App Update feature, deploy your application, and try again.';
+      break;
+    case 'Error: LCMS GET Version Response Error Response Status: 404 | Body: Failed to find a matched endpoint':
+      message = 'Mobile App Update feature is not assigned to your application. Please add the Mobile App Update feature, deploy your application, and try again.';
+      break;
+    case 'Error: LCMS GET Version Response failed: Error: Optional(OAuth2Error.tokenRejected: The newly acquired or refreshed token got rejected.)':
+      message = 'The Mobile App Update feature is not assigned to your application or there is no Application metadata deployed. Please check your application in Mobile Services and try again.';
+      break;
+    case 'Error: Uncaught app extraction failure:':
+      message = 'Error extracting metadata. Please redeploy and try again.';
+      break;
+    case 'Application instance is not up or running':
+      message = 'Communication failure. Verify that the BindMobileApplicationRoutesToME Application route is running in your BTP space cockpit.';
+      break;
+    default:
+      message = result;
+      break;
+  }
+  return clientAPI.getPageProxy().executeAction({
+    "Name": "/driverapp/Actions/Application/AppUpdateFailureMessage.action",
+    "Properties": {
+      "Duration": 0,
+      "Message": message
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Application/AppUpdateSuccess.js":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Application/AppUpdateSuccess.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AppUpdateSuccess)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function sleep(ms) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve();
+    }, ms);
+  });
+}
+function AppUpdateSuccess(clientAPI) {
+  var message;
+  // Force a small pause to let the progress banner show in case there is no new version available
+  return sleep(500).then(function () {
+    let result = clientAPI.actionResults.AppUpdate.data;
+    console.log(result);
+    let versionNum = result.split(': ')[1];
+    if (result.startsWith('Current version is already up to date')) {
+      return clientAPI.getPageProxy().executeAction({
+        "Name": "/driverapp/Actions/Application/AppUpdateSuccessMessage.action",
+        "Properties": {
+          "Message": `You are already using the latest version: ${versionNum}`,
+          "NumberOfLines": 2
+        }
+      });
+    } else if (result === 'AppUpdate feature is not enabled or no new revision found.') {
+      message = 'No Application metadata found. Please deploy your application and try again.';
+      return clientAPI.getPageProxy().executeAction({
+        "Name": "/driverapp/Actions/Application/AppUpdateSuccessMessage.action",
+        "Properties": {
+          "Duration": 5,
+          "Message": message,
+          "NumberOfLines": 2
+        }
+      });
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Application/ClientIsMultiUserMode.js":
+/*!********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Application/ClientIsMultiUserMode.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ClientIsMultiUserMode)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ClientIsMultiUserMode(clientAPI) {
+  return clientAPI.isAppInMultiUserMode();
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Application/GetClientSupportVersions.js":
+/*!***********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Application/GetClientSupportVersions.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ GetClientSupportVersions)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function GetClientSupportVersions(clientAPI) {
+  let versionInfo = clientAPI.getVersionInfo();
+  let versionStr = '';
+  Object.keys(versionInfo).forEach(function (key, index) {
+    // key: the name of the object key
+    // index: the ordinal position of the key within the object
+    //console.log(`Key: ${key}   Index: ${index}`);
+    if (key != 'Application Version') {
+      versionStr += `${key}: ${versionInfo[key]}\n`;
+    }
+  });
+  return versionStr;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Application/GetClientVersion.js":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Application/GetClientVersion.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ GetClientVersion)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function GetClientVersion(clientAPI) {
+  let versionInfo = clientAPI.getVersionInfo();
+  if (versionInfo.hasOwnProperty('Application Version')) {
+    return versionInfo['Application Version'];
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Application/OnWillUpdate.js":
+/*!***********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Application/OnWillUpdate.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ OnWillUpdate)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function OnWillUpdate(clientAPI) {
+  return clientAPI.executeAction('/driverapp/Actions/Application/OnWillUpdate.action').then(result => {
+    if (result.data) {
+      let close_action = clientAPI.executeAction('/driverapp/Actions/action/Service/CloseOffline.action');
+      let close_main = clientAPI.executeAction('/driverapp/Actions/main/Service/CloseOffline.action');
+      return Promise.all([close_action, close_main]).then(() => {
+        Promise.resolve();
+      }).catch(err => {
+        Promise.reject('Offline Odata Close Failed ' + err.message);
+      });
+    } else {
+      return Promise.reject('User Deferred');
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Application/ResetAppSettingsAndLogout.js":
+/*!************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Application/ResetAppSettingsAndLogout.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ResetAppSettingsAndLogout)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ResetAppSettingsAndLogout(clientAPI) {
+  let logger = clientAPI.getLogger();
+  let platform = clientAPI.nativescript.platformModule;
+  let appSettings = clientAPI.nativescript.appSettingsModule;
+  var appId;
+  if (platform && (platform.isIOS || platform.isAndroid)) {
+    appId = clientAPI.evaluateTargetPath('#Application/#AppData/MobileServiceAppId');
+  } else {
+    appId = 'WindowsClient';
+  }
+  try {
+    // Remove any other app specific settings
+    appSettings.getAllKeys().forEach(key => {
+      if (key.substring(0, appId.length) === appId) {
+        appSettings.remove(key);
+      }
+    });
+  } catch (err) {
+    logger.log(`ERROR: AppSettings cleanup failure - ${err}`, 'ERROR');
+  } finally {
+    // Logout 
+    return clientAPI.getPageProxy().executeAction('/driverapp/Actions/Application/Reset.action');
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js":
+/*!************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatExecutionStyle)
+/* harmony export */ });
+function FormatExecutionStyle(clientAPI) {
+  let execution = clientAPI.binding.execution;
+  switch (execution) {
+    case '04':
+      return 'Success';
+    case '03':
+      return 'Default';
+    case '07':
+      return 'Warning';
+    case '02':
+      return 'Danger';
+    default:
+      return 'Default';
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/Pickup.js":
+/*!****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Pickup.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatPickup)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function FormatPickup(context) {
+  let dt = context.getBindingObject().pln_dep_dt;
+  let ti = context.getBindingObject().pln_dep_ti;
+  // let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), 0);
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  let text = context.formatDate(time);
+  return `On: ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Logging/LogLevels.js":
+/*!****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Logging/LogLevels.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ LogLevels)
+/* harmony export */ });
+function LogLevels(clientAPI) {
+  var levels = [];
+  levels.push({
+    'DisplayValue': 'Error',
+    'ReturnValue': 'Error'
+  });
+  levels.push({
+    'DisplayValue': 'Warning',
+    'ReturnValue': 'Warn'
+  });
+  levels.push({
+    'DisplayValue': 'Info',
+    'ReturnValue': 'Info'
+  });
+  levels.push({
+    'DisplayValue': 'Debug',
+    'ReturnValue': 'Debug'
+  });
+  levels.push({
+    'DisplayValue': 'Trace',
+    'ReturnValue': 'Trace'
+  });
+  return levels;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Logging/SetTraceCategories.js":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Logging/SetTraceCategories.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SetTraceCategories)
+/* harmony export */ });
+function SetTraceCategories(clientAPI) {
+  var logger = clientAPI.getLogger();
+  const sectionedTable = clientAPI.getPageProxy().getControl('SectionedTable');
+  const fcsection = sectionedTable.getSection('FormCellSection0');
+  const traceCategory = fcsection.getControl('TracingCategoriesListPicker');
+  const odataTrace = fcsection.getControl('odataTrace');
+  try {
+    if (traceCategory.getValue()) {
+      var values = traceCategory.getValue();
+      var categories = [];
+      if (values && values.length) {
+        categories = values.map(value => {
+          return 'mdk.trace.' + value.ReturnValue;
+        });
+      }
+      clientAPI.setDebugSettings(odataTrace.getValue(), true, categories);
+    }
+  } catch (exception) {
+    logger.log(String(exception), 'Error');
+    return undefined;
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Logging/SetUserLogLevel.js":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Logging/SetUserLogLevel.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SetUserLogLevel)
+/* harmony export */ });
+function SetUserLogLevel(clientAPI) {
+  try {
+    if (clientAPI.getValue() && clientAPI.getValue()[0]) {
+      var logger = clientAPI.getLogger();
+      var listPickerValue = clientAPI.getValue()[0].ReturnValue;
+      if (listPickerValue) {
+        switch (listPickerValue) {
+          case 'Debug':
+            logger.setLevel('Debug');
+            ShowTraceOptions(clientAPI, false);
+            break;
+          case 'Error':
+            logger.setLevel('Error');
+            ShowTraceOptions(clientAPI, false);
+            break;
+          case 'Warn':
+            logger.setLevel('Warn');
+            ShowTraceOptions(clientAPI, false);
+            break;
+          case 'Info':
+            logger.setLevel('Info');
+            ShowTraceOptions(clientAPI, false);
+            break;
+          case 'Trace':
+            logger.setLevel('Trace');
+            ShowTraceOptions(clientAPI, true);
+            break;
+          default:
+            // eslint-disable-next-line no-console
+            console.log(`unrecognized key ${listPickerValue}`);
+        }
+        return listPickerValue;
+      }
+    }
+  } catch (exception) {
+    logger.log(String(exception), 'Error');
+    return undefined;
+  }
+}
+function ShowTraceOptions(clientAPI, tracingEnabled) {
+  let categories = clientAPI.getPageProxy().getControl('SectionedTable').getControl('TracingCategoriesListPicker');
+  let odataTrace = clientAPI.getPageProxy().getControl('SectionedTable').getControl('odataTrace');
+  categories.setVisible(tracingEnabled);
+  odataTrace.setVisible(tracingEnabled);
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Logging/ToggleLogging.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Logging/ToggleLogging.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ToggleLogging)
+/* harmony export */ });
+function ToggleLogging(clientAPI) {
+  try {
+    var logger = clientAPI.getLogger();
+    const sectionedTable = clientAPI.getPageProxy().getControl('SectionedTable');
+    const fcsection = sectionedTable.getSection('FormCellSection0');
+    const enableLogSwitch = fcsection.getControl('EnableLogSwitch');
+    const logLevelListPicker = fcsection.getControl('LogLevelListPicker');
+    let switchValue = enableLogSwitch.getValue();
+    if (switchValue) {
+      logger.on();
+      logLevelListPicker.setVisible(true);
+      logLevelListPicker.setEditable(true);
+      logLevelListPicker.redraw();
+    } else {
+      logger.off();
+      logLevelListPicker.setEditable(false);
+      logLevelListPicker.setVisible(false);
+      logLevelListPicker.redraw();
+    }
+    return switchValue;
+  } catch (exception) {
+    logger.log(String(exception), 'Error');
+    return undefined;
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Logging/TraceCategories.js":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Logging/TraceCategories.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TraceCategories)
+/* harmony export */ });
+function TraceCategories(clientAPI) {
+  var categories = ['action', 'api', 'app', 'binding', 'branding', 'core', 'i18n', 'lcms', 'logging', 'odata', 'onboarding', 'profiling', 'push', 'restservice', 'settings', 'targetpath', 'ui'];
+  var values = [];
+  categories.forEach(category => {
+    values.push({
+      'DisplayValue': category,
+      'ReturnValue': category
+    });
+  });
+  return values;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Logging/UserLogSetting.js":
+/*!*********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Logging/UserLogSetting.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ UserLogSetting)
+/* harmony export */ });
+function UserLogSetting(clientAPI) {
+  try {
+    var logger = clientAPI.getLogger();
+    const sectionedTable = clientAPI.getControl('SectionedTable');
+    const fcsection = sectionedTable.getSection('FormCellSection0');
+    const enableLogSwitch = fcsection.getControl('EnableLogSwitch');
+    const logLevelListPicker = fcsection.getControl('LogLevelListPicker');
+    const traceCategory = fcsection.getControl('TracingCategoriesListPicker');
+    const odataTrace = fcsection.getControl('odataTrace');
+
+    //Persist the user logging preferences
+    if (logger) {
+      console.log("in logger state");
+      if (logger.isTurnedOn()) {
+        if (enableLogSwitch) {
+          enableLogSwitch.setValue(true);
+        }
+        if (logLevelListPicker) {
+          logLevelListPicker.setEditable(true);
+        }
+      } else {
+        if (enableLogSwitch) {
+          enableLogSwitch.setValue(false);
+        }
+        if (logLevelListPicker) {
+          logLevelListPicker.setEditable(false);
+        }
+      }
+      var logLevel = logger.getLevel();
+      if (logLevel) {
+        if (logLevelListPicker) {
+          logLevelListPicker.setValue([logLevel]);
+        }
+      }
+      if (logLevel === 'Trace') {
+        traceCategory.setVisible(true);
+        odataTrace.setVisible(true);
+      }
+
+      //Upon selecting a value in the List picker and clicking the back button 
+      //will enable the onload page rule. This will set the selected value
+      //in the control
+      if (logLevelListPicker.getValue()[0]) {
+        var returnValue = logLevelListPicker.getValue()[0].ReturnValue;
+        if (returnValue) {
+          logLevelListPicker.setValue([returnValue]);
+          logger.setLevel(returnValue);
+        }
+      }
+    }
+  } catch (exception) {
+    // eslint-disable-next-line no-console
+    console.log(String(exception), 'Error User Logger could not be set');
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Service/Initialize.js":
+/*!*****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Service/Initialize.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Initialize)
+/* harmony export */ });
+function Initialize(context) {
+  // Perform pre data initialization task
+
+  // Initialize all your Data sources
+  let _action = context.executeAction('/driverapp/Actions/action/Service/InitializeOffline.action');
+  let _main = context.executeAction('/driverapp/Actions/main/Service/InitializeOffline.action');
+
+  //You can add more service initialize actions here
+
+  return Promise.all([_action, _main]).then(() => {
+    // After Initializing the DB connections
+
+    // Display successful initialization  message to the user
+    return context.executeAction({
+      "Name": "/driverapp/Actions/GenericToastMessage.action",
+      "Properties": {
+        "Message": "Application Services Initialized",
+        "Animated": true,
+        "Duration": 1,
+        "IsIconHidden": true,
+        "NumberOfLines": 1
+      }
+    });
+  }).catch(() => {
+    return false;
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js":
+/*!************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CheckForSyncError)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} context
+ */
+function CheckForSyncError(context) {
+  context.count('/driverapp/Services/action.service', 'ErrorArchive', '').then(errorCount => {
+    if (errorCount > 0) {
+      return context.getPageProxy().executeAction('/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action').then(function () {
+        return Promise.reject(false);
+      });
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js":
+/*!**********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CheckForSyncError)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} context
+ */
+function CheckForSyncError(context) {
+  context.count('/driverapp/Services/main.service', 'ErrorArchive', '').then(errorCount => {
+    if (errorCount > 0) {
+      return context.getPageProxy().executeAction('/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action').then(function () {
+        return Promise.reject(false);
+      });
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Styles/Styles.css":
+/*!*******************************************************!*\
+  !*** ./build.definitions/driverapp/Styles/Styles.css ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_SOURCEMAP_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/sourceMaps.js */ "../../../../css-loader/dist/runtime/sourceMaps.js");
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/api.js */ "../../../../css-loader/dist/runtime/api.js");
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.
+
+Examples:
+
+@mdkYellow1: #ffbb33;
+@mdkRed1: #ff0000;
+
+//// By-Type style: All Pages in the application will now have a yellow background
+Page
+
+{ background-color: @mdkYellow1; }
+//// By-Name style: All Buttons with _Name == "BlueButton" will now have this style
+#BlueButton
+
+{ color: @mdkYellow1; background-color: #0000FF; }
+//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function
+
+.MyButton
+
+{ color: @mdkYellow1; background-color: @mdkRed1; }
+*/
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n"],"sourceRoot":""}]);
+// Exports
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Styles/Styles.less":
+/*!********************************************************!*\
+  !*** ./build.definitions/driverapp/Styles/Styles.less ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_SOURCEMAP_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/sourceMaps.js */ "../../../../css-loader/dist/runtime/sourceMaps.js");
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/api.js */ "../../../../css-loader/dist/runtime/api.js");
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.
+
+Examples:
+
+@mdkYellow1: #ffbb33;
+@mdkRed1: #ff0000;
+
+//// By-Type style: All Pages in the application will now have a yellow background
+Page
+
+{ background-color: @mdkYellow1; }
+//// By-Name style: All Buttons with _Name == "BlueButton" will now have this style
+#BlueButton
+
+{ color: @mdkYellow1; background-color: #0000FF; }
+//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function
+
+.MyButton
+
+{ color: @mdkYellow1; background-color: @mdkRed1; }
+*/`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/"],"sourceRoot":""}]);
+// Exports
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Styles/Styles.light.css":
+/*!*************************************************************!*\
+  !*** ./build.definitions/driverapp/Styles/Styles.light.css ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_SOURCEMAP_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/sourceMaps.js */ "../../../../css-loader/dist/runtime/sourceMaps.js");
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/api.js */ "../../../../css-loader/dist/runtime/api.js");
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Styles/Styles.light.nss":
+/*!*************************************************************!*\
+  !*** ./build.definitions/driverapp/Styles/Styles.light.nss ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_SOURCEMAP_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/sourceMaps.js */ "../../../../css-loader/dist/runtime/sourceMaps.js");
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../css-loader/dist/runtime/api.js */ "../../../../css-loader/dist/runtime/api.js");
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(___CSS_LOADER_API_SOURCEMAP_IMPORT___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ "../../../../css-loader/dist/runtime/api.js":
+/*!**************************************************!*\
+  !*** ../../../../css-loader/dist/runtime/api.js ***!
+  \**************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+module.exports = function (cssWithMappingToString) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = "";
+      var needLayer = typeof item[5] !== "undefined";
+      if (item[4]) {
+        content += "@supports (".concat(item[4], ") {");
+      }
+      if (item[2]) {
+        content += "@media ".concat(item[2], " {");
+      }
+      if (needLayer) {
+        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
+      }
+      content += cssWithMappingToString(item);
+      if (needLayer) {
+        content += "}";
+      }
+      if (item[2]) {
+        content += "}";
+      }
+      if (item[4]) {
+        content += "}";
+      }
+      return content;
+    }).join("");
+  };
+
+  // import a list of modules into the list
+  list.i = function i(modules, media, dedupe, supports, layer) {
+    if (typeof modules === "string") {
+      modules = [[null, modules, undefined]];
+    }
+    var alreadyImportedModules = {};
+    if (dedupe) {
+      for (var k = 0; k < this.length; k++) {
+        var id = this[k][0];
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+    for (var _k = 0; _k < modules.length; _k++) {
+      var item = [].concat(modules[_k]);
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        continue;
+      }
+      if (typeof layer !== "undefined") {
+        if (typeof item[5] === "undefined") {
+          item[5] = layer;
+        } else {
+          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
+          item[5] = layer;
+        }
+      }
+      if (media) {
+        if (!item[2]) {
+          item[2] = media;
+        } else {
+          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
+          item[2] = media;
+        }
+      }
+      if (supports) {
+        if (!item[4]) {
+          item[4] = "".concat(supports);
+        } else {
+          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
+          item[4] = supports;
+        }
+      }
+      list.push(item);
+    }
+  };
+  return list;
+};
+
+/***/ }),
+
+/***/ "../../../../css-loader/dist/runtime/sourceMaps.js":
+/*!*********************************************************!*\
+  !*** ../../../../css-loader/dist/runtime/sourceMaps.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = function (item) {
+  var content = item[1];
+  var cssMapping = item[3];
+  if (!cssMapping) {
+    return content;
+  }
+  if (typeof btoa === "function") {
+    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
+    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+    var sourceMapping = "/*# ".concat(data, " */");
+    return [content].concat([sourceMapping]).join("\n");
+  }
+  return [content].join("\n");
+};
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/Application/About.page":
+/*!******************************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Application/About.page ***!
+  \******************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"KeyAndValues":[{"_Name":"KeyValue0","KeyName":"User ID","Value":"#Application/#AppData/UserId","Visible":true,"_Type":"KeyValue.Type.Item"},{"Value":"#Application/#AppData/DeviceId","_Name":"KeyValue1","KeyName":"Device ID","Visible":true,"_Type":"KeyValue.Type.Item"},{"Value":"/driverapp/Globals/Application/ApplicationName.global","_Name":"KeyValue2","KeyName":"Application","Visible":true,"_Type":"KeyValue.Type.Item"},{"Value":"/driverapp/Globals/Application/AppDefinition_Version.global","_Name":"KeyValue3","KeyName":"Application Metadata Version","Visible":true,"_Type":"KeyValue.Type.Item"}],"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":1}},{"KeyAndValues":[{"Value":"/driverapp/Rules/Application/GetClientVersion.js","_Name":"KeyValue4","KeyName":"Client Version","Visible":"$(PLT,true,true,false)","_Type":"KeyValue.Type.Item"},{"Value":"/driverapp/Rules/Application/GetClientSupportVersions.js","_Name":"KeyValue5","KeyName":"Client Support Versions","Visible":true,"_Type":"KeyValue.Type.Item"}],"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue1","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":1}}]}],"_Type":"Page","_Name":"About","ActionBar":{"Items":[{"_Name":"ActionBarItem0","Caption":"Done","SystemItem":"Done","Position":"Right","IsIconCircular":false,"Visible":true,"OnPress":"/driverapp/Actions/CloseModalPage_Complete.action","_Type":"Control.Type.ActionBarItem"}],"_Name":"ActionBar1","Caption":"About","PrefersLargeCaption":true,"_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/Application/Support.page":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Application/Support.page ***!
+  \********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":true,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"_Type":"Section.Type.ContactCell","_Name":"SectionContactCellTable1","EmptySection":{"FooterVisible":false},"ContactCells":[{"ContactCell":{"_Name":"ContactCellItem0","Headline":"Contact Support","ActivityItems":[{"ActivityType":"Phone","ActivityValue":"/driverapp/Globals/Application/SupportPhone.global"},{"ActivityType":"Email","ActivityValue":"/driverapp/Globals/Application/SupportEmail.global"},{"ActivityType":"Message","ActivityValue":"/driverapp/Globals/Application/SupportPhone.global"}]}}]},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":false,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.SimplePropertyCollection","_Name":"SectionSimplePropertyCollection0","Visible":"$(PLT,true,true,false)","EmptySection":{"FooterVisible":false},"SimplePropertyCells":[{"SimplePropertyCell":{"_Name":"SectionSimplePropertyCell0","KeyName":"Activity Log","AccessoryType":"DisclosureIndicator","Visible":"$(PLT,true,true,false)","OnPress":"/driverapp/Actions/Application/NavToActivityLog.action","_Type":"SimplePropertyCollection.Type.Cell"}}],"Layout":{"NumberOfColumns":1,"MinimumInteritemSpacing":66}}]}],"_Type":"Page","_Name":"Settings","ActionBar":{"Items":[{"_Name":"ActionBarItem0","Caption":"Done","SystemItem":"Done","Position":"Right","IsIconCircular":false,"Visible":true,"OnPress":"/driverapp/Actions/CloseModalPage_Complete.action","_Type":"Control.Type.ActionBarItem"}],"_Name":"ActionBar1","Caption":"Settings","PrefersLargeCaption":false,"_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/Application/UserActivityLog.page":
+/*!****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Application/UserActivityLog.page ***!
+  \****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":true,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable","Sections":[{"Controls":[{"Value":false,"_Type":"Control.Type.FormCell.Switch","_Name":"EnableLogSwitch","IsVisible":true,"Separator":true,"Caption":"Enable Logging","OnValueChange":"/driverapp/Rules/Logging/ToggleLogging.js","IsEditable":true},{"IsSearchEnabled":false,"_Type":"Control.Type.FormCell.ListPicker","_Name":"LogLevelListPicker","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Log Level","OnValueChange":"/driverapp/Rules/Logging/SetUserLogLevel.js","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":false,"PickerItems":"/driverapp/Rules/Logging/LogLevels.js"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"TracingCategoriesListPicker","IsVisible":false,"Separator":true,"AllowMultipleSelection":true,"AllowEmptySelection":true,"Caption":"Tracing Categories","PickerPrompt":"Select Categories for Tracing","OnValueChange":"/driverapp/Rules/Logging/SetTraceCategories.js","IsSelectedSectionEnabled":true,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":"/driverapp/Rules/Logging/TraceCategories.js"},{"Value":false,"_Type":"Control.Type.FormCell.Switch","_Name":"odataTrace","IsVisible":false,"Separator":true,"Caption":"OData Tracing","OnValueChange":"/driverapp/Rules/Logging/SetTraceCategories.js","IsEditable":true}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"FormCellSection0"},{"Controls":[{"_Type":"Control.Type.FormCell.Button","_Name":"Send","IsVisible":true,"Separator":true,"Title":"Send Activity Log","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Logging/UploadLogProgress.action"}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"FormCellSection1"}]}],"_Type":"Page","_Name":"UserActivityLog","ActionBar":{"Caption":"Activity Log","PrefersLargeCaption":false,"_Type":"Control.Type.ActionBar"},"OnLoaded":"/driverapp/Rules/Logging/UserLogSetting.js"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page":
+/*!*********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page ***!
+  \*********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable","Sections":[{"KeyAndValues":[{"Value":"{Message}","_Name":"KeyValue0","KeyName":"Error","Visible":true,"_Type":"KeyValue.Type.Item"},{"Value":"{RequestBody}","_Name":"KeyValue1","KeyName":"Request Body","Visible":true,"_Type":"KeyValue.Type.Item"},{"Value":"{RequestURL}","_Name":"KeyValue2","KeyName":"Request URL","Visible":true,"_Type":"KeyValue.Type.Item"},{"Value":"{HTTPStatusCode}","_Name":"KeyValue3","KeyName":"HTTP Status Code","Visible":true,"_Type":"KeyValue.Type.Item"},{"Value":"{RequestMethod}","_Name":"KeyValue4","KeyName":"Request Method","Visible":true,"_Type":"KeyValue.Type.Item"}],"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":1}}]}],"_Type":"Page","_Name":"ErrorArchive_Detail","ActionBar":{"Caption":"Details","PrefersLargeCaption":true,"_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_List.page":
+/*!*******************************************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_List.page ***!
+  \*******************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"_Type":"Section.Type.ObjectTable","Header":{"_Name":"SectionHeader_action","AccessoryType":"None","UseTopPadding":true,"Caption":"action","_Type":"SectionCommon.Type.Header"},"Target":{"Service":"/driverapp/Services/action.service","EntitySet":"ErrorArchive"},"_Name":"SectionObjectTable_action","Visible":true,"EmptySection":{"FooterVisible":false,"Caption":"No record found!"},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{HTTPStatusCode}","Subhead":"{RequestURL}","Footnote":"{Message}","StatusText":"{RequestMethod}","AvatarStack":{"ImageIsCircular":false},"PreserveIconStackSpacing":false,"AccessoryType":"None","OnPress":"/driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action","Selected":false,"_Type":"ObjectTable.Type.ObjectCell"},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}},{"_Type":"Section.Type.ObjectTable","Header":{"_Name":"SectionHeader_main","AccessoryType":"None","UseTopPadding":true,"Caption":"main","_Type":"SectionCommon.Type.Header"},"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ErrorArchive"},"_Name":"SectionObjectTable_main","Visible":true,"EmptySection":{"FooterVisible":false,"Caption":"No record found!"},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{HTTPStatusCode}","Subhead":"{RequestURL}","Footnote":"{Message}","StatusText":"{RequestMethod}","AvatarStack":{"ImageIsCircular":false},"PreserveIconStackSpacing":false,"AccessoryType":"None","OnPress":"/driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action","Selected":false,"_Type":"ObjectTable.Type.ObjectCell"},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"ErrorArchive_List","ActionBar":{"Caption":"Error List","PrefersLargeCaption":true,"_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/Main.page":
+/*!*****************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Main.page ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/Pickup.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"Status","SubstatusText":"Substatus","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"_Type":"ObjectTable.Type.ObjectCell","Selected":false,"Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"}},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action","Position":"Right","Caption":"Sync"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+
+/***/ }),
+
+/***/ "./build.definitions/Application.app":
+/*!*******************************************!*\
+  !*** ./build.definitions/Application.app ***!
+  \*******************************************/
+/***/ ((module) => {
+
+module.exports = {"_Name":"driverapp","Version":"/driverapp/Globals/Application/AppDefinition_Version.global","MainPage":"/driverapp/Pages/Main.page","OnLaunch":"/driverapp/Rules/Service/Initialize.js","OnWillUpdate":"/driverapp/Rules/Application/OnWillUpdate.js","OnDidUpdate":"/driverapp/Rules/Service/Initialize.js","Styles":"/driverapp/Styles/Styles.css","Localization":"/driverapp/i18n/i18n.properties","_SchemaVersion":"25.6","StyleSheets":{"Styles":{"css":"/driverapp/Styles/Styles.light.css","ios":"/driverapp/Styles/Styles.light.nss","android":"/driverapp/Styles/Styles.light.json"}},"SDKStyles":{"ios":"/driverapp/Styles/Styles.light.nss","android":"/driverapp/Styles/Styles.light.json"}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/AppUpdate.action":
+/*!**************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/AppUpdate.action ***!
+  \**************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.ApplicationUpdate","ActionResult":{"_Name":"AppUpdate"},"OnFailure":"/driverapp/Rules/Application/AppUpdateFailure.js","OnSuccess":"/driverapp/Rules/Application/AppUpdateSuccess.js"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/AppUpdateFailureMessage.action":
+/*!****************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/AppUpdateFailureMessage.action ***!
+  \****************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Failed to update application - {#ActionResults:AppUpdate/error}","Duration":7,"Animated":true,"_Type":"Action.Type.BannerMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/AppUpdateProgressBanner.action":
+/*!****************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/AppUpdateProgressBanner.action ***!
+  \****************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Animated":true,"CompletionTimeout":3,"Message":"Checking for Updates...","OnSuccess":"/driverapp/Actions/Application/AppUpdate.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/AppUpdateSuccessMessage.action":
+/*!****************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/AppUpdateSuccessMessage.action ***!
+  \****************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Animated":true,"Duration":2,"Message":"Update application complete","_Type":"Action.Type.ToastMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/Logout.action":
+/*!***********************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/Logout.action ***!
+  \***********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Logout","SkipReset":true}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/NavToAbout.action":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/NavToAbout.action ***!
+  \***************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"ModalPage":true,"PageToOpen":"/driverapp/Pages/Application/About.page","_Type":"Action.Type.Navigation"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/NavToActivityLog.action":
+/*!*********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/NavToActivityLog.action ***!
+  \*********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"ModalPage":true,"PageToOpen":"/driverapp/Pages/Application/UserActivityLog.page","_Type":"Action.Type.Navigation"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/NavToSupport.action":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/NavToSupport.action ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"ModalPage":true,"NavigationType":"Cross","PageToOpen":"/driverapp/Pages/Application/Support.page","_Type":"Action.Type.Navigation"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/OnWillUpdate.action":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/OnWillUpdate.action ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Message","Message":"A new version of the application is now ready to apply. Do you want to update to this version?","Title":"New Version Available!","OKCaption":"Now","CancelCaption":"Later","ActionResult":{"_Name":"OnWillUpdate"}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/Reset.action":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/Reset.action ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Logout","SkipReset":false}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/ResetMessage.action":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/ResetMessage.action ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Message","Message":"This action will remove all data and return to the Welcome screen. Any local data will be lost. Are you sure you want to continue?","Title":"Reset","OKCaption":"Yes","OnOK":"/driverapp/Rules/Application/ResetAppSettingsAndLogout.js","CancelCaption":"No"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Application/UserMenuPopover.action":
+/*!********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Application/UserMenuPopover.action ***!
+  \********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"PopoverItems":[{"Enabled":true,"Icon":"sap-icon://synchronize","OnPress":"/driverapp/Actions/main/Service/SyncStartedMessage.action","Title":"Sync Changes","Visible":"$(PLT,true,true,false)"},{"Enabled":true,"Icon":"sap-icon://headset","OnPress":"/driverapp/Actions/Application/NavToSupport.action","Title":"Support","Visible":true},{"Enabled":true,"Icon":"sap-icon://refresh","OnPress":"/driverapp/Actions/Application/AppUpdateProgressBanner.action","Title":"Check for Updates","Visible":"$(PLT,true,true,false)"},{"Enabled":true,"Icon":"sap-icon://hint","OnPress":"/driverapp/Actions/Application/NavToAbout.action","Title":"About","Visible":true},{"Enabled":true,"Icon":"sap-icon://reset","OnPress":"/driverapp/Actions/Application/ResetMessage.action","Title":"Reset","Visible":true},{"Enabled":true,"Icon":"sap-icon://log","OnPress":"/driverapp/Actions/Application/Logout.action","Title":"Logout","Visible":"/driverapp/Rules/Application/ClientIsMultiUserMode.js"}],"_Type":"Action.Type.PopoverMenu"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/CloseModalPage_Cancel.action":
+/*!**************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/CloseModalPage_Cancel.action ***!
+  \**************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"DismissModal":"Action.Type.ClosePage.Canceled","CancelPendingActions":true,"_Type":"Action.Type.ClosePage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/CloseModalPage_Complete.action":
+/*!****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/CloseModalPage_Complete.action ***!
+  \****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"DismissModal":"Action.Type.ClosePage.Completed","CancelPendingActions":false,"_Type":"Action.Type.ClosePage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/ClosePage.action":
+/*!**************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/ClosePage.action ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.ClosePage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action":
+/*!******************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action ***!
+  \******************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.BannerMessage","Message":"Upload failed!","Duration":0,"Animated":false,"OnActionLabelPress":"/driverapp/Actions/ErrorArchive/NavToErrorArchive_List.action","ActionLabel":"View Errors"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action":
+/*!******************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action ***!
+  \******************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","PageToOpen":"/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page","NavigationType":"Inner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_List.action":
+/*!****************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_List.action ***!
+  \****************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","PageToOpen":"/driverapp/Pages/ErrorArchive/ErrorArchive_List.page","NavigationType":"Inner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/GenericBannerMessage.action":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/GenericBannerMessage.action ***!
+  \*************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.BannerMessage","ActionResult":{"_Name":"GenericBannerMessage"},"Message":"Message"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/GenericMessageBox.action":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/GenericMessageBox.action ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Message","ActionResult":{"_Name":"GenericMessageBox"},"Message":"Message","OKCaption":"OK"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/GenericNavigation.action":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/GenericNavigation.action ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"GenericNavigation"},"PageToOpen":"/driverapp/Pages/Main.page"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/GenericToastMessage.action":
+/*!************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/GenericToastMessage.action ***!
+  \************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.ToastMessage","ActionResult":{"_Name":"GenericToastMessage"},"Message":"Message"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Logging/LogUploadFailure.action":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Logging/LogUploadFailure.action ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Uploading log file failed with error: {#ActionResults:UploadLog/error}","OKCaption":"OK","Title":"Log Upload Failed","_Type":"Action.Type.Message"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Logging/LogUploadSuccessful.action":
+/*!********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Logging/LogUploadSuccessful.action ***!
+  \********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Animated":true,"Duration":3,"IsIconHidden":false,"MaxNumberOfLines":1,"Message":"Log File Uploaded","_Type":"Action.Type.ToastMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Logging/UploadLog.action":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Logging/UploadLog.action ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"ActionResult":{"_Name":"UploadLog"},"ActivityIndicatorText":"Uploading...","OnFailure":"/driverapp/Actions/Logging/LogUploadFailure.action","OnSuccess":"/driverapp/Actions/Logging/LogUploadSuccessful.action","ShowActivityIndicator":false,"_Type":"Action.Type.Logger.Upload"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Logging/UploadLogProgress.action":
+/*!******************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Logging/UploadLogProgress.action ***!
+  \******************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Animated":true,"CompletionMessage":"Logs Uploaded","CompletionTimeout":2,"Message":"Uploading Log Files...","OnSuccess":"/driverapp/Actions/Logging/UploadLog.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/CloseOffline.action":
+/*!********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/CloseOffline.action ***!
+  \********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.OfflineOData.Close","Service":"/driverapp/Services/action.service","Force":true,"ActionResult":{"_Name":"close"},"OnSuccess":"/driverapp/Actions/action/Service/CloseOfflineSuccessMessage.action","OnFailure":"/driverapp/Actions/action/Service/CloseOfflineFailureMessage.action"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/CloseOfflineFailureMessage.action":
+/*!**********************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/CloseOfflineFailureMessage.action ***!
+  \**********************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Failure closing data service - {#ActionResults:close/error}","NumberOfLines":1,"Duration":3,"Animated":true,"IsIconHidden":true,"_Type":"Action.Type.ToastMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/CloseOfflineSuccessMessage.action":
+/*!**********************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/CloseOfflineSuccessMessage.action ***!
+  \**********************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Data service closed successfully","NumberOfLines":1,"Duration":3,"Animated":true,"IsIconHidden":true,"_Type":"Action.Type.ToastMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/DownloadOffline.action":
+/*!***********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/DownloadOffline.action ***!
+  \***********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Service":"/driverapp/Services/action.service","DefiningRequests":[{"Name":"AttachmentSet","Query":"AttachmentSet"},{"Name":"EventSet","Query":"EventSet"}],"_Type":"Action.Type.OfflineOData.Download","ActionResult":{"_Name":"sync"},"OnFailure":"/driverapp/Actions/action/Service/SyncFailureMessage.action","OnSuccess":"/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/DownloadStartedMessage.action":
+/*!******************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/DownloadStartedMessage.action ***!
+  \******************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Download in progress...","CompletionMessage":"Download Successful","CompletionTimeout":7,"OnSuccess":"/driverapp/Actions/action/Service/DownloadOffline.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/InitializeOffline.action":
+/*!*************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/InitializeOffline.action ***!
+  \*************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Service":"/driverapp/Services/action.service","DefiningRequests":[{"Name":"AttachmentSet","Query":"AttachmentSet"},{"Name":"EventSet","Query":"EventSet"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action":
+/*!***************************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action ***!
+  \***************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Failed to initialize application data service - {#ActionResults:init/error}","Duration":7,"Animated":true,"_Type":"Action.Type.BannerMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/SyncFailureMessage.action":
+/*!**************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/SyncFailureMessage.action ***!
+  \**************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Sync offline data service failure - {#ActionResults:sync/error}","Duration":7,"Animated":true,"_Type":"Action.Type.BannerMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/SyncStartedMessage.action":
+/*!**************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/SyncStartedMessage.action ***!
+  \**************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Upload in progress...","CompletionMessage":"Sync completed","CompletionTimeout":7,"OnSuccess":"/driverapp/Actions/action/Service/UploadOffline.action","OnFailure":"/driverapp/Actions/action/Service/SyncFailureMessage.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/UploadOffline.action":
+/*!*********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/UploadOffline.action ***!
+  \*********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Service":"/driverapp/Services/action.service","_Type":"Action.Type.OfflineOData.Upload","ActionResult":{"_Name":"sync"},"OnSuccess":"/driverapp/Actions/action/Service/DownloadStartedMessage.action","OnFailure":"/driverapp/Actions/action/Service/SyncFailureMessage.action"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/CloseOffline.action":
+/*!******************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/CloseOffline.action ***!
+  \******************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.OfflineOData.Close","Service":"/driverapp/Services/main.service","Force":true,"ActionResult":{"_Name":"close"},"OnSuccess":"/driverapp/Actions/main/Service/CloseOfflineSuccessMessage.action","OnFailure":"/driverapp/Actions/main/Service/CloseOfflineFailureMessage.action"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/CloseOfflineFailureMessage.action":
+/*!********************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/CloseOfflineFailureMessage.action ***!
+  \********************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Failure closing data service - {#ActionResults:close/error}","NumberOfLines":1,"Duration":3,"Animated":true,"IsIconHidden":true,"_Type":"Action.Type.ToastMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/CloseOfflineSuccessMessage.action":
+/*!********************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/CloseOfflineSuccessMessage.action ***!
+  \********************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Data service closed successfully","NumberOfLines":1,"Duration":3,"Animated":true,"IsIconHidden":true,"_Type":"Action.Type.ToastMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/DownloadOffline.action":
+/*!*********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/DownloadOffline.action ***!
+  \*********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Service":"/driverapp/Services/main.service","DefiningRequests":[{"Name":"ZTM_C_DDL_DA_ROOT","Query":"ZTM_C_DDL_DA_ROOT"},{"Name":"ZTM_I_DDL_DA_ATTC","Query":"ZTM_I_DDL_DA_ATTC"},{"Name":"ZTM_I_DDL_DA_EVTL","Query":"ZTM_I_DDL_DA_EVTL"},{"Name":"ZTM_I_DDL_DA_STIT","Query":"ZTM_I_DDL_DA_STIT"},{"Name":"ZTM_I_DDL_DA_STOP","Query":"ZTM_I_DDL_DA_STOP"}],"_Type":"Action.Type.OfflineOData.Download","ActionResult":{"_Name":"sync"},"OnFailure":"/driverapp/Actions/main/Service/SyncFailureMessage.action","OnSuccess":"/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/DownloadStartedMessage.action":
+/*!****************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/DownloadStartedMessage.action ***!
+  \****************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Download in progress...","CompletionMessage":"Download Successful","CompletionTimeout":7,"OnSuccess":"/driverapp/Actions/main/Service/DownloadOffline.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/InitializeOffline.action":
+/*!***********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/InitializeOffline.action ***!
+  \***********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Service":"/driverapp/Services/main.service","DefiningRequests":[{"Name":"ZTM_C_DDL_DA_ROOT","Query":"ZTM_C_DDL_DA_ROOT"},{"Name":"ZTM_I_DDL_DA_ATTC","Query":"ZTM_I_DDL_DA_ATTC"},{"Name":"ZTM_I_DDL_DA_EVTL","Query":"ZTM_I_DDL_DA_EVTL"},{"Name":"ZTM_I_DDL_DA_STIT","Query":"ZTM_I_DDL_DA_STIT"},{"Name":"ZTM_I_DDL_DA_STOP","Query":"ZTM_I_DDL_DA_STOP"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action":
+/*!*************************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action ***!
+  \*************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Failed to initialize application data service - {#ActionResults:init/error}","Duration":7,"Animated":true,"_Type":"Action.Type.BannerMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/SyncFailureMessage.action":
+/*!************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/SyncFailureMessage.action ***!
+  \************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Sync offline data service failure - {#ActionResults:sync/error}","Duration":7,"Animated":true,"_Type":"Action.Type.BannerMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/SyncStartedMessage.action":
+/*!************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/SyncStartedMessage.action ***!
+  \************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"Upload in progress...","CompletionMessage":"Sync completed","CompletionTimeout":7,"OnSuccess":"/driverapp/Actions/main/Service/UploadOffline.action","OnFailure":"/driverapp/Actions/main/Service/SyncFailureMessage.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/main/Service/UploadOffline.action":
+/*!*******************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/main/Service/UploadOffline.action ***!
+  \*******************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Service":"/driverapp/Services/main.service","_Type":"Action.Type.OfflineOData.Upload","ActionResult":{"_Name":"sync"},"OnSuccess":"/driverapp/Actions/main/Service/DownloadStartedMessage.action","OnFailure":"/driverapp/Actions/main/Service/SyncFailureMessage.action"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Globals/Application/AppDefinition_Version.global":
+/*!**************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Globals/Application/AppDefinition_Version.global ***!
+  \**************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Value":"1.0.0","_Type":"String"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Globals/Application/ApplicationName.global":
+/*!********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Globals/Application/ApplicationName.global ***!
+  \********************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Value":"MDK App","_Type":"String"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Globals/Application/SupportEmail.global":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Globals/Application/SupportEmail.global ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Value":"support@mycompany.com","_Type":"String"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Globals/Application/SupportPhone.global":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Globals/Application/SupportPhone.global ***!
+  \*****************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Value":"1-800-677-7271","_Type":"String"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Services/action.service":
+/*!*************************************************************!*\
+  !*** ./build.definitions/driverapp/Services/action.service ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = {"DestinationName":"action","OfflineEnabled":true,"LanguageURLParam":"","OnlineOptions":{},"OfflineOptions":{"StoreParameters":{}},"PathSuffix":"","SourceType":"Mobile","ServiceUrl":""}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Services/main.service":
+/*!***********************************************************!*\
+  !*** ./build.definitions/driverapp/Services/main.service ***!
+  \***********************************************************/
+/***/ ((module) => {
+
+module.exports = {"DestinationName":"main","OfflineEnabled":true,"LanguageURLParam":"","OnlineOptions":{},"OfflineOptions":{"StoreParameters":{}},"PathSuffix":"","SourceType":"Mobile","ServiceUrl":""}
+
+/***/ }),
+
+/***/ "./build.definitions/version.mdkbundlerversion":
+/*!*****************************************************!*\
+  !*** ./build.definitions/version.mdkbundlerversion ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "1.1\n";
+
+/***/ }),
+
+/***/ "webpack/container/entry/bundle.js":
+/*!***********************!*\
+  !*** container entry ***!
+  \***********************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+var moduleMap = {
+	".": () => {
+		return Promise.resolve().then(() => (() => ((__webpack_require__(/*! ./build.definitions/application-index.js */ "./build.definitions/application-index.js")))));
+	}
+};
+var get = (module, getScope) => {
+	__webpack_require__.R = getScope;
+	getScope = (
+		__webpack_require__.o(moduleMap, module)
+			? moduleMap[module]()
+			: Promise.resolve().then(() => {
+				throw new Error('Module "' + module + '" does not exist in container.');
+			})
+	);
+	__webpack_require__.R = undefined;
+	return getScope;
+};
+var init = (shareScope, initScope) => {
+	if (!__webpack_require__.S) return;
+	var name = "default"
+	var oldScope = __webpack_require__.S[name];
+	if(oldScope && oldScope !== shareScope) throw new Error("Container initialization failed as it has already been initialized with a different share scope");
+	__webpack_require__.S[name] = shareScope;
+	return __webpack_require__.I(name, initScope);
+};
+
+// This exports getters to disallow modifications
+__webpack_require__.d(exports, {
+	get: () => (get),
+	init: () => (init)
+});
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Styles/Styles.light.json":
+/*!**************************************************************!*\
+  !*** ./build.definitions/driverapp/Styles/Styles.light.json ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = {};
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/jsconfig.json":
+/*!***************************************************!*\
+  !*** ./build.definitions/driverapp/jsconfig.json ***!
+  \***************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"include":["Rules/**/*",".typings/**/*"]}');
+
+/***/ }),
+
+/***/ "./build.definitions/tsconfig.json":
+/*!*****************************************!*\
+  !*** ./build.definitions/tsconfig.json ***!
+  \*****************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"compilerOptions":{"module":"esnext","target":"es2019","moduleResolution":"node","lib":["esnext","dom"],"experimentalDecorators":true,"emitDecoratorMetadata":true,"removeComments":true,"inlineSourceMap":true,"noEmitOnError":false,"noEmitHelpers":true,"baseUrl":".","plugins":[{"transform":"@nativescript/webpack/dist/transformers/NativeClass","type":"raw"}]},"exclude":["node_modules"]}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = __webpack_module_cache__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/sharing */
+/******/ 	(() => {
+/******/ 		__webpack_require__.S = {};
+/******/ 		var initPromises = {};
+/******/ 		var initTokens = {};
+/******/ 		__webpack_require__.I = (name, initScope) => {
+/******/ 			if(!initScope) initScope = [];
+/******/ 			// handling circular init calls
+/******/ 			var initToken = initTokens[name];
+/******/ 			if(!initToken) initToken = initTokens[name] = {};
+/******/ 			if(initScope.indexOf(initToken) >= 0) return;
+/******/ 			initScope.push(initToken);
+/******/ 			// only runs once
+/******/ 			if(initPromises[name]) return initPromises[name];
+/******/ 			// creates a new share scope if needed
+/******/ 			if(!__webpack_require__.o(__webpack_require__.S, name)) __webpack_require__.S[name] = {};
+/******/ 			// runs all init snippets from all modules reachable
+/******/ 			var scope = __webpack_require__.S[name];
+/******/ 			var warn = (msg) => {
+/******/ 				if (typeof console !== "undefined" && console.warn) console.warn(msg);
+/******/ 			};
+/******/ 			var uniqueName = undefined;
+/******/ 			var register = (name, version, factory, eager) => {
+/******/ 				var versions = scope[name] = scope[name] || {};
+/******/ 				var activeVersion = versions[version];
+/******/ 				if(!activeVersion || (!activeVersion.loaded && (!eager != !activeVersion.eager ? eager : uniqueName > activeVersion.from))) versions[version] = { get: factory, from: uniqueName, eager: !!eager };
+/******/ 			};
+/******/ 			var initExternal = (id) => {
+/******/ 				var handleError = (err) => (warn("Initialization of sharing external failed: " + err));
+/******/ 				try {
+/******/ 					var module = __webpack_require__(id);
+/******/ 					if(!module) return;
+/******/ 					var initFn = (module) => (module && module.init && module.init(__webpack_require__.S[name], initScope))
+/******/ 					if(module.then) return promises.push(module.then(initFn, handleError));
+/******/ 					var initResult = initFn(module);
+/******/ 					if(initResult && initResult.then) return promises.push(initResult['catch'](handleError));
+/******/ 				} catch(err) { handleError(err); }
+/******/ 			}
+/******/ 			var promises = [];
+/******/ 			switch(name) {
+/******/ 			}
+/******/ 			if(!promises.length) return initPromises[name] = 1;
+/******/ 			return initPromises[name] = Promise.all(promises).then(() => (initPromises[name] = 1));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// module cache are used so entry inlining is disabled
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	var __webpack_exports__ = __webpack_require__("webpack/container/entry/bundle.js");
+/******/ 	var __webpack_export_target__ = exports;
+/******/ 	for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_exports__[i];
+/******/ 	if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=bundle.js.map
