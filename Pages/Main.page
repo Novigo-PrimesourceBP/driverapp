@@ -43,20 +43,33 @@
 						},
 						"Title": "{tor_id}",
 						"Subhead": "To: {des_city}",
-						"Footnote": "/driverapp/Rules/Formatters/Pickup.js",
+						"Footnote": "/driverapp/Rules/Formatters/PickupDate.js",
 						"Description": "Util: {max_util}%",
 						"DisplayDescriptionInMobile": true,
-						"StatusText": "Status",
-						"SubstatusText": "Substatus",
+						"StatusText": "/driverapp/Rules/Formatters/ExecutionStatus.js",
+						"SubstatusText": "/driverapp/Rules/Formatters/PickupTime.js",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
+						"Icons": [
+							"sap-icon://shipping-status"
+						],
 						"Tags": [],
-						"_Type": "ObjectTable.Type.ObjectCell",
-						"Selected": false,
+						"AvatarStack": {
+							"ImageIsCircular": true,
+							"ImageHasBorder": false
+						},
+						"AvatarGrid": {
+							"ImageIsCircular": true
+						},
 						"Styles": {
 							"StatusText": "/driverapp/Rules/Formatters/ExecutionStyle.js",
 							"DetailImage": "Warning"
-						}
+						},
+						"_Type": "ObjectTable.Type.ObjectCell",
+						"Selected": false
+					},
+					"Search": {
+						"Enabled": true
 					},
 					"DataPaging": {
 						"ShowLoadingIndicator": false,
@@ -79,18 +92,19 @@
 			{
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Sync",
-				"OnPress": "/driverapp/Actions/action/Service/SyncStartedMessage.action",
+				"Caption": "Sync",
 				"Position": "Right",
-				"Caption": "Sync"
+				"IsIconCircular": false,
+				"OnPress": "/driverapp/Actions/action/Service/SyncStartedMessage.action"
 			},
 			{
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Logout",
-				"OnPress": "/driverapp/Actions/Application/Logout.action",
+				"Caption": "Logout",
 				"Position": "Right",
-				"Caption": "Logout"
+				"IsIconCircular": false,
+				"OnPress": "/driverapp/Actions/Application/Logout.action"
 			}
-
 		],
 		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar",
