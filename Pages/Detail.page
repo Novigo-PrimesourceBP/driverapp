@@ -10,7 +10,13 @@
 					"ObjectHeader": {
 						"DetailImage": "sap-icon://shipping-status",
 						"DetailImageIsCircular": false,
-						"HeadlineText": "{tor_id}"
+						"HeadlineText": "{tor_id}",
+						"Subhead": "/driverapp/Rules/Formatters/ExecutionStatus.js",
+						"Footnote": "/driverapp/Rules/Formatters/Return.js",
+						"BodyText": "/driverapp/Rules/Formatters/Pickup.js",
+						"Styles": {
+							"Subhead": "/driverapp/Rules/Formatters/ExecutionStyle.js"
+						}
 					},
 					"Visible": true
 				}

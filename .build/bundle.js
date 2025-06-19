@@ -64,6 +64,7 @@ let driverapp_actions_main_service_initializeofflinefailuremessage_action = __we
 let driverapp_actions_main_service_syncfailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncFailureMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncFailureMessage.action")
 let driverapp_actions_main_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncStartedMessage.action")
 let driverapp_actions_main_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/main/Service/UploadOffline.action")
+let driverapp_actions_navigation_to_detail_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Detail.action */ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action")
 let driverapp_globals_application_appdefinition_version_global = __webpack_require__(/*! ./driverapp/Globals/Application/AppDefinition_Version.global */ "./build.definitions/driverapp/Globals/Application/AppDefinition_Version.global")
 let driverapp_globals_application_applicationname_global = __webpack_require__(/*! ./driverapp/Globals/Application/ApplicationName.global */ "./build.definitions/driverapp/Globals/Application/ApplicationName.global")
 let driverapp_globals_application_supportemail_global = __webpack_require__(/*! ./driverapp/Globals/Application/SupportEmail.global */ "./build.definitions/driverapp/Globals/Application/SupportEmail.global")
@@ -155,6 +156,7 @@ module.exports = {
 	driverapp_actions_main_service_syncfailuremessage_action : driverapp_actions_main_service_syncfailuremessage_action,
 	driverapp_actions_main_service_syncstartedmessage_action : driverapp_actions_main_service_syncstartedmessage_action,
 	driverapp_actions_main_service_uploadoffline_action : driverapp_actions_main_service_uploadoffline_action,
+	driverapp_actions_navigation_to_detail_action : driverapp_actions_navigation_to_detail_action,
 	driverapp_globals_application_appdefinition_version_global : driverapp_globals_application_appdefinition_version_global,
 	driverapp_globals_application_applicationname_global : driverapp_globals_application_applicationname_global,
 	driverapp_globals_application_supportemail_global : driverapp_globals_application_supportemail_global,
@@ -1230,7 +1232,7 @@ module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"Se
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
 
 /***/ }),
 
@@ -1501,6 +1503,16 @@ module.exports = {"ActionResult":{"_Name":"UploadLog"},"ActivityIndicatorText":"
 /***/ ((module) => {
 
 module.exports = {"Animated":true,"CompletionMessage":"Logs Uploaded","CompletionTimeout":2,"Message":"Uploading Log Files...","OnSuccess":"/driverapp/Actions/Logging/UploadLog.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Navigation/To_Detail.action ***!
+  \*************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Detail"},"PageToOpen":"/driverapp/Pages/Detail.page"}
 
 /***/ }),
 
