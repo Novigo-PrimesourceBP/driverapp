@@ -46,20 +46,40 @@
 						"Footnote": "/driverapp/Rules/Formatters/Pickup.js",
 						"Description": "Util: {max_util}%",
 						"DisplayDescriptionInMobile": true,
-						"StatusText": "Status",
-						"SubstatusText": "Substatus",
+						"StatusText": "/driverapp/Rules/Formatters/ExecutionStatus.js",
+						"SubstatusText": "/driverapp/Rules/Formatters/Pickup.js",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
 						"Tags": [],
-						"_Type": "ObjectTable.Type.ObjectCell",
-						"Selected": false,
+						"AvatarStack": {
+							"ImageIsCircular": true,
+							"ImageHasBorder": false
+						},
+						"AvatarGrid": {
+							"ImageIsCircular": true
+						},
 						"Styles": {
-							"StatusText": "/driverapp/Rules/Formatters/ExecutionStyle.js",
+							"StatusText": "/driverapp/Rules/Formatters/ExecutionStatus.js",
+							"SubstatusText": "/driverapp/Rules/Formatters/Pickup.js",
 							"DetailImage": "Warning"
-						}
+						},
+						"_Type": "ObjectTable.Type.ObjectCell",
+						"Selected": false
+					},
+					"Search": {
+						"Options": {
+							"CaseSensitive": false,
+							"NumberSearch": {
+								"Enabled": false
+							},
+							"UseSearchOverFilter": {
+								"Enabled": true
+							}
+						},
+						"Enabled": true
 					},
 					"DataPaging": {
-						"ShowLoadingIndicator": false,
+						"ShowLoadingIndicator": true,
 						"PageSize": 50
 					},
 					"HighlightSelectedItem": false,
@@ -79,18 +99,21 @@
 			{
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Sync",
-				"OnPress": "/driverapp/Actions/action/Service/SyncStartedMessage.action",
-				"Position": "Right",
-				"Caption": "Sync"
+				"Caption": "Sync",
+				"Position": "Left",
+				"IsIconCircular": false,
+				"Visible": true,
+				"OnPress": "/driverapp/Actions/action/Service/SyncStartedMessage.action"
 			},
 			{
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Logout",
-				"OnPress": "/driverapp/Actions/Application/Logout.action",
+				"Caption": "Logout",
+				"Icon": "/driverapp/Images/logout.png",
 				"Position": "Right",
-				"Caption": "Logout"
+				"IsIconCircular": false,
+				"OnPress": "/driverapp/Actions/Application/Logout.action"
 			}
-
 		],
 		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar",
