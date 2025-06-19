@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"ActionResult": {
+		"_Name": "To_Detail"
+	},
+	"PageToOpen": "/driverapp/Pages/Detail.page"
+}

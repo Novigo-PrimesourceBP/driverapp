@@ -61,6 +61,7 @@
 						"AvatarGrid": {
 							"ImageIsCircular": true
 						},
+						"OnPress": "/driverapp/Actions/Navigation/To_Detail.action",
 						"Styles": {
 							"StatusText": "/driverapp/Rules/Formatters/ExecutionStyle.js",
 							"DetailImage": "Warning"
