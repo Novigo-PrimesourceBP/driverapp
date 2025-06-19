@@ -7,7 +7,7 @@
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = ""
+module.exports = "xtit_orderstatus_ready=Ready\nxtit_orderstatus_execution=In Execution\nxtit_orderstatus_completed=Completed\nxtit_orderstatus_notstarted=Not Started"
 
 /***/ }),
 
@@ -84,8 +84,10 @@ let driverapp_rules_application_getclientsupportversions_js = __webpack_require_
 let driverapp_rules_application_getclientversion_js = __webpack_require__(/*! ./driverapp/Rules/Application/GetClientVersion.js */ "./build.definitions/driverapp/Rules/Application/GetClientVersion.js")
 let driverapp_rules_application_onwillupdate_js = __webpack_require__(/*! ./driverapp/Rules/Application/OnWillUpdate.js */ "./build.definitions/driverapp/Rules/Application/OnWillUpdate.js")
 let driverapp_rules_application_resetappsettingsandlogout_js = __webpack_require__(/*! ./driverapp/Rules/Application/ResetAppSettingsAndLogout.js */ "./build.definitions/driverapp/Rules/Application/ResetAppSettingsAndLogout.js")
+let driverapp_rules_formatters_executionstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStatus.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js")
 let driverapp_rules_formatters_executionstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStyle.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js")
-let driverapp_rules_formatters_pickup_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Pickup.js */ "./build.definitions/driverapp/Rules/Formatters/Pickup.js")
+let driverapp_rules_formatters_pickupdate_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupDate.js */ "./build.definitions/driverapp/Rules/Formatters/PickupDate.js")
+let driverapp_rules_formatters_pickuptime_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupTime.js */ "./build.definitions/driverapp/Rules/Formatters/PickupTime.js")
 let driverapp_rules_logging_loglevels_js = __webpack_require__(/*! ./driverapp/Rules/Logging/LogLevels.js */ "./build.definitions/driverapp/Rules/Logging/LogLevels.js")
 let driverapp_rules_logging_settracecategories_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetTraceCategories.js */ "./build.definitions/driverapp/Rules/Logging/SetTraceCategories.js")
 let driverapp_rules_logging_setuserloglevel_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetUserLogLevel.js */ "./build.definitions/driverapp/Rules/Logging/SetUserLogLevel.js")
@@ -172,8 +174,10 @@ module.exports = {
 	driverapp_rules_application_getclientversion_js : driverapp_rules_application_getclientversion_js,
 	driverapp_rules_application_onwillupdate_js : driverapp_rules_application_onwillupdate_js,
 	driverapp_rules_application_resetappsettingsandlogout_js : driverapp_rules_application_resetappsettingsandlogout_js,
+	driverapp_rules_formatters_executionstatus_js : driverapp_rules_formatters_executionstatus_js,
 	driverapp_rules_formatters_executionstyle_js : driverapp_rules_formatters_executionstyle_js,
-	driverapp_rules_formatters_pickup_js : driverapp_rules_formatters_pickup_js,
+	driverapp_rules_formatters_pickupdate_js : driverapp_rules_formatters_pickupdate_js,
+	driverapp_rules_formatters_pickuptime_js : driverapp_rules_formatters_pickuptime_js,
 	driverapp_rules_logging_loglevels_js : driverapp_rules_logging_loglevels_js,
 	driverapp_rules_logging_settracecategories_js : driverapp_rules_logging_settracecategories_js,
 	driverapp_rules_logging_setuserloglevel_js : driverapp_rules_logging_setuserloglevel_js,
@@ -458,6 +462,35 @@ function ResetAppSettingsAndLogout(clientAPI) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatExecutionStatus)
+/* harmony export */ });
+function FormatExecutionStatus(context) {
+  let execution = context.getBindingObject().execution;
+  switch (execution) {
+    case '04':
+      return context.localizeText('xtit_orderstatus_completed');
+    case '03':
+      return context.localizeText('xtit_orderstatus_execution');
+    case '07':
+      return context.localizeText('xtit_orderstatus_ready');
+    case '02':
+      return context.localizeText('xtit_orderstatus_notstarted');
+    default:
+      return execution;
+  }
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js":
 /*!************************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js ***!
@@ -487,10 +520,10 @@ function FormatExecutionStyle(clientAPI) {
 
 /***/ }),
 
-/***/ "./build.definitions/driverapp/Rules/Formatters/Pickup.js":
-/*!****************************************************************!*\
-  !*** ./build.definitions/driverapp/Rules/Formatters/Pickup.js ***!
-  \****************************************************************/
+/***/ "./build.definitions/driverapp/Rules/Formatters/PickupDate.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/PickupDate.js ***!
+  \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -509,6 +542,27 @@ function FormatPickup(context) {
   let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
   let text = context.formatDate(time);
   return `On: ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/PickupTime.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/PickupTime.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatPickupTime)
+/* harmony export */ });
+function FormatPickupTime(context) {
+  let dt = context.getBindingObject().pln_dep_dt;
+  let ti = context.getBindingObject().pln_dep_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = context.formatTime(time);
+  return `At: ${text}`;
 }
 
 /***/ }),
@@ -1164,7 +1218,7 @@ module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"Se
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/Pickup.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"Status","SubstatusText":"Substatus","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"_Type":"ObjectTable.Type.ObjectCell","Selected":false,"Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"}},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action","Position":"Right","Caption":"Sync"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
 
 /***/ }),
 
