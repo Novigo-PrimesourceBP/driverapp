@@ -74,6 +74,7 @@
 						"SubstatusText": "{locid}",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "none",
+						"OnPress" : "/driverapp/Actions/Navigation/To_Stop.action",
 						"Styles": {
 							"StatusText": "/driverapp/Rules/Formatters/StopStatusStyle.js",
 							"DetailImage": "Default"

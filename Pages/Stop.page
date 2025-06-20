@@ -1,0 +1,83 @@
+{
+	"_Type": "Page",
+	"_Name": "Stop",
+	"Controls": [
+		{
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable",
+			"Sections" : [
+				{
+					"ObjectHeader": {
+						"Subhead": "{city}",
+						"Footnote": "/driverapp/Rules/Formatters/Departure.js",
+						"StatusText": "/driverapp/Rules/Formatters/StopStatus.js",
+						"DetailImageIsCircular": false,
+						"BodyText": "/driverapp/Rules/Formatters/Arrival.js",
+						"HeadlineText": "{name}",
+						"Description": "{region}-{country}"
+					},
+					"_Type": "Section.Type.ObjectHeader",
+					"_Name": "SectionObjectHeader0",
+					"Visible": true
+				},
+				{
+					"KeyAndValues": [
+						{
+							"Value": "/driverapp/Rules/Formatters/StopAddress.js",
+							"_Name": "KeyValueAddr",
+							"KeyName": "Address"
+						}
+					],
+					"MaxItemCount": 1,
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "SectionKeyValue0",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"Layout": {
+						"NumberOfColumns": 2
+					}
+				},
+				{
+					"_Type": "Section.Type.ObjectTable",
+					"Header": {
+						"_Name": "StopItems",
+						"Caption": "Items"
+					},
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "{@odata.readLink}/to_stit"
+					},
+					"_Name": "StopItemsSection",
+					"Visible": true,
+					"DataPaging": {
+						"PageSize": 50,
+						"ShowLoadingIndicator": false
+					},
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"HighlightSelectedItem": false,
+					"ObjectCell": {
+						"ContextMenu": {
+							"Items": [],
+							"PerformFirstActionWithFullSwipe": true
+						},
+						"Title": "{product_id}",
+						"Subhead": "{item_descr}",
+						"Footnote": "{gro_vol_val} {gro_vol_uni}",
+						"Description": "{gro_wei_val} {gro_wei_uni}",
+						"StatusText": "{qua_pcs_val} {qua_pcs_uni}",
+						"PreserveIconStackSpacing": false,
+						"AccessoryType": "none",
+						"Selected": false,
+						"Styles": {
+							"DetailImage": "Danger"
+						}
+					}
+				}
+			]
+		}
+	]
+}
