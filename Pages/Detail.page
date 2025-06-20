@@ -19,6 +19,66 @@
 						}
 					},
 					"Visible": true
+				},
+				{
+					"KeyAndValues" : [
+						{
+							"_Name": "SourceKeyValue",
+							"Value": "/driverapp/Rules/Formatters/SourceLocation.js",
+							"KeyName": "Source Location"
+						},
+						{
+							"_Name": "DestinationKeyValue",
+							"Value": "/driverapp/Rules/Formatters/DestinationLocation.js",
+							"KeyName": "Destination Location"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "LocationKeyValue",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"Layout": {
+						"NumberOfColumns": 2
+					}
+				},
+				{
+					"Header": {
+						"_Name": "StopsHeader",
+						"UseTopPadding": true,
+						"Caption": "Stops"
+					},
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "ZTM_I_DDL_DA_STOP",
+						"QueryOptions": "$filter=tor_id eq '{tor_id}'&$orderby=pln_arr_tstmp"
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"_Name": "StopsList",
+					"Visible": true,
+					"EmptySection": {
+						"Caption": "No data",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"ContextMenu": {
+							"Items": [],
+							"PerformFirstActionWithFullSwipe": true
+						},
+						"Title": "{name}",
+						"Subhead": "{city}",
+						"Footnote": "/driverapp/Rules/Formatters/Arrival.js",
+						"Description": "{region}-{country}",
+						"StatusText": "/driverapp/Rules/Formatters/StopStatus.js",
+						"SubstatusText": "{locid}",
+						"PreserveIconStackSpacing": false,
+						"AccessoryType": "none",
+						"Styles": {
+							"StatusText": "/driverapp/Rules/Formatters/StopStatusStyle.js",
+							"DetailImage": "Default"
+						}
+					}
 				}
 			],
 			"FilterFeedbackBar": {
