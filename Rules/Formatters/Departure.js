@@ -9,6 +9,6 @@ export default function Departure(clientAPI) {
         Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
     var text = clientAPI.formatDatetime(time);
     if(!dt || !ti)
-        return 'Departure : -'
+        return 'Departure : TBD'
     return `Departure : ${text}`;
 }

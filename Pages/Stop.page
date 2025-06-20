@@ -1,6 +1,10 @@
 {
 	"Controls": [
 		{
+			"FilterFeedbackBar": {
+				"ShowAllFilters": false,
+				"_Type": "Control.Type.FilterFeedbackBar"
+			},
 			"_Type": "Control.Type.SectionedTable",
 			"_Name": "SectionedTable0",
 			"Sections": [
@@ -32,8 +36,26 @@
 						}
 					],
 					"MaxItemCount": 1,
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
 					"_Type": "Section.Type.KeyValue",
 					"_Name": "SectionKeyValue0",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"Layout": {
+						"NumberOfColumns": 2
+					}
+				},
+				{
+					"_Type": "Section.Type.ButtonTable",
+					"_Name": "ActionButtons",
 					"Visible": true,
 					"EmptySection": {
 						"FooterVisible": false
@@ -45,8 +67,47 @@
 						"FooterSeparator": true,
 						"ControlSeparator": true
 					},
+					"Buttons": [
+						{
+							"_Type": "ButtonTable.Type.Button",
+							"_Name": "ArrivalBtn",
+							"Title": "Arrival",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"ImagePosition": "Leading",
+							"FullWidth": true,
+							"Visible": true,
+							"Enabled": true
+						},
+						{
+							"_Type": "ButtonTable.Type.Button",
+							"_Name": "DepartureBtn",
+							"Title": "Departure",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"ImagePosition": "Leading",
+							"FullWidth": true,
+							"Visible": true,
+							"Enabled": true
+						},
+						{
+							"_Type": "ButtonTable.Type.Button",
+							"_Name": "PODBtn",
+							"Title": "Proof of Delivery",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"ImagePosition": "Leading",
+							"FullWidth": true,
+							"Visible": true,
+							"Enabled": true
+						}
+					],
 					"Layout": {
-						"NumberOfColumns": 2
+						"LayoutType": "Vertical",
+						"HorizontalAlignment": "Leading"
 					}
 				},
 				{
@@ -57,6 +118,19 @@
 						"UseTopPadding": true,
 						"Caption": "Items"
 					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Grouping": {
+						"GroupingProperties": [],
+						"Header": {
+							"Items": []
+						}
+					},
 					"_Type": "Section.Type.ObjectTable",
 					"Target": {
 						"Service": "/driverapp/Services/main.service",
@@ -66,13 +140,6 @@
 					"Visible": true,
 					"EmptySection": {
 						"FooterVisible": false
-					},
-					"Separators": {
-						"TopSectionSeparator": false,
-						"BottomSectionSeparator": true,
-						"HeaderSeparator": true,
-						"FooterSeparator": true,
-						"ControlSeparator": true
 					},
 					"ObjectCell": {
 						"ContextMenu": {
@@ -100,26 +167,16 @@
 						"_Type": "ObjectTable.Type.ObjectCell",
 						"Selected": false
 					},
-					"Grouping": {
-						"GroupingProperties": [],
-						"Header": {
-							"Items": []
-						}
-					},
 					"HighlightSelectedItem": false
 				}
-			],
-			"FilterFeedbackBar": {
-				"ShowAllFilters": false,
-				"_Type": "Control.Type.FilterFeedbackBar"
-			}
+			]
 		}
 	],
 	"_Type": "Page",
 	"_Name": "Stop",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar1",
+		"_Name": "ActionBar2",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

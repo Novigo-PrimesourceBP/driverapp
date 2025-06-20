@@ -101,6 +101,7 @@ let driverapp_rules_formatters_sourcelocation_js = __webpack_require__(/*! ./dri
 let driverapp_rules_formatters_stopaddress_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopAddress.js */ "./build.definitions/driverapp/Rules/Formatters/StopAddress.js")
 let driverapp_rules_formatters_stopstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatus.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatus.js")
 let driverapp_rules_formatters_stopstatusstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatusStyle.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js")
+let driverapp_rules_formatters_stoptime_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopTime.js */ "./build.definitions/driverapp/Rules/Formatters/StopTime.js")
 let driverapp_rules_logging_loglevels_js = __webpack_require__(/*! ./driverapp/Rules/Logging/LogLevels.js */ "./build.definitions/driverapp/Rules/Logging/LogLevels.js")
 let driverapp_rules_logging_settracecategories_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetTraceCategories.js */ "./build.definitions/driverapp/Rules/Logging/SetTraceCategories.js")
 let driverapp_rules_logging_setuserloglevel_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetUserLogLevel.js */ "./build.definitions/driverapp/Rules/Logging/SetUserLogLevel.js")
@@ -204,6 +205,7 @@ module.exports = {
 	driverapp_rules_formatters_stopaddress_js : driverapp_rules_formatters_stopaddress_js,
 	driverapp_rules_formatters_stopstatus_js : driverapp_rules_formatters_stopstatus_js,
 	driverapp_rules_formatters_stopstatusstyle_js : driverapp_rules_formatters_stopstatusstyle_js,
+	driverapp_rules_formatters_stoptime_js : driverapp_rules_formatters_stoptime_js,
 	driverapp_rules_logging_loglevels_js : driverapp_rules_logging_loglevels_js,
 	driverapp_rules_logging_settracecategories_js : driverapp_rules_logging_settracecategories_js,
 	driverapp_rules_logging_setuserloglevel_js : driverapp_rules_logging_setuserloglevel_js,
@@ -507,8 +509,9 @@ function Arrival(clientAPI) {
   let dt = clientAPI.binding.pln_arr_dt;
   let ti = clientAPI.binding.pln_arr_ti;
   let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
-  var text = context.formatDatetime(time);
-  return `${dt}-${ti}`;
+  var text = clientAPI.formatDatetime(time);
+  if (!dt || !ti) return 'Arrival : TBD';
+  return `Arrival : ${text}`;
 }
 
 /***/ }),
@@ -533,7 +536,8 @@ function Departure(clientAPI) {
   let ti = clientAPI.binding.pln_dep_ti;
   let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
   var text = clientAPI.formatDatetime(time);
-  return `${dt}-${ti}`;
+  if (!dt || !ti) return 'Departure : TBD';
+  return `Departure : ${text}`;
 }
 
 /***/ }),
@@ -799,7 +803,19 @@ __webpack_require__.r(__webpack_exports__);
  * Describe this function...
  * @param {IClientAPI} clientAPI
  */
-function StopStatus(clientAPI) {}
+function StopStatus(clientAPI) {
+  let status = clientAPI.binding.status;
+  switch (status) {
+    case 'Planned':
+      return clientAPI.localizeText('xtit_stopstatus_planned');
+    case 'At Store':
+      return clientAPI.localizeText('xtit_stopstatus_atstore');
+    case 'Departed':
+      return clientAPI.localizeText('xtit_stopstatus_departed');
+    default:
+      return status;
+  }
+}
 
 /***/ }),
 
@@ -819,7 +835,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {IClientAPI} clientAPI
  */
 function StopStatus(clientAPI) {
-  let status = context.getBindingObject().status;
+  let status = clientAPI.binding.status;
   switch (status) {
     case 'Planned':
       return 'Success';
@@ -829,6 +845,48 @@ function StopStatus(clientAPI) {
       return 'Warning';
     default:
       return 'Default';
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopTime.js":
+/*!******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopTime.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopTime)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopTime(clientAPI) {
+  var text_arr, text_dep;
+  try {
+    let dt_arr = clientAPI.binding.pln_arr_dt;
+    let ti_arr = clientAPI.binding.pln_arr_ti;
+    if (!dt_arr || !ti_arr) {
+      text_arr = 'TBD';
+    } else {
+      let time_arr = new Date(Number(dt_arr.substr(0, 4)), Number(dt_arr.substr(4, 2)) - 1, Number(dt_arr.substr(6, 2)), Number(ti_arr.substr(0, 2)), Number(ti_arr.substr(2, 2)), Number(ti_arr.substr(4, 2)), 0);
+      text_arr = clientAPI.formatDatetime(time_arr);
+    }
+    let dt_dep = clientAPI.binding.pln_dep_dt;
+    let ti_dep = clientAPI.binding.pln_dep_ti;
+    if (!dt_dep || !ti_dep) {
+      text_dep = 'TBD';
+    } else {
+      let time_dep = new Date(Number(dt_dep.substr(0, 4)), Number(dt_dep.substr(4, 2)) - 1, Number(dt_dep.substr(6, 2)), Number(ti_dep.substr(0, 2)), Number(ti_dep.substr(2, 2)), Number(ti_dep.substr(4, 2)), 0);
+      text_dep = clientAPI.formatDatetime(time_dep);
+    }
+    return `${text_arr} - ${text_dep}`;
+  } catch (error) {
+    return `Error`;
   }
 }
 
@@ -1505,7 +1563,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"_Type":"Page","_Name":"Stop","Controls":[{"_Name":"SectionedTable0","_Type":"Control.Type.SectionedTable","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","Description":"{region}-{country}"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Name":"KeyValueAddr","KeyName":"Address"}],"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"_Type":"Section.Type.ObjectTable","Header":{"_Name":"StopItems","Caption":"Items"},"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"{@odata.readLink}/to_stit"},"_Name":"StopItemsSection","Visible":true,"DataPaging":{"PageSize":50,"ShowLoadingIndicator":false},"EmptySection":{"FooterVisible":false},"HighlightSelectedItem":false,"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"none","Selected":false,"Styles":{"DetailImage":"Danger"}}}]}]}
+module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"NumberOfColumns":2}},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"{@odata.readLink}/to_stit"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"HighlightSelectedItem":false}],"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"}}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[],"_Name":"ActionBar1","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 

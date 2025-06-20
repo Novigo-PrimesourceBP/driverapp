@@ -3,7 +3,7 @@
  * @param {IClientAPI} clientAPI
  */
 export default function StopStatus(clientAPI) {
-    let status = context.getBindingObject().status;
+    let status = clientAPI.binding.status;
     switch (status) {
         case 'Planned':
             return 'Success';
