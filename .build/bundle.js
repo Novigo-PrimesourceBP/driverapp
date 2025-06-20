@@ -7,7 +7,7 @@
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = "xtit_orderstatus_ready=Ready\nxtit_orderstatus_execution=In Execution\nxtit_orderstatus_completed=Completed\nxtit_orderstatus_notstarted=Not Started"
+module.exports = "xtit_orderstatus_ready=Ready\nxtit_orderstatus_execution=In Execution\nxtit_orderstatus_completed=Completed\nxtit_orderstatus_notstarted=Not Started\nxtit_stopstatus_planned=Planned\nxtit_stopstatus_atstore=At Store\nxtit_stopstatus_departed=Departed"
 
 /***/ }),
 
@@ -65,6 +65,7 @@ let driverapp_actions_main_service_syncfailuremessage_action = __webpack_require
 let driverapp_actions_main_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncStartedMessage.action")
 let driverapp_actions_main_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/main/Service/UploadOffline.action")
 let driverapp_actions_navigation_to_detail_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Detail.action */ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action")
+let driverapp_actions_navigation_to_stop_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Stop.action */ "./build.definitions/driverapp/Actions/Navigation/To_Stop.action")
 let driverapp_globals_application_appdefinition_version_global = __webpack_require__(/*! ./driverapp/Globals/Application/AppDefinition_Version.global */ "./build.definitions/driverapp/Globals/Application/AppDefinition_Version.global")
 let driverapp_globals_application_applicationname_global = __webpack_require__(/*! ./driverapp/Globals/Application/ApplicationName.global */ "./build.definitions/driverapp/Globals/Application/ApplicationName.global")
 let driverapp_globals_application_supportemail_global = __webpack_require__(/*! ./driverapp/Globals/Application/SupportEmail.global */ "./build.definitions/driverapp/Globals/Application/SupportEmail.global")
@@ -78,6 +79,7 @@ let driverapp_pages_detail_page = __webpack_require__(/*! ./driverapp/Pages/Deta
 let driverapp_pages_errorarchive_errorarchive_detail_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page")
 let driverapp_pages_errorarchive_errorarchive_list_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_List.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_List.page")
 let driverapp_pages_main_page = __webpack_require__(/*! ./driverapp/Pages/Main.page */ "./build.definitions/driverapp/Pages/Main.page")
+let driverapp_pages_stop_page = __webpack_require__(/*! ./driverapp/Pages/Stop.page */ "./build.definitions/driverapp/Pages/Stop.page")
 let driverapp_rules_action_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/action/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js")
 let driverapp_rules_application_appupdatefailure_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateFailure.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateFailure.js")
 let driverapp_rules_application_appupdatesuccess_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateSuccess.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateSuccess.js")
@@ -86,10 +88,19 @@ let driverapp_rules_application_getclientsupportversions_js = __webpack_require_
 let driverapp_rules_application_getclientversion_js = __webpack_require__(/*! ./driverapp/Rules/Application/GetClientVersion.js */ "./build.definitions/driverapp/Rules/Application/GetClientVersion.js")
 let driverapp_rules_application_onwillupdate_js = __webpack_require__(/*! ./driverapp/Rules/Application/OnWillUpdate.js */ "./build.definitions/driverapp/Rules/Application/OnWillUpdate.js")
 let driverapp_rules_application_resetappsettingsandlogout_js = __webpack_require__(/*! ./driverapp/Rules/Application/ResetAppSettingsAndLogout.js */ "./build.definitions/driverapp/Rules/Application/ResetAppSettingsAndLogout.js")
+let driverapp_rules_formatters_arrival_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Arrival.js */ "./build.definitions/driverapp/Rules/Formatters/Arrival.js")
+let driverapp_rules_formatters_departure_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Departure.js */ "./build.definitions/driverapp/Rules/Formatters/Departure.js")
+let driverapp_rules_formatters_destinationlocation_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/DestinationLocation.js */ "./build.definitions/driverapp/Rules/Formatters/DestinationLocation.js")
 let driverapp_rules_formatters_executionstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStatus.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js")
 let driverapp_rules_formatters_executionstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStyle.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js")
+let driverapp_rules_formatters_pickup_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Pickup.js */ "./build.definitions/driverapp/Rules/Formatters/Pickup.js")
 let driverapp_rules_formatters_pickupdate_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupDate.js */ "./build.definitions/driverapp/Rules/Formatters/PickupDate.js")
 let driverapp_rules_formatters_pickuptime_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupTime.js */ "./build.definitions/driverapp/Rules/Formatters/PickupTime.js")
+let driverapp_rules_formatters_return_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Return.js */ "./build.definitions/driverapp/Rules/Formatters/Return.js")
+let driverapp_rules_formatters_sourcelocation_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/SourceLocation.js */ "./build.definitions/driverapp/Rules/Formatters/SourceLocation.js")
+let driverapp_rules_formatters_stopaddress_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopAddress.js */ "./build.definitions/driverapp/Rules/Formatters/StopAddress.js")
+let driverapp_rules_formatters_stopstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatus.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatus.js")
+let driverapp_rules_formatters_stopstatusstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatusStyle.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js")
 let driverapp_rules_logging_loglevels_js = __webpack_require__(/*! ./driverapp/Rules/Logging/LogLevels.js */ "./build.definitions/driverapp/Rules/Logging/LogLevels.js")
 let driverapp_rules_logging_settracecategories_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetTraceCategories.js */ "./build.definitions/driverapp/Rules/Logging/SetTraceCategories.js")
 let driverapp_rules_logging_setuserloglevel_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetUserLogLevel.js */ "./build.definitions/driverapp/Rules/Logging/SetUserLogLevel.js")
@@ -157,6 +168,7 @@ module.exports = {
 	driverapp_actions_main_service_syncstartedmessage_action : driverapp_actions_main_service_syncstartedmessage_action,
 	driverapp_actions_main_service_uploadoffline_action : driverapp_actions_main_service_uploadoffline_action,
 	driverapp_actions_navigation_to_detail_action : driverapp_actions_navigation_to_detail_action,
+	driverapp_actions_navigation_to_stop_action : driverapp_actions_navigation_to_stop_action,
 	driverapp_globals_application_appdefinition_version_global : driverapp_globals_application_appdefinition_version_global,
 	driverapp_globals_application_applicationname_global : driverapp_globals_application_applicationname_global,
 	driverapp_globals_application_supportemail_global : driverapp_globals_application_supportemail_global,
@@ -170,6 +182,7 @@ module.exports = {
 	driverapp_pages_errorarchive_errorarchive_detail_page : driverapp_pages_errorarchive_errorarchive_detail_page,
 	driverapp_pages_errorarchive_errorarchive_list_page : driverapp_pages_errorarchive_errorarchive_list_page,
 	driverapp_pages_main_page : driverapp_pages_main_page,
+	driverapp_pages_stop_page : driverapp_pages_stop_page,
 	driverapp_rules_action_errorarchive_checkforsyncerror_js : driverapp_rules_action_errorarchive_checkforsyncerror_js,
 	driverapp_rules_application_appupdatefailure_js : driverapp_rules_application_appupdatefailure_js,
 	driverapp_rules_application_appupdatesuccess_js : driverapp_rules_application_appupdatesuccess_js,
@@ -178,10 +191,19 @@ module.exports = {
 	driverapp_rules_application_getclientversion_js : driverapp_rules_application_getclientversion_js,
 	driverapp_rules_application_onwillupdate_js : driverapp_rules_application_onwillupdate_js,
 	driverapp_rules_application_resetappsettingsandlogout_js : driverapp_rules_application_resetappsettingsandlogout_js,
+	driverapp_rules_formatters_arrival_js : driverapp_rules_formatters_arrival_js,
+	driverapp_rules_formatters_departure_js : driverapp_rules_formatters_departure_js,
+	driverapp_rules_formatters_destinationlocation_js : driverapp_rules_formatters_destinationlocation_js,
 	driverapp_rules_formatters_executionstatus_js : driverapp_rules_formatters_executionstatus_js,
 	driverapp_rules_formatters_executionstyle_js : driverapp_rules_formatters_executionstyle_js,
+	driverapp_rules_formatters_pickup_js : driverapp_rules_formatters_pickup_js,
 	driverapp_rules_formatters_pickupdate_js : driverapp_rules_formatters_pickupdate_js,
 	driverapp_rules_formatters_pickuptime_js : driverapp_rules_formatters_pickuptime_js,
+	driverapp_rules_formatters_return_js : driverapp_rules_formatters_return_js,
+	driverapp_rules_formatters_sourcelocation_js : driverapp_rules_formatters_sourcelocation_js,
+	driverapp_rules_formatters_stopaddress_js : driverapp_rules_formatters_stopaddress_js,
+	driverapp_rules_formatters_stopstatus_js : driverapp_rules_formatters_stopstatus_js,
+	driverapp_rules_formatters_stopstatusstyle_js : driverapp_rules_formatters_stopstatusstyle_js,
 	driverapp_rules_logging_loglevels_js : driverapp_rules_logging_loglevels_js,
 	driverapp_rules_logging_settracecategories_js : driverapp_rules_logging_settracecategories_js,
 	driverapp_rules_logging_setuserloglevel_js : driverapp_rules_logging_setuserloglevel_js,
@@ -466,6 +488,86 @@ function ResetAppSettingsAndLogout(clientAPI) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/Formatters/Arrival.js":
+/*!*****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Arrival.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Arrival)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function Arrival(clientAPI) {
+  let dt = clientAPI.binding.pln_arr_dt;
+  let ti = clientAPI.binding.pln_arr_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = context.formatDatetime(time);
+  return `${dt}-${ti}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/Departure.js":
+/*!*******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Departure.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Departure)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function Departure(clientAPI) {
+  let dt = clientAPI.binding.pln_dep_dt;
+  let ti = clientAPI.binding.pln_dep_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = clientAPI.formatDatetime(time);
+  return `${dt}-${ti}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/DestinationLocation.js":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/DestinationLocation.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DestionationLocation)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function DestionationLocation(clientAPI) {
+  let {
+    des_name,
+    des_house_num,
+    des_street,
+    des_city,
+    des_post_code,
+    des_region,
+    des_country
+  } = clientAPI.binding;
+  return `${des_name},\n${des_house_num},${des_street},\n${des_city}-${des_post_code},${des_region},${des_country}`;
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js":
 /*!*************************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js ***!
@@ -524,6 +626,32 @@ function FormatExecutionStyle(clientAPI) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/Formatters/Pickup.js":
+/*!****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Pickup.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatPickup)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function FormatPickup(context) {
+  let dt = context.getBindingObject().pln_dep_dt;
+  let ti = context.getBindingObject().pln_dep_ti;
+  // let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), 0);
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = context.formatDate(time);
+  return `On: ${text}`;
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/Formatters/PickupDate.js":
 /*!********************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/Formatters/PickupDate.js ***!
@@ -567,6 +695,141 @@ function FormatPickupTime(context) {
   let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
   var text = context.formatTime(time);
   return `At: ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/Return.js":
+/*!****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Return.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatReturn)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function FormatReturn(context) {
+  let dt = context.getBindingObject().pln_arr_dt;
+  let ti = context.getBindingObject().pln_arr_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = context.formatDatetime(time);
+  return text;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/SourceLocation.js":
+/*!************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/SourceLocation.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SourceLocation)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function SourceLocation(clientAPI) {
+  let {
+    src_name,
+    src_house_num,
+    src_street,
+    src_city,
+    src_post_code,
+    src_region,
+    src_country
+  } = clientAPI.binding;
+  return `${src_name},\n${src_house_num},${src_street},\n${src_city}-${src_post_code},${src_region},${src_country}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopAddress.js":
+/*!*********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopAddress.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopAddress)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopAddress(clientAPI) {
+  let {
+    name,
+    house_num,
+    street,
+    city,
+    post_code,
+    region,
+    country
+  } = clientAPI.binding;
+  return `${name},\n${house_num},${street},\n${city}-${post_code},${region},${country}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopStatus.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopStatus.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopStatus)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopStatus(clientAPI) {}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopStatus)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopStatus(clientAPI) {
+  let status = context.getBindingObject().status;
+  switch (status) {
+    case 'Planned':
+      return 'Success';
+    case 'At Store':
+      return 'Default';
+    case 'Departed':
+      return 'Warning';
+    default:
+      return 'Default';
+  }
 }
 
 /***/ }),
@@ -1202,7 +1465,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":true,"_Type
   \*******************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","ObjectHeader":{"DetailImage":"sap-icon://shipping-status","DetailImageIsCircular":false,"HeadlineText":"{tor_id}"},"Visible":true}],"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"}}],"_Type":"Page","_Name":"Detail","ActionBar":{"Items":[],"_Name":"ActionBar1","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","ObjectHeader":{"DetailImage":"sap-icon://shipping-status","DetailImageIsCircular":false,"HeadlineText":"{tor_id}","Subhead":"/driverapp/Rules/Formatters/ExecutionStatus.js","Footnote":"/driverapp/Rules/Formatters/Return.js","BodyText":"/driverapp/Rules/Formatters/Pickup.js","Styles":{"Subhead":"/driverapp/Rules/Formatters/ExecutionStyle.js"}},"Visible":true},{"KeyAndValues":[{"_Name":"SourceKeyValue","Value":"/driverapp/Rules/Formatters/SourceLocation.js","KeyName":"Source Location"},{"_Name":"DestinationKeyValue","Value":"/driverapp/Rules/Formatters/DestinationLocation.js","KeyName":"Destination Location"}],"_Type":"Section.Type.KeyValue","_Name":"LocationKeyValue","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Header":{"_Name":"StopsHeader","UseTopPadding":true,"Caption":"Stops"},"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STOP","QueryOptions":"$filter=tor_id eq '{tor_id}'&$orderby=pln_arr_tstmp"},"_Type":"Section.Type.ObjectTable","_Name":"StopsList","Visible":true,"EmptySection":{"Caption":"No data","FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true},"Title":"{name}","Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Arrival.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","SubstatusText":"{locid}","PreserveIconStackSpacing":false,"AccessoryType":"none","OnPress":"/driverapp/Actions/Navigation/To_Stop.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/StopStatusStyle.js","DetailImage":"Default"}}}],"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"}}],"_Type":"Page","_Name":"Detail","ActionBar":{"Items":[],"_Name":"ActionBar1","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -1233,6 +1496,16 @@ module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"Se
 /***/ ((module) => {
 
 module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/Stop.page":
+/*!*****************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Stop.page ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Page","_Name":"Stop","Controls":[{"_Name":"SectionedTable0","_Type":"Control.Type.SectionedTable","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","Description":"{region}-{country}"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Name":"KeyValueAddr","KeyName":"Address"}],"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"_Type":"Section.Type.ObjectTable","Header":{"_Name":"StopItems","Caption":"Items"},"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"{@odata.readLink}/to_stit"},"_Name":"StopItemsSection","Visible":true,"DataPaging":{"PageSize":50,"ShowLoadingIndicator":false},"EmptySection":{"FooterVisible":false},"HighlightSelectedItem":false,"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"none","Selected":false,"Styles":{"DetailImage":"Danger"}}}]}]}
 
 /***/ }),
 
@@ -1513,6 +1786,16 @@ module.exports = {"Animated":true,"CompletionMessage":"Logs Uploaded","Completio
 /***/ ((module) => {
 
 module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Detail"},"PageToOpen":"/driverapp/Pages/Detail.page"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Navigation/To_Stop.action":
+/*!***********************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Navigation/To_Stop.action ***!
+  \***********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Stop"},"PageToOpen":"/driverapp/Pages/Stop.page"}
 
 /***/ }),
 

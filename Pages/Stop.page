@@ -1,20 +1,21 @@
 {
-	"_Type": "Page",
-	"_Name": "Stop",
 	"Controls": [
 		{
-			"_Name": "SectionedTable0",
 			"_Type": "Control.Type.SectionedTable",
-			"Sections" : [
+			"_Name": "SectionedTable0",
+			"Sections": [
 				{
 					"ObjectHeader": {
 						"Subhead": "{city}",
 						"Footnote": "/driverapp/Rules/Formatters/Departure.js",
+						"Description": "{region}-{country}",
 						"StatusText": "/driverapp/Rules/Formatters/StopStatus.js",
 						"DetailImageIsCircular": false,
 						"BodyText": "/driverapp/Rules/Formatters/Arrival.js",
 						"HeadlineText": "{name}",
-						"Description": "{region}-{country}"
+						"StatusPosition": "Stacked",
+						"StatusImagePosition": "Leading",
+						"SubstatusImagePosition": "Leading"
 					},
 					"_Type": "Section.Type.ObjectHeader",
 					"_Name": "SectionObjectHeader0",
@@ -24,8 +25,10 @@
 					"KeyAndValues": [
 						{
 							"Value": "/driverapp/Rules/Formatters/StopAddress.js",
+							"_Type": "KeyValue.Type.Item",
 							"_Name": "KeyValueAddr",
-							"KeyName": "Address"
+							"KeyName": "Address",
+							"Visible": true
 						}
 					],
 					"MaxItemCount": 1,
@@ -35,34 +38,49 @@
 					"EmptySection": {
 						"FooterVisible": false
 					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
 					"Layout": {
 						"NumberOfColumns": 2
 					}
 				},
 				{
-					"_Type": "Section.Type.ObjectTable",
 					"Header": {
+						"_Type": "SectionCommon.Type.Header",
 						"_Name": "StopItems",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
 						"Caption": "Items"
 					},
+					"_Type": "Section.Type.ObjectTable",
 					"Target": {
 						"Service": "/driverapp/Services/main.service",
 						"EntitySet": "{@odata.readLink}/to_stit"
 					},
 					"_Name": "StopItemsSection",
 					"Visible": true,
-					"DataPaging": {
-						"PageSize": 50,
-						"ShowLoadingIndicator": false
-					},
 					"EmptySection": {
 						"FooterVisible": false
 					},
-					"HighlightSelectedItem": false,
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
 					"ObjectCell": {
 						"ContextMenu": {
 							"Items": [],
-							"PerformFirstActionWithFullSwipe": true
+							"PerformFirstActionWithFullSwipe": true,
+							"LeadingItems": [],
+							"TrailingItems": [],
+							"_Type": "ObjectCell.Type.ContextMenu"
 						},
 						"Title": "{product_id}",
 						"Subhead": "{item_descr}",
@@ -70,14 +88,38 @@
 						"Description": "{gro_wei_val} {gro_wei_uni}",
 						"StatusText": "{qua_pcs_val} {qua_pcs_uni}",
 						"PreserveIconStackSpacing": false,
-						"AccessoryType": "none",
-						"Selected": false,
-						"Styles": {
-							"DetailImage": "Danger"
+						"AccessoryType": "None",
+						"Tags": [],
+						"AvatarStack": {
+							"ImageIsCircular": true,
+							"ImageHasBorder": false
+						},
+						"AvatarGrid": {
+							"ImageIsCircular": true
+						},
+						"_Type": "ObjectTable.Type.ObjectCell",
+						"Selected": false
+					},
+					"Grouping": {
+						"GroupingProperties": [],
+						"Header": {
+							"Items": []
 						}
-					}
+					},
+					"HighlightSelectedItem": false
 				}
-			]
+			],
+			"FilterFeedbackBar": {
+				"ShowAllFilters": false,
+				"_Type": "Control.Type.FilterFeedbackBar"
+			}
 		}
-	]
+	],
+	"_Type": "Page",
+	"_Name": "Stop",
+	"ActionBar": {
+		"Items": [],
+		"_Name": "ActionBar1",
+		"_Type": "Control.Type.ActionBar"
+	}
 }
