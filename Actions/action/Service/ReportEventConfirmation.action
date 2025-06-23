@@ -1,0 +1,11 @@
+{
+	"_Type": "Action.Type.Message",
+	"ActionResult": {
+		"_Name": "ReportEventConfirmation"
+	},
+	"Title": "Reporting Event",
+	"Message": "{message}",
+	"OKCaption": "Confirm",
+	"CancelCaption": "Cancel",
+	"OnOK": "/driverapp/Rules/action/ReportEvent.js"
+}

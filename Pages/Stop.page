@@ -78,7 +78,8 @@
 							"ImagePosition": "Leading",
 							"FullWidth": true,
 							"Visible": true,
-							"Enabled": true
+							"Enabled": true,
+							"OnPress":"/driverapp/Rules/action/ReportArrival.js"
 						},
 						{
 							"_Type": "ButtonTable.Type.Button",
@@ -90,7 +91,8 @@
 							"ImagePosition": "Leading",
 							"FullWidth": true,
 							"Visible": true,
-							"Enabled": true
+							"Enabled": true,
+							"OnPress":"/driverapp/Rules/action/ReportDeparture.js"
 						},
 						{
 							"_Type": "ButtonTable.Type.Button",
@@ -102,7 +104,8 @@
 							"ImagePosition": "Leading",
 							"FullWidth": true,
 							"Visible": true,
-							"Enabled": true
+							"Enabled": true,
+							"OnPress":""
 						}
 					],
 					"Layout": {

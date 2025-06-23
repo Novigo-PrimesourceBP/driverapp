@@ -114,7 +114,8 @@
 							"ImageIsCircular": true
 						},
 						"_Type": "ObjectTable.Type.ObjectCell",
-						"Selected": false
+						"Selected": false,
+						"OnPress": "/driverapp/Actions/Navigation/To_Stop.action"
 					},
 					"Grouping": {
 						"GroupingProperties": [],
@@ -144,7 +145,7 @@
 							"_Name": "Delay",
 							"Title": "Delay",
 							"Alignment": "Center",
-							"ButtonType": "Primary",
+							"ButtonType": "Text",
 							"Semantic": "Negative",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
