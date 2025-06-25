@@ -44,12 +44,6 @@
 							"Visible": true
 						}
 					],
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "LocationKeyValue",
-					"Visible": true,
-					"EmptySection": {
-						"FooterVisible": false
-					},
 					"Separators": {
 						"TopSectionSeparator": false,
 						"BottomSectionSeparator": true,
@@ -58,6 +52,12 @@
 						"ControlSeparator": true
 					},
 					"MaxItemCount": 1,
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "LocationKeyValue",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
 					"Layout": {
 						"NumberOfColumns": 2
 					}
@@ -70,6 +70,19 @@
 						"UseTopPadding": true,
 						"Caption": "Stops"
 					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Grouping": {
+						"GroupingProperties": [],
+						"Header": {
+							"Items": []
+						}
+					},
 					"_Type": "Section.Type.ObjectTable",
 					"Target": {
 						"Service": "/driverapp/Services/main.service",
@@ -81,13 +94,6 @@
 					"EmptySection": {
 						"Caption": "No data",
 						"FooterVisible": false
-					},
-					"Separators": {
-						"TopSectionSeparator": false,
-						"BottomSectionSeparator": true,
-						"HeaderSeparator": true,
-						"FooterSeparator": true,
-						"ControlSeparator": true
 					},
 					"ObjectCell": {
 						"ContextMenu": {
@@ -113,31 +119,29 @@
 						"AvatarGrid": {
 							"ImageIsCircular": true
 						},
+						"OnPress": "/driverapp/Actions/Navigation/To_Stop.action",
 						"_Type": "ObjectTable.Type.ObjectCell",
-						"Selected": false,
-						"OnPress": "/driverapp/Actions/Navigation/To_Stop.action"
-					},
-					"Grouping": {
-						"GroupingProperties": [],
-						"Header": {
-							"Items": []
-						}
+						"Selected": false
 					},
 					"HighlightSelectedItem": false
 				},
 				{
-					"_Type": "Section.Type.ButtonTable",
-					"_Name": "UnexpectedEvents",
-					"Visible": true,
-					"EmptySection": {
-						"FooterVisible": false
-					},
 					"Separators": {
 						"TopSectionSeparator": false,
 						"BottomSectionSeparator": true,
 						"HeaderSeparator": true,
 						"FooterSeparator": true,
 						"ControlSeparator": true
+					},
+					"Layout": {
+						"LayoutType": "Vertical",
+						"HorizontalAlignment": "Leading"
+					},
+					"_Type": "Section.Type.ButtonTable",
+					"_Name": "UnexpectedEvents",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
 					},
 					"Buttons": [
 						{
@@ -152,11 +156,67 @@
 							"Visible": true,
 							"Enabled": true
 						}
-					],
-					"Layout": {
-						"LayoutType": "Vertical",
-						"HorizontalAlignment": "Leading"
-					}
+					]
+				},
+				{
+					"Header": {
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "AttachmentsHeader",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
+						"Caption": "Attachments"
+					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Grouping": {
+						"GroupingProperties": [
+							"folder"
+						],
+						"Header": {
+							"Items": []
+						}
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "ZTM_I_DDL_DA_ATTC",
+						"QueryOptions": "$filter=tor_id eq '{tor_id}'"
+					},
+					"_Name": "AttachmentsList",
+					"Visible": true,
+					"EmptySection": {
+						"Caption": "No data",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"ContextMenu": {
+							"Items": [],
+							"PerformFirstActionWithFullSwipe": true,
+							"LeadingItems": [],
+							"TrailingItems": [],
+							"_Type": "ObjectCell.Type.ContextMenu"
+						},
+						"Title": "{name}",
+						"Subhead": "{folder}",
+						"PreserveIconStackSpacing": false,
+						"AccessoryType": "None",
+						"Tags": [],
+						"AvatarStack": {
+							"ImageIsCircular": true,
+							"ImageHasBorder": false
+						},
+						"AvatarGrid": {
+							"ImageIsCircular": true
+						},
+						"_Type": "ObjectTable.Type.ObjectCell",
+						"Selected": false
+					},
+					"HighlightSelectedItem": false
 				}
 			]
 		}
@@ -165,7 +225,7 @@
 	"_Name": "Detail",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar2",
+		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

@@ -1,0 +1,81 @@
+{
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable0",
+			"Sections": [
+				{
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0",
+					"Controls": [
+						{
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "FormCellListPicker0",
+							"IsVisible": true,
+							"Separator": true,
+							"AllowMultipleSelection": true,
+							"AllowEmptySelection": true,
+							"Caption": "Choose Multiple",
+							"DataPaging": {
+								"ShowLoadingIndicator": false,
+								"PageSize": 50
+							},
+							"PickerPrompt": "Please select one single item",
+							"PlaceHolder": "PlaceHolder",
+							"IsSelectedSectionEnabled": false,
+							"IsPickerDismissedOnSelection": false,
+							"IsSearchCancelledAfterSelection": false,
+							"AllowDefaultValueIfOneItem": false,
+							"IsEditable": true,
+							"PickerItems": [
+								"Delivered- No Exceptions",
+								"Delivered- With Exceptions",
+								"Customer Closed",
+								"Customer Refused",
+								"Carrier Failure"
+							]
+						},
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "FormCellButton0",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "Save",
+							"Alignment": "Center",
+							"ButtonType": "Primary",
+							"Semantic": "Tint",
+							"Image": "sap-icon://save",
+							"ImagePosition": "Leading",
+							"Enabled": true
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 1
+					}
+				}
+			],
+			"FilterFeedbackBar": {
+				"ShowAllFilters": false,
+				"_Type": "Control.Type.FilterFeedbackBar"
+			}
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Report Event",
+	"ActionBar": {
+		"Items": [],
+		"_Name": "ActionBar1",
+		"_Type": "Control.Type.ActionBar"
+	}
+}
