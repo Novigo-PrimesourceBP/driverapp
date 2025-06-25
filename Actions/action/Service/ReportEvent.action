@@ -1,0 +1,22 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"ActionResult": {
+		"_Name": "ReportEvent"
+	},
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "Reporting event ....",
+	"Target": {
+		"Service": "/driverapp/Services/action.service",
+		"EntitySet": "EventSet"
+	},
+	"Properties": {
+		"tor_id": "{tor_id}",
+		"event_time": "{event_time}",
+		"event_code": "{event_code}",
+		"ext_loc_id": "{ext_loc_id}",
+		"event_reason": "{event_reason}"
+	},
+	"RequestOptions": {
+		"RemoveCreatedEntityAfterUpload": true
+	}
+}

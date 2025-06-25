@@ -105,7 +105,7 @@
 							"FullWidth": true,
 							"Visible": true,
 							"Enabled": true,
-							"OnPress":""
+							"OnPress":"/driverapp/Actions/Navigation/To_Event.action"
 						}
 					],
 					"Layout": {

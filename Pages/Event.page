@@ -21,21 +21,22 @@
 					"Controls": [
 						{
 							"_Type": "Control.Type.FormCell.ListPicker",
-							"_Name": "FormCellListPicker0",
+							"_Name": "EventReason",
 							"IsVisible": true,
 							"Separator": true,
-							"AllowMultipleSelection": true,
-							"AllowEmptySelection": true,
-							"Caption": "Choose Multiple",
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": false,
+							"Caption": "Event reason",
 							"DataPaging": {
 								"ShowLoadingIndicator": false,
 								"PageSize": 50
 							},
 							"PickerPrompt": "Please select one single item",
-							"PlaceHolder": "PlaceHolder",
+							"PlaceHolder": "",
 							"IsSelectedSectionEnabled": false,
 							"IsPickerDismissedOnSelection": false,
 							"IsSearchCancelledAfterSelection": false,
+
 							"AllowDefaultValueIfOneItem": false,
 							"IsEditable": true,
 							"PickerItems": [
@@ -57,7 +58,8 @@
 							"Semantic": "Tint",
 							"Image": "sap-icon://save",
 							"ImagePosition": "Leading",
-							"Enabled": true
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/ReportPOD.js"
 						}
 					],
 					"Layout": {
@@ -72,7 +74,7 @@
 		}
 	],
 	"_Type": "Page",
-	"_Name": "Report Event",
+	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
 		"_Name": "ActionBar1",

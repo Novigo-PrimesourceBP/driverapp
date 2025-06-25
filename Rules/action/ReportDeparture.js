@@ -3,11 +3,33 @@
  * @param {IClientAPI} clientAPI
  */
 export default function ReportDeparture(clientAPI) {
-    let stop = clientAPI.binding.name
-    let message = `Reporting event Departure at location ${stop}`
+    let { tor_id,name,locid,stop_id } = clientAPI.binding;
     let context = clientAPI.getPageProxy()
+    context.showActivityIndicator("Reporting Event......");
+    alert(`${tor_id}-${name}-${locid}`)
     context.setActionBinding({
-        'message': message
+        tor_id: tor_id,
+        event_code: 'DEPARTURE',
+        event_reason: '',
+        ext_loc_id: locid,
+        event_time: ''+ new Date().getTime()
     });
-    return context.executeAction("/driverapp/Actions/action/Service/ReportEventConfirmation.action")
+    try {
+        return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(()=>{
+            return context
+              .executeAction("/driverapp/Actions/ClosePage.action")
+              .then(() => {
+                context.dismissActivityIndicator();
+                return context.executeAction({
+                  Name: "/driverapp/Actions/Console.action",
+                  Properties: {
+                    Message: "Event Reported successfully. Kindly refresh the app to sync",
+                  },
+                });
+              });
+        })
+    } catch (error) {
+        context.dismissActivityIndicator()
+    }
+    
 }
