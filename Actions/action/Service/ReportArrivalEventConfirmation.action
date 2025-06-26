@@ -7,5 +7,5 @@
 	"Message": "{message}",
 	"OKCaption": "Confirm",
 	"CancelCaption": "Cancel",
-	"OnOK": "/driverapp/Rules/action/ReportEvent.js"
+	"OnOK": "/driverapp/Rules/action/ReportArrival.js"
 }

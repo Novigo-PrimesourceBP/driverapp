@@ -9,5 +9,5 @@ export default function ReportDepartureConfirmation(clientAPI) {
     context.setActionBinding({
         'message': message
     });
-    return context.executeAction("/driverapp/Actions/action/Service/ReportEventConfirmation.action")
+    return context.executeAction("/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action")
 }

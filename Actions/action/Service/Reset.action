@@ -1,0 +1,10 @@
+{
+	"_Type": "Action.Type.OfflineOData.UndoPendingChanges",
+	"ActionResult": {
+		"_Name": "Reset"
+	},
+	"Target": {
+		"Service": "/driverapp/Services/action.service",
+		"EntitySet": "EventSet"
+	}
+}

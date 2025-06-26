@@ -105,6 +105,14 @@
 				"Position": "Right",
 				"IsIconCircular": false,
 				"OnPress": "/driverapp/Actions/Application/Logout.action"
+			},
+			{
+				"_Type": "Control.Type.ActionBarItem",
+				"_Name": "Reset",
+				"Caption": "Reset",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"OnPress": "/driverapp/Actions/action/Service/Reset.action"
 			}
 		],
 		"_Name": "ActionBar3",

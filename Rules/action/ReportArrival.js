@@ -6,10 +6,9 @@ export default function ReportArrival(clientAPI) {
     let { tor_id,name,locid,stop_id } = clientAPI.binding;
     let context = clientAPI.getPageProxy()
     context.showActivityIndicator("Reporting Event......");
-    alert(`${tor_id}-${name}-${locid}`)
     context.setActionBinding({
         tor_id: tor_id,
-        event_code: 'ARRIVAL',
+        event_code: 'ARRIV_DEST',
         event_reason: '',
         ext_loc_id: locid,
         event_time: ''+ new Date().getTime()

@@ -25,8 +25,10 @@ let driverapp_actions_action_service_downloadoffline_action = __webpack_require_
 let driverapp_actions_action_service_downloadstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/DownloadStartedMessage.action */ "./build.definitions/driverapp/Actions/action/Service/DownloadStartedMessage.action")
 let driverapp_actions_action_service_initializeoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/InitializeOffline.action */ "./build.definitions/driverapp/Actions/action/Service/InitializeOffline.action")
 let driverapp_actions_action_service_initializeofflinefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action */ "./build.definitions/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action")
+let driverapp_actions_action_service_reportarrivaleventconfirmation_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action */ "./build.definitions/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action")
+let driverapp_actions_action_service_reportdepartureeventconfirmation_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action */ "./build.definitions/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action")
 let driverapp_actions_action_service_reportevent_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/ReportEvent.action */ "./build.definitions/driverapp/Actions/action/Service/ReportEvent.action")
-let driverapp_actions_action_service_reporteventconfirmation_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/ReportEventConfirmation.action */ "./build.definitions/driverapp/Actions/action/Service/ReportEventConfirmation.action")
+let driverapp_actions_action_service_reset_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/Reset.action */ "./build.definitions/driverapp/Actions/action/Service/Reset.action")
 let driverapp_actions_action_service_syncfailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/SyncFailureMessage.action */ "./build.definitions/driverapp/Actions/action/Service/SyncFailureMessage.action")
 let driverapp_actions_action_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/action/Service/SyncStartedMessage.action")
 let driverapp_actions_action_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/action/Service/UploadOffline.action")
@@ -140,8 +142,10 @@ module.exports = {
 	driverapp_actions_action_service_downloadstartedmessage_action : driverapp_actions_action_service_downloadstartedmessage_action,
 	driverapp_actions_action_service_initializeoffline_action : driverapp_actions_action_service_initializeoffline_action,
 	driverapp_actions_action_service_initializeofflinefailuremessage_action : driverapp_actions_action_service_initializeofflinefailuremessage_action,
+	driverapp_actions_action_service_reportarrivaleventconfirmation_action : driverapp_actions_action_service_reportarrivaleventconfirmation_action,
+	driverapp_actions_action_service_reportdepartureeventconfirmation_action : driverapp_actions_action_service_reportdepartureeventconfirmation_action,
 	driverapp_actions_action_service_reportevent_action : driverapp_actions_action_service_reportevent_action,
-	driverapp_actions_action_service_reporteventconfirmation_action : driverapp_actions_action_service_reporteventconfirmation_action,
+	driverapp_actions_action_service_reset_action : driverapp_actions_action_service_reset_action,
 	driverapp_actions_action_service_syncfailuremessage_action : driverapp_actions_action_service_syncfailuremessage_action,
 	driverapp_actions_action_service_syncstartedmessage_action : driverapp_actions_action_service_syncstartedmessage_action,
 	driverapp_actions_action_service_uploadoffline_action : driverapp_actions_action_service_uploadoffline_action,
@@ -1272,27 +1276,28 @@ function ReportArrival(clientAPI) {
   } = clientAPI.binding;
   let context = clientAPI.getPageProxy();
   context.showActivityIndicator("Reporting Event......");
-  alert(`${tor_id}-${name}-${locid}`);
-  // context.setActionBinding({
-  //     tor_id: tor_id,
-  //     event_code: 'ARRIVAL',
-  //     event_reason: '',
-  //     ext_loc_id: locid,
-  //     event_time: ''+ new Date().getTime()
-  // });
-  // return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(()=>{
-  //     return context
-  //       .executeAction("/driverapp/Actions/ClosePage.action")
-  //       .then(() => {
-  //         context.dismissActivityIndicator();
-  //         return context.executeAction({
-  //           Name: "/driverapp/Actions/Console.action",
-  //           Properties: {
-  //             Message: "Event Reported successfully. Kindly refresh the app to sync",
-  //           },
-  //         });
-  //       });
-  // })
+  context.setActionBinding({
+    tor_id: tor_id,
+    event_code: 'ARRIV_DEST',
+    event_reason: '',
+    ext_loc_id: locid,
+    event_time: '' + new Date().getTime()
+  });
+  try {
+    return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+      return context.executeAction("/driverapp/Actions/ClosePage.action").then(() => {
+        context.dismissActivityIndicator();
+        return context.executeAction({
+          Name: "/driverapp/Actions/Console.action",
+          Properties: {
+            Message: "Event Reported successfully. Kindly refresh the app to sync"
+          }
+        });
+      });
+    });
+  } catch (error) {
+    context.dismissActivityIndicator();
+  }
 }
 
 /***/ }),
@@ -1319,7 +1324,7 @@ function ReportArrivalConfirmation(clientAPI) {
   context.setActionBinding({
     'message': message
   });
-  return context.executeAction("/driverapp/Actions/action/Service/ReportEventConfirmation.action");
+  return context.executeAction("/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action");
 }
 
 /***/ }),
@@ -1348,27 +1353,28 @@ function ReportDeparture(clientAPI) {
   } = clientAPI.binding;
   let context = clientAPI.getPageProxy();
   context.showActivityIndicator("Reporting Event......");
-  alert(`${tor_id}-${name}-${locid}`);
-  // context.setActionBinding({
-  //     tor_id: tor_id,
-  //     event_code: 'DEPARTURE',
-  //     event_reason: '',
-  //     ext_loc_id: locid,
-  //     event_time: ''+ new Date().getTime()
-  // });
-  // return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(()=>{
-  //     return context
-  //       .executeAction("/driverapp/Actions/ClosePage.action")
-  //       .then(() => {
-  //         context.dismissActivityIndicator();
-  //         return context.executeAction({
-  //           Name: "/driverapp/Actions/Console.action",
-  //           Properties: {
-  //             Message: "Event Reported successfully. Kindly refresh the app to sync",
-  //           },
-  //         });
-  //       });
-  // })
+  context.setActionBinding({
+    tor_id: tor_id,
+    event_code: 'DEPARTURE',
+    event_reason: '',
+    ext_loc_id: locid,
+    event_time: '' + new Date().getTime()
+  });
+  try {
+    return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+      return context.executeAction("/driverapp/Actions/ClosePage.action").then(() => {
+        context.dismissActivityIndicator();
+        return context.executeAction({
+          Name: "/driverapp/Actions/Console.action",
+          Properties: {
+            Message: "Event Reported successfully. Kindly refresh the app to sync"
+          }
+        });
+      });
+    });
+  } catch (error) {
+    context.dismissActivityIndicator();
+  }
 }
 
 /***/ }),
@@ -1395,7 +1401,7 @@ function ReportDepartureConfirmation(clientAPI) {
   context.setActionBinding({
     'message': message
   });
-  return context.executeAction("/driverapp/Actions/action/Service/ReportEventConfirmation.action");
+  return context.executeAction("/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action");
 }
 
 /***/ }),
@@ -1806,7 +1812,7 @@ module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"Se
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
 
 /***/ }),
 
@@ -2200,6 +2206,26 @@ module.exports = {"Message":"Failed to initialize application data service - {#A
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action":
+/*!**************************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action ***!
+  \**************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Message","ActionResult":{"_Name":"ReportEventConfirmation"},"Title":"Reporting Event","Message":"{message}","OKCaption":"Confirm","CancelCaption":"Cancel","OnOK":"/driverapp/Rules/action/ReportArrival.js"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action":
+/*!****************************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action ***!
+  \****************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Message","ActionResult":{"_Name":"ReportEventConfirmation"},"Title":"Reporting Event","Message":"{message}","OKCaption":"Confirm","CancelCaption":"Cancel","OnOK":"/driverapp/Rules/action/ReportDeparture.js"}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Actions/action/Service/ReportEvent.action":
 /*!*******************************************************************************!*\
   !*** ./build.definitions/driverapp/Actions/action/Service/ReportEvent.action ***!
@@ -2210,13 +2236,13 @@ module.exports = {"_Type":"Action.Type.ODataService.CreateEntity","ActionResult"
 
 /***/ }),
 
-/***/ "./build.definitions/driverapp/Actions/action/Service/ReportEventConfirmation.action":
-/*!*******************************************************************************************!*\
-  !*** ./build.definitions/driverapp/Actions/action/Service/ReportEventConfirmation.action ***!
-  \*******************************************************************************************/
+/***/ "./build.definitions/driverapp/Actions/action/Service/Reset.action":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/Reset.action ***!
+  \*************************************************************************/
 /***/ ((module) => {
 
-module.exports = {"_Type":"Action.Type.Message","ActionResult":{"_Name":"ReportEventConfirmation"},"Title":"Reporting Event","Message":"{message}","OKCaption":"Confirm","CancelCaption":"Cancel","OnOK":"/driverapp/Rules/action/ReportEvent.js"}
+module.exports = {"_Type":"Action.Type.OfflineOData.UndoPendingChanges","ActionResult":{"_Name":"Reset"},"Target":{"Service":"/driverapp/Services/action.service","EntitySet":"EventSet"}}
 
 /***/ }),
 
