@@ -227,11 +227,11 @@
 								"TakePhoto",
 								"SelectFile"
 							],
-
 							"IsVisible": true,
 							"OnValueChange": "/driverapp/Rules/action/OnDocumentUpload.js",
 							"_Name": "AttachmentFormCell",
-							"_Type": "Control.Type.FormCell.Attachment"
+							"_Type": "Control.Type.FormCell.Attachment",
+							
 						}
 					]
 				}

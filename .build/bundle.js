@@ -1326,22 +1326,51 @@ function OnDocumentUpload(clientAPI) {
   const attachmentList = clientAPI.evaluateTargetPath('#Page:Detail/#Control:AttachmentFormCell/#Value');
   const attachment = attachmentList[0];
   const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
-  // alert(`Filename - ${fileName}`)
-  context.setActionBinding({
+  const slug = {
     tor_id: tor_id,
-    name: fileName
-  });
+    description: '',
+    attachment_type: 'ATCMT',
+    alternative_name: fileName
+  };
+  // alert(`Filename - ${fileName}`)
+  // context.setActionBinding({
+  //     tor_id: tor_id,
+  //     name: fileName
+  // });
   attachmentFormCell.setValue([]);
-  return context.executeAction("/driverapp/Actions/action/Service/UploadAttachment.action").then(() => {
-    return context.executeAction({
-      Name: "/driverapp/Actions/Console.action",
-      Properties: {
-        Message: "File uploaded successfully. Kindly refresh the app to sync"
-      }
+  return context.sendRequest(`/action`, {
+    "method": "GET",
+    'header': {
+      "x-csrf-token": "fetch"
+    }
+  }).then(response => {
+    let token = response.headers["x-csrf-token"];
+    let targetUrl = `/action/AttachmentSet`;
+    return context.sendRequest(targetUrl, {
+      "method": "POST",
+      'header': {
+        "Content-Type": attachment.contentType,
+        "x-csrf-token": token,
+        "Slug": encodeURI(JSON.stringify(slug))
+      },
+      "body": attachment.content
     });
-  }).catch(err => {
-    alert(err);
+  }).then(response => {
+    attachmentFormCell.setValue([]);
+    alert("Uploaded Image");
+  }).catch(error => {
+    alert(error);
   });
+  // return context.executeAction("/driverapp/Actions/action/Service/UploadAttachment.action").then(() => {
+  //     return context.executeAction({
+  //         Name: "/driverapp/Actions/Console.action",
+  //         Properties: {
+  //             Message: "File uploaded successfully. Kindly refresh the app to sync",
+  //         },
+  //     });
+  // }).catch((err) => {
+  //     alert(err)
+  // })
 }
 
 /***/ }),
@@ -2366,7 +2395,7 @@ module.exports = {"Message":"Upload in progress...","CompletionMessage":"Sync co
   \************************************************************************************/
 /***/ ((module) => {
 
-module.exports = {"_Type":"Action.Type.ODataService.CreateMedia","ActionResult":{"_Name":"UploadAttachment"},"OnFailure":"/driverapp/Rules/action/CreateFailure.js","OnSuccess":"/driverapp/Rules/action/CreateSuccess.js","Target":{"Service":"/driverapp/Services/action.service","EntitySet":"AttachmentSet","ReadLink":"{@odata.readLink}"},"Media":"#Control:AttachmentFormCell","Properties":{"tor_id":"{tor_id}","doc_key":"","name":"{name}","alternative_name":"","description":"","filesize_content":"","folder":"ROOT","attachment_type":"ATCMT"},"RequestOptions":{"RemoveCreatedEntityAfterUpload":true}}
+module.exports = {"_Type":"Action.Type.ODataService.CreateMedia","ActionResult":{"_Name":"UploadAttachment"},"OnFailure":"/driverapp/Rules/action/CreateFailure.js","OnSuccess":"/driverapp/Rules/action/CreateSuccess.js","OnInvalid":"/driverapp/Rules/action/CreateFailure.js","Target":{"Service":"/driverapp/Services/action.service","EntitySet":"AttachmentSet","ReadLink":"{@odata.readLink}"},"Media":"#Control:AttachmentFormCell","Properties":{"tor_id":"{tor_id}","doc_key":"","name":"{name}","alternative_name":"","description":"","filesize_content":"","folder":"ROOT","attachment_type":"ATCMT"},"RequestOptions":{"RemoveCreatedEntityAfterUpload":true}}
 
 /***/ }),
 

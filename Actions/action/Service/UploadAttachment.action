@@ -5,6 +5,7 @@
 	},
 	"OnFailure": "/driverapp/Rules/action/CreateFailure.js",
 	"OnSuccess": "/driverapp/Rules/action/CreateSuccess.js",
+	"OnInvalid" : "/driverapp/Rules/action/CreateFailure.js",
 	"Target": {
 		"Service": "/driverapp/Services/action.service",
 		"EntitySet": "AttachmentSet",
