@@ -117,6 +117,22 @@
 					"_Type": "Section.Type.FormCell",
 					"Controls": [
 						{
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "AttachmentType",
+							"Caption": "Attachment Type",
+							"HelperText": "Select an attachment type and upload",
+							"IsPickerDismissedOnSelection": true,
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": false,
+							"Label": "Attachment Type",
+							"PickerItems" : [
+								{
+									"DisplayValue": "Default",
+									"ReturnValue": "ATCMT"
+								}
+							]
+						},
+						{
 							"AttachmentActionType": [
 								"AddPhoto",
 								"TakePhoto",
@@ -124,20 +140,9 @@
 							],
 							"IsVisible": true,
 							"_Name": "AttachmentFormCell",
-							"_Type": "Control.Type.FormCell.Attachment"
+							"_Type": "Control.Type.FormCell.Attachment",
+							"OnValueChange" : "/driverapp/Rules/action/OnDocumentUpload.js"
 
-						},
-						{
-							"_Type": "Control.Type.FormCell.Button",
-							"_Name": "UploadFiles",
-							"ButtonType": "Primary",
-							"Title": "Upload",
-							"Alignment": "Center",
-							"Semantic": "Tint",
-							"FullWidth": true,
-							"Visible": true,
-							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/OnDocumentUpload.js"
 						}
 					]
 				},
@@ -165,7 +170,8 @@
 					"_Type": "Section.Type.ObjectTable",
 					"Target": {
 						"Service": "/driverapp/Services/main.service",
-						"EntitySet": "{@odata.readLink}/to_stit"
+						"EntitySet": "ZTM_I_DDL_DA_STIT",
+						"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"
 					},
 					"_Name": "StopItemsSection",
 					"Visible": true,

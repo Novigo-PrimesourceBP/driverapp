@@ -5,10 +5,15 @@
 export default async function OnDocumentUpload(clientAPI) {
 
     const context = clientAPI.getPageProxy();
-    let { tor_id } = clientAPI.binding;
+    let { tor_id,locid } = clientAPI.binding;
+    // alert(`${tor_id}-${locid}`)
     const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Detail/#Control:AttachmentFormCell");
     const attachmentList = clientAPI.evaluateTargetPath('#Page:Detail/#Control:AttachmentFormCell/#Value');
     // const attachment = attachmentList[0];
+    if(attachmentList.length > 1 ){
+        alert("Upload one attachment at a time")
+        return
+    }
 
     let token;
     let targetUrl = `/action/AttachmentSet`;

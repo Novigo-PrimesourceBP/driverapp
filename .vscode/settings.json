@@ -5,7 +5,8 @@
     "SAP HANA Database Explorer.ShowXsAdvancedConnections": true,
     "mdk.uieditor": {
         "left": {
-            "visible": true
+            "visible": true,
+            "width": 215
         },
         "right": {
             "visible": true,

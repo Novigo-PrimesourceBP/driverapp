@@ -188,7 +188,7 @@
 						"QueryOptions": "$filter=tor_id eq '{tor_id}'"
 					},
 					"_Name": "AttachmentsList",
-					"Visible": true,
+					"Visible": false,
 					"EmptySection": {
 						"Caption": "No data",
 						"FooterVisible": false
