@@ -48,6 +48,18 @@
 							]
 						},
 						{
+							"_Type": "Control.Type.FormCell.InlineSignatureCapture",
+							"_Name": "SignatureSrc",
+							"IsVisible": true,
+							"Separator": true,
+							"Caption": "Signature",
+							"ShowTimestampInImage": true,
+							"ShowXMark": true,
+							"ShowUnderline": true,
+							"WatermarkText": "PrimeSource",
+							"WatermarkTextMaxLines": 5
+						},
+						{
 							"_Type": "Control.Type.FormCell.Button",
 							"_Name": "FormCellButton0",
 							"IsVisible": true,

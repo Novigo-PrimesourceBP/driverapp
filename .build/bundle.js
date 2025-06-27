@@ -1317,14 +1317,57 @@ __webpack_require__.r(__webpack_exports__);
  * Describe this function...
  * @param {IClientAPI} clientAPI
  */
-function OnDocumentUpload(clientAPI) {
+async function OnDocumentUpload(clientAPI) {
   const context = clientAPI.getPageProxy();
   let {
     tor_id
   } = clientAPI.binding;
   const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Detail/#Control:AttachmentFormCell");
   const attachmentList = clientAPI.evaluateTargetPath('#Page:Detail/#Control:AttachmentFormCell/#Value');
-  const attachment = attachmentList[0];
+  // const attachment = attachmentList[0];
+
+  let token;
+  let targetUrl = `/action/AttachmentSet`;
+  try {
+    let response = await context.sendRequest(`/action`, {
+      "method": "GET",
+      'header': {
+        "x-csrf-token": "fetch"
+      }
+    });
+    token = response.headers["x-csrf-token"];
+  } catch (error) {
+    alert(error);
+  }
+  let attachmentPromises = [];
+  attachmentList.forEach(attachment => {
+    const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
+    const slug = {
+      tor_id: tor_id,
+      description: '',
+      attachment_type: 'ATCMT',
+      alternative_name: fileName
+    };
+    attachmentPromises.push(context.sendRequest(targetUrl, {
+      "method": "POST",
+      'header': {
+        "Content-Type": attachment.contentType,
+        "x-csrf-token": token,
+        "Slug": encodeURI(JSON.stringify(slug))
+      },
+      "body": attachment.content
+    }));
+  });
+  Promise.all(attachmentPromises).then(values => {
+    alert("Uploaded Images");
+  }).catch(error => {
+    alert("Failed to upload images");
+  }).finally(() => {
+    attachmentFormCell.setValue([]);
+  });
+  return;
+
+  ////////////////////////
   const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
   const slug = {
     tor_id: tor_id,
@@ -1332,11 +1375,6 @@ function OnDocumentUpload(clientAPI) {
     attachment_type: 'ATCMT',
     alternative_name: fileName
   };
-  // alert(`Filename - ${fileName}`)
-  // context.setActionBinding({
-  //     tor_id: tor_id,
-  //     name: fileName
-  // });
   attachmentFormCell.setValue([]);
   return context.sendRequest(`/action`, {
     "method": "GET",
@@ -1361,16 +1399,6 @@ function OnDocumentUpload(clientAPI) {
   }).catch(error => {
     alert(error);
   });
-  // return context.executeAction("/driverapp/Actions/action/Service/UploadAttachment.action").then(() => {
-  //     return context.executeAction({
-  //         Name: "/driverapp/Actions/Console.action",
-  //         Properties: {
-  //             Message: "File uploaded successfully. Kindly refresh the app to sync",
-  //         },
-  //     });
-  // }).catch((err) => {
-  //     alert(err)
-  // })
 }
 
 /***/ }),
@@ -1895,7 +1923,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":true,"_Type
   \*******************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"/driverapp/Rules/Formatters/ExecutionStatus.js","Footnote":"/driverapp/Rules/Formatters/Return.js","DetailImage":"sap-icon://shipping-status","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Pickup.js","HeadlineText":"{tor_id}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading","Styles":{"Subhead":"/driverapp/Rules/Formatters/ExecutionStyle.js"}},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/SourceLocation.js","_Type":"KeyValue.Type.Item","_Name":"SourceKeyValue","KeyName":"Source Location","Visible":true},{"Value":"/driverapp/Rules/Formatters/DestinationLocation.js","_Type":"KeyValue.Type.Item","_Name":"DestinationKeyValue","KeyName":"Destination Location","Visible":true}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"LocationKeyValue","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopsHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Stops"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STOP","QueryOptions":"$filter=tor_id eq '{tor_id}'&$orderby=pln_arr_tstmp"},"_Name":"StopsList","Visible":true,"EmptySection":{"Caption":"No data","FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{name}","Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Arrival.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","SubstatusText":"{locid}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Stop.action","_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"UnexpectedEvents","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"Delay","Title":"Delay","Alignment":"Center","ButtonType":"Text","Semantic":"Negative","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true}]},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"AttachmentsHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Attachments"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":["folder"],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_ATTC","QueryOptions":"$filter=tor_id eq '{tor_id}'"},"_Name":"AttachmentsList","Visible":true,"EmptySection":{"Caption":"No data","FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{name}","Subhead":"{folder}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false},{"_Type":"Section.Type.FormCell","Controls":[{"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"],"IsVisible":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","_Name":"AttachmentFormCell","_Type":"Control.Type.FormCell.Attachment"}]}]}],"_Type":"Page","_Name":"Detail","ActionBar":{"Items":[],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"/driverapp/Rules/Formatters/ExecutionStatus.js","Footnote":"/driverapp/Rules/Formatters/Return.js","DetailImage":"sap-icon://shipping-status","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Pickup.js","HeadlineText":"{tor_id}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading","Styles":{"Subhead":"/driverapp/Rules/Formatters/ExecutionStyle.js"}},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/SourceLocation.js","_Type":"KeyValue.Type.Item","_Name":"SourceKeyValue","KeyName":"Source Location","Visible":true},{"Value":"/driverapp/Rules/Formatters/DestinationLocation.js","_Type":"KeyValue.Type.Item","_Name":"DestinationKeyValue","KeyName":"Destination Location","Visible":true}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"LocationKeyValue","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopsHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Stops"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STOP","QueryOptions":"$filter=tor_id eq '{tor_id}'&$orderby=pln_arr_tstmp"},"_Name":"StopsList","Visible":true,"EmptySection":{"Caption":"No data","FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{name}","Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Arrival.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","SubstatusText":"{locid}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Stop.action","_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"UnexpectedEvents","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"Delay","Title":"Delay","Alignment":"Center","ButtonType":"Text","Semantic":"Negative","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true}]},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"AttachmentsHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Attachments"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":["folder"],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_ATTC","QueryOptions":"$filter=tor_id eq '{tor_id}'"},"_Name":"AttachmentsList","Visible":true,"EmptySection":{"Caption":"No data","FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{name}","Subhead":"{folder}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false},{"_Type":"Section.Type.FormCell","Controls":[{"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"],"IsVisible":true,"_Name":"AttachmentFormCell","_Type":"Control.Type.FormCell.Attachment"},{"_Type":"Control.Type.FormCell.Button","_Name":"UploadFiles","ButtonType":"Primary","Title":"Upload","Alignment":"Center","Semantic":"Tint","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/OnDocumentUpload.js"}]}]}],"_Type":"Page","_Name":"Detail","ActionBar":{"Items":[],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 

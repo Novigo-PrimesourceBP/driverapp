@@ -217,23 +217,6 @@
 						"Selected": false
 					},
 					"HighlightSelectedItem": false
-				},
-				{
-					"_Type": "Section.Type.FormCell",
-					"Controls": [
-						{
-							"AttachmentActionType": [
-								"AddPhoto",
-								"TakePhoto",
-								"SelectFile"
-							],
-							"IsVisible": true,
-							"OnValueChange": "/driverapp/Rules/action/OnDocumentUpload.js",
-							"_Name": "AttachmentFormCell",
-							"_Type": "Control.Type.FormCell.Attachment",
-							
-						}
-					]
 				}
 			]
 		}

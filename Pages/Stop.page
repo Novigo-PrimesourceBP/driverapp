@@ -114,6 +114,34 @@
 					}
 				},
 				{
+					"_Type": "Section.Type.FormCell",
+					"Controls": [
+						{
+							"AttachmentActionType": [
+								"AddPhoto",
+								"TakePhoto",
+								"SelectFile"
+							],
+							"IsVisible": true,
+							"_Name": "AttachmentFormCell",
+							"_Type": "Control.Type.FormCell.Attachment"
+
+						},
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "UploadFiles",
+							"ButtonType": "Primary",
+							"Title": "Upload",
+							"Alignment": "Center",
+							"Semantic": "Tint",
+							"FullWidth": true,
+							"Visible": true,
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/OnDocumentUpload.js"
+						}
+					]
+				},
+				{
 					"Header": {
 						"_Type": "SectionCommon.Type.Header",
 						"_Name": "StopItems",
