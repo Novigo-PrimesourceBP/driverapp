@@ -1323,19 +1323,31 @@ __webpack_require__.r(__webpack_exports__);
  */
 async function OnDocumentUpload(clientAPI) {
   const context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Processing .......");
   let {
     tor_id,
     locid
   } = clientAPI.binding;
-  alert(`${tor_id}-${locid}`);
-  return;
-  const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Detail/#Control:AttachmentFormCell");
-  const attachmentList = clientAPI.evaluateTargetPath('#Page:Detail/#Control:AttachmentFormCell/#Value');
-  // const attachment = attachmentList[0];
-
+  const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Stop/#Control:AttachmentFormCell");
+  const attachmentList = clientAPI.evaluateTargetPath('#Page:Stop/#Control:AttachmentFormCell/#Value');
+  if (attachmentList.length > 1) {
+    alert("Upload one attachment at a time");
+    return;
+  }
+  const attachment = attachmentList[0];
+  const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
+  const slug = {
+    tor_id: tor_id,
+    description: '',
+    attachment_type: clientAPI.evaluateTargetPath('#Control:AttachmentType/#SelectedValue') ?? 'ATCMT',
+    alternative_name: fileName,
+    folder: locid
+  };
   let token;
   let targetUrl = `/action/AttachmentSet`;
   try {
+    context.dismissActivityIndicator();
+    context.showActivityIndicator("Uploading .......");
     let response = await context.sendRequest(`/action`, {
       "method": "GET",
       'header': {
@@ -1343,54 +1355,6 @@ async function OnDocumentUpload(clientAPI) {
       }
     });
     token = response.headers["x-csrf-token"];
-  } catch (error) {
-    alert(error);
-  }
-  let attachmentPromises = [];
-  attachmentList.forEach(attachment => {
-    const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
-    const slug = {
-      tor_id: tor_id,
-      description: '',
-      attachment_type: 'ATCMT',
-      alternative_name: fileName
-    };
-    attachmentPromises.push(context.sendRequest(targetUrl, {
-      "method": "POST",
-      'header': {
-        "Content-Type": attachment.contentType,
-        "x-csrf-token": token,
-        "Slug": encodeURI(JSON.stringify(slug))
-      },
-      "body": attachment.content
-    }));
-  });
-  Promise.all(attachmentPromises).then(values => {
-    alert("Uploaded Images");
-  }).catch(error => {
-    alert("Failed to upload images");
-  }).finally(() => {
-    attachmentFormCell.setValue([]);
-  });
-  return;
-
-  ////////////////////////
-  const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
-  const slug = {
-    tor_id: tor_id,
-    description: '',
-    attachment_type: 'ATCMT',
-    alternative_name: fileName
-  };
-  attachmentFormCell.setValue([]);
-  return context.sendRequest(`/action`, {
-    "method": "GET",
-    'header': {
-      "x-csrf-token": "fetch"
-    }
-  }).then(response => {
-    let token = response.headers["x-csrf-token"];
-    let targetUrl = `/action/AttachmentSet`;
     return context.sendRequest(targetUrl, {
       "method": "POST",
       'header': {
@@ -1399,13 +1363,23 @@ async function OnDocumentUpload(clientAPI) {
         "Slug": encodeURI(JSON.stringify(slug))
       },
       "body": attachment.content
+    }).then(() => {
+      alert("Successfully uploaded");
+      context.dismissActivityIndicator();
+      attachmentFormCell.setValue([]);
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
+    }).catch(err => {
+      alert(`Failed to upload ${err}`);
+      context.dismissActivityIndicator();
+      attachmentFormCell.setValue([]);
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
     });
-  }).then(response => {
-    attachmentFormCell.setValue([]);
-    alert("Uploaded Image");
-  }).catch(error => {
+  } catch (error) {
     alert(error);
-  });
+    context.dismissActivityIndicator();
+    attachmentFormCell.setValue([]);
+    return context.executeAction("/driverapp/Actions/ClosePage.action");
+  }
 }
 
 /***/ }),
@@ -1627,7 +1601,7 @@ __webpack_require__.r(__webpack_exports__);
  * Describe this function...
  * @param {IClientAPI} clientAPI
  */
-function ReportPOD(clientAPI) {
+async function ReportPOD(clientAPI) {
   let {
     tor_id,
     name,
@@ -1635,9 +1609,30 @@ function ReportPOD(clientAPI) {
     stop_id
   } = clientAPI.binding;
   let context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Processing .......");
   let event_reason = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
-  context.showActivityIndicator("Reporting Event......");
+  let signature = context.evaluateTargetPath("#Control:SignatureSrc/#Value");
+  if (!signature) {
+    alert("Signature required!!!");
+    context.dismissActivityIndicator();
+    return;
+  }
   // alert(`${tor_id}-${name}-${locid}-${stop_id}-${event_reason}`)
+
+  let token;
+  let targetUrl = `/action/AttachmentSet`;
+  try {
+    let response = await context.sendRequest(`/action`, {
+      "method": "GET",
+      'header': {
+        "x-csrf-token": "fetch"
+      }
+    });
+    token = response.headers["x-csrf-token"];
+  } catch (error) {
+    alert(error);
+    context.dismissActivityIndicator();
+  }
   context.setActionBinding({
     tor_id: tor_id,
     event_code: 'POD',
@@ -1645,16 +1640,41 @@ function ReportPOD(clientAPI) {
     ext_loc_id: locid,
     event_time: '' + new Date().getTime()
   });
+  const slug = {
+    tor_id: tor_id,
+    description: '',
+    attachment_type: 'ZSIG',
+    alternative_name: 'POD-Signature',
+    folder: locid
+  };
+  context.dismissActivityIndicator();
+  context.showActivityIndicator("Reporting Event......");
   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
-    return context.executeAction("/driverapp/Actions/ClosePage.action").then(() => {
+    context.dismissActivityIndicator();
+    context.showActivityIndicator("Uploading signature");
+    return context.sendRequest(targetUrl, {
+      "method": "POST",
+      'header': {
+        "Content-Type": signature.contentType,
+        "x-csrf-token": token,
+        "Slug": encodeURI(JSON.stringify(slug))
+      },
+      "body": signature.content
+    }).then(() => {
+      alert("Successfully uploaded");
       context.dismissActivityIndicator();
-      return context.executeAction({
-        Name: "/driverapp/Actions/Console.action",
-        Properties: {
-          Message: "Event Reported successfully. Kindly refresh the app to sync"
-        }
-      });
+      context.executeAction("/driverapp/Actions/ClosePage.action");
+    }).catch(err => {
+      alert(`Failed to upload ${err}`);
+      context.dismissActivityIndicator();
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
     });
+  }).catch(err => {
+    alert(`Failed to report event ${err}`);
+    context.dismissActivityIndicator();
+  }).finally(() => {
+    context.dismissActivityIndicator();
+    return context.executeAction("/driverapp/Actions/ClosePage.action");
   });
 }
 
@@ -2017,7 +2037,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportArrival.js"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}],"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"}},{"_Type":"Section.Type.FormCell","Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","Caption":"Attachment Type","HelperText":"Select an attachment type and upload","IsPickerDismissedOnSelection":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Label":"Attachment Type","PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"}]},{"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"],"IsVisible":true,"_Name":"AttachmentFormCell","_Type":"Control.Type.FormCell.Attachment","OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js"}]},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[],"_Name":"ActionBar2","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportArrival.js"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}],"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"}},{"_Type":"Section.Type.FormCell","Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","Caption":"Attachment Type","HelperText":"Select an attachment type and upload","IsPickerDismissedOnSelection":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Label":"Attachment Type","PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ATCMT"},{"DisplayValue":"Freight Picture","ReturnValue":"ATCMT"},{"DisplayValue":"Others","ReturnValue":"ATCMT"}]},{"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"],"IsVisible":true,"_Name":"AttachmentFormCell","_Type":"Control.Type.FormCell.Attachment","OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js"}]},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[],"_Name":"ActionBar2","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 

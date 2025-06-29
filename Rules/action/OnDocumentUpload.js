@@ -5,19 +5,31 @@
 export default async function OnDocumentUpload(clientAPI) {
 
     const context = clientAPI.getPageProxy();
-    let { tor_id,locid } = clientAPI.binding;
-    // alert(`${tor_id}-${locid}`)
-    const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Detail/#Control:AttachmentFormCell");
-    const attachmentList = clientAPI.evaluateTargetPath('#Page:Detail/#Control:AttachmentFormCell/#Value');
-    // const attachment = attachmentList[0];
-    if(attachmentList.length > 1 ){
+    context.showActivityIndicator("Processing .......")
+    let { tor_id, locid } = clientAPI.binding;
+    const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Stop/#Control:AttachmentFormCell");
+    const attachmentList = clientAPI.evaluateTargetPath('#Page:Stop/#Control:AttachmentFormCell/#Value');
+
+    if (attachmentList.length > 1) {
         alert("Upload one attachment at a time")
         return
     }
 
+    const attachment = attachmentList[0];
+    const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
+    const slug = {
+        tor_id: tor_id,
+        description: '',
+        attachment_type: clientAPI.evaluateTargetPath('#Control:AttachmentType/#SelectedValue') ?? 'ATCMT',
+        alternative_name: fileName,
+        folder: locid
+    };
+
     let token;
     let targetUrl = `/action/AttachmentSet`;
     try {
+        context.dismissActivityIndicator()
+        context.showActivityIndicator("Uploading .......")
         let response = await context.sendRequest(`/action`, {
             "method": "GET",
             'header': {
@@ -25,56 +37,7 @@ export default async function OnDocumentUpload(clientAPI) {
             }
         });
         token = response.headers["x-csrf-token"]
-    } catch (error) {
-        alert(error)
-    }
-    let attachmentPromises = []
-    attachmentList.forEach(attachment => {
-        const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
-        const slug = {
-            tor_id: tor_id,
-            description: '',
-            attachment_type: 'ATCMT',
-            alternative_name: fileName
-        };
-        attachmentPromises.push(
-            context.sendRequest(targetUrl, {
-                "method": "POST",
-                'header': {
-                    "Content-Type": attachment.contentType,
-                    "x-csrf-token": token,
-                    "Slug": encodeURI(JSON.stringify(slug))
-                },
-                "body": attachment.content
-            })
-        )
-    });
-    Promise.all(attachmentPromises).then((values) => {
-        alert("Uploaded Images")
-    }).catch((error) => {
-        alert("Failed to upload images")
-    }).finally(() => {
-        attachmentFormCell.setValue([]);
-    });
-    return
-
-    ////////////////////////
-    const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
-    const slug = {
-        tor_id: tor_id,
-        description: '',
-        attachment_type: 'ATCMT',
-        alternative_name: fileName
-    };
-    attachmentFormCell.setValue([]);
-    return context.sendRequest(`/action`, {
-        "method": "GET",
-        'header': {
-            "x-csrf-token": "fetch",
-        }
-    }).then((response) => {
-        let token = response.headers["x-csrf-token"];
-        let targetUrl = `/action/AttachmentSet`;
+        
         return context.sendRequest(targetUrl, {
             "method": "POST",
             'header': {
@@ -83,12 +46,23 @@ export default async function OnDocumentUpload(clientAPI) {
                 "Slug": encodeURI(JSON.stringify(slug))
             },
             "body": attachment.content
+        }).then(() => {
+            alert("Successfully uploaded")
+            context.dismissActivityIndicator()
+            attachmentFormCell.setValue([]);
+            return context.executeAction("/driverapp/Actions/ClosePage.action")
+        }).catch((err) => {
+            alert(`Failed to upload ${err}`)
+            context.dismissActivityIndicator()
+            attachmentFormCell.setValue([]);
+            return context.executeAction("/driverapp/Actions/ClosePage.action")
         });
-    }).then(response => {
+
+    } catch (error) {
+        alert(error)
+        context.dismissActivityIndicator()
         attachmentFormCell.setValue([]);
-        alert("Uploaded Image")
-    }).catch(error => {
-        alert(error);
-    });
+        return context.executeAction("/driverapp/Actions/ClosePage.action")
+    }
 
 }

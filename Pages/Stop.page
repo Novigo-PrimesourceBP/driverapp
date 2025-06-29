@@ -129,6 +129,18 @@
 								{
 									"DisplayValue": "Default",
 									"ReturnValue": "ATCMT"
+								},
+								{
+									"DisplayValue": "Key Rec",
+									"ReturnValue": "ATCMT"
+								},
+								{
+									"DisplayValue": "Freight Picture",
+									"ReturnValue": "ATCMT"
+								},
+								{
+									"DisplayValue": "Others",
+									"ReturnValue": "ATCMT"
 								}
 							]
 						},
