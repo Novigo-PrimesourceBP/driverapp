@@ -8,6 +8,7 @@ export default function FormatExecutionStyle(clientAPI) {
         case '07':
             return 'Warning';
         case '02':
+        case '08':
             return 'Danger';
         default:
             return 'Default';

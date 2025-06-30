@@ -29,6 +29,13 @@
 						"QueryOptions": "$orderby=tor_id"
 					},
 					"_Name": "SectionObjectTable0",
+					"Header": {
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "SectionCommonTypeHeader0",
+						"AccessoryType": "None",
+						"UseTopPadding": false,
+						"Caption": "#Application/#AppData/UserId"
+					},
 					"Visible": true,
 					"EmptySection": {
 						"FooterVisible": false
