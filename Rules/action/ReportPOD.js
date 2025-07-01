@@ -10,8 +10,15 @@ export default async function ReportPOD(clientAPI) {
     "#Control:EventReason/#SelectedValue"
   );
   let signature = context.evaluateTargetPath("#Control:SignatureSrc/#Value")
+  let recipient = context.evaluateTargetPath("#Control:FormCellNote0/#Value")
   if (!signature) {
     alert("Signature required!!!")
+    context.dismissActivityIndicator()
+    return
+  }
+
+  if (!recipient) {
+    alert("Enter the recipient name")
     context.dismissActivityIndicator()
     return
   }
@@ -36,7 +43,9 @@ export default async function ReportPOD(clientAPI) {
     event_code: 'POD',
     event_reason: event_reason,
     ext_loc_id: locid,
-    event_time: '' + new Date().getTime()
+    event_time: '' + new Date().getTime(),
+    recipient: recipient
+
   });
   const slug = {
     tor_id: tor_id,

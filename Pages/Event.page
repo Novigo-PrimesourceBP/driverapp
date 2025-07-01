@@ -88,6 +88,15 @@
 							"WatermarkTextMaxLines": 5
 						},
 						{
+							"_Type": "Control.Type.FormCell.Note",
+							"_Name": "FormCellNote0",
+							"IsVisible": true,
+							"Separator": true,
+							"PlaceHolder": "Recipient",
+							"Enabled": true,
+							"IsEditable": true
+						},
+						{
 							"_Type": "Control.Type.FormCell.Button",
 							"_Name": "FormCellButton0",
 							"IsVisible": true,
@@ -119,7 +128,7 @@
 	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar2",
+		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

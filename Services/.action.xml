@@ -8,6 +8,7 @@
                     <PropertyRef Name="tor_id"/>
                     <PropertyRef Name="event_time"/>
                     <PropertyRef Name="stop_id"/>
+                    <PropertyRef Name="recipient"/>
                     <PropertyRef Name="event_code"/>
                     <PropertyRef Name="ext_loc_id"/>
                     <PropertyRef Name="event_reason"/>
@@ -16,6 +17,7 @@
                 <Property Name="tor_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="event_time" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Event Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="stop_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Stop ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="recipient" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="Recipient Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="event_code" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Event" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ext_loc_id" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Business Tr. Doc. ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="event_reason" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Event Reason" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
