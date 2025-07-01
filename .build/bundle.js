@@ -7,7 +7,7 @@
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = "xtit_orderstatus_ready=Ready\nxtit_orderstatus_execution=In Execution\nxtit_orderstatus_completed=Completed\nxtit_orderstatus_notstarted=Not Started\nxtit_stopstatus_planned=Planned\nxtit_stopstatus_atstore=At Store\nxtit_stopstatus_departed=Departed"
+module.exports = "xtit_orderstatus_ready=Ready\nxtit_orderstatus_execution=In Execution\nxtit_orderstatus_completed=Completed\nxtit_orderstatus_notstarted=Not Started\nxtit_orderstatus_notready=Not Ready\nxtit_stopstatus_planned=Planned\nxtit_stopstatus_atstore=At Store\nxtit_stopstatus_departed=Departed"
 
 /***/ }),
 
@@ -129,6 +129,7 @@ let driverapp_rules_logging_tracecategories_js = __webpack_require__(/*! ./drive
 let driverapp_rules_logging_userlogsetting_js = __webpack_require__(/*! ./driverapp/Rules/Logging/UserLogSetting.js */ "./build.definitions/driverapp/Rules/Logging/UserLogSetting.js")
 let driverapp_rules_main_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/main/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js")
 let driverapp_rules_service_initialize_js = __webpack_require__(/*! ./driverapp/Rules/Service/Initialize.js */ "./build.definitions/driverapp/Rules/Service/Initialize.js")
+let driverapp_rules_syncglobal_js = __webpack_require__(/*! ./driverapp/Rules/SyncGlobal.js */ "./build.definitions/driverapp/Rules/SyncGlobal.js")
 let driverapp_services_action_service = __webpack_require__(/*! ./driverapp/Services/action.service */ "./build.definitions/driverapp/Services/action.service")
 let driverapp_services_main_service = __webpack_require__(/*! ./driverapp/Services/main.service */ "./build.definitions/driverapp/Services/main.service")
 let driverapp_styles_styles_css = __webpack_require__(/*! ./driverapp/Styles/Styles.css */ "./build.definitions/driverapp/Styles/Styles.css")
@@ -252,6 +253,7 @@ module.exports = {
 	driverapp_rules_logging_userlogsetting_js : driverapp_rules_logging_userlogsetting_js,
 	driverapp_rules_main_errorarchive_checkforsyncerror_js : driverapp_rules_main_errorarchive_checkforsyncerror_js,
 	driverapp_rules_service_initialize_js : driverapp_rules_service_initialize_js,
+	driverapp_rules_syncglobal_js : driverapp_rules_syncglobal_js,
 	driverapp_services_action_service : driverapp_services_action_service,
 	driverapp_services_main_service : driverapp_services_main_service,
 	driverapp_styles_styles_css : driverapp_styles_styles_css,
@@ -632,6 +634,8 @@ function FormatExecutionStatus(context) {
       return context.localizeText('xtit_orderstatus_ready');
     case '02':
       return context.localizeText('xtit_orderstatus_notstarted');
+    case '08':
+      return context.localizeText('xtit_orderstatus_notready');
     default:
       return execution;
   }
@@ -660,6 +664,7 @@ function FormatExecutionStyle(clientAPI) {
     case '07':
       return 'Warning';
     case '02':
+    case '08':
       return 'Danger';
     default:
       return 'Default';
@@ -1224,6 +1229,48 @@ function Initialize(context) {
       "Name": "/driverapp/Actions/GenericToastMessage.action",
       "Properties": {
         "Message": "Application Services Initialized",
+        "Animated": true,
+        "Duration": 1,
+        "IsIconHidden": true,
+        "NumberOfLines": 1
+      }
+    });
+  }).catch(() => {
+    return false;
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/SyncGlobal.js":
+/*!*********************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/SyncGlobal.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SyncGlobal)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function SyncGlobal(context) {
+  let _action = context.executeAction('/driverapp/Actions/action/Service/SyncStartedMessage.action');
+  let _main = context.executeAction('/driverapp/Actions/main/Service/SyncStartedMessage.action');
+
+  //You can add more service initialize actions here
+
+  return Promise.all([_action, _main]).then(() => {
+    // After Initializing the DB connections
+
+    // Display successful initialization  message to the user
+    return context.executeAction({
+      "Name": "/driverapp/Actions/GenericToastMessage.action",
+      "Properties": {
+        "Message": "Sync completed",
         "Animated": true,
         "Duration": 1,
         "IsIconHidden": true,
@@ -2027,7 +2074,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Header":{"_Type":"SectionCommon.Type.Header","_Name":"SectionCommonTypeHeader0","AccessoryType":"None","UseTopPadding":false,"Caption":"#Application/#AppData/UserId"},"Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Header":{"_Type":"SectionCommon.Type.Header","_Name":"SectionCommonTypeHeader0","AccessoryType":"None","UseTopPadding":false,"Caption":"#Application/#AppData/UserId"},"Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
 
 /***/ }),
 
@@ -2047,7 +2094,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = {"_Name":"driverapp","Version":"/driverapp/Globals/Application/AppDefinition_Version.global","MainPage":"/driverapp/Pages/Main.page","OnLaunch":["/driverapp/Actions/action/Service/InitializeOffline.action","/driverapp/Actions/main/Service/InitializeOffline.action"],"OnWillUpdate":"/driverapp/Rules/Application/OnWillUpdate.js","OnDidUpdate":"/driverapp/Rules/Service/Initialize.js","Styles":"/driverapp/Styles/Styles.css","Localization":"/driverapp/i18n/i18n.properties","_SchemaVersion":"25.6","StyleSheets":{"Styles":{"css":"/driverapp/Styles/Styles.light.css","ios":"/driverapp/Styles/Styles.light.nss","android":"/driverapp/Styles/Styles.light.json"}},"SDKStyles":{"ios":"/driverapp/Styles/Styles.light.nss","android":"/driverapp/Styles/Styles.light.json"}}
+module.exports = {"_Name":"driverapp","Version":"/driverapp/Globals/Application/AppDefinition_Version.global","MainPage":"/driverapp/Pages/Main.page","OnLaunch":"/driverapp/Rules/Service/Initialize.js","OnWillUpdate":"/driverapp/Rules/Application/OnWillUpdate.js","OnDidUpdate":"/driverapp/Rules/Service/Initialize.js","Styles":"/driverapp/Styles/Styles.css","Localization":"/driverapp/i18n/i18n.properties","_SchemaVersion":"25.6","StyleSheets":{"Styles":{"css":"/driverapp/Styles/Styles.light.css","ios":"/driverapp/Styles/Styles.light.nss","android":"/driverapp/Styles/Styles.light.json"}},"SDKStyles":{"ios":"/driverapp/Styles/Styles.light.nss","android":"/driverapp/Styles/Styles.light.json"}}
 
 /***/ }),
 

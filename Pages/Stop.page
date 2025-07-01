@@ -132,16 +132,21 @@
 								},
 								{
 									"DisplayValue": "Key Rec",
-									"ReturnValue": "ATCMT"
+									"ReturnValue": "ZKEYR"
 								},
 								{
 									"DisplayValue": "Freight Picture",
-									"ReturnValue": "ATCMT"
+									"ReturnValue": "ZFPIC"
+								},
+								{
+									"DisplayValue": "Signature",
+									"ReturnValue": "ZSIG"
 								},
 								{
 									"DisplayValue": "Others",
-									"ReturnValue": "ATCMT"
+									"ReturnValue": "ZOTHE"
 								}
+								
 							]
 						},
 						{

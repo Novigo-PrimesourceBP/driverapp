@@ -2,10 +2,7 @@
 	"_Name": "driverapp",
 	"Version": "/driverapp/Globals/Application/AppDefinition_Version.global",
 	"MainPage": "/driverapp/Pages/Main.page",
-	"OnLaunch": [
-		"/driverapp/Actions/action/Service/InitializeOffline.action",
-		"/driverapp/Actions/main/Service/InitializeOffline.action"
-	],
+	"OnLaunch": "/driverapp/Rules/Service/Initialize.js",
 	"OnWillUpdate": "/driverapp/Rules/Application/OnWillUpdate.js",
 	"OnDidUpdate": "/driverapp/Rules/Service/Initialize.js",
 	"Styles": "/driverapp/Styles/Styles.less",

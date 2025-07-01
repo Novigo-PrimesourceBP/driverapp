@@ -103,7 +103,7 @@
 				"Caption": "Sync",
 				"Position": "Right",
 				"IsIconCircular": false,
-				"OnPress": "/driverapp/Actions/action/Service/SyncStartedMessage.action"
+				"OnPress": "/driverapp/Rules/SyncGlobal.js"
 			},
 			{
 				"_Type": "Control.Type.ActionBarItem",
