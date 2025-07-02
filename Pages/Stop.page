@@ -54,18 +54,22 @@
 					}
 				},
 				{
-					"_Type": "Section.Type.ButtonTable",
-					"_Name": "ActionButtons",
-					"Visible": true,
-					"EmptySection": {
-						"FooterVisible": false
-					},
 					"Separators": {
 						"TopSectionSeparator": false,
 						"BottomSectionSeparator": true,
 						"HeaderSeparator": true,
 						"FooterSeparator": true,
 						"ControlSeparator": true
+					},
+					"Layout": {
+						"LayoutType": "Vertical",
+						"HorizontalAlignment": "Leading"
+					},
+					"_Type": "Section.Type.ButtonTable",
+					"_Name": "ActionButtons",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
 					},
 					"Buttons": [
 						{
@@ -75,11 +79,12 @@
 							"Alignment": "Center",
 							"ButtonType": "Text",
 							"Semantic": "Tint",
+							"Image": "sap-icon://journey-arrive",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
 							"Visible": true,
 							"Enabled": true,
-							"OnPress":"/driverapp/Rules/action/ReportArrival.js"
+							"OnPress": "/driverapp/Rules/action/ReportArrival.js"
 						},
 						{
 							"_Type": "ButtonTable.Type.Button",
@@ -88,11 +93,12 @@
 							"Alignment": "Center",
 							"ButtonType": "Text",
 							"Semantic": "Tint",
+							"Image": "sap-icon://journey-depart",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
 							"Visible": true,
 							"Enabled": true,
-							"OnPress":"/driverapp/Rules/action/ReportDeparture.js"
+							"OnPress": "/driverapp/Rules/action/ReportDeparture.js"
 						},
 						{
 							"_Type": "ButtonTable.Type.Button",
@@ -101,31 +107,32 @@
 							"Alignment": "Center",
 							"ButtonType": "Text",
 							"Semantic": "Tint",
+							"Image": "sap-icon://customer-order-entry",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
 							"Visible": true,
 							"Enabled": true,
-							"OnPress":"/driverapp/Actions/Navigation/To_Event.action"
+							"OnPress": "/driverapp/Actions/Navigation/To_Event.action"
 						}
-					],
-					"Layout": {
-						"LayoutType": "Vertical",
-						"HorizontalAlignment": "Leading"
-					}
+					]
 				},
 				{
-					"_Type": "Section.Type.FormCell",
 					"Controls": [
 						{
 							"_Type": "Control.Type.FormCell.ListPicker",
 							"_Name": "AttachmentType",
-							"Caption": "Attachment Type",
-							"HelperText": "Select an attachment type and upload",
-							"IsPickerDismissedOnSelection": true,
+							"IsVisible": true,
+							"Separator": true,
 							"AllowMultipleSelection": false,
 							"AllowEmptySelection": false,
+							"Caption": "Attachment Type",
 							"Label": "Attachment Type",
-							"PickerItems" : [
+							"HelperText": "Select an attachment type and upload",
+							"IsSelectedSectionEnabled": false,
+							"IsPickerDismissedOnSelection": true,
+							"AllowDefaultValueIfOneItem": false,
+							"IsEditable": true,
+							"PickerItems": [
 								{
 									"DisplayValue": "Default",
 									"ReturnValue": "ATCMT"
@@ -146,22 +153,34 @@
 									"DisplayValue": "Others",
 									"ReturnValue": "ZOTHE"
 								}
-								
 							]
 						},
 						{
+							"_Type": "Control.Type.FormCell.Attachment",
+							"_Name": "AttachmentFormCell",
+							"IsVisible": true,
+							"Separator": true,
+							"OnValueChange": "/driverapp/Rules/action/OnDocumentUpload.js",
 							"AttachmentActionType": [
 								"AddPhoto",
 								"TakePhoto",
 								"SelectFile"
-							],
-							"IsVisible": true,
-							"_Name": "AttachmentFormCell",
-							"_Type": "Control.Type.FormCell.Attachment",
-							"OnValueChange" : "/driverapp/Rules/action/OnDocumentUpload.js"
-
+							]
 						}
-					]
+					],
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0"
 				},
 				{
 					"Header": {
@@ -229,8 +248,17 @@
 	"_Type": "Page",
 	"_Name": "Stop",
 	"ActionBar": {
-		"Items": [],
-		"_Name": "ActionBar2",
+		"Items": [
+			{
+				"_Type": "Control.Type.ActionBarItem",
+				"_Name": "Navigation",
+				"Caption": "Navigate",
+				"Icon": "sap-icon://map-2",
+				"Position": "Right",
+				"IsIconCircular": true
+			}
+		],
+		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

@@ -25,7 +25,11 @@ export default function ReportArrival(clientAPI) {
                     Message: "Event Reported successfully. Kindly refresh the app to sync",
                   },
                 });
+              }).catch((err)=>{
+                context.dismissActivityIndicator()
               });
+        }).catch((err)=>{
+          context.dismissActivityIndicator()
         })
     } catch (error) {
         context.dismissActivityIndicator()

@@ -146,11 +146,26 @@
 					"Buttons": [
 						{
 							"_Type": "ButtonTable.Type.Button",
+							"_Name": "ButtonTableTypeButton0",
+							"Title": "Departure",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"Image": "sap-icon://journey-depart",
+							"ImagePosition": "Leading",
+							"FullWidth": false,
+							"Visible": true,
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"
+						},
+						{
+							"_Type": "ButtonTable.Type.Button",
 							"_Name": "Delay",
 							"Title": "Delay",
 							"Alignment": "Center",
 							"ButtonType": "Text",
 							"Semantic": "Negative",
+							"Image": "sap-icon://lateness",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
 							"Visible": true,
@@ -225,7 +240,7 @@
 	"_Name": "Detail",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar3",
+		"_Name": "ActionBar4",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
