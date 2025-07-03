@@ -29,6 +29,13 @@
 						"QueryOptions": "$orderby=tor_id"
 					},
 					"_Name": "SectionObjectTable0",
+					"Header": {
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "SectionCommonTypeHeader0",
+						"AccessoryType": "None",
+						"UseTopPadding": false,
+						"Caption": "#Application/#AppData/UserId"
+					},
 					"Visible": true,
 					"EmptySection": {
 						"FooterVisible": false
@@ -43,13 +50,16 @@
 						},
 						"Title": "{tor_id}",
 						"Subhead": "To: {des_city}",
-						"Footnote": "/driverapp/Rules/Formatters/Pickup.js",
+						"Footnote": "/driverapp/Rules/Formatters/PickupDate.js",
 						"Description": "Util: {max_util}%",
 						"DisplayDescriptionInMobile": true,
 						"StatusText": "/driverapp/Rules/Formatters/ExecutionStatus.js",
-						"SubstatusText": "/driverapp/Rules/Formatters/Pickup.js",
+						"SubstatusText": "/driverapp/Rules/Formatters/PickupTime.js",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
+						"Icons": [
+							"sap-icon://shipping-status"
+						],
 						"Tags": [],
 						"AvatarStack": {
 							"ImageIsCircular": true,
@@ -58,6 +68,7 @@
 						"AvatarGrid": {
 							"ImageIsCircular": true
 						},
+						"OnPress": "/driverapp/Actions/Navigation/To_Detail.action",
 						"Styles": {
 							"StatusText": "/driverapp/Rules/Formatters/ExecutionStatus.js",
 							"SubstatusText": "/driverapp/Rules/Formatters/Pickup.js",
@@ -67,15 +78,6 @@
 						"Selected": false
 					},
 					"Search": {
-						"Options": {
-							"CaseSensitive": false,
-							"NumberSearch": {
-								"Enabled": false
-							},
-							"UseSearchOverFilter": {
-								"Enabled": true
-							}
-						},
 						"Enabled": true
 					},
 					"DataPaging": {
@@ -100,19 +102,25 @@
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Sync",
 				"Caption": "Sync",
-				"Position": "Left",
+				"Position": "Right",
 				"IsIconCircular": false,
-				"Visible": true,
-				"OnPress": "/driverapp/Actions/action/Service/SyncStartedMessage.action"
+				"OnPress": "/driverapp/Rules/SyncGlobal.js"
 			},
 			{
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Logout",
 				"Caption": "Logout",
-				"Icon": "/driverapp/Images/logout.png",
 				"Position": "Right",
 				"IsIconCircular": false,
 				"OnPress": "/driverapp/Actions/Application/Logout.action"
+			},
+			{
+				"_Type": "Control.Type.ActionBarItem",
+				"_Name": "Reset",
+				"Caption": "Reset",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"OnPress": "/driverapp/Actions/action/Service/Reset.action"
 			}
 		],
 		"_Name": "ActionBar3",

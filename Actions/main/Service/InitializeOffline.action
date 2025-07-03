@@ -23,7 +23,7 @@
     ],
     "_Type": "Action.Type.ODataService.Initialize",
     "ShowActivityIndicator": true,
-    "ActivityIndicatorText": "Downloading...",
+    "ActivityIndicatorText": "Downloading Shipments...",
     "ActionResult": {
         "_Name": "init"
     },

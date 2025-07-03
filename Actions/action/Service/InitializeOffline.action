@@ -11,7 +11,7 @@
     ],
     "_Type": "Action.Type.ODataService.Initialize",
     "ShowActivityIndicator": true,
-    "ActivityIndicatorText": "Downloading...",
+    "ActivityIndicatorText": "Downloading actions...",
     "ActionResult": {
         "_Name": "init"
     },

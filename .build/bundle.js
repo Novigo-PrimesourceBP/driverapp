@@ -7,7 +7,7 @@
   \**********************************************************/
 /***/ ((module) => {
 
-module.exports = ""
+module.exports = "xtit_orderstatus_ready=Ready\nxtit_orderstatus_execution=In Execution\nxtit_orderstatus_completed=Completed\nxtit_orderstatus_notstarted=Not Started\nxtit_orderstatus_notready=Not Ready\nxtit_stopstatus_planned=Planned\nxtit_stopstatus_atstore=At Store\nxtit_stopstatus_departed=Departed"
 
 /***/ }),
 
@@ -25,8 +25,13 @@ let driverapp_actions_action_service_downloadoffline_action = __webpack_require_
 let driverapp_actions_action_service_downloadstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/DownloadStartedMessage.action */ "./build.definitions/driverapp/Actions/action/Service/DownloadStartedMessage.action")
 let driverapp_actions_action_service_initializeoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/InitializeOffline.action */ "./build.definitions/driverapp/Actions/action/Service/InitializeOffline.action")
 let driverapp_actions_action_service_initializeofflinefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action */ "./build.definitions/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action")
+let driverapp_actions_action_service_reportarrivaleventconfirmation_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action */ "./build.definitions/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action")
+let driverapp_actions_action_service_reportdepartureeventconfirmation_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action */ "./build.definitions/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action")
+let driverapp_actions_action_service_reportevent_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/ReportEvent.action */ "./build.definitions/driverapp/Actions/action/Service/ReportEvent.action")
+let driverapp_actions_action_service_reset_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/Reset.action */ "./build.definitions/driverapp/Actions/action/Service/Reset.action")
 let driverapp_actions_action_service_syncfailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/SyncFailureMessage.action */ "./build.definitions/driverapp/Actions/action/Service/SyncFailureMessage.action")
 let driverapp_actions_action_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/action/Service/SyncStartedMessage.action")
+let driverapp_actions_action_service_uploadattachment_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/UploadAttachment.action */ "./build.definitions/driverapp/Actions/action/Service/UploadAttachment.action")
 let driverapp_actions_action_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/action/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/action/Service/UploadOffline.action")
 let driverapp_actions_application_appupdate_action = __webpack_require__(/*! ./driverapp/Actions/Application/AppUpdate.action */ "./build.definitions/driverapp/Actions/Application/AppUpdate.action")
 let driverapp_actions_application_appupdatefailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/Application/AppUpdateFailureMessage.action */ "./build.definitions/driverapp/Actions/Application/AppUpdateFailureMessage.action")
@@ -43,6 +48,7 @@ let driverapp_actions_application_usermenupopover_action = __webpack_require__(/
 let driverapp_actions_closemodalpage_cancel_action = __webpack_require__(/*! ./driverapp/Actions/CloseModalPage_Cancel.action */ "./build.definitions/driverapp/Actions/CloseModalPage_Cancel.action")
 let driverapp_actions_closemodalpage_complete_action = __webpack_require__(/*! ./driverapp/Actions/CloseModalPage_Complete.action */ "./build.definitions/driverapp/Actions/CloseModalPage_Complete.action")
 let driverapp_actions_closepage_action = __webpack_require__(/*! ./driverapp/Actions/ClosePage.action */ "./build.definitions/driverapp/Actions/ClosePage.action")
+let driverapp_actions_console_action = __webpack_require__(/*! ./driverapp/Actions/Console.action */ "./build.definitions/driverapp/Actions/Console.action")
 let driverapp_actions_errorarchive_errorarchive_syncfailure_action = __webpack_require__(/*! ./driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action */ "./build.definitions/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action")
 let driverapp_actions_errorarchive_navtoerrorarchive_detail_action = __webpack_require__(/*! ./driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action */ "./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_Detail.action")
 let driverapp_actions_errorarchive_navtoerrorarchive_list_action = __webpack_require__(/*! ./driverapp/Actions/ErrorArchive/NavToErrorArchive_List.action */ "./build.definitions/driverapp/Actions/ErrorArchive/NavToErrorArchive_List.action")
@@ -64,6 +70,9 @@ let driverapp_actions_main_service_initializeofflinefailuremessage_action = __we
 let driverapp_actions_main_service_syncfailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncFailureMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncFailureMessage.action")
 let driverapp_actions_main_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncStartedMessage.action")
 let driverapp_actions_main_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/main/Service/UploadOffline.action")
+let driverapp_actions_navigation_to_detail_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Detail.action */ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action")
+let driverapp_actions_navigation_to_event_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Event.action */ "./build.definitions/driverapp/Actions/Navigation/To_Event.action")
+let driverapp_actions_navigation_to_stop_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Stop.action */ "./build.definitions/driverapp/Actions/Navigation/To_Stop.action")
 let driverapp_globals_application_appdefinition_version_global = __webpack_require__(/*! ./driverapp/Globals/Application/AppDefinition_Version.global */ "./build.definitions/driverapp/Globals/Application/AppDefinition_Version.global")
 let driverapp_globals_application_applicationname_global = __webpack_require__(/*! ./driverapp/Globals/Application/ApplicationName.global */ "./build.definitions/driverapp/Globals/Application/ApplicationName.global")
 let driverapp_globals_application_supportemail_global = __webpack_require__(/*! ./driverapp/Globals/Application/SupportEmail.global */ "./build.definitions/driverapp/Globals/Application/SupportEmail.global")
@@ -73,10 +82,25 @@ let driverapp_jsconfig_json = __webpack_require__(/*! ./driverapp/jsconfig.json 
 let driverapp_pages_application_about_page = __webpack_require__(/*! ./driverapp/Pages/Application/About.page */ "./build.definitions/driverapp/Pages/Application/About.page")
 let driverapp_pages_application_support_page = __webpack_require__(/*! ./driverapp/Pages/Application/Support.page */ "./build.definitions/driverapp/Pages/Application/Support.page")
 let driverapp_pages_application_useractivitylog_page = __webpack_require__(/*! ./driverapp/Pages/Application/UserActivityLog.page */ "./build.definitions/driverapp/Pages/Application/UserActivityLog.page")
+let driverapp_pages_attachment_page = __webpack_require__(/*! ./driverapp/Pages/Attachment.page */ "./build.definitions/driverapp/Pages/Attachment.page")
+let driverapp_pages_detail_page = __webpack_require__(/*! ./driverapp/Pages/Detail.page */ "./build.definitions/driverapp/Pages/Detail.page")
 let driverapp_pages_errorarchive_errorarchive_detail_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page")
 let driverapp_pages_errorarchive_errorarchive_list_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_List.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_List.page")
+let driverapp_pages_event_page = __webpack_require__(/*! ./driverapp/Pages/Event.page */ "./build.definitions/driverapp/Pages/Event.page")
 let driverapp_pages_main_page = __webpack_require__(/*! ./driverapp/Pages/Main.page */ "./build.definitions/driverapp/Pages/Main.page")
+let driverapp_pages_stop_page = __webpack_require__(/*! ./driverapp/Pages/Stop.page */ "./build.definitions/driverapp/Pages/Stop.page")
+let driverapp_rules_action_createfailure_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateFailure.js */ "./build.definitions/driverapp/Rules/action/CreateFailure.js")
+let driverapp_rules_action_createsuccess_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateSuccess.js */ "./build.definitions/driverapp/Rules/action/CreateSuccess.js")
 let driverapp_rules_action_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/action/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js")
+let driverapp_rules_action_ondocumentupload_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUpload.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUpload.js")
+let driverapp_rules_action_ondocumentuploadpress_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUploadPress.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUploadPress.js")
+let driverapp_rules_action_reportarrival_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrival.js */ "./build.definitions/driverapp/Rules/action/ReportArrival.js")
+let driverapp_rules_action_reportarrivalconfirmation_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrivalConfirmation.js */ "./build.definitions/driverapp/Rules/action/ReportArrivalConfirmation.js")
+let driverapp_rules_action_reportdeparture_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportDeparture.js */ "./build.definitions/driverapp/Rules/action/ReportDeparture.js")
+let driverapp_rules_action_reportdepartureconfirmation_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportDepartureConfirmation.js */ "./build.definitions/driverapp/Rules/action/ReportDepartureConfirmation.js")
+let driverapp_rules_action_reportdeparturesource_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportDepartureSource.js */ "./build.definitions/driverapp/Rules/action/ReportDepartureSource.js")
+let driverapp_rules_action_reportevent_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportEvent.js */ "./build.definitions/driverapp/Rules/action/ReportEvent.js")
+let driverapp_rules_action_reportpod_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportPOD.js */ "./build.definitions/driverapp/Rules/action/ReportPOD.js")
 let driverapp_rules_application_appupdatefailure_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateFailure.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateFailure.js")
 let driverapp_rules_application_appupdatesuccess_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateSuccess.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateSuccess.js")
 let driverapp_rules_application_clientismultiusermode_js = __webpack_require__(/*! ./driverapp/Rules/Application/ClientIsMultiUserMode.js */ "./build.definitions/driverapp/Rules/Application/ClientIsMultiUserMode.js")
@@ -84,8 +108,20 @@ let driverapp_rules_application_getclientsupportversions_js = __webpack_require_
 let driverapp_rules_application_getclientversion_js = __webpack_require__(/*! ./driverapp/Rules/Application/GetClientVersion.js */ "./build.definitions/driverapp/Rules/Application/GetClientVersion.js")
 let driverapp_rules_application_onwillupdate_js = __webpack_require__(/*! ./driverapp/Rules/Application/OnWillUpdate.js */ "./build.definitions/driverapp/Rules/Application/OnWillUpdate.js")
 let driverapp_rules_application_resetappsettingsandlogout_js = __webpack_require__(/*! ./driverapp/Rules/Application/ResetAppSettingsAndLogout.js */ "./build.definitions/driverapp/Rules/Application/ResetAppSettingsAndLogout.js")
+let driverapp_rules_formatters_arrival_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Arrival.js */ "./build.definitions/driverapp/Rules/Formatters/Arrival.js")
+let driverapp_rules_formatters_departure_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Departure.js */ "./build.definitions/driverapp/Rules/Formatters/Departure.js")
+let driverapp_rules_formatters_destinationlocation_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/DestinationLocation.js */ "./build.definitions/driverapp/Rules/Formatters/DestinationLocation.js")
+let driverapp_rules_formatters_executionstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStatus.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js")
 let driverapp_rules_formatters_executionstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStyle.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js")
 let driverapp_rules_formatters_pickup_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Pickup.js */ "./build.definitions/driverapp/Rules/Formatters/Pickup.js")
+let driverapp_rules_formatters_pickupdate_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupDate.js */ "./build.definitions/driverapp/Rules/Formatters/PickupDate.js")
+let driverapp_rules_formatters_pickuptime_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupTime.js */ "./build.definitions/driverapp/Rules/Formatters/PickupTime.js")
+let driverapp_rules_formatters_return_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Return.js */ "./build.definitions/driverapp/Rules/Formatters/Return.js")
+let driverapp_rules_formatters_sourcelocation_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/SourceLocation.js */ "./build.definitions/driverapp/Rules/Formatters/SourceLocation.js")
+let driverapp_rules_formatters_stopaddress_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopAddress.js */ "./build.definitions/driverapp/Rules/Formatters/StopAddress.js")
+let driverapp_rules_formatters_stopstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatus.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatus.js")
+let driverapp_rules_formatters_stopstatusstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatusStyle.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js")
+let driverapp_rules_formatters_stoptime_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopTime.js */ "./build.definitions/driverapp/Rules/Formatters/StopTime.js")
 let driverapp_rules_logging_loglevels_js = __webpack_require__(/*! ./driverapp/Rules/Logging/LogLevels.js */ "./build.definitions/driverapp/Rules/Logging/LogLevels.js")
 let driverapp_rules_logging_settracecategories_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetTraceCategories.js */ "./build.definitions/driverapp/Rules/Logging/SetTraceCategories.js")
 let driverapp_rules_logging_setuserloglevel_js = __webpack_require__(/*! ./driverapp/Rules/Logging/SetUserLogLevel.js */ "./build.definitions/driverapp/Rules/Logging/SetUserLogLevel.js")
@@ -94,6 +130,7 @@ let driverapp_rules_logging_tracecategories_js = __webpack_require__(/*! ./drive
 let driverapp_rules_logging_userlogsetting_js = __webpack_require__(/*! ./driverapp/Rules/Logging/UserLogSetting.js */ "./build.definitions/driverapp/Rules/Logging/UserLogSetting.js")
 let driverapp_rules_main_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/main/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js")
 let driverapp_rules_service_initialize_js = __webpack_require__(/*! ./driverapp/Rules/Service/Initialize.js */ "./build.definitions/driverapp/Rules/Service/Initialize.js")
+let driverapp_rules_syncglobal_js = __webpack_require__(/*! ./driverapp/Rules/SyncGlobal.js */ "./build.definitions/driverapp/Rules/SyncGlobal.js")
 let driverapp_services_action_service = __webpack_require__(/*! ./driverapp/Services/action.service */ "./build.definitions/driverapp/Services/action.service")
 let driverapp_services_main_service = __webpack_require__(/*! ./driverapp/Services/main.service */ "./build.definitions/driverapp/Services/main.service")
 let driverapp_styles_styles_css = __webpack_require__(/*! ./driverapp/Styles/Styles.css */ "./build.definitions/driverapp/Styles/Styles.css")
@@ -113,8 +150,13 @@ module.exports = {
 	driverapp_actions_action_service_downloadstartedmessage_action : driverapp_actions_action_service_downloadstartedmessage_action,
 	driverapp_actions_action_service_initializeoffline_action : driverapp_actions_action_service_initializeoffline_action,
 	driverapp_actions_action_service_initializeofflinefailuremessage_action : driverapp_actions_action_service_initializeofflinefailuremessage_action,
+	driverapp_actions_action_service_reportarrivaleventconfirmation_action : driverapp_actions_action_service_reportarrivaleventconfirmation_action,
+	driverapp_actions_action_service_reportdepartureeventconfirmation_action : driverapp_actions_action_service_reportdepartureeventconfirmation_action,
+	driverapp_actions_action_service_reportevent_action : driverapp_actions_action_service_reportevent_action,
+	driverapp_actions_action_service_reset_action : driverapp_actions_action_service_reset_action,
 	driverapp_actions_action_service_syncfailuremessage_action : driverapp_actions_action_service_syncfailuremessage_action,
 	driverapp_actions_action_service_syncstartedmessage_action : driverapp_actions_action_service_syncstartedmessage_action,
+	driverapp_actions_action_service_uploadattachment_action : driverapp_actions_action_service_uploadattachment_action,
 	driverapp_actions_action_service_uploadoffline_action : driverapp_actions_action_service_uploadoffline_action,
 	driverapp_actions_application_appupdate_action : driverapp_actions_application_appupdate_action,
 	driverapp_actions_application_appupdatefailuremessage_action : driverapp_actions_application_appupdatefailuremessage_action,
@@ -131,6 +173,7 @@ module.exports = {
 	driverapp_actions_closemodalpage_cancel_action : driverapp_actions_closemodalpage_cancel_action,
 	driverapp_actions_closemodalpage_complete_action : driverapp_actions_closemodalpage_complete_action,
 	driverapp_actions_closepage_action : driverapp_actions_closepage_action,
+	driverapp_actions_console_action : driverapp_actions_console_action,
 	driverapp_actions_errorarchive_errorarchive_syncfailure_action : driverapp_actions_errorarchive_errorarchive_syncfailure_action,
 	driverapp_actions_errorarchive_navtoerrorarchive_detail_action : driverapp_actions_errorarchive_navtoerrorarchive_detail_action,
 	driverapp_actions_errorarchive_navtoerrorarchive_list_action : driverapp_actions_errorarchive_navtoerrorarchive_list_action,
@@ -152,6 +195,9 @@ module.exports = {
 	driverapp_actions_main_service_syncfailuremessage_action : driverapp_actions_main_service_syncfailuremessage_action,
 	driverapp_actions_main_service_syncstartedmessage_action : driverapp_actions_main_service_syncstartedmessage_action,
 	driverapp_actions_main_service_uploadoffline_action : driverapp_actions_main_service_uploadoffline_action,
+	driverapp_actions_navigation_to_detail_action : driverapp_actions_navigation_to_detail_action,
+	driverapp_actions_navigation_to_event_action : driverapp_actions_navigation_to_event_action,
+	driverapp_actions_navigation_to_stop_action : driverapp_actions_navigation_to_stop_action,
 	driverapp_globals_application_appdefinition_version_global : driverapp_globals_application_appdefinition_version_global,
 	driverapp_globals_application_applicationname_global : driverapp_globals_application_applicationname_global,
 	driverapp_globals_application_supportemail_global : driverapp_globals_application_supportemail_global,
@@ -161,10 +207,25 @@ module.exports = {
 	driverapp_pages_application_about_page : driverapp_pages_application_about_page,
 	driverapp_pages_application_support_page : driverapp_pages_application_support_page,
 	driverapp_pages_application_useractivitylog_page : driverapp_pages_application_useractivitylog_page,
+	driverapp_pages_attachment_page : driverapp_pages_attachment_page,
+	driverapp_pages_detail_page : driverapp_pages_detail_page,
 	driverapp_pages_errorarchive_errorarchive_detail_page : driverapp_pages_errorarchive_errorarchive_detail_page,
 	driverapp_pages_errorarchive_errorarchive_list_page : driverapp_pages_errorarchive_errorarchive_list_page,
+	driverapp_pages_event_page : driverapp_pages_event_page,
 	driverapp_pages_main_page : driverapp_pages_main_page,
+	driverapp_pages_stop_page : driverapp_pages_stop_page,
+	driverapp_rules_action_createfailure_js : driverapp_rules_action_createfailure_js,
+	driverapp_rules_action_createsuccess_js : driverapp_rules_action_createsuccess_js,
 	driverapp_rules_action_errorarchive_checkforsyncerror_js : driverapp_rules_action_errorarchive_checkforsyncerror_js,
+	driverapp_rules_action_ondocumentupload_js : driverapp_rules_action_ondocumentupload_js,
+	driverapp_rules_action_ondocumentuploadpress_js : driverapp_rules_action_ondocumentuploadpress_js,
+	driverapp_rules_action_reportarrival_js : driverapp_rules_action_reportarrival_js,
+	driverapp_rules_action_reportarrivalconfirmation_js : driverapp_rules_action_reportarrivalconfirmation_js,
+	driverapp_rules_action_reportdeparture_js : driverapp_rules_action_reportdeparture_js,
+	driverapp_rules_action_reportdepartureconfirmation_js : driverapp_rules_action_reportdepartureconfirmation_js,
+	driverapp_rules_action_reportdeparturesource_js : driverapp_rules_action_reportdeparturesource_js,
+	driverapp_rules_action_reportevent_js : driverapp_rules_action_reportevent_js,
+	driverapp_rules_action_reportpod_js : driverapp_rules_action_reportpod_js,
 	driverapp_rules_application_appupdatefailure_js : driverapp_rules_application_appupdatefailure_js,
 	driverapp_rules_application_appupdatesuccess_js : driverapp_rules_application_appupdatesuccess_js,
 	driverapp_rules_application_clientismultiusermode_js : driverapp_rules_application_clientismultiusermode_js,
@@ -172,8 +233,20 @@ module.exports = {
 	driverapp_rules_application_getclientversion_js : driverapp_rules_application_getclientversion_js,
 	driverapp_rules_application_onwillupdate_js : driverapp_rules_application_onwillupdate_js,
 	driverapp_rules_application_resetappsettingsandlogout_js : driverapp_rules_application_resetappsettingsandlogout_js,
+	driverapp_rules_formatters_arrival_js : driverapp_rules_formatters_arrival_js,
+	driverapp_rules_formatters_departure_js : driverapp_rules_formatters_departure_js,
+	driverapp_rules_formatters_destinationlocation_js : driverapp_rules_formatters_destinationlocation_js,
+	driverapp_rules_formatters_executionstatus_js : driverapp_rules_formatters_executionstatus_js,
 	driverapp_rules_formatters_executionstyle_js : driverapp_rules_formatters_executionstyle_js,
 	driverapp_rules_formatters_pickup_js : driverapp_rules_formatters_pickup_js,
+	driverapp_rules_formatters_pickupdate_js : driverapp_rules_formatters_pickupdate_js,
+	driverapp_rules_formatters_pickuptime_js : driverapp_rules_formatters_pickuptime_js,
+	driverapp_rules_formatters_return_js : driverapp_rules_formatters_return_js,
+	driverapp_rules_formatters_sourcelocation_js : driverapp_rules_formatters_sourcelocation_js,
+	driverapp_rules_formatters_stopaddress_js : driverapp_rules_formatters_stopaddress_js,
+	driverapp_rules_formatters_stopstatus_js : driverapp_rules_formatters_stopstatus_js,
+	driverapp_rules_formatters_stopstatusstyle_js : driverapp_rules_formatters_stopstatusstyle_js,
+	driverapp_rules_formatters_stoptime_js : driverapp_rules_formatters_stoptime_js,
 	driverapp_rules_logging_loglevels_js : driverapp_rules_logging_loglevels_js,
 	driverapp_rules_logging_settracecategories_js : driverapp_rules_logging_settracecategories_js,
 	driverapp_rules_logging_setuserloglevel_js : driverapp_rules_logging_setuserloglevel_js,
@@ -182,6 +255,7 @@ module.exports = {
 	driverapp_rules_logging_userlogsetting_js : driverapp_rules_logging_userlogsetting_js,
 	driverapp_rules_main_errorarchive_checkforsyncerror_js : driverapp_rules_main_errorarchive_checkforsyncerror_js,
 	driverapp_rules_service_initialize_js : driverapp_rules_service_initialize_js,
+	driverapp_rules_syncglobal_js : driverapp_rules_syncglobal_js,
 	driverapp_services_action_service : driverapp_services_action_service,
 	driverapp_services_main_service : driverapp_services_main_service,
 	driverapp_styles_styles_css : driverapp_styles_styles_css,
@@ -458,6 +532,119 @@ function ResetAppSettingsAndLogout(clientAPI) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/Formatters/Arrival.js":
+/*!*****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Arrival.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Arrival)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function Arrival(clientAPI) {
+  let dt = clientAPI.binding.pln_arr_dt;
+  let ti = clientAPI.binding.pln_arr_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = clientAPI.formatDatetime(time);
+  if (!dt || !ti) return 'Arrival : TBD';
+  return `Arrival : ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/Departure.js":
+/*!*******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Departure.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Departure)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function Departure(clientAPI) {
+  let dt = clientAPI.binding.pln_dep_dt;
+  let ti = clientAPI.binding.pln_dep_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = clientAPI.formatDatetime(time);
+  if (!dt || !ti) return 'Departure : TBD';
+  return `Departure : ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/DestinationLocation.js":
+/*!*****************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/DestinationLocation.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DestionationLocation)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function DestionationLocation(clientAPI) {
+  let {
+    des_name,
+    des_house_num,
+    des_street,
+    des_city,
+    des_post_code,
+    des_region,
+    des_country
+  } = clientAPI.binding;
+  return `${des_name},\n${des_house_num},${des_street},\n${des_city}-${des_post_code},${des_region},${des_country}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatExecutionStatus)
+/* harmony export */ });
+function FormatExecutionStatus(context) {
+  let execution = context.getBindingObject().execution;
+  switch (execution) {
+    case '04':
+      return context.localizeText('xtit_orderstatus_completed');
+    case '03':
+      return context.localizeText('xtit_orderstatus_execution');
+    case '07':
+      return context.localizeText('xtit_orderstatus_ready');
+    case '02':
+      return context.localizeText('xtit_orderstatus_notstarted');
+    case '08':
+      return context.localizeText('xtit_orderstatus_notready');
+    default:
+      return execution;
+  }
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js":
 /*!************************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js ***!
@@ -479,6 +666,7 @@ function FormatExecutionStyle(clientAPI) {
     case '07':
       return 'Warning';
     case '02':
+    case '08':
       return 'Danger';
     default:
       return 'Default';
@@ -507,8 +695,244 @@ function FormatPickup(context) {
   let ti = context.getBindingObject().pln_dep_ti;
   // let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), 0);
   let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = context.formatDate(time);
+  return `On: ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/PickupDate.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/PickupDate.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatPickup)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function FormatPickup(context) {
+  let dt = context.getBindingObject().pln_dep_dt;
+  let ti = context.getBindingObject().pln_dep_ti;
+  // let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), 0);
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
   let text = context.formatDate(time);
   return `On: ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/PickupTime.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/PickupTime.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatPickupTime)
+/* harmony export */ });
+function FormatPickupTime(context) {
+  let dt = context.getBindingObject().pln_dep_dt;
+  let ti = context.getBindingObject().pln_dep_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = context.formatTime(time);
+  return `At: ${text}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/Return.js":
+/*!****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/Return.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FormatReturn)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function FormatReturn(context) {
+  let dt = context.getBindingObject().pln_arr_dt;
+  let ti = context.getBindingObject().pln_arr_ti;
+  let time = new Date(Number(dt.substr(0, 4)), Number(dt.substr(4, 2)) - 1, Number(dt.substr(6, 2)), Number(ti.substr(0, 2)), Number(ti.substr(2, 2)), Number(ti.substr(4, 2)), 0);
+  var text = context.formatDatetime(time);
+  return text;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/SourceLocation.js":
+/*!************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/SourceLocation.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SourceLocation)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function SourceLocation(clientAPI) {
+  let {
+    src_name,
+    src_house_num,
+    src_street,
+    src_city,
+    src_post_code,
+    src_region,
+    src_country
+  } = clientAPI.binding;
+  return `${src_name},\n${src_house_num},${src_street},\n${src_city}-${src_post_code},${src_region},${src_country}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopAddress.js":
+/*!*********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopAddress.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopAddress)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopAddress(clientAPI) {
+  let {
+    name,
+    house_num,
+    street,
+    city,
+    post_code,
+    region,
+    country
+  } = clientAPI.binding;
+  return `${name},\n${house_num},${street},\n${city}-${post_code},${region},${country}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopStatus.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopStatus.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopStatus)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopStatus(clientAPI) {
+  let status = clientAPI.binding.status;
+  switch (status) {
+    case 'Planned':
+      return clientAPI.localizeText('xtit_stopstatus_planned');
+    case 'At Store':
+      return clientAPI.localizeText('xtit_stopstatus_atstore');
+    case 'Departed':
+      return clientAPI.localizeText('xtit_stopstatus_departed');
+    default:
+      return status;
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopStatus)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopStatus(clientAPI) {
+  let status = clientAPI.binding.status;
+  switch (status) {
+    case 'Planned':
+      return 'Success';
+    case 'At Store':
+      return 'Default';
+    case 'Departed':
+      return 'Warning';
+    default:
+      return 'Default';
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopTime.js":
+/*!******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopTime.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopTime)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function StopTime(clientAPI) {
+  var text_arr, text_dep;
+  try {
+    let dt_arr = clientAPI.binding.pln_arr_dt;
+    let ti_arr = clientAPI.binding.pln_arr_ti;
+    if (!dt_arr || !ti_arr) {
+      text_arr = 'TBD';
+    } else {
+      let time_arr = new Date(Number(dt_arr.substr(0, 4)), Number(dt_arr.substr(4, 2)) - 1, Number(dt_arr.substr(6, 2)), Number(ti_arr.substr(0, 2)), Number(ti_arr.substr(2, 2)), Number(ti_arr.substr(4, 2)), 0);
+      text_arr = clientAPI.formatDatetime(time_arr);
+    }
+    let dt_dep = clientAPI.binding.pln_dep_dt;
+    let ti_dep = clientAPI.binding.pln_dep_ti;
+    if (!dt_dep || !ti_dep) {
+      text_dep = 'TBD';
+    } else {
+      let time_dep = new Date(Number(dt_dep.substr(0, 4)), Number(dt_dep.substr(4, 2)) - 1, Number(dt_dep.substr(6, 2)), Number(ti_dep.substr(0, 2)), Number(ti_dep.substr(2, 2)), Number(ti_dep.substr(4, 2)), 0);
+      text_dep = clientAPI.formatDatetime(time_dep);
+    }
+    return `${text_arr} - ${text_dep}`;
+  } catch (error) {
+    return `Error`;
+  }
 }
 
 /***/ }),
@@ -820,6 +1244,90 @@ function Initialize(context) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/SyncGlobal.js":
+/*!*********************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/SyncGlobal.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SyncGlobal)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function SyncGlobal(context) {
+  let _action = context.executeAction('/driverapp/Actions/action/Service/SyncStartedMessage.action');
+  let _main = context.executeAction('/driverapp/Actions/main/Service/SyncStartedMessage.action');
+
+  //You can add more service initialize actions here
+
+  return Promise.all([_action, _main]).then(() => {
+    // After Initializing the DB connections
+
+    // Display successful initialization  message to the user
+    return context.executeAction({
+      "Name": "/driverapp/Actions/GenericToastMessage.action",
+      "Properties": {
+        "Message": "Sync completed",
+        "Animated": true,
+        "Duration": 1,
+        "IsIconHidden": true,
+        "NumberOfLines": 1
+      }
+    });
+  }).catch(() => {
+    return false;
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/CreateFailure.js":
+/*!*******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/CreateFailure.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CreateFailure)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function CreateFailure(clientAPI) {
+  alert("Failure");
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/CreateSuccess.js":
+/*!*******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/CreateSuccess.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CreateSuccess)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function CreateSuccess(clientAPI) {
+  alert("Success");
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js":
 /*!************************************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js ***!
@@ -842,6 +1350,443 @@ function CheckForSyncError(context) {
         return Promise.reject(false);
       });
     }
+  });
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/OnDocumentUpload.js":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/OnDocumentUpload.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ OnDocumentUpload)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+async function OnDocumentUpload(clientAPI) {
+  const context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Processing .......");
+  let {
+    tor_id,
+    locid
+  } = clientAPI.binding;
+  const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Stop/#Control:AttachmentFormCell");
+  const attachmentList = clientAPI.evaluateTargetPath('#Page:Stop/#Control:AttachmentFormCell/#Value');
+  if (attachmentList.length > 1) {
+    alert("Upload one attachment at a time");
+    return;
+  }
+  const attachment = attachmentList[0];
+  const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
+  const slug = {
+    tor_id: tor_id,
+    description: '',
+    attachment_type: clientAPI.evaluateTargetPath('#Control:AttachmentType/#SelectedValue') ?? 'ATCMT',
+    alternative_name: fileName,
+    folder: locid
+  };
+  let token;
+  let targetUrl = `/action/AttachmentSet`;
+  try {
+    context.dismissActivityIndicator();
+    context.showActivityIndicator("Uploading .......");
+    let response = await context.sendRequest(`/action`, {
+      "method": "GET",
+      'header': {
+        "x-csrf-token": "fetch"
+      }
+    });
+    token = response.headers["x-csrf-token"];
+    return context.sendRequest(targetUrl, {
+      "method": "POST",
+      'header': {
+        "Content-Type": attachment.contentType,
+        "x-csrf-token": token,
+        "Slug": encodeURI(JSON.stringify(slug))
+      },
+      "body": attachment.content
+    }).then(() => {
+      alert("Successfully uploaded");
+      context.dismissActivityIndicator();
+      attachmentFormCell.setValue([]);
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
+    }).catch(err => {
+      alert(`Failed to upload ${err}`);
+      context.dismissActivityIndicator();
+      attachmentFormCell.setValue([]);
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
+    });
+  } catch (error) {
+    alert(error);
+    context.dismissActivityIndicator();
+    attachmentFormCell.setValue([]);
+    return context.executeAction("/driverapp/Actions/ClosePage.action");
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/OnDocumentUploadPress.js":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/OnDocumentUploadPress.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ OnDocumentUpload)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+async function OnDocumentUpload(clientAPI) {
+  const context = clientAPI.getPageProxy();
+  let {
+    tor_id,
+    locid
+  } = clientAPI.binding;
+  const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:DetailPage/#Control:AttachmentFormCell");
+  if (attachmentFormCell.getValue().length > 0) {}
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ReportArrival.js":
+/*!*******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportArrival.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportArrival)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ReportArrival(clientAPI) {
+  let {
+    tor_id,
+    name,
+    locid,
+    stop_id
+  } = clientAPI.binding;
+  let context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Reporting Event......");
+  context.setActionBinding({
+    tor_id: tor_id,
+    event_code: 'ARRIV_DEST',
+    event_reason: '',
+    ext_loc_id: locid,
+    event_time: '' + new Date().getTime()
+  });
+  try {
+    return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+      return context.executeAction("/driverapp/Actions/ClosePage.action").then(() => {
+        context.dismissActivityIndicator();
+        return context.executeAction({
+          Name: "/driverapp/Actions/Console.action",
+          Properties: {
+            Message: "Event Reported successfully. Kindly refresh the app to sync"
+          }
+        });
+      }).catch(err => {
+        context.dismissActivityIndicator();
+      });
+    }).catch(err => {
+      context.dismissActivityIndicator();
+    });
+  } catch (error) {
+    context.dismissActivityIndicator();
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ReportArrivalConfirmation.js":
+/*!*******************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportArrivalConfirmation.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportArrivalConfirmation)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ReportArrivalConfirmation(clientAPI) {
+  let stop = clientAPI.binding.name;
+  let message = `Reporting Arrival at location ${stop}`;
+  let context = clientAPI.getPageProxy();
+  context.setActionBinding({
+    'message': message
+  });
+  return context.executeAction("/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action");
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ReportDeparture.js":
+/*!*********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportDeparture.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportDeparture)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ReportDeparture(clientAPI) {
+  let {
+    tor_id,
+    name,
+    locid,
+    stop_id
+  } = clientAPI.binding;
+  let context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Reporting Event......");
+  context.setActionBinding({
+    tor_id: tor_id,
+    event_code: 'DEPARTURE',
+    event_reason: '',
+    ext_loc_id: locid,
+    event_time: '' + new Date().getTime()
+  });
+  try {
+    return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+      return context.executeAction("/driverapp/Actions/ClosePage.action").then(() => {
+        context.dismissActivityIndicator();
+        return context.executeAction({
+          Name: "/driverapp/Actions/Console.action",
+          Properties: {
+            Message: "Event Reported successfully. Kindly refresh the app to sync"
+          }
+        });
+      });
+    });
+  } catch (error) {
+    context.dismissActivityIndicator();
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ReportDepartureConfirmation.js":
+/*!*********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportDepartureConfirmation.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportDepartureConfirmation)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ReportDepartureConfirmation(clientAPI) {
+  let stop = clientAPI.binding.name;
+  let message = `Reporting Departure at location ${stop}`;
+  let context = clientAPI.getPageProxy();
+  context.setActionBinding({
+    'message': message
+  });
+  return context.executeAction("/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action");
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ReportDepartureSource.js":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportDepartureSource.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportDeparture)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ReportDeparture(clientAPI) {
+  let {
+    tor_id,
+    src_locid
+  } = clientAPI.binding;
+  let context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Reporting Event......");
+  context.setActionBinding({
+    tor_id: tor_id,
+    event_code: 'DEPARTURE',
+    event_reason: '',
+    ext_loc_id: src_locid,
+    event_time: '' + new Date().getTime()
+  });
+  try {
+    return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+      return context.executeAction("/driverapp/Actions/ClosePage.action").then(() => {
+        context.dismissActivityIndicator();
+        return context.executeAction({
+          Name: "/driverapp/Actions/Console.action",
+          Properties: {
+            Message: "Event Reported successfully. Kindly refresh the app to sync"
+          }
+        });
+      }).catch(err => {
+        context.dismissActivityIndicator();
+      });
+    }).catch(err => {
+      context.dismissActivityIndicator();
+    });
+  } catch (error) {
+    context.dismissActivityIndicator();
+  }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ReportEvent.js":
+/*!*****************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportEvent.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportEvent)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ReportEvent(clientAPI) {
+  alert("Done");
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ReportPOD.js":
+/*!***************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportPOD.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportPOD)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+async function ReportPOD(clientAPI) {
+  let {
+    tor_id,
+    name,
+    locid,
+    stop_id
+  } = clientAPI.binding;
+  let context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Processing .......");
+  let event_reason = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
+  let signature = context.evaluateTargetPath("#Control:SignatureSrc/#Value");
+  let recipient = context.evaluateTargetPath("#Control:FormCellNote0/#Value");
+  if (!signature) {
+    alert("Signature required!!!");
+    context.dismissActivityIndicator();
+    return;
+  }
+  if (!recipient) {
+    alert("Enter the recipient name");
+    context.dismissActivityIndicator();
+    return;
+  }
+  // alert(`${tor_id}-${name}-${locid}-${stop_id}-${event_reason}`)
+
+  let token;
+  let targetUrl = `/action/AttachmentSet`;
+  try {
+    let response = await context.sendRequest(`/action`, {
+      "method": "GET",
+      'header': {
+        "x-csrf-token": "fetch"
+      }
+    });
+    token = response.headers["x-csrf-token"];
+  } catch (error) {
+    alert(error);
+    context.dismissActivityIndicator();
+  }
+  context.setActionBinding({
+    tor_id: tor_id,
+    event_code: 'POD',
+    event_reason: event_reason,
+    ext_loc_id: locid,
+    event_time: '' + new Date().getTime(),
+    recipient: recipient
+  });
+  const slug = {
+    tor_id: tor_id,
+    description: '',
+    attachment_type: 'ZSIG',
+    alternative_name: 'POD-Signature',
+    folder: locid
+  };
+  context.dismissActivityIndicator();
+  context.showActivityIndicator("Reporting Event......");
+  return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+    context.dismissActivityIndicator();
+    context.showActivityIndicator("Uploading signature");
+    return context.sendRequest(targetUrl, {
+      "method": "POST",
+      'header': {
+        "Content-Type": signature.contentType,
+        "x-csrf-token": token,
+        "Slug": encodeURI(JSON.stringify(slug))
+      },
+      "body": signature.content
+    }).then(() => {
+      alert("Successfully uploaded");
+      context.dismissActivityIndicator();
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
+    }).catch(err => {
+      alert(`Failed to upload ${err}`);
+      context.dismissActivityIndicator();
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
+    });
+  }).catch(err => {
+    alert(`Failed to report event ${err}`);
+    context.dismissActivityIndicator();
+  }).finally(() => {
+    context.dismissActivityIndicator();
+    return context.executeAction("/driverapp/Actions/ClosePage.action");
   });
 }
 
@@ -1138,6 +2083,26 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":true,"_Type
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Pages/Attachment.page":
+/*!***********************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Attachment.page ***!
+  \***********************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Visible":true,"EmptySection":{"FooterVisible":false},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0","Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"FormCellListPicker0","IsVisible":true,"Separator":true,"AllowMultipleSelection":true,"AllowEmptySelection":false,"Caption":"Attachment Type","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"Search":{"Placeholder":"Select one"},"PickerItems":["Default"]}],"Layout":{"NumberOfColumns":1}}],"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"}}],"_Type":"Page","_Name":"Attachment","ActionBar":{"Items":[],"_Name":"ActionBar1","_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/Detail.page":
+/*!*******************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Detail.page ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"/driverapp/Rules/Formatters/ExecutionStatus.js","Footnote":"/driverapp/Rules/Formatters/Return.js","DetailImage":"sap-icon://shipping-status","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Pickup.js","HeadlineText":"{tor_id}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading","Styles":{"Subhead":"/driverapp/Rules/Formatters/ExecutionStyle.js"}},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/SourceLocation.js","_Type":"KeyValue.Type.Item","_Name":"SourceKeyValue","KeyName":"Source Location","Visible":true},{"Value":"/driverapp/Rules/Formatters/DestinationLocation.js","_Type":"KeyValue.Type.Item","_Name":"DestinationKeyValue","KeyName":"Destination Location","Visible":true}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"MaxItemCount":1,"_Type":"Section.Type.KeyValue","_Name":"LocationKeyValue","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopsHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Stops"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STOP","QueryOptions":"$filter=tor_id eq '{tor_id}'&$orderby=pln_arr_tstmp"},"_Name":"StopsList","Visible":true,"EmptySection":{"Caption":"No data","FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{name}","Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Arrival.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","SubstatusText":"{locid}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Stop.action","_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"UnexpectedEvents","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ButtonTableTypeButton0","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":false,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDepartureSource.js"},{"_Type":"ButtonTable.Type.Button","_Name":"Delay","Title":"Delay","Alignment":"Center","ButtonType":"Text","Semantic":"Negative","Image":"sap-icon://lateness","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true}]},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"AttachmentsHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Attachments"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":["folder"],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_ATTC","QueryOptions":"$filter=tor_id eq '{tor_id}'"},"_Name":"AttachmentsList","Visible":false,"EmptySection":{"Caption":"No data","FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{name}","Subhead":"{folder}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Detail","ActionBar":{"Items":[],"_Name":"ActionBar4","_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page":
 /*!*********************************************************************************!*\
   !*** ./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page ***!
@@ -1158,13 +2123,33 @@ module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"Se
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Pages/Event.page":
+/*!******************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Event.page ***!
+  \******************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure"]},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"FormCellListPicker0","IsVisible":false,"Separator":true,"AllowMultipleSelection":true,"AllowEmptySelection":true,"Caption":"Deliverd Items","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Delivered Items","HelperText":"Select all delivered items","IsSelectedSectionEnabled":true,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":true,"IsEditable":true,"Search":{"Enabled":true},"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"DisplayValue":"{item_descr}","ReturnValue":"{item_id}"}},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Pages/Main.page":
 /*!*****************************************************!*\
   !*** ./build.definitions/driverapp/Pages/Main.page ***!
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/Pickup.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"Status","SubstatusText":"Substatus","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"_Type":"ObjectTable.Type.ObjectCell","Selected":false,"Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"}},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","OnPress":"/driverapp/Actions/action/Service/SyncStartedMessage.action","Position":"Right","Caption":"Sync"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Header":{"_Type":"SectionCommon.Type.Header","_Name":"SectionCommonTypeHeader0","AccessoryType":"None","UseTopPadding":false,"Caption":"#Application/#AppData/UserId"},"Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/Stop.page":
+/*!*****************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/Stop.page ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-arrive","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportArrival.js"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://customer-order-entry","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}]},{"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCell","IsVisible":true,"Separator":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Navigation","Caption":"Navigate","Icon":"sap-icon://map-2","Position":"Right","IsIconCircular":true}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -1328,6 +2313,16 @@ module.exports = {"_Type":"Action.Type.ClosePage"}
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Actions/Console.action":
+/*!************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Console.action ***!
+  \************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Message":"{Message}","OKCaption":"Ok","Title":"Message","_Type":"Action.Type.Message"}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action":
 /*!******************************************************************************************!*\
   !*** ./build.definitions/driverapp/Actions/ErrorArchive/ErrorArchive_SyncFailure.action ***!
@@ -1438,6 +2433,36 @@ module.exports = {"Animated":true,"CompletionMessage":"Logs Uploaded","Completio
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Navigation/To_Detail.action ***!
+  \*************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Detail"},"PageToOpen":"/driverapp/Pages/Detail.page"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Navigation/To_Event.action":
+/*!************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Navigation/To_Event.action ***!
+  \************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Event"},"PageToOpen":"/driverapp/Pages/Event.page"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Navigation/To_Stop.action":
+/*!***********************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Navigation/To_Stop.action ***!
+  \***********************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Stop"},"PageToOpen":"/driverapp/Pages/Stop.page"}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Actions/action/Service/CloseOffline.action":
 /*!********************************************************************************!*\
   !*** ./build.definitions/driverapp/Actions/action/Service/CloseOffline.action ***!
@@ -1494,7 +2519,7 @@ module.exports = {"Message":"Download in progress...","CompletionMessage":"Downl
   \*************************************************************************************/
 /***/ ((module) => {
 
-module.exports = {"Service":"/driverapp/Services/action.service","DefiningRequests":[{"Name":"AttachmentSet","Query":"AttachmentSet"},{"Name":"EventSet","Query":"EventSet"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action"}
+module.exports = {"Service":"/driverapp/Services/action.service","DefiningRequests":[{"Name":"AttachmentSet","Query":"AttachmentSet"},{"Name":"EventSet","Query":"EventSet"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading actions...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/action/Service/InitializeOfflineFailureMessage.action"}
 
 /***/ }),
 
@@ -1505,6 +2530,46 @@ module.exports = {"Service":"/driverapp/Services/action.service","DefiningReques
 /***/ ((module) => {
 
 module.exports = {"Message":"Failed to initialize application data service - {#ActionResults:init/error}","Duration":7,"Animated":true,"_Type":"Action.Type.BannerMessage"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action":
+/*!**************************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/ReportArrivalEventConfirmation.action ***!
+  \**************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Message","ActionResult":{"_Name":"ReportEventConfirmation"},"Title":"Reporting Event","Message":"{message}","OKCaption":"Confirm","CancelCaption":"Cancel","OnOK":"/driverapp/Rules/action/ReportArrival.js"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action":
+/*!****************************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/ReportDepartureEventConfirmation.action ***!
+  \****************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Message","ActionResult":{"_Name":"ReportEventConfirmation"},"Title":"Reporting Event","Message":"{message}","OKCaption":"Confirm","CancelCaption":"Cancel","OnOK":"/driverapp/Rules/action/ReportDeparture.js"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/ReportEvent.action":
+/*!*******************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/ReportEvent.action ***!
+  \*******************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.ODataService.CreateEntity","ActionResult":{"_Name":"ReportEvent"},"ShowActivityIndicator":true,"ActivityIndicatorText":"Reporting event ....","Target":{"Service":"/driverapp/Services/action.service","EntitySet":"EventSet"},"Properties":{"tor_id":"{tor_id}","event_time":"{event_time}","event_code":"{event_code}","ext_loc_id":"{ext_loc_id}","event_reason":"{event_reason}","recipient":"{recipient}"},"RequestOptions":{"RemoveCreatedEntityAfterUpload":true}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/Reset.action":
+/*!*************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/Reset.action ***!
+  \*************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.OfflineOData.Clear","ActionResult":{"_Name":"Reset"},"Service":"/driverapp/Services/action.service","Force":true}
 
 /***/ }),
 
@@ -1525,6 +2590,16 @@ module.exports = {"Message":"Sync offline data service failure - {#ActionResults
 /***/ ((module) => {
 
 module.exports = {"Message":"Upload in progress...","CompletionMessage":"Sync completed","CompletionTimeout":7,"OnSuccess":"/driverapp/Actions/action/Service/UploadOffline.action","OnFailure":"/driverapp/Actions/action/Service/SyncFailureMessage.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/action/Service/UploadAttachment.action":
+/*!************************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/action/Service/UploadAttachment.action ***!
+  \************************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.ODataService.CreateMedia","ActionResult":{"_Name":"UploadAttachment"},"OnFailure":"/driverapp/Rules/action/CreateFailure.js","OnSuccess":"/driverapp/Rules/action/CreateSuccess.js","OnInvalid":"/driverapp/Rules/action/CreateFailure.js","Target":{"Service":"/driverapp/Services/action.service","EntitySet":"AttachmentSet","ReadLink":"{@odata.readLink}"},"Media":"#Control:AttachmentFormCell","Properties":{"tor_id":"{tor_id}","doc_key":"","name":"{name}","alternative_name":"","description":"","filesize_content":"","folder":"ROOT","attachment_type":"ATCMT"},"RequestOptions":{"RemoveCreatedEntityAfterUpload":true}}
 
 /***/ }),
 
@@ -1594,7 +2669,7 @@ module.exports = {"Message":"Download in progress...","CompletionMessage":"Downl
   \***********************************************************************************/
 /***/ ((module) => {
 
-module.exports = {"Service":"/driverapp/Services/main.service","DefiningRequests":[{"Name":"ZTM_C_DDL_DA_ROOT","Query":"ZTM_C_DDL_DA_ROOT"},{"Name":"ZTM_I_DDL_DA_ATTC","Query":"ZTM_I_DDL_DA_ATTC"},{"Name":"ZTM_I_DDL_DA_EVTL","Query":"ZTM_I_DDL_DA_EVTL"},{"Name":"ZTM_I_DDL_DA_STIT","Query":"ZTM_I_DDL_DA_STIT"},{"Name":"ZTM_I_DDL_DA_STOP","Query":"ZTM_I_DDL_DA_STOP"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action"}
+module.exports = {"Service":"/driverapp/Services/main.service","DefiningRequests":[{"Name":"ZTM_C_DDL_DA_ROOT","Query":"ZTM_C_DDL_DA_ROOT"},{"Name":"ZTM_I_DDL_DA_ATTC","Query":"ZTM_I_DDL_DA_ATTC"},{"Name":"ZTM_I_DDL_DA_EVTL","Query":"ZTM_I_DDL_DA_EVTL"},{"Name":"ZTM_I_DDL_DA_STIT","Query":"ZTM_I_DDL_DA_STIT"},{"Name":"ZTM_I_DDL_DA_STOP","Query":"ZTM_I_DDL_DA_STOP"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading Shipments...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action"}
 
 /***/ }),
 
@@ -1694,7 +2769,7 @@ module.exports = {"DestinationName":"action","OfflineEnabled":true,"LanguageURLP
   \***********************************************************/
 /***/ ((module) => {
 
-module.exports = {"DestinationName":"main","OfflineEnabled":true,"LanguageURLParam":"","OnlineOptions":{},"OfflineOptions":{"StoreParameters":{}},"PathSuffix":"","SourceType":"Mobile","ServiceUrl":""}
+module.exports = {"DestinationName":"main","OfflineEnabled":true,"SourceType":"Mobile"}
 
 /***/ }),
 

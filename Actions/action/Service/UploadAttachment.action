@@ -1,0 +1,28 @@
+{
+	"_Type": "Action.Type.ODataService.CreateMedia",
+	"ActionResult": {
+		"_Name": "UploadAttachment"
+	},
+	"OnFailure": "/driverapp/Rules/action/CreateFailure.js",
+	"OnSuccess": "/driverapp/Rules/action/CreateSuccess.js",
+	"OnInvalid" : "/driverapp/Rules/action/CreateFailure.js",
+	"Target": {
+		"Service": "/driverapp/Services/action.service",
+		"EntitySet": "AttachmentSet",
+		"ReadLink": "{@odata.readLink}"
+	},
+	"Media": "#Control:AttachmentFormCell",
+	"Properties": {
+		"tor_id": "{tor_id}",
+		"doc_key": "",
+		"name": "{name}",
+		"alternative_name": "",
+		"description": "",
+		"filesize_content": "",
+		"folder": "ROOT",
+		"attachment_type": "ATCMT"
+	},
+	"RequestOptions": {
+		"RemoveCreatedEntityAfterUpload": true
+	}
+}

@@ -1,0 +1,246 @@
+{
+	"Controls": [
+		{
+			"FilterFeedbackBar": {
+				"ShowAllFilters": false,
+				"_Type": "Control.Type.FilterFeedbackBar"
+			},
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable0",
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"Subhead": "/driverapp/Rules/Formatters/ExecutionStatus.js",
+						"Footnote": "/driverapp/Rules/Formatters/Return.js",
+						"DetailImage": "sap-icon://shipping-status",
+						"DetailImageIsCircular": false,
+						"BodyText": "/driverapp/Rules/Formatters/Pickup.js",
+						"HeadlineText": "{tor_id}",
+						"StatusPosition": "Stacked",
+						"StatusImagePosition": "Leading",
+						"SubstatusImagePosition": "Leading",
+						"Styles": {
+							"Subhead": "/driverapp/Rules/Formatters/ExecutionStyle.js"
+						}
+					},
+					"_Type": "Section.Type.ObjectHeader",
+					"_Name": "SectionObjectHeader0",
+					"Visible": true
+				},
+				{
+					"KeyAndValues": [
+						{
+							"Value": "/driverapp/Rules/Formatters/SourceLocation.js",
+							"_Type": "KeyValue.Type.Item",
+							"_Name": "SourceKeyValue",
+							"KeyName": "Source Location",
+							"Visible": true
+						},
+						{
+							"Value": "/driverapp/Rules/Formatters/DestinationLocation.js",
+							"_Type": "KeyValue.Type.Item",
+							"_Name": "DestinationKeyValue",
+							"KeyName": "Destination Location",
+							"Visible": true
+						}
+					],
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"MaxItemCount": 1,
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "LocationKeyValue",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"Layout": {
+						"NumberOfColumns": 2
+					}
+				},
+				{
+					"Header": {
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "StopsHeader",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
+						"Caption": "Stops"
+					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Grouping": {
+						"GroupingProperties": [],
+						"Header": {
+							"Items": []
+						}
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "ZTM_I_DDL_DA_STOP",
+						"QueryOptions": "$filter=tor_id eq '{tor_id}'&$orderby=pln_arr_tstmp"
+					},
+					"_Name": "StopsList",
+					"Visible": true,
+					"EmptySection": {
+						"Caption": "No data",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"ContextMenu": {
+							"Items": [],
+							"PerformFirstActionWithFullSwipe": true,
+							"LeadingItems": [],
+							"TrailingItems": [],
+							"_Type": "ObjectCell.Type.ContextMenu"
+						},
+						"Title": "{name}",
+						"Subhead": "{city}",
+						"Footnote": "/driverapp/Rules/Formatters/Arrival.js",
+						"Description": "{region}-{country}",
+						"StatusText": "/driverapp/Rules/Formatters/StopStatus.js",
+						"SubstatusText": "{locid}",
+						"PreserveIconStackSpacing": false,
+						"AccessoryType": "None",
+						"Tags": [],
+						"AvatarStack": {
+							"ImageIsCircular": true,
+							"ImageHasBorder": false
+						},
+						"AvatarGrid": {
+							"ImageIsCircular": true
+						},
+						"OnPress": "/driverapp/Actions/Navigation/To_Stop.action",
+						"_Type": "ObjectTable.Type.ObjectCell",
+						"Selected": false
+					},
+					"HighlightSelectedItem": false
+				},
+				{
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Layout": {
+						"LayoutType": "Vertical",
+						"HorizontalAlignment": "Leading"
+					},
+					"_Type": "Section.Type.ButtonTable",
+					"_Name": "UnexpectedEvents",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"Buttons": [
+						{
+							"_Type": "ButtonTable.Type.Button",
+							"_Name": "ButtonTableTypeButton0",
+							"Title": "Departure",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"Image": "sap-icon://journey-depart",
+							"ImagePosition": "Leading",
+							"FullWidth": false,
+							"Visible": true,
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"
+						},
+						{
+							"_Type": "ButtonTable.Type.Button",
+							"_Name": "Delay",
+							"Title": "Delay",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Negative",
+							"Image": "sap-icon://lateness",
+							"ImagePosition": "Leading",
+							"FullWidth": true,
+							"Visible": true,
+							"Enabled": true
+						}
+					]
+				},
+				{
+					"Header": {
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "AttachmentsHeader",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
+						"Caption": "Attachments"
+					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Grouping": {
+						"GroupingProperties": [
+							"folder"
+						],
+						"Header": {
+							"Items": []
+						}
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "ZTM_I_DDL_DA_ATTC",
+						"QueryOptions": "$filter=tor_id eq '{tor_id}'"
+					},
+					"_Name": "AttachmentsList",
+					"Visible": false,
+					"EmptySection": {
+						"Caption": "No data",
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"ContextMenu": {
+							"Items": [],
+							"PerformFirstActionWithFullSwipe": true,
+							"LeadingItems": [],
+							"TrailingItems": [],
+							"_Type": "ObjectCell.Type.ContextMenu"
+						},
+						"Title": "{name}",
+						"Subhead": "{folder}",
+						"PreserveIconStackSpacing": false,
+						"AccessoryType": "None",
+						"Tags": [],
+						"AvatarStack": {
+							"ImageIsCircular": true,
+							"ImageHasBorder": false
+						},
+						"AvatarGrid": {
+							"ImageIsCircular": true
+						},
+						"_Type": "ObjectTable.Type.ObjectCell",
+						"Selected": false
+					},
+					"HighlightSelectedItem": false
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Detail",
+	"ActionBar": {
+		"Items": [],
+		"_Name": "ActionBar4",
+		"_Type": "Control.Type.ActionBar"
+	}
+}
