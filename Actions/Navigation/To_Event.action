@@ -3,5 +3,5 @@
 	"ActionResult": {
 		"_Name": "To_Event"
 	},
-	"PageToOpen": "/driverapp/Pages/Event.page"
+	"PageToOpen": "/driverapp/Pages/PODEvent.page"
 }

@@ -18,6 +18,6 @@
 		"recipient": "{recipient}"
 	},
 	"RequestOptions": {
-		"RemoveCreatedEntityAfterUpload": true
+		"RemoveCreatedEntityAfterUpload": true 
 	}
 }

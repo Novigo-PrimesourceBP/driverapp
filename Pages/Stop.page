@@ -84,7 +84,7 @@
 							"FullWidth": true,
 							"Visible": true,
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/ReportArrival.js"
+							"OnPress": "/driverapp/Actions/Navigation/To_Arrival_Sign.action"
 						},
 						{
 							"_Type": "ButtonTable.Type.Button",

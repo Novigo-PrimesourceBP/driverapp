@@ -70,6 +70,7 @@ let driverapp_actions_main_service_initializeofflinefailuremessage_action = __we
 let driverapp_actions_main_service_syncfailuremessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncFailureMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncFailureMessage.action")
 let driverapp_actions_main_service_syncstartedmessage_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/SyncStartedMessage.action */ "./build.definitions/driverapp/Actions/main/Service/SyncStartedMessage.action")
 let driverapp_actions_main_service_uploadoffline_action = __webpack_require__(/*! ./driverapp/Actions/main/Service/UploadOffline.action */ "./build.definitions/driverapp/Actions/main/Service/UploadOffline.action")
+let driverapp_actions_navigation_to_arrival_sign_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Arrival_Sign.action */ "./build.definitions/driverapp/Actions/Navigation/To_Arrival_Sign.action")
 let driverapp_actions_navigation_to_detail_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Detail.action */ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action")
 let driverapp_actions_navigation_to_event_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Event.action */ "./build.definitions/driverapp/Actions/Navigation/To_Event.action")
 let driverapp_actions_navigation_to_stop_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Stop.action */ "./build.definitions/driverapp/Actions/Navigation/To_Stop.action")
@@ -82,12 +83,13 @@ let driverapp_jsconfig_json = __webpack_require__(/*! ./driverapp/jsconfig.json 
 let driverapp_pages_application_about_page = __webpack_require__(/*! ./driverapp/Pages/Application/About.page */ "./build.definitions/driverapp/Pages/Application/About.page")
 let driverapp_pages_application_support_page = __webpack_require__(/*! ./driverapp/Pages/Application/Support.page */ "./build.definitions/driverapp/Pages/Application/Support.page")
 let driverapp_pages_application_useractivitylog_page = __webpack_require__(/*! ./driverapp/Pages/Application/UserActivityLog.page */ "./build.definitions/driverapp/Pages/Application/UserActivityLog.page")
+let driverapp_pages_arrivalevent_page = __webpack_require__(/*! ./driverapp/Pages/ArrivalEvent.page */ "./build.definitions/driverapp/Pages/ArrivalEvent.page")
 let driverapp_pages_attachment_page = __webpack_require__(/*! ./driverapp/Pages/Attachment.page */ "./build.definitions/driverapp/Pages/Attachment.page")
 let driverapp_pages_detail_page = __webpack_require__(/*! ./driverapp/Pages/Detail.page */ "./build.definitions/driverapp/Pages/Detail.page")
 let driverapp_pages_errorarchive_errorarchive_detail_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page")
 let driverapp_pages_errorarchive_errorarchive_list_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_List.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_List.page")
-let driverapp_pages_event_page = __webpack_require__(/*! ./driverapp/Pages/Event.page */ "./build.definitions/driverapp/Pages/Event.page")
 let driverapp_pages_main_page = __webpack_require__(/*! ./driverapp/Pages/Main.page */ "./build.definitions/driverapp/Pages/Main.page")
+let driverapp_pages_podevent_page = __webpack_require__(/*! ./driverapp/Pages/PODEvent.page */ "./build.definitions/driverapp/Pages/PODEvent.page")
 let driverapp_pages_stop_page = __webpack_require__(/*! ./driverapp/Pages/Stop.page */ "./build.definitions/driverapp/Pages/Stop.page")
 let driverapp_rules_action_createfailure_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateFailure.js */ "./build.definitions/driverapp/Rules/action/CreateFailure.js")
 let driverapp_rules_action_createsuccess_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateSuccess.js */ "./build.definitions/driverapp/Rules/action/CreateSuccess.js")
@@ -96,6 +98,7 @@ let driverapp_rules_action_ondocumentupload_js = __webpack_require__(/*! ./drive
 let driverapp_rules_action_ondocumentuploadpress_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUploadPress.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUploadPress.js")
 let driverapp_rules_action_reportarrival_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrival.js */ "./build.definitions/driverapp/Rules/action/ReportArrival.js")
 let driverapp_rules_action_reportarrivalconfirmation_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrivalConfirmation.js */ "./build.definitions/driverapp/Rules/action/ReportArrivalConfirmation.js")
+let driverapp_rules_action_reportarrivalsign_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrivalSign.js */ "./build.definitions/driverapp/Rules/action/ReportArrivalSign.js")
 let driverapp_rules_action_reportdeparture_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportDeparture.js */ "./build.definitions/driverapp/Rules/action/ReportDeparture.js")
 let driverapp_rules_action_reportdepartureconfirmation_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportDepartureConfirmation.js */ "./build.definitions/driverapp/Rules/action/ReportDepartureConfirmation.js")
 let driverapp_rules_action_reportdeparturesource_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportDepartureSource.js */ "./build.definitions/driverapp/Rules/action/ReportDepartureSource.js")
@@ -195,6 +198,7 @@ module.exports = {
 	driverapp_actions_main_service_syncfailuremessage_action : driverapp_actions_main_service_syncfailuremessage_action,
 	driverapp_actions_main_service_syncstartedmessage_action : driverapp_actions_main_service_syncstartedmessage_action,
 	driverapp_actions_main_service_uploadoffline_action : driverapp_actions_main_service_uploadoffline_action,
+	driverapp_actions_navigation_to_arrival_sign_action : driverapp_actions_navigation_to_arrival_sign_action,
 	driverapp_actions_navigation_to_detail_action : driverapp_actions_navigation_to_detail_action,
 	driverapp_actions_navigation_to_event_action : driverapp_actions_navigation_to_event_action,
 	driverapp_actions_navigation_to_stop_action : driverapp_actions_navigation_to_stop_action,
@@ -207,12 +211,13 @@ module.exports = {
 	driverapp_pages_application_about_page : driverapp_pages_application_about_page,
 	driverapp_pages_application_support_page : driverapp_pages_application_support_page,
 	driverapp_pages_application_useractivitylog_page : driverapp_pages_application_useractivitylog_page,
+	driverapp_pages_arrivalevent_page : driverapp_pages_arrivalevent_page,
 	driverapp_pages_attachment_page : driverapp_pages_attachment_page,
 	driverapp_pages_detail_page : driverapp_pages_detail_page,
 	driverapp_pages_errorarchive_errorarchive_detail_page : driverapp_pages_errorarchive_errorarchive_detail_page,
 	driverapp_pages_errorarchive_errorarchive_list_page : driverapp_pages_errorarchive_errorarchive_list_page,
-	driverapp_pages_event_page : driverapp_pages_event_page,
 	driverapp_pages_main_page : driverapp_pages_main_page,
+	driverapp_pages_podevent_page : driverapp_pages_podevent_page,
 	driverapp_pages_stop_page : driverapp_pages_stop_page,
 	driverapp_rules_action_createfailure_js : driverapp_rules_action_createfailure_js,
 	driverapp_rules_action_createsuccess_js : driverapp_rules_action_createsuccess_js,
@@ -221,6 +226,7 @@ module.exports = {
 	driverapp_rules_action_ondocumentuploadpress_js : driverapp_rules_action_ondocumentuploadpress_js,
 	driverapp_rules_action_reportarrival_js : driverapp_rules_action_reportarrival_js,
 	driverapp_rules_action_reportarrivalconfirmation_js : driverapp_rules_action_reportarrivalconfirmation_js,
+	driverapp_rules_action_reportarrivalsign_js : driverapp_rules_action_reportarrivalsign_js,
 	driverapp_rules_action_reportdeparture_js : driverapp_rules_action_reportdeparture_js,
 	driverapp_rules_action_reportdepartureconfirmation_js : driverapp_rules_action_reportdepartureconfirmation_js,
 	driverapp_rules_action_reportdeparturesource_js : driverapp_rules_action_reportdeparturesource_js,
@@ -1541,6 +1547,100 @@ function ReportArrivalConfirmation(clientAPI) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/action/ReportArrivalSign.js":
+/*!***********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ReportArrivalSign.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ReportArrivalSign)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+async function ReportArrivalSign(clientAPI) {
+  let {
+    tor_id,
+    name,
+    locid,
+    stop_id
+  } = clientAPI.binding; //Get bindings from page
+  let context = clientAPI.getPageProxy();
+  context.showActivityIndicator("Processing .......");
+  //Get Signature Value
+  let signature = context.evaluateTargetPath("#Control:SignatureArrv/#Value");
+
+  //
+  if (!signature) {
+    alert("Signature required!!!");
+    context.dismissActivityIndicator();
+    return;
+  }
+  let token;
+  let targetUrl = `/action/AttachmentSet`;
+  try {
+    let response = await context.sendRequest(`/action`, {
+      "method": "GET",
+      'header': {
+        "x-csrf-token": "fetch"
+      }
+    });
+    token = response.headers["x-csrf-token"];
+  } catch (error) {
+    alert(error);
+    context.dismissActivityIndicator();
+  }
+  context.setActionBinding({
+    tor_id: tor_id,
+    event_code: 'ARRIV_DEST',
+    event_reason: '',
+    ext_loc_id: locid,
+    event_time: '' + new Date().getTime()
+  });
+  const slug = {
+    tor_id: tor_id,
+    description: '',
+    attachment_type: 'ZSIG',
+    alternative_name: 'Arrival-Signature',
+    folder: locid
+  };
+  context.dismissActivityIndicator(); //End of Processing
+  //context.showActivityIndicator("Reporting Event......");
+  return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+    context.dismissActivityIndicator();
+    context.showActivityIndicator("Uploading signature");
+    return context.sendRequest(targetUrl, {
+      "method": "POST",
+      'header': {
+        "Content-Type": signature.contentType,
+        "x-csrf-token": token,
+        "Slug": encodeURI(JSON.stringify(slug))
+      },
+      "body": signature.content
+    }).then(() => {
+      alert("Successfully uploaded");
+      context.dismissActivityIndicator();
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
+    }).catch(err => {
+      alert(`Failed to upload ${err}`);
+      context.dismissActivityIndicator();
+      return context.executeAction("/driverapp/Actions/ClosePage.action");
+    });
+  }).catch(err => {
+    alert(`Failed to report event ${err}`);
+    //context.dismissActivityIndicator()
+  }).finally(() => {
+    context.dismissActivityIndicator();
+    return context.executeAction("/driverapp/Actions/ClosePage.action");
+  });
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/action/ReportDeparture.js":
 /*!*********************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/action/ReportDeparture.js ***!
@@ -2083,6 +2183,16 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":true,"_Type
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Pages/ArrivalEvent.page":
+/*!*************************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/ArrivalEvent.page ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureArrv","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"Primesource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportArrivalSign.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"ArrivalEvent","ActionBar":{"Items":[],"_Name":"ActionBar2","_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Pages/Attachment.page":
 /*!***********************************************************!*\
   !*** ./build.definitions/driverapp/Pages/Attachment.page ***!
@@ -2123,23 +2233,23 @@ module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"Se
 
 /***/ }),
 
-/***/ "./build.definitions/driverapp/Pages/Event.page":
-/*!******************************************************!*\
-  !*** ./build.definitions/driverapp/Pages/Event.page ***!
-  \******************************************************/
-/***/ ((module) => {
-
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure"]},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"FormCellListPicker0","IsVisible":false,"Separator":true,"AllowMultipleSelection":true,"AllowEmptySelection":true,"Caption":"Deliverd Items","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Delivered Items","HelperText":"Select all delivered items","IsSelectedSectionEnabled":true,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":true,"IsEditable":true,"Search":{"Enabled":true},"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"DisplayValue":"{item_descr}","ReturnValue":"{item_id}"}},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
-
-/***/ }),
-
 /***/ "./build.definitions/driverapp/Pages/Main.page":
 /*!*****************************************************!*\
   !*** ./build.definitions/driverapp/Pages/Main.page ***!
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Header":{"_Type":"SectionCommon.Type.Header","_Name":"SectionCommonTypeHeader0","AccessoryType":"None","UseTopPadding":false,"Caption":"#Application/#AppData/UserId"},"Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStyle.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"Header":{"_Type":"SectionCommon.Type.Header","_Name":"SectionCommonTypeHeader0","AccessoryType":"None","UseTopPadding":false,"Caption":"#Application/#AppData/UserId"},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/Pickup.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":true,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","Caption":"Shipment","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Main","PrefersLargeCaption":true}}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Pages/PODEvent.page":
+/*!*********************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/PODEvent.page ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure"]},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"FormCellListPicker0","IsVisible":false,"Separator":true,"AllowMultipleSelection":true,"AllowEmptySelection":true,"Caption":"Deliverd Items","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Delivered Items","HelperText":"Select all delivered items","IsSelectedSectionEnabled":true,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":true,"IsEditable":true,"Search":{"Enabled":true},"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"DisplayValue":"{item_descr}","ReturnValue":"{item_id}"}},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -2149,7 +2259,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-arrive","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportArrival.js"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://customer-order-entry","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}]},{"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCell","IsVisible":true,"Separator":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Navigation","Caption":"Navigate","Icon":"sap-icon://map-2","Position":"Right","IsIconCircular":true}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading"},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-arrive","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Arrival_Sign.action"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://customer-order-entry","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}]},{"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCell","IsVisible":true,"Separator":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"},{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Navigation","Caption":"Navigate","Icon":"sap-icon://map-2","Position":"Right","IsIconCircular":true}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -2433,6 +2543,16 @@ module.exports = {"Animated":true,"CompletionMessage":"Logs Uploaded","Completio
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Actions/Navigation/To_Arrival_Sign.action":
+/*!*******************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Navigation/To_Arrival_Sign.action ***!
+  \*******************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Arrival_Sign"},"PageToOpen":"/driverapp/Pages/ArrivalEvent.page"}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action":
 /*!*************************************************************************!*\
   !*** ./build.definitions/driverapp/Actions/Navigation/To_Detail.action ***!
@@ -2449,7 +2569,7 @@ module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_D
   \************************************************************************/
 /***/ ((module) => {
 
-module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Event"},"PageToOpen":"/driverapp/Pages/Event.page"}
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"To_Event"},"PageToOpen":"/driverapp/Pages/PODEvent.page"}
 
 /***/ }),
 

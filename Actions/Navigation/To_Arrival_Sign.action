@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"ActionResult": {
+		"_Name": "To_Arrival_Sign"
+	},
+	"PageToOpen": "/driverapp/Pages/ArrivalEvent.page"
+}

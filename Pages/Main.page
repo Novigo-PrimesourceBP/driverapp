@@ -22,13 +22,6 @@
 							"Items": []
 						}
 					},
-					"_Type": "Section.Type.ObjectTable",
-					"Target": {
-						"Service": "/driverapp/Services/main.service",
-						"EntitySet": "ZTM_C_DDL_DA_ROOT",
-						"QueryOptions": "$orderby=tor_id"
-					},
-					"_Name": "SectionObjectTable0",
 					"Header": {
 						"_Type": "SectionCommon.Type.Header",
 						"_Name": "SectionCommonTypeHeader0",
@@ -36,6 +29,13 @@
 						"UseTopPadding": false,
 						"Caption": "#Application/#AppData/UserId"
 					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "ZTM_C_DDL_DA_ROOT",
+						"QueryOptions": "$orderby=tor_id"
+					},
+					"_Name": "SectionObjectTable0",
 					"Visible": true,
 					"EmptySection": {
 						"FooterVisible": false
@@ -96,6 +96,7 @@
 	],
 	"_Type": "Page",
 	"_Name": "Main",
+	"Caption": "Shipment",
 	"ActionBar": {
 		"Items": [
 			{
