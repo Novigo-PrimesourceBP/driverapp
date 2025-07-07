@@ -33,7 +33,7 @@
 					"Target": {
 						"Service": "/driverapp/Services/main.service",
 						"EntitySet": "ZTM_C_DDL_DA_ROOT",
-						"QueryOptions": "$orderby=tor_id"
+						"QueryOptions": "$orderby=tor_id desc"
 					},
 					"_Name": "SectionObjectTable0",
 					"Visible": true,
@@ -96,7 +96,6 @@
 	],
 	"_Type": "Page",
 	"_Name": "Main",
-	"Caption": "Shipment",
 	"ActionBar": {
 		"Items": [
 			{
@@ -126,7 +125,7 @@
 		],
 		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar",
-		"Caption": "Main",
+		"Caption": "Shipments",
 		"PrefersLargeCaption": true
 	}
 }

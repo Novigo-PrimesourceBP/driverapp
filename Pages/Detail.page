@@ -146,17 +146,17 @@
 					"Buttons": [
 						{
 							"_Type": "ButtonTable.Type.Button",
-							"_Name": "ButtonTableTypeButton0",
+							"_Name": "SetDeparted",
 							"Title": "Departure",
 							"Alignment": "Center",
 							"ButtonType": "Text",
 							"Semantic": "Tint",
 							"Image": "sap-icon://journey-depart",
 							"ImagePosition": "Leading",
-							"FullWidth": false,
+							"FullWidth": true,
 							"Visible": true,
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"
+							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"							
 						},
 						{
 							"_Type": "ButtonTable.Type.Button",
@@ -168,8 +168,9 @@
 							"Image": "sap-icon://lateness",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
-							"Visible": true,
-							"Enabled": true
+							"Visible": false,
+							"Enabled": true,
+							"OnPress": "/driverapp/Actions/Navigation/To_DelayEvent.action"
 						}
 					]
 				},
@@ -239,8 +240,19 @@
 	"_Type": "Page",
 	"_Name": "Detail",
 	"ActionBar": {
-		"Items": [],
-		"_Name": "ActionBar4",
+		"Items": [
+			{
+				"_Type": "Control.Type.ActionBarItem",
+				"_Name": "Synn_Detail",
+				"Caption": "Sync",
+				"Icon": "sap-icon://synchronize",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"Visible": true,
+				"OnPress": "/driverapp/Rules/SyncGlobal.js"
+			}
+		],
+		"_Name": "ActionBar5",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

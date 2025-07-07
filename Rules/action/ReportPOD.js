@@ -49,7 +49,7 @@ export default async function ReportPOD(clientAPI) {
   });
   const slug = {
     tor_id: tor_id,
-    description: '',
+    description: locid + "_Recipient_Sign",
     attachment_type: 'ZSIG',
     alternative_name: 'POD-Signature',
     folder: locid

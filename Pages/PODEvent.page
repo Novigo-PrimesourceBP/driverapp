@@ -97,6 +97,15 @@
 							"IsEditable": true
 						},
 						{
+							"_Type": "Control.Type.FormCell.Note",
+							"_Name": "KeyRec",
+							"IsVisible": true,
+							"Separator": true,
+							"PlaceHolder": "KeyRec Number",
+							"Enabled": true,
+							"IsEditable": true
+						},
+						{
 							"_Type": "Control.Type.FormCell.Button",
 							"_Name": "FormCellButton0",
 							"IsVisible": true,
@@ -128,7 +137,7 @@
 	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar3",
+		"_Name": "ActionBar4",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

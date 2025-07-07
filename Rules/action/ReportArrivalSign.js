@@ -9,7 +9,7 @@ export default async function ReportArrivalSign(clientAPI) {
   //Get Signature Value
   let signature = context.evaluateTargetPath("#Control:SignatureArrv/#Value")
   
-  //
+  //Validation
   if (!signature) {
     alert("Signature required!!!")
     context.dismissActivityIndicator()
@@ -40,7 +40,7 @@ export default async function ReportArrivalSign(clientAPI) {
   });
   const slug = {
     tor_id: tor_id,
-    description: '',
+    description: locid + "_Driver_Sign",
     attachment_type: 'ZSIG',
     alternative_name: 'Arrival-Signature',
     folder: locid

@@ -119,6 +119,20 @@
 				{
 					"Controls": [
 						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "Delay",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "Delay",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Negative",
+							"Image": "sap-icon://lateness",
+							"ImagePosition": "Leading",
+							"Enabled": true,
+							"OnPress": "/driverapp/Actions/Navigation/To_DelayEvent.action"
+						},
+						{
 							"_Type": "Control.Type.FormCell.ListPicker",
 							"_Name": "AttachmentType",
 							"IsVisible": true,
@@ -251,11 +265,14 @@
 		"Items": [
 			{
 				"_Type": "Control.Type.ActionBarItem",
-				"_Name": "Navigation",
-				"Caption": "Navigate",
+				"_Name": "ShowMap",
+				"Caption": "Show map",
 				"Icon": "sap-icon://map-2",
 				"Position": "Right",
-				"IsIconCircular": true
+				"IsIconCircular": true,
+				"IconText": "Showmap",
+				"Visible": true,
+				"OnPress": "/driverapp/Rules/action/OpenMaps.js"
 			}
 		],
 		"_Name": "ActionBar3",

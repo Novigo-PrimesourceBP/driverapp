@@ -15,8 +15,7 @@ export default function ReportDeparture(clientAPI) {
   });
   try {
     return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
-      return context
-        .executeAction("/driverapp/Actions/ClosePage.action")
+      return context.executeAction("/driverapp/Actions/ClosePage.action") 
         .then(() => {
           context.dismissActivityIndicator();
           return context.executeAction({
