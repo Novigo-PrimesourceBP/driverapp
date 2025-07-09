@@ -102,6 +102,7 @@
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Sync",
 				"Caption": "Sync",
+				"Icon": "sap-icon://synchronize",
 				"Position": "Right",
 				"IsIconCircular": false,
 				"OnPress": "/driverapp/Rules/SyncGlobal.js"
@@ -110,6 +111,7 @@
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Logout",
 				"Caption": "Logout",
+				"Icon": "sap-icon://log",
 				"Position": "Right",
 				"IsIconCircular": false,
 				"OnPress": "/driverapp/Actions/Application/Logout.action"
@@ -118,9 +120,19 @@
 				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "Reset",
 				"Caption": "Reset",
+				"Icon": "sap-icon://reset",
 				"Position": "Right",
 				"IsIconCircular": false,
 				"OnPress": "/driverapp/Actions/action/Service/Reset.action"
+			},
+			{
+				"_Type": "Control.Type.ActionBarItem",
+				"_Name": "Activity_Log",
+				"Caption": "Activity Log",
+				"Icon": "sap-icon://it-host",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"OnPress": "/driverapp/Actions/Navigation/ToActivityLog.action"
 			}
 		],
 		"_Name": "ActionBar3",

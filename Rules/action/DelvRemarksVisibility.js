@@ -6,10 +6,12 @@ export default function DelvRemarksVisibility(clientAPI) {
     let context = clientAPI.getPageProxy()
     let evtreason = context.evaluateTargetPath("#Control:EventReason/#SelectedValue")
     let remark = context.evaluateTargetPath("#Control:Remarks")
-    //let selectedValue = context.getValue('EventReason')
-    // alert(evtreason)
-    // return 
-   
+    //Validation
+    if (!evtreason) {
+        alert("Please select the delivery")
+        return
+    }   
+    //Set Remarks Visibility
       if (evtreason === `Delivered- With Exceptions`) {
             remark.setVisible(true);
         } else {

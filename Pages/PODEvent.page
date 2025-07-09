@@ -31,7 +31,7 @@
 							},
 							"PickerPrompt": "Please select one Delivery",
 							"PlaceHolder": "None",
-							"HelperText": "Shows the list of Deliveries for the Stop",
+							"HelperText": "list of Deliveries for the Stop",
 							"IsSelectedSectionEnabled": false,
 							"AllowDefaultValueIfOneItem": false,
 							"IsEditable": true,
@@ -39,7 +39,7 @@
 								"Target": {
 									"Service": "/driverapp/Services/main.service",
 									"EntitySet": "ZTM_I_DDL_DA_DLVIT",
-									"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=base_btd_id&$select=base_btd_id,gro_vol_uni,item_descr,item_id"
+									"QueryOptions": "$apply=filter(tor_id eq '{tor_id}' and stop_id eq '{stop_id}')/groupby((base_btd_id))&$orderby=base_btd_id"
 								},
 								"DisplayValue": "{base_btd_id}",
 								"ReturnValue": "{base_btd_id}"
@@ -83,7 +83,10 @@
 								"Delivered- With Exceptions",
 								"Customer Closed",
 								"Customer Refused",
-								"Carrier Failure"
+								"Carrier Failure",
+								"Over",
+								"Short",
+								"Damaged"
 							]
 						},
 						{
@@ -158,7 +161,7 @@
 	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar9",
+		"_Name": "ActionBar12",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

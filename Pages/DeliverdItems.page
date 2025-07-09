@@ -30,11 +30,6 @@
 						}
 					},
 					"_Type": "Section.Type.ObjectTable",
-					"Target": {
-						"Service": "/driverapp/Services/main.service",
-						"EntitySet": "ZTM_I_DDL_DA_DLVIT",
-						"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"
-					},
 					"_Name": "DelvItems",
 					"Visible": true,
 					"EmptySection": {
@@ -48,18 +43,22 @@
 							"TrailingItems": [],
 							"_Type": "ObjectCell.Type.ContextMenu"
 						},
-						"Title": "{item_id}",
-						"Subhead": "{item_descr}",
-						"Footnote": "{gro_vol_val} {gro_vol_uni}",
-						"Description": "{gro_wei_val} {gro_wei_uni}",
+						"Title": "Product 1",
+						"Subhead": "Item desc",
+						"Footnote": "2 FT",
+						"Description": "2 kg",
 						"DisplayDescriptionInMobile": true,
-						"StatusText": "{qua_pcs_val} {qua_pcs_uni}",
+						"StatusText": "1 EA",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
 						"ProgressIndicator": "InProgress",
+						"Icons": [
+							"sap-icon://product"
+						],
 						"Tags": [
 							{
-								"Text": "tag"
+								"Text": "Product",
+								"Style": "tagStyleblue"
 							}
 						],
 						"AvatarStack": {
@@ -102,7 +101,7 @@
 	"_Name": "DeliverdItems",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar2",
+		"_Name": "ActionBar4",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

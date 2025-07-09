@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"ActionResult": {
+		"_Name": "ToActivityLog"
+	},
+	"PageToOpen": "/driverapp/Pages/Application/UserActivityLog.page"
+}

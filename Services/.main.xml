@@ -105,11 +105,13 @@
                 <Key>
                     <PropertyRef Name="base_btd_id"/>
                     <PropertyRef Name="item_id"/>
+                    <PropertyRef Name="tor_id"/>
+                    <PropertyRef Name="stop_id"/>
                 </Key>
                 <Property Name="base_btd_id" Type="Edm.String" Nullable="false" MaxLength="35" sap:display-format="UpperCase" sap:label="Base Document" sap:quickinfo="Base Business Transaction Document"/>
                 <Property Name="item_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Item"/>
-                <Property Name="tor_id" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Document"/>
-                <Property Name="stop_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Stop"/>
+                <Property Name="tor_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Document"/>
+                <Property Name="stop_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Stop"/>
                 <Property Name="locid" Type="Edm.String" MaxLength="20" sap:label="Location"/>
                 <Property Name="product_id" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Product"/>
                 <Property Name="item_descr" Type="Edm.String" MaxLength="40" sap:label="Item Description"/>
