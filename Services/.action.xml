@@ -5,19 +5,23 @@
             <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
             <EntityType Name="Event" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="tor_id"/>
                     <PropertyRef Name="event_time"/>
-                    <PropertyRef Name="stop_id"/>
+                    <PropertyRef Name="Keyrec"/>
                     <PropertyRef Name="recipient"/>
+                    <PropertyRef Name="DelvRemarks"/>
+                    <PropertyRef Name="stop_id"/>
+                    <PropertyRef Name="tor_id"/>
                     <PropertyRef Name="event_code"/>
                     <PropertyRef Name="ext_loc_id"/>
                     <PropertyRef Name="event_reason"/>
                     <PropertyRef Name="ext_loc_uuid"/>
                 </Key>
-                <Property Name="tor_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="event_time" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Event Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="stop_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Stop ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Keyrec" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="recipient" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="Recipient Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DelvRemarks" Type="Edm.String" Nullable="false" MaxLength="256" sap:unicode="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="stop_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Stop ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="tor_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="event_code" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Event" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ext_loc_id" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Business Tr. Doc. ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="event_reason" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Event Reason" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -26,7 +30,10 @@
             <EntityType Name="Attachment" m:HasStream="true" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="tor_id"/>
+                    <PropertyRef Name="Keyrec"/>
                     <PropertyRef Name="doc_key"/>
+                    <PropertyRef Name="DelvNumber"/>
+                    <PropertyRef Name="Recipient"/>
                     <PropertyRef Name="name"/>
                     <PropertyRef Name="alternative_name"/>
                     <PropertyRef Name="description"/>
@@ -35,7 +42,10 @@
                     <PropertyRef Name="attachment_type"/>
                 </Key>
                 <Property Name="tor_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Keyrec" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="doc_key" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Attachment Folder Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DelvNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Delivery" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Recipient" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="Recipient Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="name" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Component name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="alternative_name" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Component name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="description" Type="Edm.String" Nullable="false" MaxLength="64" sap:unicode="false" sap:label="Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>

@@ -19,6 +19,48 @@
 					"Controls": [
 						{
 							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "Delivery",
+							"IsVisible": true,
+							"Separator": true,
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": true,
+							"Caption": "Select Delivery",
+							"DataPaging": {
+								"ShowLoadingIndicator": false,
+								"PageSize": 50
+							},
+							"PickerPrompt": "Please select one Delivery",
+							"PlaceHolder": "None",
+							"HelperText": "Shows the list of Deliveries for the Stop",
+							"IsSelectedSectionEnabled": false,
+							"AllowDefaultValueIfOneItem": false,
+							"IsEditable": true,
+							"PickerItems": {
+								"Target": {
+									"Service": "/driverapp/Services/main.service",
+									"EntitySet": "ZTM_I_DDL_DA_DLVIT",
+									"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=base_btd_id&$select=base_btd_id,gro_vol_uni,item_descr,item_id"
+								},
+								"DisplayValue": "{base_btd_id}",
+								"ReturnValue": "{base_btd_id}"
+							}
+						},
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "DelvItems",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "Delivered Items",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"Image": "sap-icon://checklist",
+							"ImagePosition": "Leading",
+							"Enabled": true,
+							"OnPress": "/driverapp/Actions/Navigation/ToDelvItems.action"
+						},
+						{
+							"_Type": "Control.Type.FormCell.ListPicker",
 							"_Name": "EventReason",
 							"IsVisible": true,
 							"Separator": true,
@@ -30,6 +72,7 @@
 								"PageSize": 50
 							},
 							"PickerPrompt": "Please select one single item",
+							"OnValueChange": "/driverapp/Rules/action/DelvRemarksVisibility.js",
 							"IsSelectedSectionEnabled": false,
 							"IsPickerDismissedOnSelection": false,
 							"IsSearchCancelledAfterSelection": false,
@@ -44,36 +87,14 @@
 							]
 						},
 						{
-							"_Type": "Control.Type.FormCell.ListPicker",
-							"_Name": "FormCellListPicker0",
+							"_Type": "Control.Type.FormCell.Note",
+							"_Name": "Remarks",
 							"IsVisible": false,
 							"Separator": true,
-							"AllowMultipleSelection": true,
-							"AllowEmptySelection": true,
-							"Caption": "Deliverd Items",
-							"DataPaging": {
-								"ShowLoadingIndicator": false,
-								"PageSize": 50
-							},
-							"PickerPrompt": "Delivered Items",
-							"HelperText": "Select all delivered items",
-							"IsSelectedSectionEnabled": true,
-							"IsPickerDismissedOnSelection": false,
-							"IsSearchCancelledAfterSelection": false,
-							"AllowDefaultValueIfOneItem": true,
-							"IsEditable": true,
-							"Search": {
-								"Enabled": true
-							},
-							"PickerItems": {
-								"Target": {
-									"Service": "/driverapp/Services/main.service",
-									"EntitySet": "ZTM_I_DDL_DA_STIT",
-									"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"
-								},
-								"DisplayValue": "{item_descr}",
-								"ReturnValue": "{item_id}"
-							}
+							"PlaceHolder": "Remarks",
+							"HelperText": "Enter the remarks for Delivery",
+							"Enabled": true,
+							"IsEditable": true
 						},
 						{
 							"_Type": "Control.Type.FormCell.InlineSignatureCapture",
@@ -137,7 +158,7 @@
 	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar4",
+		"_Name": "ActionBar9",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

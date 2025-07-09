@@ -75,6 +75,7 @@ let driverapp_actions_navigation_to_delayevent_action = __webpack_require__(/*! 
 let driverapp_actions_navigation_to_detail_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Detail.action */ "./build.definitions/driverapp/Actions/Navigation/To_Detail.action")
 let driverapp_actions_navigation_to_event_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Event.action */ "./build.definitions/driverapp/Actions/Navigation/To_Event.action")
 let driverapp_actions_navigation_to_stop_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/To_Stop.action */ "./build.definitions/driverapp/Actions/Navigation/To_Stop.action")
+let driverapp_actions_navigation_todelvitems_action = __webpack_require__(/*! ./driverapp/Actions/Navigation/ToDelvItems.action */ "./build.definitions/driverapp/Actions/Navigation/ToDelvItems.action")
 let driverapp_globals_application_appdefinition_version_global = __webpack_require__(/*! ./driverapp/Globals/Application/AppDefinition_Version.global */ "./build.definitions/driverapp/Globals/Application/AppDefinition_Version.global")
 let driverapp_globals_application_applicationname_global = __webpack_require__(/*! ./driverapp/Globals/Application/ApplicationName.global */ "./build.definitions/driverapp/Globals/Application/ApplicationName.global")
 let driverapp_globals_application_supportemail_global = __webpack_require__(/*! ./driverapp/Globals/Application/SupportEmail.global */ "./build.definitions/driverapp/Globals/Application/SupportEmail.global")
@@ -87,6 +88,7 @@ let driverapp_pages_application_useractivitylog_page = __webpack_require__(/*! .
 let driverapp_pages_arrivalevent_page = __webpack_require__(/*! ./driverapp/Pages/ArrivalEvent.page */ "./build.definitions/driverapp/Pages/ArrivalEvent.page")
 let driverapp_pages_attachment_page = __webpack_require__(/*! ./driverapp/Pages/Attachment.page */ "./build.definitions/driverapp/Pages/Attachment.page")
 let driverapp_pages_delayevent_page = __webpack_require__(/*! ./driverapp/Pages/DelayEvent.page */ "./build.definitions/driverapp/Pages/DelayEvent.page")
+let driverapp_pages_deliverditems_page = __webpack_require__(/*! ./driverapp/Pages/DeliverdItems.page */ "./build.definitions/driverapp/Pages/DeliverdItems.page")
 let driverapp_pages_detail_page = __webpack_require__(/*! ./driverapp/Pages/Detail.page */ "./build.definitions/driverapp/Pages/Detail.page")
 let driverapp_pages_errorarchive_errorarchive_detail_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_Detail.page")
 let driverapp_pages_errorarchive_errorarchive_list_page = __webpack_require__(/*! ./driverapp/Pages/ErrorArchive/ErrorArchive_List.page */ "./build.definitions/driverapp/Pages/ErrorArchive/ErrorArchive_List.page")
@@ -95,6 +97,7 @@ let driverapp_pages_podevent_page = __webpack_require__(/*! ./driverapp/Pages/PO
 let driverapp_pages_stop_page = __webpack_require__(/*! ./driverapp/Pages/Stop.page */ "./build.definitions/driverapp/Pages/Stop.page")
 let driverapp_rules_action_createfailure_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateFailure.js */ "./build.definitions/driverapp/Rules/action/CreateFailure.js")
 let driverapp_rules_action_createsuccess_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateSuccess.js */ "./build.definitions/driverapp/Rules/action/CreateSuccess.js")
+let driverapp_rules_action_delvremarksvisibility_js = __webpack_require__(/*! ./driverapp/Rules/action/DelvRemarksVisibility.js */ "./build.definitions/driverapp/Rules/action/DelvRemarksVisibility.js")
 let driverapp_rules_action_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/action/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js")
 let driverapp_rules_action_ondocumentupload_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUpload.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUpload.js")
 let driverapp_rules_action_ondocumentuploadpress_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUploadPress.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUploadPress.js")
@@ -207,6 +210,7 @@ module.exports = {
 	driverapp_actions_navigation_to_detail_action : driverapp_actions_navigation_to_detail_action,
 	driverapp_actions_navigation_to_event_action : driverapp_actions_navigation_to_event_action,
 	driverapp_actions_navigation_to_stop_action : driverapp_actions_navigation_to_stop_action,
+	driverapp_actions_navigation_todelvitems_action : driverapp_actions_navigation_todelvitems_action,
 	driverapp_globals_application_appdefinition_version_global : driverapp_globals_application_appdefinition_version_global,
 	driverapp_globals_application_applicationname_global : driverapp_globals_application_applicationname_global,
 	driverapp_globals_application_supportemail_global : driverapp_globals_application_supportemail_global,
@@ -219,6 +223,7 @@ module.exports = {
 	driverapp_pages_arrivalevent_page : driverapp_pages_arrivalevent_page,
 	driverapp_pages_attachment_page : driverapp_pages_attachment_page,
 	driverapp_pages_delayevent_page : driverapp_pages_delayevent_page,
+	driverapp_pages_deliverditems_page : driverapp_pages_deliverditems_page,
 	driverapp_pages_detail_page : driverapp_pages_detail_page,
 	driverapp_pages_errorarchive_errorarchive_detail_page : driverapp_pages_errorarchive_errorarchive_detail_page,
 	driverapp_pages_errorarchive_errorarchive_list_page : driverapp_pages_errorarchive_errorarchive_list_page,
@@ -227,6 +232,7 @@ module.exports = {
 	driverapp_pages_stop_page : driverapp_pages_stop_page,
 	driverapp_rules_action_createfailure_js : driverapp_rules_action_createfailure_js,
 	driverapp_rules_action_createsuccess_js : driverapp_rules_action_createsuccess_js,
+	driverapp_rules_action_delvremarksvisibility_js : driverapp_rules_action_delvremarksvisibility_js,
 	driverapp_rules_action_errorarchive_checkforsyncerror_js : driverapp_rules_action_errorarchive_checkforsyncerror_js,
 	driverapp_rules_action_ondocumentupload_js : driverapp_rules_action_ondocumentupload_js,
 	driverapp_rules_action_ondocumentuploadpress_js : driverapp_rules_action_ondocumentuploadpress_js,
@@ -1342,6 +1348,38 @@ function CreateSuccess(clientAPI) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/action/DelvRemarksVisibility.js":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/DelvRemarksVisibility.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DelvRemarksVisibility)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function DelvRemarksVisibility(clientAPI) {
+  let context = clientAPI.getPageProxy();
+  let evtreason = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
+  let remark = context.evaluateTargetPath("#Control:Remarks");
+  //let selectedValue = context.getValue('EventReason')
+  // alert(evtreason)
+  // return 
+
+  if (evtreason === `Delivered- With Exceptions`) {
+    remark.setVisible(true);
+  } else {
+    remark.setVisible(false);
+  }
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js":
 /*!************************************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js ***!
@@ -2342,6 +2380,16 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Pages/DeliverdItems.page":
+/*!**************************************************************!*\
+  !*** ./build.definitions/driverapp/Pages/DeliverdItems.page ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"DelvItems_header","AccessoryType":"None","UseTopPadding":true,"Caption":"Delivered Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"DelvItems","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{item_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","DisplayDescriptionInMobile":true,"StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","ProgressIndicator":"InProgress","Tags":[{"Text":"tag"}],"AvatarStack":{"Avatars":[{"Image":"sap-icon://customer","ImageText":""}],"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"Avatars":[{"Image":"sap-icon://customer","ImageText":""}],"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"DeliverdItems","ActionBar":{"Items":[],"_Name":"ActionBar2","_Type":"Control.Type.ActionBar"}}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Pages/Detail.page":
 /*!*******************************************************!*\
   !*** ./build.definitions/driverapp/Pages/Detail.page ***!
@@ -2388,7 +2436,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*********************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure"]},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"FormCellListPicker0","IsVisible":false,"Separator":true,"AllowMultipleSelection":true,"AllowEmptySelection":true,"Caption":"Deliverd Items","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Delivered Items","HelperText":"Select all delivered items","IsSelectedSectionEnabled":true,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":true,"IsEditable":true,"Search":{"Enabled":true},"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"DisplayValue":"{item_descr}","ReturnValue":"{item_id}"}},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Note","_Name":"KeyRec","IsVisible":true,"Separator":true,"PlaceHolder":"KeyRec Number","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar4","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"Delivery","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":true,"Caption":"Select Delivery","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one Delivery","PlaceHolder":"None","HelperText":"Shows the list of Deliveries for the Stop","IsSelectedSectionEnabled":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=base_btd_id&$select=base_btd_id,gro_vol_uni,item_descr,item_id"},"DisplayValue":"{base_btd_id}","ReturnValue":"{base_btd_id}"}},{"_Type":"Control.Type.FormCell.Button","_Name":"DelvItems","IsVisible":true,"Separator":true,"Title":"Delivered Items","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://checklist","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/ToDelvItems.action"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","OnValueChange":"/driverapp/Rules/action/DelvRemarksVisibility.js","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure"]},{"_Type":"Control.Type.FormCell.Note","_Name":"Remarks","IsVisible":false,"Separator":true,"PlaceHolder":"Remarks","HelperText":"Enter the remarks for Delivery","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Note","_Name":"KeyRec","IsVisible":true,"Separator":true,"PlaceHolder":"KeyRec Number","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar9","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -2679,6 +2727,16 @@ module.exports = {"ActionResult":{"_Name":"UploadLog"},"ActivityIndicatorText":"
 /***/ ((module) => {
 
 module.exports = {"Animated":true,"CompletionMessage":"Logs Uploaded","CompletionTimeout":2,"Message":"Uploading Log Files...","OnSuccess":"/driverapp/Actions/Logging/UploadLog.action","_Type":"Action.Type.ProgressBanner"}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Actions/Navigation/ToDelvItems.action":
+/*!***************************************************************************!*\
+  !*** ./build.definitions/driverapp/Actions/Navigation/ToDelvItems.action ***!
+  \***************************************************************************/
+/***/ ((module) => {
+
+module.exports = {"_Type":"Action.Type.Navigation","ActionResult":{"_Name":"ToDelvItems"},"PageToOpen":"/driverapp/Pages/DeliverdItems.page"}
 
 /***/ }),
 

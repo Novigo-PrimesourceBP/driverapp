@@ -101,6 +101,25 @@
                 <Property Name="filesize_content" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="File Size" sap:quickinfo="File size (in bytes)"/>
                 <Property Name="folder" Type="Edm.String" MaxLength="64" sap:label="Doc. Title" sap:quickinfo="Title of a document"/>
             </EntityType>
+            <EntityType Name="ZTM_I_DDL_DA_DLVITType" sap:label="Interface View - Delv Item: Driver app" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="base_btd_id"/>
+                    <PropertyRef Name="item_id"/>
+                </Key>
+                <Property Name="base_btd_id" Type="Edm.String" Nullable="false" MaxLength="35" sap:display-format="UpperCase" sap:label="Base Document" sap:quickinfo="Base Business Transaction Document"/>
+                <Property Name="item_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Item"/>
+                <Property Name="tor_id" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Document"/>
+                <Property Name="stop_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Stop"/>
+                <Property Name="locid" Type="Edm.String" MaxLength="20" sap:label="Location"/>
+                <Property Name="product_id" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Product"/>
+                <Property Name="item_descr" Type="Edm.String" MaxLength="40" sap:label="Item Description"/>
+                <Property Name="gro_wei_val" Type="Edm.Decimal" Precision="31" Scale="14"/>
+                <Property Name="gro_wei_uni" Type="Edm.String" MaxLength="3" sap:label="Gr. Wt UoM" sap:quickinfo="Gross Weight Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="gro_vol_val" Type="Edm.Decimal" Precision="31" Scale="14"/>
+                <Property Name="gro_vol_uni" Type="Edm.String" MaxLength="3" sap:label="Gross Vol. UoM" sap:quickinfo="Gross Volume Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="qua_pcs_val" Type="Edm.Decimal" Precision="31" Scale="14"/>
+                <Property Name="qua_pcs_uni" Type="Edm.String" MaxLength="3" sap:semantics="unit-of-measure"/>
+            </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_EVTLType" sap:label="Interface View - Event Timeline: Driver app" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="tor_id"/>
@@ -172,6 +191,7 @@
                 <Property Name="act_arr_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
                 <Property Name="act_dep_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
                 <Property Name="act_pod_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
+                <NavigationProperty Name="to_dlvit" Relationship="cds_ztm_sd_ddl_da.assoc_16FC4DE733E78A918538BDC6956EFA27" FromRole="FromRole_assoc_16FC4DE733E78A918538BDC6956EFA27" ToRole="ToRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
                 <NavigationProperty Name="to_stit" Relationship="cds_ztm_sd_ddl_da.assoc_D9F7A901BD36CC2CE698B64C05080D01" FromRole="FromRole_assoc_D9F7A901BD36CC2CE698B64C05080D01" ToRole="ToRole_assoc_D9F7A901BD36CC2CE698B64C05080D01"/>
             </EntityType>
             <EntityType Name="SAP__Currency" sap:content-version="1">
@@ -344,6 +364,10 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
+            <Association Name="assoc_16FC4DE733E78A918538BDC6956EFA27" sap:content-version="1">
+                <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STOPType" Multiplicity="1" Role="FromRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
+                <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_DLVITType" Multiplicity="*" Role="ToRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
+            </Association>
             <Association Name="assoc_D9F7A901BD36CC2CE698B64C05080D01" sap:content-version="1">
                 <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STOPType" Multiplicity="1" Role="FromRole_assoc_D9F7A901BD36CC2CE698B64C05080D01"/>
                 <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STITType" Multiplicity="*" Role="ToRole_assoc_D9F7A901BD36CC2CE698B64C05080D01"/>
@@ -360,9 +384,14 @@
                 <EntitySet Name="SAP__ValueHelpSet" EntityType="cds_ztm_sd_ddl_da.SAP__ValueHelp" sap:content-version="1"/>
                 <EntitySet Name="ZTM_C_DDL_DA_ROOT" EntityType="cds_ztm_sd_ddl_da.ZTM_C_DDL_DA_ROOTType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_ATTC" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_ATTCType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZTM_I_DDL_DA_DLVIT" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_DLVITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_EVTL" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_EVTLType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_STIT" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_STOP" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STOPType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_16FC4DE733E78A918538BDC6956EFA27" Association="cds_ztm_sd_ddl_da.assoc_16FC4DE733E78A918538BDC6956EFA27" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZTM_I_DDL_DA_STOP" Role="FromRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
+                    <End EntitySet="ZTM_I_DDL_DA_DLVIT" Role="ToRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
+                </AssociationSet>
                 <AssociationSet Name="to_formatSet" Association="cds_ztm_sd_ddl_da.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_format"/>
                     <End EntitySet="SAP__FormatSet" Role="ToRole_to_format"/>
@@ -442,6 +471,14 @@
                     <Record>
                         <PropertyValue Property="RestrictedProperties">
                             <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_dlvit"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
                                 <Record>
                                     <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_stit"/>
                                     <PropertyValue Property="InsertRestrictions">
