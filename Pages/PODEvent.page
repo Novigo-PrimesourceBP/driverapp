@@ -23,7 +23,6 @@
 							"IsVisible": true,
 							"Separator": true,
 							"AllowMultipleSelection": false,
-							"AllowEmptySelection": true,
 							"Caption": "Select Delivery",
 							"DataPaging": {
 								"ShowLoadingIndicator": false,
@@ -33,7 +32,6 @@
 							"PlaceHolder": "None",
 							"HelperText": "list of Deliveries for the Stop",
 							"IsSelectedSectionEnabled": false,
-							"AllowDefaultValueIfOneItem": false,
 							"IsEditable": true,
 							"PickerItems": {
 								"Target": {
@@ -57,7 +55,7 @@
 							"Image": "sap-icon://checklist",
 							"ImagePosition": "Leading",
 							"Enabled": true,
-							"OnPress": "/driverapp/Actions/Navigation/ToDelvItems.action"
+							"OnPress": "/driverapp/Rules/action/OpenDelvItems.js"
 						},
 						{
 							"_Type": "Control.Type.FormCell.ListPicker",
@@ -161,7 +159,7 @@
 	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar12",
+		"_Name": "ActionBar14",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

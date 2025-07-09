@@ -102,6 +102,7 @@ let driverapp_rules_action_delvremarksvisibility_js = __webpack_require__(/*! ./
 let driverapp_rules_action_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/action/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js")
 let driverapp_rules_action_ondocumentupload_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUpload.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUpload.js")
 let driverapp_rules_action_ondocumentuploadpress_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUploadPress.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUploadPress.js")
+let driverapp_rules_action_opendelvitems_js = __webpack_require__(/*! ./driverapp/Rules/action/OpenDelvItems.js */ "./build.definitions/driverapp/Rules/action/OpenDelvItems.js")
 let driverapp_rules_action_openmaps_js = __webpack_require__(/*! ./driverapp/Rules/action/OpenMaps.js */ "./build.definitions/driverapp/Rules/action/OpenMaps.js")
 let driverapp_rules_action_reportarrival_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrival.js */ "./build.definitions/driverapp/Rules/action/ReportArrival.js")
 let driverapp_rules_action_reportarrivalconfirmation_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrivalConfirmation.js */ "./build.definitions/driverapp/Rules/action/ReportArrivalConfirmation.js")
@@ -238,6 +239,7 @@ module.exports = {
 	driverapp_rules_action_errorarchive_checkforsyncerror_js : driverapp_rules_action_errorarchive_checkforsyncerror_js,
 	driverapp_rules_action_ondocumentupload_js : driverapp_rules_action_ondocumentupload_js,
 	driverapp_rules_action_ondocumentuploadpress_js : driverapp_rules_action_ondocumentuploadpress_js,
+	driverapp_rules_action_opendelvitems_js : driverapp_rules_action_opendelvitems_js,
 	driverapp_rules_action_openmaps_js : driverapp_rules_action_openmaps_js,
 	driverapp_rules_action_reportarrival_js : driverapp_rules_action_reportarrival_js,
 	driverapp_rules_action_reportarrivalconfirmation_js : driverapp_rules_action_reportarrivalconfirmation_js,
@@ -1516,6 +1518,38 @@ async function OnDocumentUpload(clientAPI) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/action/OpenDelvItems.js":
+/*!*******************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/OpenDelvItems.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ OpenDelvItems)
+/* harmony export */ });
+/**
+ * Navigates to the Delivered Items when a delivery is selected from POD page
+ * @param {IClientAPI} clientAPI
+ */
+function OpenDelvItems(clientAPI) {
+  let context = clientAPI.getPageProxy();
+  //Get Selected Value
+  let delv_num = context.evaluateTargetPath("#Control:Delivery/#Value");
+
+  //Validate if selected atleast one delivery
+  if (delv_num === null || delv_num === undefined || delv_num === '' || delv_num === 'None' || typeof delv_num === 'object' && Object.keys(delv_num).length === 0) {
+    alert("Please select a Delivery!!");
+    return;
+  } else {
+    //Navigate to Delivered Items
+    return context.executeAction("/driverapp/Actions/Navigation/ToDelvItems.action");
+  }
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/action/OpenMaps.js":
 /*!**************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/action/OpenMaps.js ***!
@@ -2131,12 +2165,12 @@ Page
 }
 ActionBar {
   color: white;
-  background-color: #89D1FF;
+  background-color: #06304979;
 }
 .ObjectTableTitle {
   color: Blue/7;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,cAAc;AAChB;AACA;EACE,YAAY;EACZ,yBAAyB;AAC3B;AACA;EACE,aAAa;AACf","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n  font-color: #edf6fa;\n  background-color: #0040b0;\n}\n.Pagebkg {\n  color: #EBF8FF;\n}\nActionBar {\n  color: white;\n  background-color: #89D1FF;\n}\n.ObjectTableTitle {\n  color: Blue/7;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,cAAc;AAChB;AACA;EACE,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,aAAa;AACf","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n  font-color: #edf6fa;\n  background-color: #0040b0;\n}\n.Pagebkg {\n  color: #EBF8FF;\n}\nActionBar {\n  color: white;\n  background-color: #06304979;\n}\n.ObjectTableTitle {\n  color: Blue/7;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2186,13 +2220,13 @@ Page
 //// This style applies to all the ActionBars in the application
 ActionBar {
     color: white;
-    background-color: #89D1FF; 
+    background-color: #06304979; 
 }
 //// style for Title property of an Object Table control
 .ObjectTableTitle {
     color: Blue/7;
    }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,yBAAyB;AAC7B;AACA;;IAEI,aAAa;GACd","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #89D1FF; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {\n    color: Blue/7;\n   }\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,2BAA2B;AAC/B;AACA;;IAEI,aAAa;GACd","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #06304979; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {\n    color: Blue/7;\n   }\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2219,12 +2253,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ns-light .tagStyleBlue {
 }
 .ns-light ActionBar {
 	color: white;
-	background-color: #89D1FF;
+	background-color: #06304979;
 }
 .ns-light .ObjectTableTitle {
 	color: Blue/7;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,cAAc;AACf;AACA;CACC,YAAY;CACZ,yBAAyB;AAC1B;AACA;CACC,aAAa;AACd","sourcesContent":[".ns-light .tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\n.ns-light .Pagebkg {\n\tcolor: #EBF8FF;\n}\n.ns-light ActionBar {\n\tcolor: white;\n\tbackground-color: #89D1FF;\n}\n.ns-light .ObjectTableTitle {\n\tcolor: Blue/7;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,cAAc;AACf;AACA;CACC,YAAY;CACZ,2BAA2B;AAC5B;AACA;CACC,aAAa;AACd","sourcesContent":[".ns-light .tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\n.ns-light .Pagebkg {\n\tcolor: #EBF8FF;\n}\n.ns-light ActionBar {\n\tcolor: white;\n\tbackground-color: #06304979;\n}\n.ns-light .ObjectTableTitle {\n\tcolor: Blue/7;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2251,12 +2285,12 @@ Pagebkg {
 }
 ActionBar {
 	font-color: white;
-	background-color: #89D1FF;
+	background-color: #06304979;
 }
 ObjectTableTitle {
 	font-color: Blue/7;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.nss"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,mBAAmB;AACpB;AACA;CACC,iBAAiB;CACjB,yBAAyB;AAC1B;AACA;CACC,kBAAkB;AACnB","sourcesContent":["tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\nPagebkg {\n\tfont-color: #EBF8FF;\n}\nActionBar {\n\tfont-color: white;\n\tbackground-color: #89D1FF;\n}\nObjectTableTitle {\n\tfont-color: Blue/7;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.nss"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,mBAAmB;AACpB;AACA;CACC,iBAAiB;CACjB,2BAA2B;AAC5B;AACA;CACC,kBAAkB;AACnB","sourcesContent":["tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\nPagebkg {\n\tfont-color: #EBF8FF;\n}\nActionBar {\n\tfont-color: white;\n\tbackground-color: #06304979;\n}\nObjectTableTitle {\n\tfont-color: Blue/7;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2450,7 +2484,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \**************************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"DelvItems_header","AccessoryType":"None","UseTopPadding":true,"Caption":"Delivered Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","_Name":"DelvItems","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"Product 1","Subhead":"Item desc","Footnote":"2 FT","Description":"2 kg","DisplayDescriptionInMobile":true,"StatusText":"1 EA","PreserveIconStackSpacing":false,"AccessoryType":"None","ProgressIndicator":"InProgress","Icons":["sap-icon://product"],"Tags":[{"Text":"Product","Style":"tagStyleblue"}],"AvatarStack":{"Avatars":[{"Image":"sap-icon://customer","ImageText":""}],"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"Avatars":[{"Image":"sap-icon://customer","ImageText":""}],"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"DeliverdItems","ActionBar":{"Items":[],"_Name":"ActionBar4","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Header":{"_Type":"SectionCommon.Type.Header","_Name":"DelvItems_header","AccessoryType":"None","UseTopPadding":true,"Styles":{"Caption":"ObjectTableTitle"},"Caption":"Delivered Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}' and base_btd_id eq '{{#Page:Event/#Control:Delivery/#SelectedValue}}'&$orderby=item_id"},"_Name":"DelvItems","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{item_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val}{gro_vol_uni}","Description":"{gro_wei_val}{gro_wei_uni}","DisplayDescriptionInMobile":true,"StatusText":"{qua_pcs_val}{qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://product"],"Tags":[{"Text":"Product","Style":"tagStyleblue"}],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"DeliverdItems","ActionBar":{"Items":[],"_Name":"ActionBar6","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -2500,7 +2534,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*********************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"Delivery","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":true,"Caption":"Select Delivery","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one Delivery","PlaceHolder":"None","HelperText":"list of Deliveries for the Stop","IsSelectedSectionEnabled":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$apply=filter(tor_id eq '{tor_id}' and stop_id eq '{stop_id}')/groupby((base_btd_id))&$orderby=base_btd_id"},"DisplayValue":"{base_btd_id}","ReturnValue":"{base_btd_id}"}},{"_Type":"Control.Type.FormCell.Button","_Name":"DelvItems","IsVisible":true,"Separator":true,"Title":"Delivered Items","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://checklist","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/ToDelvItems.action"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","OnValueChange":"/driverapp/Rules/action/DelvRemarksVisibility.js","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure"]},{"_Type":"Control.Type.FormCell.Note","_Name":"Remarks","IsVisible":false,"Separator":true,"PlaceHolder":"Remarks","HelperText":"Enter the remarks for Delivery","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Note","_Name":"KeyRec","IsVisible":true,"Separator":true,"PlaceHolder":"KeyRec Number","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar11","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"Delivery","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"Caption":"Select Delivery","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one Delivery","PlaceHolder":"None","HelperText":"list of Deliveries for the Stop","IsSelectedSectionEnabled":false,"IsEditable":true,"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$apply=filter(tor_id eq '{tor_id}' and stop_id eq '{stop_id}')/groupby((base_btd_id))&$orderby=base_btd_id"},"DisplayValue":"{base_btd_id}","ReturnValue":"{base_btd_id}"}},{"_Type":"Control.Type.FormCell.Button","_Name":"DelvItems","IsVisible":true,"Separator":true,"Title":"Delivered Items","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://checklist","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OpenDelvItems.js"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","OnValueChange":"/driverapp/Rules/action/DelvRemarksVisibility.js","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure","Over","Short","Damaged"]},{"_Type":"Control.Type.FormCell.Note","_Name":"Remarks","IsVisible":false,"Separator":true,"PlaceHolder":"Remarks","HelperText":"Enter the remarks for Delivery","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Note","_Name":"KeyRec","IsVisible":true,"Separator":true,"PlaceHolder":"KeyRec Number","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar14","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -3233,7 +3267,7 @@ __webpack_require__.d(exports, {
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"tagStyleBlue":{"font-color":"#edf6fa","background-color":"#0040b0"},"Pagebkg":{"font-color":"#EBF8FF"},"ActionBar":{"font-color":"white","background-color":"#89D1FF"},"ObjectTableTitle":{"font-color":"Blue/7"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"tagStyleBlue":{"font-color":"#edf6fa","background-color":"#0040b0"},"Pagebkg":{"font-color":"#EBF8FF"},"ActionBar":{"font-color":"white","background-color":"#06304979"},"ObjectTableTitle":{"font-color":"Blue/7"}}');
 
 /***/ }),
 

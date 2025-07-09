@@ -14,6 +14,9 @@
 						"_Name": "DelvItems_header",
 						"AccessoryType": "None",
 						"UseTopPadding": true,
+						"Styles": {
+							"Caption": "ObjectTableTitle"
+						},
 						"Caption": "Delivered Items"
 					},
 					"Separators": {
@@ -30,6 +33,11 @@
 						}
 					},
 					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "ZTM_I_DDL_DA_DLVIT",
+						"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}' and base_btd_id eq '{{#Page:Event/#Control:Delivery/#SelectedValue}}'&$orderby=item_id"
+					},
 					"_Name": "DelvItems",
 					"Visible": true,
 					"EmptySection": {
@@ -43,15 +51,14 @@
 							"TrailingItems": [],
 							"_Type": "ObjectCell.Type.ContextMenu"
 						},
-						"Title": "Product 1",
-						"Subhead": "Item desc",
-						"Footnote": "2 FT",
-						"Description": "2 kg",
+						"Title": "{item_id}",
+						"Subhead": "{item_descr}",
+						"Footnote": "{gro_vol_val}{gro_vol_uni}",
+						"Description": "{gro_wei_val}{gro_wei_uni}",
 						"DisplayDescriptionInMobile": true,
-						"StatusText": "1 EA",
+						"StatusText": "{qua_pcs_val}{qua_pcs_uni}",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
-						"ProgressIndicator": "InProgress",
 						"Icons": [
 							"sap-icon://product"
 						],
@@ -62,22 +69,10 @@
 							}
 						],
 						"AvatarStack": {
-							"Avatars": [
-								{
-									"Image": "sap-icon://customer",
-									"ImageText": ""
-								}
-							],
 							"ImageIsCircular": true,
 							"ImageHasBorder": false
 						},
 						"AvatarGrid": {
-							"Avatars": [
-								{
-									"Image": "sap-icon://customer",
-									"ImageText": ""
-								}
-							],
 							"ImageIsCircular": true
 						},
 						"_Type": "ObjectTable.Type.ObjectCell",
@@ -101,7 +96,7 @@
 	"_Name": "DeliverdItems",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar4",
+		"_Name": "ActionBar6",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
