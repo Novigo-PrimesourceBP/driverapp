@@ -56,9 +56,9 @@ export default async function ReportPOD(clientAPI) {
     event_reason: event_reason,
     ext_loc_id: locid,
     event_time: '' + new Date().getTime(),
-    keyrec: keyrec,    
+    Keyrec: keyrec,    
     recipient: recipient,
-    delv_remarks: remarks
+    DelvRemarks: remarks
   });
   const slug = {
     tor_id: tor_id,

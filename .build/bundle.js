@@ -2069,9 +2069,9 @@ async function ReportPOD(clientAPI) {
     event_reason: event_reason,
     ext_loc_id: locid,
     event_time: '' + new Date().getTime(),
-    keyrec: keyrec,
+    Keyrec: keyrec,
     recipient: recipient,
-    delv_remarks: remarks
+    DelvRemarks: remarks
   });
   const slug = {
     tor_id: tor_id,
@@ -3013,7 +3013,7 @@ module.exports = {"_Type":"Action.Type.Message","ActionResult":{"_Name":"ReportE
   \*******************************************************************************/
 /***/ ((module) => {
 
-module.exports = {"_Type":"Action.Type.ODataService.CreateEntity","ActionResult":{"_Name":"ReportEvent"},"ShowActivityIndicator":true,"ActivityIndicatorText":"Reporting event ....","Target":{"Service":"/driverapp/Services/action.service","EntitySet":"EventSet"},"Properties":{"tor_id":"{tor_id}","event_time":"{event_time}","event_code":"{event_code}","ext_loc_id":"{ext_loc_id}","event_reason":"{event_reason}","recipient":"{recipient}"},"RequestOptions":{"RemoveCreatedEntityAfterUpload":true}}
+module.exports = {"_Type":"Action.Type.ODataService.CreateEntity","ActionResult":{"_Name":"ReportEvent"},"ShowActivityIndicator":true,"ActivityIndicatorText":"Reporting event ....","Target":{"Service":"/driverapp/Services/action.service","EntitySet":"EventSet"},"Properties":{"tor_id":"{tor_id}","event_time":"{event_time}","event_code":"{event_code}","ext_loc_id":"{ext_loc_id}","event_reason":"{event_reason}","recipient":"{recipient}","Keyrec":"{Keyrec}","DelvRemarks":"{DelvRemarks}"},"RequestOptions":{"RemoveCreatedEntityAfterUpload":true}}
 
 /***/ }),
 
