@@ -9,8 +9,14 @@ export default async function ReportPOD(clientAPI) {
   let event_reason = context.evaluateTargetPath(
     "#Control:EventReason/#SelectedValue"
   );
+  //Get UI values
   let signature = context.evaluateTargetPath("#Control:SignatureSrc/#Value")
-  let recipient = context.evaluateTargetPath("#Control:FormCellNote0/#Value")
+  let recipient = context.evaluateTargetPath("#Control:Cust_name/#Value")
+  let keyrec    = context.evaluateTargetPath("#Control:KeyRec/#Value")
+  let delivery  = context.evaluateTargetPath("#Control:Delivery/#SelectedValue")
+  let remarks   = context.evaluateTargetPath("#Control:Remarks/#Value")
+
+  //Validation
   if (!signature) {
     alert("Signature required!!!")
     context.dismissActivityIndicator()
@@ -19,6 +25,12 @@ export default async function ReportPOD(clientAPI) {
 
   if (!recipient) {
     alert("Enter the recipient name")
+    context.dismissActivityIndicator()
+    return
+  }
+
+  if (!keyrec) {
+    alert("KeyRec required!!!")
     context.dismissActivityIndicator()
     return
   }
@@ -44,15 +56,19 @@ export default async function ReportPOD(clientAPI) {
     event_reason: event_reason,
     ext_loc_id: locid,
     event_time: '' + new Date().getTime(),
-    recipient: recipient
-
+    keyrec: keyrec,    
+    recipient: recipient,
+    delv_remarks: remarks
   });
   const slug = {
     tor_id: tor_id,
     description: locid + "_Recipient_Sign",
     attachment_type: 'ZSIG',
     alternative_name: 'POD-Signature',
-    folder: locid
+    folder: locid,
+    delv_number: delivery,
+    keyrec: keyrec,    
+    recipient: recipient
   };
   context.dismissActivityIndicator()
   context.showActivityIndicator("Reporting Event......");

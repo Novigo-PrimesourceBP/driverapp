@@ -43,7 +43,10 @@ export default async function ReportArrivalSign(clientAPI) {
     description: locid + "_Driver_Sign",
     attachment_type: 'ZSIG',
     alternative_name: 'Arrival-Signature',
-    folder: locid
+    folder: locid,
+    delv_number:'',
+    keyrec: '',    
+    recipient:''
   };
   context.dismissActivityIndicator() //End of Processing
   context.showActivityIndicator("Reporting Event......");

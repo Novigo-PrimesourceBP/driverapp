@@ -102,7 +102,7 @@
 							"_Name": "SignatureSrc",
 							"IsVisible": true,
 							"Separator": true,
-							"Caption": "Signature",
+							"Caption": "Recipient Signature",
 							"ShowTimestampInImage": true,
 							"ShowXMark": true,
 							"ShowUnderline": true,
@@ -111,10 +111,10 @@
 						},
 						{
 							"_Type": "Control.Type.FormCell.Note",
-							"_Name": "FormCellNote0",
+							"_Name": "Cust_name",
 							"IsVisible": true,
 							"Separator": true,
-							"PlaceHolder": "Recipient",
+							"PlaceHolder": "Recipient",							
 							"Enabled": true,
 							"IsEditable": true
 						},
@@ -129,7 +129,7 @@
 						},
 						{
 							"_Type": "Control.Type.FormCell.Button",
-							"_Name": "FormCellButton0",
+							"_Name": "SavePOD",
 							"IsVisible": true,
 							"Separator": true,
 							"Title": "Save",

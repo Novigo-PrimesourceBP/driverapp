@@ -1747,7 +1747,10 @@ async function ReportArrivalSign(clientAPI) {
     description: locid + "_Driver_Sign",
     attachment_type: 'ZSIG',
     alternative_name: 'Arrival-Signature',
-    folder: locid
+    folder: locid,
+    delv_number: '',
+    keyrec: '',
+    recipient: ''
   };
   context.dismissActivityIndicator(); //End of Processing
   context.showActivityIndicator("Reporting Event......");
@@ -2021,8 +2024,14 @@ async function ReportPOD(clientAPI) {
   let context = clientAPI.getPageProxy();
   context.showActivityIndicator("Processing .......");
   let event_reason = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
+  //Get UI values
   let signature = context.evaluateTargetPath("#Control:SignatureSrc/#Value");
-  let recipient = context.evaluateTargetPath("#Control:FormCellNote0/#Value");
+  let recipient = context.evaluateTargetPath("#Control:Cust_name/#Value");
+  let keyrec = context.evaluateTargetPath("#Control:KeyRec/#Value");
+  let delivery = context.evaluateTargetPath("#Control:Delivery/#SelectedValue");
+  let remarks = context.evaluateTargetPath("#Control:Remarks/#Value");
+
+  //Validation
   if (!signature) {
     alert("Signature required!!!");
     context.dismissActivityIndicator();
@@ -2030,6 +2039,11 @@ async function ReportPOD(clientAPI) {
   }
   if (!recipient) {
     alert("Enter the recipient name");
+    context.dismissActivityIndicator();
+    return;
+  }
+  if (!keyrec) {
+    alert("KeyRec required!!!");
     context.dismissActivityIndicator();
     return;
   }
@@ -2055,14 +2069,19 @@ async function ReportPOD(clientAPI) {
     event_reason: event_reason,
     ext_loc_id: locid,
     event_time: '' + new Date().getTime(),
-    recipient: recipient
+    keyrec: keyrec,
+    recipient: recipient,
+    delv_remarks: remarks
   });
   const slug = {
     tor_id: tor_id,
     description: locid + "_Recipient_Sign",
     attachment_type: 'ZSIG',
     alternative_name: 'POD-Signature',
-    folder: locid
+    folder: locid,
+    delv_number: delivery,
+    keyrec: keyrec,
+    recipient: recipient
   };
   context.dismissActivityIndicator();
   context.showActivityIndicator("Reporting Event......");
@@ -2534,7 +2553,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*********************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"Delivery","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"Caption":"Select Delivery","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one Delivery","PlaceHolder":"None","HelperText":"list of Deliveries for the Stop","IsSelectedSectionEnabled":false,"IsEditable":true,"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$apply=filter(tor_id eq '{tor_id}' and stop_id eq '{stop_id}')/groupby((base_btd_id))&$orderby=base_btd_id"},"DisplayValue":"{base_btd_id}","ReturnValue":"{base_btd_id}"}},{"_Type":"Control.Type.FormCell.Button","_Name":"DelvItems","IsVisible":true,"Separator":true,"Title":"Delivered Items","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://checklist","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OpenDelvItems.js"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","OnValueChange":"/driverapp/Rules/action/DelvRemarksVisibility.js","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure","Over","Short","Damaged"]},{"_Type":"Control.Type.FormCell.Note","_Name":"Remarks","IsVisible":false,"Separator":true,"PlaceHolder":"Remarks","HelperText":"Enter the remarks for Delivery","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"FormCellNote0","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Note","_Name":"KeyRec","IsVisible":true,"Separator":true,"PlaceHolder":"KeyRec Number","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"FormCellButton0","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar14","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"Delivery","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"Caption":"Select Delivery","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one Delivery","PlaceHolder":"None","HelperText":"list of Deliveries for the Stop","IsSelectedSectionEnabled":false,"IsEditable":true,"PickerItems":{"Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$apply=filter(tor_id eq '{tor_id}' and stop_id eq '{stop_id}')/groupby((base_btd_id))&$orderby=base_btd_id"},"DisplayValue":"{base_btd_id}","ReturnValue":"{base_btd_id}"}},{"_Type":"Control.Type.FormCell.Button","_Name":"DelvItems","IsVisible":true,"Separator":true,"Title":"Delivered Items","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://checklist","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OpenDelvItems.js"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"EventReason","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Event reason","DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"PickerPrompt":"Please select one single item","OnValueChange":"/driverapp/Rules/action/DelvRemarksVisibility.js","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":false,"IsSearchCancelledAfterSelection":false,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":["Delivered- No Exceptions","Delivered- With Exceptions","Customer Closed","Customer Refused","Carrier Failure","Over","Short","Damaged"]},{"_Type":"Control.Type.FormCell.Note","_Name":"Remarks","IsVisible":false,"Separator":true,"PlaceHolder":"Remarks","HelperText":"Enter the remarks for Delivery","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.InlineSignatureCapture","_Name":"SignatureSrc","IsVisible":true,"Separator":true,"Caption":"Recipient Signature","ShowTimestampInImage":true,"ShowXMark":true,"ShowUnderline":true,"WatermarkText":"PrimeSource","WatermarkTextMaxLines":5},{"_Type":"Control.Type.FormCell.Note","_Name":"Cust_name","IsVisible":true,"Separator":true,"PlaceHolder":"Recipient","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Note","_Name":"KeyRec","IsVisible":true,"Separator":true,"PlaceHolder":"KeyRec Number","Enabled":true,"IsEditable":true},{"_Type":"Control.Type.FormCell.Button","_Name":"SavePOD","IsVisible":true,"Separator":true,"Title":"Save","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://save","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportPOD.js"}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Event","ActionBar":{"Items":[],"_Name":"ActionBar14","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
