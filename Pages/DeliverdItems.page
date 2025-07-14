@@ -10,13 +10,13 @@
 			"Sections": [
 				{
 					"Header": {
+						"Styles": {
+							"Caption": "ObjectTableTitle"
+						},
 						"_Type": "SectionCommon.Type.Header",
 						"_Name": "DelvItems_header",
 						"AccessoryType": "None",
 						"UseTopPadding": true,
-						"Styles": {
-							"Caption": "ObjectTableTitle"
-						},
 						"Caption": "Delivered Items"
 					},
 					"Separators": {
@@ -53,10 +53,10 @@
 						},
 						"Title": "{item_id}",
 						"Subhead": "{item_descr}",
-						"Footnote": "{gro_vol_val}{gro_vol_uni}",
-						"Description": "{gro_wei_val}{gro_wei_uni}",
+						"Footnote": "{gro_vol_val} {gro_vol_uni}",
+						"Description": "{gro_wei_val} {gro_wei_uni}",
 						"DisplayDescriptionInMobile": true,
-						"StatusText": "{qua_pcs_val}{qua_pcs_uni}",
+						"StatusText": "{qua_pcs_val} {qua_pcs_uni}",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
 						"Icons": [
@@ -96,7 +96,7 @@
 	"_Name": "DeliverdItems",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar6",
+		"_Name": "ActionBar7",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
