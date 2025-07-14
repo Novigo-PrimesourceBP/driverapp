@@ -2187,9 +2187,19 @@ ActionBar {
   background-color: #06304979;
 }
 .ObjectTableTitle {
-  color: Blue/7;
+  font-color: #0070F2;
+  background-color: #06304979;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,cAAc;AAChB;AACA;EACE,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,aAAa;AACf","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n  font-color: #edf6fa;\n  background-color: #0040b0;\n}\n.Pagebkg {\n  color: #EBF8FF;\n}\nActionBar {\n  color: white;\n  background-color: #06304979;\n}\n.ObjectTableTitle {\n  color: Blue/7;\n}\n"],"sourceRoot":""}]);
+.DelvItemTitle {
+  font-color: white;
+  background-color: #046c7a;
+  font-size: medium;
+}
+.MainFOTitle {
+  font-color: #1b90ff;
+  background-color: #edf6fa;
+}
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,cAAc;AAChB;AACA;EACE,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;AACA;EACE,iBAAiB;EACjB,yBAAyB;EACzB,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,yBAAyB;AAC3B","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n  font-color: #edf6fa;\n  background-color: #0040b0;\n}\n.Pagebkg {\n  color: #EBF8FF;\n}\nActionBar {\n  color: white;\n  background-color: #06304979;\n}\n.ObjectTableTitle {\n  font-color: #0070F2;\n  background-color: #06304979;\n}\n.DelvItemTitle {\n  font-color: white;\n  background-color: #046c7a;\n  font-size: medium;\n}\n.MainFOTitle {\n  font-color: #1b90ff;\n  background-color: #edf6fa;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2243,9 +2253,19 @@ ActionBar {
 }
 //// style for Title property of an Object Table control
 .ObjectTableTitle {
-    color: Blue/7;
+    font-color: #0070F2;
+    background-color: #06304979; 
    }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,2BAA2B;AAC/B;AACA;;IAEI,aAAa;GACd","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #06304979; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {\n    color: Blue/7;\n   }\n"],"sourceRoot":""}]);
+   .DelvItemTitle {
+    font-color: white;
+    background-color: #046c7a; 
+    font-size: medium;
+   }
+.MainFOTitle {
+    font-color: #1b90ff;
+    background-color:#edf6fa; 
+   }
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,2BAA2B;AAC/B;AACA;;IAEI,mBAAmB;IACnB,2BAA2B;GAC5B;GACA;IACC,iBAAiB;IACjB,yBAAyB;IACzB,iBAAiB;GAClB;AACH;IACI,mBAAmB;IACnB,wBAAwB;GACzB","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #06304979; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {\n    font-color: #0070F2;\n    background-color: #06304979; \n   }\n   .DelvItemTitle {\n    font-color: white;\n    background-color: #046c7a; \n    font-size: medium;\n   }\n.MainFOTitle {\n    font-color: #1b90ff;\n    background-color:#edf6fa; \n   }\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2275,9 +2295,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ns-light .tagStyleBlue {
 	background-color: #06304979;
 }
 .ns-light .ObjectTableTitle {
-	color: Blue/7;
+	font-color: #0070F2;
+	background-color: #06304979;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,cAAc;AACf;AACA;CACC,YAAY;CACZ,2BAA2B;AAC5B;AACA;CACC,aAAa;AACd","sourcesContent":[".ns-light .tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\n.ns-light .Pagebkg {\n\tcolor: #EBF8FF;\n}\n.ns-light ActionBar {\n\tcolor: white;\n\tbackground-color: #06304979;\n}\n.ns-light .ObjectTableTitle {\n\tcolor: Blue/7;\n}\n"],"sourceRoot":""}]);
+.ns-light .DelvItemTitle {
+	font-color: white;
+	background-color: #046c7a;
+	font-size: medium;
+}
+.ns-light .MainFOTitle {
+	font-color: #1b90ff;
+	background-color: #edf6fa;
+}
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,cAAc;AACf;AACA;CACC,YAAY;CACZ,2BAA2B;AAC5B;AACA;CACC,mBAAmB;CACnB,2BAA2B;AAC5B;AACA;CACC,iBAAiB;CACjB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B","sourcesContent":[".ns-light .tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\n.ns-light .Pagebkg {\n\tcolor: #EBF8FF;\n}\n.ns-light ActionBar {\n\tcolor: white;\n\tbackground-color: #06304979;\n}\n.ns-light .ObjectTableTitle {\n\tfont-color: #0070F2;\n\tbackground-color: #06304979;\n}\n.ns-light .DelvItemTitle {\n\tfont-color: white;\n\tbackground-color: #046c7a;\n\tfont-size: medium;\n}\n.ns-light .MainFOTitle {\n\tfont-color: #1b90ff;\n\tbackground-color: #edf6fa;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2307,9 +2337,19 @@ ActionBar {
 	background-color: #06304979;
 }
 ObjectTableTitle {
-	font-color: Blue/7;
+	font-color: #0070F2;
+	background-color: #06304979;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.nss"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,mBAAmB;AACpB;AACA;CACC,iBAAiB;CACjB,2BAA2B;AAC5B;AACA;CACC,kBAAkB;AACnB","sourcesContent":["tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\nPagebkg {\n\tfont-color: #EBF8FF;\n}\nActionBar {\n\tfont-color: white;\n\tbackground-color: #06304979;\n}\nObjectTableTitle {\n\tfont-color: Blue/7;\n}\n"],"sourceRoot":""}]);
+DelvItemTitle {
+	font-color: white;
+	background-color: #046c7a;
+	font-size: medium;
+}
+MainFOTitle {
+	font-color: #1b90ff;
+	background-color: #edf6fa;
+}
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.nss"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,mBAAmB;AACpB;AACA;CACC,iBAAiB;CACjB,2BAA2B;AAC5B;AACA;CACC,mBAAmB;CACnB,2BAA2B;AAC5B;AACA;CACC,iBAAiB;CACjB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B","sourcesContent":["tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\nPagebkg {\n\tfont-color: #EBF8FF;\n}\nActionBar {\n\tfont-color: white;\n\tbackground-color: #06304979;\n}\nObjectTableTitle {\n\tfont-color: #0070F2;\n\tbackground-color: #06304979;\n}\nDelvItemTitle {\n\tfont-color: white;\n\tbackground-color: #046c7a;\n\tfont-size: medium;\n}\nMainFOTitle {\n\tfont-color: #1b90ff;\n\tbackground-color: #edf6fa;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2503,7 +2543,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \**************************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Header":{"Styles":{"Caption":"ObjectTableTitle"},"_Type":"SectionCommon.Type.Header","_Name":"DelvItems_header","AccessoryType":"None","UseTopPadding":true,"Caption":"Delivered Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}' and base_btd_id eq '{{#Page:Event/#Control:Delivery/#SelectedValue}}'&$orderby=item_id"},"_Name":"DelvItems","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{item_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","DisplayDescriptionInMobile":true,"StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://product"],"Tags":[{"Text":"Product","Style":"tagStyleblue"}],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"DeliverdItems","ActionBar":{"Items":[],"_Name":"ActionBar7","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Header":{"Styles":{"Header":"DelvItemTitle","Caption":"DelvItemTitle"},"_Type":"SectionCommon.Type.Header","_Name":"DelvItems_header","AccessoryType":"None","UseTopPadding":true,"Caption":"Delivered Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_DLVIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}' and base_btd_id eq '{{#Page:Event/#Control:Delivery/#SelectedValue}}'&$orderby=item_id"},"_Name":"DelvItems","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{item_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","DisplayDescriptionInMobile":true,"StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://product"],"Tags":[{"Text":"Product","Style":"tagStyleblue"}],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"Styles":{"Title":"ObjectTableTitle"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"DataPaging":{"ShowLoadingIndicator":false,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"DeliverdItems","ActionBar":{"Items":[],"_Name":"ActionBar8","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -2543,7 +2583,7 @@ module.exports = {"Controls":[{"_Type":"Control.Type.SectionedTable","_Name":"Se
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"Header":{"_Type":"SectionCommon.Type.Header","_Name":"SectionCommonTypeHeader0","AccessoryType":"None","UseTopPadding":false,"Caption":"#Application/#AppData/UserId"},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id desc"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/Pickup.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":true,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Icon":"sap-icon://synchronize","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Icon":"sap-icon://log","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Icon":"sap-icon://reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Activity_Log","Caption":"Activity Log","Icon":"sap-icon://it-host","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Navigation/ToActivityLog.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Shipments","PrefersLargeCaption":true}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"Header":{"_Type":"SectionCommon.Type.Header","_Name":"SectionCommonTypeHeader0","AccessoryType":"None","UseTopPadding":false,"Caption":"#Application/#AppData/UserId"},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_C_DDL_DA_ROOT","QueryOptions":"$orderby=tor_id desc"},"_Name":"SectionObjectTable0","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{tor_id}","Subhead":"To: {des_city}","Footnote":"/driverapp/Rules/Formatters/PickupDate.js","Description":"Util: {max_util}%","DisplayDescriptionInMobile":true,"StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/PickupTime.js","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://shipping-status"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"OnPress":"/driverapp/Actions/Navigation/To_Detail.action","Styles":{"Title":"MainFOTitle","StatusText":"/driverapp/Rules/Formatters/ExecutionStatus.js","SubstatusText":"/driverapp/Rules/Formatters/Pickup.js","DetailImage":"Warning"},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"Search":{"Enabled":true},"DataPaging":{"ShowLoadingIndicator":true,"PageSize":50},"HighlightSelectedItem":false,"Selection":{"ExitOnLastDeselect":true,"LongPressToEnable":"None","Mode":"None"}}]}],"_Type":"Page","_Name":"Main","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Sync","Caption":"Sync","Icon":"sap-icon://synchronize","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"Logout","Caption":"Logout","Icon":"sap-icon://log","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Application/Logout.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Reset","Caption":"Reset","Icon":"sap-icon://reset","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/action/Service/Reset.action"},{"_Type":"Control.Type.ActionBarItem","_Name":"Activity_Log","Caption":"Activity Log","Icon":"sap-icon://it-host","Position":"Right","IsIconCircular":false,"OnPress":"/driverapp/Actions/Navigation/ToActivityLog.action"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar","Caption":"Shipments","PrefersLargeCaption":true}}
 
 /***/ }),
 
@@ -3286,7 +3326,7 @@ __webpack_require__.d(exports, {
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"tagStyleBlue":{"font-color":"#edf6fa","background-color":"#0040b0"},"Pagebkg":{"font-color":"#EBF8FF"},"ActionBar":{"font-color":"white","background-color":"#06304979"},"ObjectTableTitle":{"font-color":"Blue/7"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"tagStyleBlue":{"font-color":"#edf6fa","background-color":"#0040b0"},"Pagebkg":{"font-color":"#EBF8FF"},"ActionBar":{"font-color":"white","background-color":"#06304979"},"ObjectTableTitle":{"font-color":"#0070F2","background-color":"#06304979"},"DelvItemTitle":{"font-color":"white","background-color":"#046c7a","font-size":"medium"},"MainFOTitle":{"font-color":"#1b90ff","background-color":"#edf6fa"}}');
 
 /***/ }),
 

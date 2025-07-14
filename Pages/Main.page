@@ -70,6 +70,7 @@
 						},
 						"OnPress": "/driverapp/Actions/Navigation/To_Detail.action",
 						"Styles": {
+							"Title": "MainFOTitle",
 							"StatusText": "/driverapp/Rules/Formatters/ExecutionStatus.js",
 							"SubstatusText": "/driverapp/Rules/Formatters/Pickup.js",
 							"DetailImage": "Warning"

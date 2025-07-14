@@ -11,7 +11,8 @@
 				{
 					"Header": {
 						"Styles": {
-							"Caption": "ObjectTableTitle"
+							"Header": "DelvItemTitle",
+							"Caption": "DelvItemTitle"
 						},
 						"_Type": "SectionCommon.Type.Header",
 						"_Name": "DelvItems_header",
@@ -75,6 +76,9 @@
 						"AvatarGrid": {
 							"ImageIsCircular": true
 						},
+						"Styles": {
+							"Title": "ObjectTableTitle"
+						},
 						"_Type": "ObjectTable.Type.ObjectCell",
 						"Selected": false
 					},
@@ -96,7 +100,7 @@
 	"_Name": "DeliverdItems",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar7",
+		"_Name": "ActionBar8",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
