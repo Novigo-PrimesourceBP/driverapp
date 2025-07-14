@@ -20,6 +20,7 @@
 						"StatusImagePosition": "Leading",
 						"SubstatusImagePosition": "Leading",
 						"Styles": {
+							"HeadlineText": "MainFOTitle",
 							"Subhead": "/driverapp/Rules/Formatters/ExecutionStyle.js"
 						}
 					},
@@ -68,6 +69,10 @@
 						"_Name": "StopsHeader",
 						"AccessoryType": "None",
 						"UseTopPadding": true,
+						"Styles": {
+							"Header": "StopTitle",
+							"Caption": "StopTitle"
+						},
 						"Caption": "Stops"
 					},
 					"Separators": {
@@ -156,7 +161,7 @@
 							"FullWidth": true,
 							"Visible": true,
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"							
+							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"
 						},
 						{
 							"_Type": "ButtonTable.Type.Button",
