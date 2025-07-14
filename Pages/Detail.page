@@ -65,14 +65,14 @@
 				},
 				{
 					"Header": {
-						"_Type": "SectionCommon.Type.Header",
-						"_Name": "StopsHeader",
-						"AccessoryType": "None",
-						"UseTopPadding": true,
 						"Styles": {
 							"Header": "StopTitle",
 							"Caption": "StopTitle"
 						},
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "StopsHeader",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
 						"Caption": "Stops"
 					},
 					"Separators": {

@@ -85,7 +85,7 @@
 							"Image": "sap-icon://journey-arrive",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
-							"Visible": true,
+							"Visible": "/driverapp/Rules/action/StopArrvButtonVisibility.js",
 							"Enabled": true,
 							"OnPress": "/driverapp/Actions/Navigation/To_Arrival_Sign.action"
 						},
@@ -99,7 +99,7 @@
 							"Image": "sap-icon://journey-depart",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
-							"Visible": true,
+							"Visible": "/driverapp/Rules/action/StopDepButtonVisibility.js",
 							"Enabled": true,
 							"OnPress": "/driverapp/Rules/action/ReportDeparture.js"
 						},
@@ -201,14 +201,14 @@
 				},
 				{
 					"Header": {
-						"_Type": "SectionCommon.Type.Header",
-						"_Name": "StopItems",
-						"AccessoryType": "None",
-						"UseTopPadding": true,
 						"Styles": {
 							"Header": "StopTitle",
 							"Caption": "StopTitle"
 						},
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "StopItems",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
 						"Caption": "Items"
 					},
 					"Separators": {

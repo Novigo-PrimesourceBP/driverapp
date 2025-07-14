@@ -167,6 +167,7 @@
                 <Property Name="distance_km" Type="Edm.Decimal" Precision="28" Scale="6" sap:label="Decimal Value"/>
                 <Property Name="duration_net" Type="Edm.Decimal" Precision="11" Scale="0"/>
                 <Property Name="locid" Type="Edm.String" MaxLength="20" sap:label="Location"/>
+                <Property Name="seqpos" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Stop Position" sap:quickinfo="Stop Position in Transportation Stop Sequence"/>
                 <Property Name="tzone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
                 <Property Name="xpos" Type="Edm.Double" sap:label="Longitude" sap:quickinfo="Longitude Specified in GPS Coordinates"/>
                 <Property Name="ypos" Type="Edm.Double" sap:label="Latitude" sap:quickinfo="Latitude Specified in GPS Coordinates"/>
