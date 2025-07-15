@@ -23,6 +23,7 @@
 							"IsVisible": true,
 							"Separator": true,
 							"AllowMultipleSelection": false,
+							"AllowEmptySelection": false,
 							"Caption": "Select Delivery",
 							"DataPaging": {
 								"ShowLoadingIndicator": false,
@@ -32,6 +33,7 @@
 							"PlaceHolder": "None",
 							"HelperText": "list of Deliveries for the Stop",
 							"IsSelectedSectionEnabled": false,
+							"AllowDefaultValueIfOneItem": false,
 							"IsEditable": true,
 							"PickerItems": {
 								"Target": {
@@ -114,7 +116,7 @@
 							"_Name": "Cust_name",
 							"IsVisible": true,
 							"Separator": true,
-							"PlaceHolder": "Recipient",							
+							"PlaceHolder": "Recipient",
 							"Enabled": true,
 							"IsEditable": true
 						},
@@ -159,7 +161,7 @@
 	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar14",
+		"_Name": "ActionBar15",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
