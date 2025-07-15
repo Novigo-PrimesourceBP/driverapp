@@ -1482,7 +1482,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 async function OnDocumentUpload(clientAPI) {
   const context = clientAPI.getPageProxy();
-  context.showActivityIndicator("Processing .......");
+  // context.showActivityIndicator("Processing .......")
   let {
     tor_id,
     locid
@@ -1497,7 +1497,7 @@ async function OnDocumentUpload(clientAPI) {
   const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
   const slug = {
     tor_id: tor_id,
-    description: '',
+    description: fileName,
     attachment_type: clientAPI.evaluateTargetPath('#Control:AttachmentType/#SelectedValue') ?? 'ATCMT',
     alternative_name: fileName,
     folder: locid
@@ -1506,7 +1506,7 @@ async function OnDocumentUpload(clientAPI) {
   let targetUrl = `/action/AttachmentSet`;
   try {
     context.dismissActivityIndicator();
-    context.showActivityIndicator("Uploading .......");
+    context.showActivityIndicator("Uploading attachment...");
     let response = await context.sendRequest(`/action`, {
       "method": "GET",
       'header': {
@@ -1523,13 +1523,13 @@ async function OnDocumentUpload(clientAPI) {
       },
       "body": attachment.content
     }).then(() => {
-      alert("Successfully uploaded");
       context.dismissActivityIndicator();
+      alert("Successfully uploaded");
       attachmentFormCell.setValue([]);
       return context.executeAction("/driverapp/Actions/ClosePage.action");
     }).catch(err => {
-      alert(`Failed to upload ${err}`);
       context.dismissActivityIndicator();
+      alert(`Failed to upload ${err}`);
       attachmentFormCell.setValue([]);
       return context.executeAction("/driverapp/Actions/ClosePage.action");
     });
@@ -2170,22 +2170,6 @@ async function ReportPOD(clientAPI) {
         "Slug": encodeURI(JSON.stringify(slug))
       },
       "body": signature.content
-      //   }).then(() => {
-      //     alert("Successfully uploaded")
-      //     // context.dismissActivityIndicator()
-      //     return context.executeAction("/driverapp/Actions/ClosePage.action")
-      //   }).catch((err) => {
-      //     alert(`Failed to upload ${err}`)
-      //     context.dismissActivityIndicator()
-      //     return context.executeAction("/driverapp/Actions/ClosePage.action")
-      //   });
-      // }).catch((err) => {
-      //   alert(`Failed to report event ${err}`)
-      //   context.dismissActivityIndicator()
-      // }).finally(() => {
-      //   context.dismissActivityIndicator();
-      //   return context.executeAction("/driverapp/Actions/ClosePage.action")
-      // })
     }).then(() => {
       alert("Successfully uploaded");
     }).catch(err => {
@@ -2267,6 +2251,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ValidateKeyrec)
 /* harmony export */ });
 /* harmony import */ var _ShowInlineValidationView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ShowInlineValidationView */ "./build.definitions/driverapp/Rules/ShowInlineValidationView.js");
+// import ShowInlineValidationView from "../ShowInlineValidationView";
+
+// /**
+//  * Check keyrec is entered based on Payee from FU   
+//  * @param {IClientAPI} clientAPI
+//  */
+// export default function ValidateKeyrec(clientAPI) {
+// //     const control = clientAPI.evaluateTargetPath("#Page:-Current/#Control:KeyRec");
+// //     const keyrecinput = control.getValue();
+
+// //     // Validate if KeyRec is not empty
+// //     if (!keyrecinput) {
+// //         ShowInlineValidationView(clientAPI, control, "This field is required.");
+// //         return;
+// //     }
+
+// //     // Validation is successful - Clear validation message
+// //     ShowInlineValidationView(clientAPI, control, "", true);
+// // }
+
+//     const context = clientAPI.getPageProxy();
+//     const value = clientAPI.evaluateTargetPath("#Page:-Current/#Control:KeyRec");
+
+//     if (!value || value.trim() === '') {
+//         context.getControl("KeyRec").applyValidationMessage("Customer name is required.");
+//     } else {
+//         context.getControl("KeyRec").clearValidationMessage();
+//     }
+// }
 
 
 /**
@@ -2274,17 +2287,16 @@ __webpack_require__.r(__webpack_exports__);
  * @param {IClientAPI} clientAPI
  */
 function ValidateKeyrec(clientAPI) {
-  const control = clientAPI.evaluateTargetPath("#Page:-Current/#Control:KeyRec");
-  const keyrecinput = control.getValue();
+  const context = clientAPI.getPageProxy();
+  const value = context.evaluateTargetPath("#Control:KeyRec/#Value"); // get value from control
 
-  // Validate if KeyRec is not empty
-  if (!keyrecinput) {
-    (0,_ShowInlineValidationView__WEBPACK_IMPORTED_MODULE_0__["default"])(clientAPI, control, "This field is required.");
-    return;
+  const control = context.getControl("KeyRec"); // get control reference properly
+
+  if (!value || value.trim() === '') {
+    control.applyValidationMessage("KeyRec is required.");
+  } else {
+    control.clearValidationMessage();
   }
-
-  // Validation is successful - Clear validation message
-  (0,_ShowInlineValidationView__WEBPACK_IMPORTED_MODULE_0__["default"])(clientAPI, control, "", true);
 }
 
 /***/ }),

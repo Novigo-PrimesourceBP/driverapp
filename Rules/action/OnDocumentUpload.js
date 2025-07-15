@@ -5,7 +5,7 @@
 export default async function OnDocumentUpload(clientAPI) {
 
     const context = clientAPI.getPageProxy();
-    context.showActivityIndicator("Processing .......")
+    // context.showActivityIndicator("Processing .......")
     let { tor_id, locid } = clientAPI.binding;
     const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Stop/#Control:AttachmentFormCell");
     const attachmentList = clientAPI.evaluateTargetPath('#Page:Stop/#Control:AttachmentFormCell/#Value');
@@ -19,7 +19,7 @@ export default async function OnDocumentUpload(clientAPI) {
     const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
     const slug = {
         tor_id: tor_id,
-        description: '',
+        description: fileName,
         attachment_type: clientAPI.evaluateTargetPath('#Control:AttachmentType/#SelectedValue') ?? 'ATCMT',
         alternative_name: fileName,
         folder: locid
@@ -29,7 +29,7 @@ export default async function OnDocumentUpload(clientAPI) {
     let targetUrl = `/action/AttachmentSet`;
     try {
         context.dismissActivityIndicator()
-        context.showActivityIndicator("Uploading .......")
+        context.showActivityIndicator("Uploading attachment...")
         let response = await context.sendRequest(`/action`, {
             "method": "GET",
             'header': {
@@ -47,13 +47,13 @@ export default async function OnDocumentUpload(clientAPI) {
             },
             "body": attachment.content
         }).then(() => {
-            alert("Successfully uploaded")
             context.dismissActivityIndicator()
+            alert("Successfully uploaded")            
             attachmentFormCell.setValue([]);
             return context.executeAction("/driverapp/Actions/ClosePage.action")
         }).catch((err) => {
-            alert(`Failed to upload ${err}`)
             context.dismissActivityIndicator()
+            alert(`Failed to upload ${err}`)            
             attachmentFormCell.setValue([]);
             return context.executeAction("/driverapp/Actions/ClosePage.action")
         });
@@ -64,5 +64,4 @@ export default async function OnDocumentUpload(clientAPI) {
         attachmentFormCell.setValue([]);
         return context.executeAction("/driverapp/Actions/ClosePage.action")
     }
-
 }
