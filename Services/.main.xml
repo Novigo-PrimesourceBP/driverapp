@@ -138,6 +138,24 @@
                 <Property Name="event_reason" Type="Edm.String" MaxLength="100" sap:label="Event Reason" sap:quickinfo="Reason of Event Occuring for a Transportation Activity"/>
                 <Property Name="description_s" Type="Edm.String" MaxLength="40" sap:label="Description"/>
             </EntityType>
+            <EntityType Name="ZTM_I_DDL_DA_FUITType" sap:label="Interface View - FU&lt;-&gt;Party: Driver app" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="base_btd_id"/>
+                    <PropertyRef Name="item_id"/>
+                    <PropertyRef Name="tor_id"/>
+                    <PropertyRef Name="stop_id"/>
+                </Key>
+                <Property Name="base_btd_id" Type="Edm.String" Nullable="false" MaxLength="35" sap:display-format="UpperCase" sap:label="Base Document" sap:quickinfo="Base Business Transaction Document"/>
+                <Property Name="item_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Item"/>
+                <Property Name="tor_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Document"/>
+                <Property Name="stop_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Stop"/>
+                <Property Name="locid" Type="Edm.String" MaxLength="20" sap:label="Location"/>
+                <Property Name="product_id" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Product"/>
+                <Property Name="item_descr" Type="Edm.String" MaxLength="40" sap:label="Item Description"/>
+                <Property Name="FU" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Document"/>
+                <Property Name="party_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Business Partner" sap:quickinfo="Business Partner Internal ID"/>
+                <Property Name="party_rco" Type="Edm.String" MaxLength="2"/>
+            </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_STITType" sap:label="Interface View - Stop Item: Driver app" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="tor_id"/>
@@ -195,6 +213,7 @@
                 <Property Name="act_dep_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
                 <Property Name="act_pod_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
                 <NavigationProperty Name="to_dlvit" Relationship="cds_ztm_sd_ddl_da.assoc_16FC4DE733E78A918538BDC6956EFA27" FromRole="FromRole_assoc_16FC4DE733E78A918538BDC6956EFA27" ToRole="ToRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
+                <NavigationProperty Name="to_fuit" Relationship="cds_ztm_sd_ddl_da.assoc_FFB45546D835F31F3860EA27EB187997" FromRole="FromRole_assoc_FFB45546D835F31F3860EA27EB187997" ToRole="ToRole_assoc_FFB45546D835F31F3860EA27EB187997"/>
                 <NavigationProperty Name="to_stit" Relationship="cds_ztm_sd_ddl_da.assoc_D9F7A901BD36CC2CE698B64C05080D01" FromRole="FromRole_assoc_D9F7A901BD36CC2CE698B64C05080D01" ToRole="ToRole_assoc_D9F7A901BD36CC2CE698B64C05080D01"/>
             </EntityType>
             <EntityType Name="SAP__Currency" sap:content-version="1">
@@ -371,6 +390,10 @@
                 <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STOPType" Multiplicity="1" Role="FromRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
                 <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_DLVITType" Multiplicity="*" Role="ToRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
             </Association>
+            <Association Name="assoc_FFB45546D835F31F3860EA27EB187997" sap:content-version="1">
+                <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STOPType" Multiplicity="1" Role="FromRole_assoc_FFB45546D835F31F3860EA27EB187997"/>
+                <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_FUITType" Multiplicity="*" Role="ToRole_assoc_FFB45546D835F31F3860EA27EB187997"/>
+            </Association>
             <Association Name="assoc_D9F7A901BD36CC2CE698B64C05080D01" sap:content-version="1">
                 <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STOPType" Multiplicity="1" Role="FromRole_assoc_D9F7A901BD36CC2CE698B64C05080D01"/>
                 <End Type="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STITType" Multiplicity="*" Role="ToRole_assoc_D9F7A901BD36CC2CE698B64C05080D01"/>
@@ -389,6 +412,7 @@
                 <EntitySet Name="ZTM_I_DDL_DA_ATTC" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_ATTCType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_DLVIT" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_DLVITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_EVTL" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_EVTLType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZTM_I_DDL_DA_FUIT" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_FUITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_STIT" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ZTM_I_DDL_DA_STOP" EntityType="cds_ztm_sd_ddl_da.ZTM_I_DDL_DA_STOPType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <AssociationSet Name="assoc_16FC4DE733E78A918538BDC6956EFA27" Association="cds_ztm_sd_ddl_da.assoc_16FC4DE733E78A918538BDC6956EFA27" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
@@ -402,6 +426,10 @@
                 <AssociationSet Name="to_pdfstandardSet" Association="cds_ztm_sd_ddl_da.to_pdfstandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_pdfstandard"/>
                     <End EntitySet="SAP__PDFStandardSet" Role="ToRole_to_pdfstandard"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_FFB45546D835F31F3860EA27EB187997" Association="cds_ztm_sd_ddl_da.assoc_FFB45546D835F31F3860EA27EB187997" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZTM_I_DDL_DA_STOP" Role="FromRole_assoc_FFB45546D835F31F3860EA27EB187997"/>
+                    <End EntitySet="ZTM_I_DDL_DA_FUIT" Role="ToRole_assoc_FFB45546D835F31F3860EA27EB187997"/>
                 </AssociationSet>
                 <AssociationSet Name="assoc_403D2E4A2668CBCC0128B12E7E6D2CBD" Association="cds_ztm_sd_ddl_da.assoc_403D2E4A2668CBCC0128B12E7E6D2CBD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="ZTM_C_DDL_DA_ROOT" Role="FromRole_assoc_403D2E4A2668CBCC0128B12E7E6D2CBD"/>
@@ -476,6 +504,14 @@
                             <Collection>
                                 <Record>
                                     <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_dlvit"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_fuit"/>
                                     <PropertyValue Property="InsertRestrictions">
                                         <Record>
                                             <PropertyValue Property="Insertable" Bool="false"/>

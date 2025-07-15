@@ -115,6 +115,7 @@ let driverapp_rules_action_reportevent_js = __webpack_require__(/*! ./driverapp/
 let driverapp_rules_action_reportpod_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportPOD.js */ "./build.definitions/driverapp/Rules/action/ReportPOD.js")
 let driverapp_rules_action_stoparrvbuttonvisibility_js = __webpack_require__(/*! ./driverapp/Rules/action/StopArrvButtonVisibility.js */ "./build.definitions/driverapp/Rules/action/StopArrvButtonVisibility.js")
 let driverapp_rules_action_stopdepbuttonvisibility_js = __webpack_require__(/*! ./driverapp/Rules/action/StopDepButtonVisibility.js */ "./build.definitions/driverapp/Rules/action/StopDepButtonVisibility.js")
+let driverapp_rules_action_validatekeyrec_js = __webpack_require__(/*! ./driverapp/Rules/action/ValidateKeyrec.js */ "./build.definitions/driverapp/Rules/action/ValidateKeyrec.js")
 let driverapp_rules_application_appupdatefailure_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateFailure.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateFailure.js")
 let driverapp_rules_application_appupdatesuccess_js = __webpack_require__(/*! ./driverapp/Rules/Application/AppUpdateSuccess.js */ "./build.definitions/driverapp/Rules/Application/AppUpdateSuccess.js")
 let driverapp_rules_application_clientismultiusermode_js = __webpack_require__(/*! ./driverapp/Rules/Application/ClientIsMultiUserMode.js */ "./build.definitions/driverapp/Rules/Application/ClientIsMultiUserMode.js")
@@ -144,6 +145,7 @@ let driverapp_rules_logging_tracecategories_js = __webpack_require__(/*! ./drive
 let driverapp_rules_logging_userlogsetting_js = __webpack_require__(/*! ./driverapp/Rules/Logging/UserLogSetting.js */ "./build.definitions/driverapp/Rules/Logging/UserLogSetting.js")
 let driverapp_rules_main_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/main/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/main/ErrorArchive_CheckForSyncError.js")
 let driverapp_rules_service_initialize_js = __webpack_require__(/*! ./driverapp/Rules/Service/Initialize.js */ "./build.definitions/driverapp/Rules/Service/Initialize.js")
+let driverapp_rules_showinlinevalidationview_js = __webpack_require__(/*! ./driverapp/Rules/ShowInlineValidationView.js */ "./build.definitions/driverapp/Rules/ShowInlineValidationView.js")
 let driverapp_rules_syncglobal_js = __webpack_require__(/*! ./driverapp/Rules/SyncGlobal.js */ "./build.definitions/driverapp/Rules/SyncGlobal.js")
 let driverapp_services_action_service = __webpack_require__(/*! ./driverapp/Services/action.service */ "./build.definitions/driverapp/Services/action.service")
 let driverapp_services_main_service = __webpack_require__(/*! ./driverapp/Services/main.service */ "./build.definitions/driverapp/Services/main.service")
@@ -254,6 +256,7 @@ module.exports = {
 	driverapp_rules_action_reportpod_js : driverapp_rules_action_reportpod_js,
 	driverapp_rules_action_stoparrvbuttonvisibility_js : driverapp_rules_action_stoparrvbuttonvisibility_js,
 	driverapp_rules_action_stopdepbuttonvisibility_js : driverapp_rules_action_stopdepbuttonvisibility_js,
+	driverapp_rules_action_validatekeyrec_js : driverapp_rules_action_validatekeyrec_js,
 	driverapp_rules_application_appupdatefailure_js : driverapp_rules_application_appupdatefailure_js,
 	driverapp_rules_application_appupdatesuccess_js : driverapp_rules_application_appupdatesuccess_js,
 	driverapp_rules_application_clientismultiusermode_js : driverapp_rules_application_clientismultiusermode_js,
@@ -283,6 +286,7 @@ module.exports = {
 	driverapp_rules_logging_userlogsetting_js : driverapp_rules_logging_userlogsetting_js,
 	driverapp_rules_main_errorarchive_checkforsyncerror_js : driverapp_rules_main_errorarchive_checkforsyncerror_js,
 	driverapp_rules_service_initialize_js : driverapp_rules_service_initialize_js,
+	driverapp_rules_showinlinevalidationview_js : driverapp_rules_showinlinevalidationview_js,
 	driverapp_rules_syncglobal_js : driverapp_rules_syncglobal_js,
 	driverapp_services_action_service : driverapp_services_action_service,
 	driverapp_services_main_service : driverapp_services_main_service,
@@ -1272,6 +1276,50 @@ function Initialize(context) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/ShowInlineValidationView.js":
+/*!***********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/ShowInlineValidationView.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ShowInlineValidationView)
+/* harmony export */ });
+/**
+ * @param {IClientAPI} clientAPI
+ * @param {IFormCellProxy} control
+ * @param {string} errorText
+ * @param {boolean} isHidden 
+ */
+// export default function ShowInlineValidationView(clientAPI, control, errorText, isHidden = false) {
+//     control.getValidation().setMessage(errorText);
+//     control.getValidation().setVisible(!isHidden);
+//     if (!clientAPI.nativescript.platformModule.isAndroid) {
+//         control.getValidation().setSeparatorVisible(!isHidden);
+//     }
+//     control.redraw();
+// }
+
+function ShowInlineValidationView(clientAPI, control, errorText, isHidden = false) {
+  control.setValidationProperty("ValidationMessage", errorText);
+  control.setValidationProperty("ValidationViewIsHidden", isHidden);
+  // no color for message text and background color required for Android
+  if (!clientAPI.nativescript.platformModule.isAndroid) {
+    control.setValidationProperty("ValidationMessageColor", "5b738b");
+    control.setValidationProperty("ValidationViewBackgroundColor", "fbebf3");
+    // no separator required for Android + Web
+    if (clientAPI.nativescript.platformModule.isIOS) {
+      control.setValidationProperty("SeparatorIsHidden", isHidden);
+      control.setValidationProperty("SeparatorBackgroundColor", "d20a0a");
+    }
+  }
+  control.applyFormCellValidation();
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/SyncGlobal.js":
 /*!*********************************************************!*\
   !*** ./build.definitions/driverapp/Rules/SyncGlobal.js ***!
@@ -2136,7 +2184,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {IClientAPI} clientAPI
  */
 function StopArrvButtonVisibility(clientAPI) {
-  // Hide buttons if stopseq is 'F' (First)
+  // Hide button if stopseq is 'F' (First)
   if (clientAPI.binding.seqpos === 'F') {
     return false;
   } else {
@@ -2163,13 +2211,47 @@ __webpack_require__.r(__webpack_exports__);
  * @param {IClientAPI} clientAPI
  */
 function StopDepButtonVisibility(clientAPI) {
-  // Hide buttons if stopseq is 'L' (Last)
+  // Hide button if stopseq is 'L' (Last)
   if (clientAPI.binding.seqpos === 'L') {
     return false;
   } else {
     // Otherwise, show the button
     return true;
   }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/ValidateKeyrec.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ValidateKeyrec.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ValidateKeyrec)
+/* harmony export */ });
+/* harmony import */ var _ShowInlineValidationView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ShowInlineValidationView */ "./build.definitions/driverapp/Rules/ShowInlineValidationView.js");
+
+
+/**
+ * Check keyrec is entered based on Payee from FU   
+ * @param {IClientAPI} clientAPI
+ */
+function ValidateKeyrec(clientAPI) {
+  const control = clientAPI.evaluateTargetPath("#Page:-Current/#Control:KeyRec");
+  const keyrecinput = control.getValue();
+
+  // Validate if KeyRec is not empty
+  if (!keyrecinput) {
+    (0,_ShowInlineValidationView__WEBPACK_IMPORTED_MODULE_0__["default"])(clientAPI, control, "This field is required.");
+    return;
+  }
+
+  // Validation is successful - Clear validation message
+  (0,_ShowInlineValidationView__WEBPACK_IMPORTED_MODULE_0__["default"])(clientAPI, control, "", true);
 }
 
 /***/ }),
@@ -3242,7 +3324,7 @@ module.exports = {"Message":"Download in progress...","CompletionMessage":"Downl
   \***********************************************************************************/
 /***/ ((module) => {
 
-module.exports = {"Service":"/driverapp/Services/main.service","DefiningRequests":[{"Name":"ZTM_C_DDL_DA_ROOT","Query":"ZTM_C_DDL_DA_ROOT"},{"Name":"ZTM_I_DDL_DA_ATTC","Query":"ZTM_I_DDL_DA_ATTC"},{"Name":"ZTM_I_DDL_DA_EVTL","Query":"ZTM_I_DDL_DA_EVTL"},{"Name":"ZTM_I_DDL_DA_STIT","Query":"ZTM_I_DDL_DA_STIT"},{"Name":"ZTM_I_DDL_DA_STOP","Query":"ZTM_I_DDL_DA_STOP"},{"Name":"ZTM_I_DDL_DA_DLVIT","Query":"ZTM_I_DDL_DA_DLVIT"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading Shipments...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action"}
+module.exports = {"Service":"/driverapp/Services/main.service","DefiningRequests":[{"Name":"ZTM_C_DDL_DA_ROOT","Query":"ZTM_C_DDL_DA_ROOT"},{"Name":"ZTM_I_DDL_DA_ATTC","Query":"ZTM_I_DDL_DA_ATTC"},{"Name":"ZTM_I_DDL_DA_EVTL","Query":"ZTM_I_DDL_DA_EVTL"},{"Name":"ZTM_I_DDL_DA_STIT","Query":"ZTM_I_DDL_DA_STIT"},{"Name":"ZTM_I_DDL_DA_STOP","Query":"ZTM_I_DDL_DA_STOP"},{"Name":"ZTM_I_DDL_DA_DLVIT","Query":"ZTM_I_DDL_DA_DLVIT"},{"Name":"ZTM_I_DDL_DA_FUIT","Query":"ZTM_I_DDL_DA_FUIT"}],"_Type":"Action.Type.ODataService.Initialize","ShowActivityIndicator":true,"ActivityIndicatorText":"Downloading Shipments...","ActionResult":{"_Name":"init"},"OnFailure":"/driverapp/Actions/main/Service/InitializeOfflineFailureMessage.action"}
 
 /***/ }),
 
