@@ -140,7 +140,7 @@
 							"_Name": "Attach",
 							"IsVisible": true,
 							"Separator": true,
-							"Title": "Attach",
+							"Title": "Attach File",
 							"Alignment": "Center",
 							"ButtonType": "Text",
 							"Semantic": "Tint",

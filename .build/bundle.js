@@ -97,12 +97,14 @@ let driverapp_pages_errorarchive_errorarchive_list_page = __webpack_require__(/*
 let driverapp_pages_main_page = __webpack_require__(/*! ./driverapp/Pages/Main.page */ "./build.definitions/driverapp/Pages/Main.page")
 let driverapp_pages_podevent_page = __webpack_require__(/*! ./driverapp/Pages/PODEvent.page */ "./build.definitions/driverapp/Pages/PODEvent.page")
 let driverapp_pages_stop_page = __webpack_require__(/*! ./driverapp/Pages/Stop.page */ "./build.definitions/driverapp/Pages/Stop.page")
+let driverapp_rules_action_clearattachments_js = __webpack_require__(/*! ./driverapp/Rules/action/ClearAttachments.js */ "./build.definitions/driverapp/Rules/action/ClearAttachments.js")
 let driverapp_rules_action_createfailure_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateFailure.js */ "./build.definitions/driverapp/Rules/action/CreateFailure.js")
 let driverapp_rules_action_createsuccess_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateSuccess.js */ "./build.definitions/driverapp/Rules/action/CreateSuccess.js")
 let driverapp_rules_action_delvremarksvisibility_js = __webpack_require__(/*! ./driverapp/Rules/action/DelvRemarksVisibility.js */ "./build.definitions/driverapp/Rules/action/DelvRemarksVisibility.js")
 let driverapp_rules_action_errorarchive_checkforsyncerror_js = __webpack_require__(/*! ./driverapp/Rules/action/ErrorArchive_CheckForSyncError.js */ "./build.definitions/driverapp/Rules/action/ErrorArchive_CheckForSyncError.js")
 let driverapp_rules_action_ondocumentupload_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUpload.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUpload.js")
 let driverapp_rules_action_ondocumentuploadpress_js = __webpack_require__(/*! ./driverapp/Rules/action/OnDocumentUploadPress.js */ "./build.definitions/driverapp/Rules/action/OnDocumentUploadPress.js")
+let driverapp_rules_action_onmuldocupload_js = __webpack_require__(/*! ./driverapp/Rules/action/OnMulDocUpload.js */ "./build.definitions/driverapp/Rules/action/OnMulDocUpload.js")
 let driverapp_rules_action_opendelvitems_js = __webpack_require__(/*! ./driverapp/Rules/action/OpenDelvItems.js */ "./build.definitions/driverapp/Rules/action/OpenDelvItems.js")
 let driverapp_rules_action_openmaps_js = __webpack_require__(/*! ./driverapp/Rules/action/OpenMaps.js */ "./build.definitions/driverapp/Rules/action/OpenMaps.js")
 let driverapp_rules_action_reportarrival_js = __webpack_require__(/*! ./driverapp/Rules/action/ReportArrival.js */ "./build.definitions/driverapp/Rules/action/ReportArrival.js")
@@ -129,6 +131,7 @@ let driverapp_rules_formatters_departure_js = __webpack_require__(/*! ./driverap
 let driverapp_rules_formatters_destinationlocation_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/DestinationLocation.js */ "./build.definitions/driverapp/Rules/Formatters/DestinationLocation.js")
 let driverapp_rules_formatters_executionstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStatus.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStatus.js")
 let driverapp_rules_formatters_executionstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/ExecutionStyle.js */ "./build.definitions/driverapp/Rules/Formatters/ExecutionStyle.js")
+let driverapp_rules_formatters_generatefilename_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/GenerateFileName.js */ "./build.definitions/driverapp/Rules/Formatters/GenerateFileName.js")
 let driverapp_rules_formatters_pickup_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Pickup.js */ "./build.definitions/driverapp/Rules/Formatters/Pickup.js")
 let driverapp_rules_formatters_pickupdate_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupDate.js */ "./build.definitions/driverapp/Rules/Formatters/PickupDate.js")
 let driverapp_rules_formatters_pickuptime_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/PickupTime.js */ "./build.definitions/driverapp/Rules/Formatters/PickupTime.js")
@@ -239,12 +242,14 @@ module.exports = {
 	driverapp_pages_main_page : driverapp_pages_main_page,
 	driverapp_pages_podevent_page : driverapp_pages_podevent_page,
 	driverapp_pages_stop_page : driverapp_pages_stop_page,
+	driverapp_rules_action_clearattachments_js : driverapp_rules_action_clearattachments_js,
 	driverapp_rules_action_createfailure_js : driverapp_rules_action_createfailure_js,
 	driverapp_rules_action_createsuccess_js : driverapp_rules_action_createsuccess_js,
 	driverapp_rules_action_delvremarksvisibility_js : driverapp_rules_action_delvremarksvisibility_js,
 	driverapp_rules_action_errorarchive_checkforsyncerror_js : driverapp_rules_action_errorarchive_checkforsyncerror_js,
 	driverapp_rules_action_ondocumentupload_js : driverapp_rules_action_ondocumentupload_js,
 	driverapp_rules_action_ondocumentuploadpress_js : driverapp_rules_action_ondocumentuploadpress_js,
+	driverapp_rules_action_onmuldocupload_js : driverapp_rules_action_onmuldocupload_js,
 	driverapp_rules_action_opendelvitems_js : driverapp_rules_action_opendelvitems_js,
 	driverapp_rules_action_openmaps_js : driverapp_rules_action_openmaps_js,
 	driverapp_rules_action_reportarrival_js : driverapp_rules_action_reportarrival_js,
@@ -271,6 +276,7 @@ module.exports = {
 	driverapp_rules_formatters_destinationlocation_js : driverapp_rules_formatters_destinationlocation_js,
 	driverapp_rules_formatters_executionstatus_js : driverapp_rules_formatters_executionstatus_js,
 	driverapp_rules_formatters_executionstyle_js : driverapp_rules_formatters_executionstyle_js,
+	driverapp_rules_formatters_generatefilename_js : driverapp_rules_formatters_generatefilename_js,
 	driverapp_rules_formatters_pickup_js : driverapp_rules_formatters_pickup_js,
 	driverapp_rules_formatters_pickupdate_js : driverapp_rules_formatters_pickupdate_js,
 	driverapp_rules_formatters_pickuptime_js : driverapp_rules_formatters_pickuptime_js,
@@ -705,6 +711,29 @@ function FormatExecutionStyle(clientAPI) {
     default:
       return 'Default';
   }
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/GenerateFileName.js":
+/*!**************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/GenerateFileName.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ GenerateFileName)
+/* harmony export */ });
+/**
+ * Generates the filename from type
+ * @param {IClientAPI} clientAPI
+ */
+function GenerateFileName(attachment, attachmentType) {
+  const type = attachmentType || 'ATCMT';
+  const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '-').slice(0, 15);
+  return `${type}-${timestamp}`;
 }
 
 /***/ }),
@@ -1364,6 +1393,37 @@ function SyncGlobal(context) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/action/ClearAttachments.js":
+/*!**********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/ClearAttachments.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ClearAttachments)
+/* harmony export */ });
+/**
+ * Describe this function...
+ * @param {IClientAPI} clientAPI
+ */
+function ClearAttachments(clientAPI) {
+  const context = clientAPI.getPageProxy();
+  const attachmentFormCell = context.evaluateTargetPathForAPI("#Page:Attachment/#Control:AttachmentFormCellNew");
+
+  // Clear the attachments from the UI
+  attachmentFormCell.setValue([]);
+
+  // Optionally update the title or caption if it’s bound
+  const titleControl = context.evaluateTargetPathForAPI("#Page:Attachment/#Control:AttachmentTitle");
+  if (titleControl && titleControl.setCaption) {
+    titleControl.setCaption("Attachments (0)");
+  }
+}
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/action/CreateFailure.js":
 /*!*******************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/action/CreateFailure.js ***!
@@ -1499,7 +1559,7 @@ async function OnDocumentUpload(clientAPI) {
   const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
   const slug = {
     tor_id: tor_id,
-    description: fileName,
+    description: '',
     attachment_type: clientAPI.evaluateTargetPath('#Control:AttachmentType/#SelectedValue') ?? 'ATCMT',
     alternative_name: fileName,
     folder: locid
@@ -1568,6 +1628,117 @@ async function OnDocumentUpload(clientAPI) {
   } = clientAPI.binding;
   const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:DetailPage/#Control:AttachmentFormCell");
   if (attachmentFormCell.getValue().length > 0) {}
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/action/OnMulDocUpload.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/OnMulDocUpload.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ OnMulDocUpload)
+/* harmony export */ });
+/**
+ * Upload multiple attachments sequentially, show success/error summary.
+ * @param {IClientAPI} clientAPI
+ */
+async function OnMulDocUpload(clientAPI) {
+  const context = clientAPI.getPageProxy();
+  const {
+    tor_id,
+    locid
+  } = clientAPI.binding;
+  const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Attachment/#Control:AttachmentFormCellNew");
+  const attachmentList = clientAPI.evaluateTargetPath('#Page:Attachment/#Control:AttachmentFormCellNew/#Value');
+  const attachmentType = clientAPI.evaluateTargetPath('#Control:AttachmentTypeNew/#SelectedValue');
+
+  // Validation
+  if (!attachmentType) {
+    alert("Please select attachment type.");
+    return;
+  }
+  if (!attachmentList || attachmentList.length === 0) {
+    alert("Please upload at least one attachment.");
+    return;
+  }
+
+  // Fetch CSRF token
+  let token;
+  const targetUrl = `/action/AttachmentSet`;
+  try {
+    const response = await context.sendRequest(`/action`, {
+      method: "GET",
+      header: {
+        "x-csrf-token": "fetch"
+      }
+    });
+    token = response.headers["x-csrf-token"];
+  } catch (tokenError) {
+    alert(`Error fetching token: ${tokenError.message || tokenError}`);
+    return;
+  }
+
+  // Sequential Upload - One by one
+  try {
+    context.showActivityIndicator("Uploading attachments...");
+    const results = [];
+    for (const attachment of attachmentList) {
+      // Generate filename with timestamp
+      const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').slice(0, 15);
+      const fileName = `${attachmentType}_${timestamp}`;
+      const slug = {
+        tor_id: tor_id,
+        description: '',
+        attachment_type: attachmentType,
+        alternative_name: fileName,
+        folder: locid
+      };
+      try {
+        await context.sendRequest(targetUrl, {
+          method: "POST",
+          header: {
+            "Content-Type": attachment.contentType,
+            "x-csrf-token": token,
+            "Slug": encodeURI(JSON.stringify(slug))
+          },
+          body: attachment.content
+        });
+        results.push({
+          fileName,
+          success: true
+        });
+      } catch (uploadError) {
+        const errorMsg = uploadError?.message || uploadError.toString();
+        results.push({
+          fileName,
+          success: false,
+          error: errorMsg
+        });
+      }
+    }
+    context.dismissActivityIndicator();
+
+    //Summary
+    const successCount = results.filter(r => r.success).length;
+    const errorMessages = results.filter(r => !r.success).map(r => `❌ ${r.fileName}: ${r.error}`);
+    let summaryMessage = `✅ Successfully uploaded ${successCount} file(s).`;
+    if (errorMessages.length > 0) {
+      summaryMessage += `\n\nErrors:\n${errorMessages.join('\n')}`;
+    }
+    alert(summaryMessage);
+  } catch (error) {
+    context.dismissActivityIndicator();
+    alert(`Unexpected error: ${error.message || error}`);
+  } finally {
+    //Cleanup
+    attachmentFormCell.setValue([]);
+    return context.executeAction("/driverapp/Actions/ClosePage.action");
+  }
 }
 
 /***/ }),
@@ -2444,7 +2615,7 @@ ActionBar {
     background-color: #06304979; 
 }
 //// style for Title property of an Object Table control
-.ObjectTableTitle {
+.ObjectTableTitle {    
     font-color: #0070F2;
     background-color: #06304979; 
    }
@@ -2463,7 +2634,7 @@ ActionBar {
     font-size: medium;
    }
    
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,2BAA2B;AAC/B;AACA;;IAEI,mBAAmB;IACnB,2BAA2B;GAC5B;GACA;IACC,iBAAiB;IACjB,2BAA2B;IAC3B,iBAAiB;GAClB;AACH;IACI,mBAAmB;IACnB,wBAAwB;GACzB;AACH;IACI,iBAAiB;IACjB,yBAAyB;IACzB,iBAAiB;GAClB","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #06304979; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {\n    font-color: #0070F2;\n    background-color: #06304979; \n   }\n   .DelvItemTitle {\n    font-color: white;\n    background-color: #0497aabb; \n    font-size: medium;\n   }\n.MainFOTitle {\n    font-color: #1b90ff;\n    background-color:#edf6fa; \n   }\n.StopTitle {\n    font-color: white;\n    background-color: #1a60b1; \n    font-size: medium;\n   }\n   \n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,2BAA2B;AAC/B;AACA;;IAEI,mBAAmB;IACnB,2BAA2B;GAC5B;GACA;IACC,iBAAiB;IACjB,2BAA2B;IAC3B,iBAAiB;GAClB;AACH;IACI,mBAAmB;IACnB,wBAAwB;GACzB;AACH;IACI,iBAAiB;IACjB,yBAAyB;IACzB,iBAAiB;GAClB","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #06304979; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {    \n    font-color: #0070F2;\n    background-color: #06304979; \n   }\n   .DelvItemTitle {\n    font-color: white;\n    background-color: #0497aabb; \n    font-size: medium;\n   }\n.MainFOTitle {\n    font-color: #1b90ff;\n    background-color:#edf6fa; \n   }\n.StopTitle {\n    font-color: white;\n    background-color: #1a60b1; \n    font-size: medium;\n   }\n   \n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2731,7 +2902,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \***********************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentTypeNew","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCellNew","IsVisible":true,"Separator":true,"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"],"AttachmentTitle":"Attachments (Max 1 at a time)"},{"_Type":"Control.Type.FormCell.Button","_Name":"UploadAtch","IsVisible":true,"Separator":true,"Title":"Upload Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://upload","ImagePosition":"Leading","Enabled":true}],"Layout":{"NumberOfColumns":1},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Attachment","ActionBar":{"Items":[],"_Name":"ActionBar2","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentTypeNew","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCellNew","IsVisible":true,"Separator":true,"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]},{"_Type":"Control.Type.FormCell.Button","_Name":"UploadAtch","IsVisible":true,"Separator":true,"Title":"Upload Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://upload","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OnMulDocUpload.js"},{"_Type":"Control.Type.FormCell.Button","_Name":"ClrAtch","IsVisible":true,"Separator":true,"Title":"Clear Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://clear-all","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ClearAttachments.js"}],"Layout":{"NumberOfColumns":1},"Header":{"Styles":{"Header":"DelvItemTitle","Caption":"DelvItemTitle"},"_Type":"SectionCommon.Type.Header","_Name":"AttchHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Freight Order Attachments"},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Attachment","ActionBar":{"Items":[],"_Name":"ActionBar4","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 

@@ -63,8 +63,7 @@
 								"AddPhoto",
 								"TakePhoto",
 								"SelectFile"
-							],
-							"AttachmentTitle": "Attachments (Max 1 at a time)"
+							]
 						},
 						{
 							"_Type": "Control.Type.FormCell.Button",
@@ -77,11 +76,37 @@
 							"Semantic": "Tint",
 							"Image": "sap-icon://upload",
 							"ImagePosition": "Leading",
-							"Enabled": true
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/OnMulDocUpload.js"
+						},
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "ClrAtch",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "Clear Attachments",
+							"Alignment": "Center",
+							"ButtonType": "Primary",
+							"Semantic": "Tint",
+							"Image": "sap-icon://clear-all",
+							"ImagePosition": "Leading",
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/ClearAttachments.js"
 						}
 					],
 					"Layout": {
 						"NumberOfColumns": 1
+					},
+					"Header": {
+						"Styles": {
+							"Header": "DelvItemTitle",
+							"Caption": "DelvItemTitle"
+						},
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "AttchHeader",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
+						"Caption": "Freight Order Attachments"
 					},
 					"Visible": true,
 					"EmptySection": {
@@ -97,7 +122,7 @@
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar2",
+		"_Name": "ActionBar4",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

@@ -19,7 +19,7 @@ export default async function OnDocumentUpload(clientAPI) {
     const fileName = attachment.urlString.match(/(.+)\/(.+\..+)$/)[2];
     const slug = {
         tor_id: tor_id,
-        description: fileName,
+        description: '',
         attachment_type: clientAPI.evaluateTargetPath('#Control:AttachmentType/#SelectedValue') ?? 'ATCMT',
         alternative_name: fileName,
         folder: locid
