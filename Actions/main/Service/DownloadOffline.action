@@ -19,6 +19,14 @@
         {
             "Name": "ZTM_I_DDL_DA_STOP",
             "Query": "ZTM_I_DDL_DA_STOP"
+        },
+                {
+            "Name": "ZTM_I_DDL_DA_DLVIT",
+            "Query": "ZTM_I_DDL_DA_DLVIT"
+        },
+        {
+            "Name": "ZTM_I_DDL_DA_FUIT",
+            "Query": "ZTM_I_DDL_DA_FUIT"
         }
     ],
     "_Type": "Action.Type.OfflineOData.Download",

@@ -1,14 +1,14 @@
 {
 	"Controls": [
 		{
+			"FilterFeedbackBar": {
+				"ShowAllFilters": false,
+				"_Type": "Control.Type.FilterFeedbackBar"
+			},
 			"_Type": "Control.Type.SectionedTable",
 			"_Name": "SectionedTable0",
 			"Sections": [
 				{
-					"Visible": true,
-					"EmptySection": {
-						"FooterVisible": false
-					},
 					"Separators": {
 						"TopSectionSeparator": false,
 						"BottomSectionSeparator": true,
@@ -16,51 +16,88 @@
 						"FooterSeparator": true,
 						"ControlSeparator": true
 					},
-					"_Type": "Section.Type.FormCell",
-					"_Name": "SectionFormCell0",
 					"Controls": [
 						{
 							"_Type": "Control.Type.FormCell.ListPicker",
-							"_Name": "FormCellListPicker0",
+							"_Name": "AttachmentTypeNew",
 							"IsVisible": true,
 							"Separator": true,
-							"AllowMultipleSelection": true,
+							"AllowMultipleSelection": false,
 							"AllowEmptySelection": false,
 							"Caption": "Attachment Type",
-							"DataPaging": {
-								"ShowLoadingIndicator": false,
-								"PageSize": 50
-							},
-							"PickerPrompt": "Please select one single item",
+							"Label": "Attachment Type",
+							"HelperText": "Select an attachment type and upload",
 							"IsSelectedSectionEnabled": false,
-							"IsPickerDismissedOnSelection": false,
-							"IsSearchCancelledAfterSelection": false,
+							"IsPickerDismissedOnSelection": true,
 							"AllowDefaultValueIfOneItem": false,
 							"IsEditable": true,
-							"Search": {
-								"Placeholder": "Select one"
-							},
 							"PickerItems": [
-								"Default"
+								{
+									"DisplayValue": "Default",
+									"ReturnValue": "ATCMT"
+								},
+								{
+									"DisplayValue": "Key Rec",
+									"ReturnValue": "ZKEYR"
+								},
+								{
+									"DisplayValue": "Freight Picture",
+									"ReturnValue": "ZFPIC"
+								},
+								{
+									"DisplayValue": "Signature",
+									"ReturnValue": "ZSIG"
+								},
+								{
+									"DisplayValue": "Others",
+									"ReturnValue": "ZOTHE"
+								}
 							]
+						},
+						{
+							"_Type": "Control.Type.FormCell.Attachment",
+							"_Name": "AttachmentFormCellNew",
+							"IsVisible": true,
+							"Separator": true,
+							"AttachmentActionType": [
+								"AddPhoto",
+								"TakePhoto",
+								"SelectFile"
+							],
+							"AttachmentTitle": "Attachments (Max 1 at a time)"
+						},
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "UploadAtch",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "Upload Attachments",
+							"Alignment": "Center",
+							"ButtonType": "Primary",
+							"Semantic": "Tint",
+							"Image": "sap-icon://upload",
+							"ImagePosition": "Leading",
+							"Enabled": true
 						}
 					],
 					"Layout": {
 						"NumberOfColumns": 1
-					}
+					},
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0"
 				}
-			],
-			"FilterFeedbackBar": {
-				"ShowAllFilters": false,
-				"_Type": "Control.Type.FilterFeedbackBar"
-			}
+			]
 		}
 	],
 	"_Type": "Page",
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar1",
+		"_Name": "ActionBar2",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

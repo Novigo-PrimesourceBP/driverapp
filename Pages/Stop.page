@@ -136,6 +136,20 @@
 							"OnPress": "/driverapp/Actions/Navigation/To_DelayEvent.action"
 						},
 						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "Attach",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "Attach",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"Image": "sap-icon://attachment",
+							"ImagePosition": "Leading",
+							"Enabled": true,
+							"OnPress": "/driverapp/Actions/Navigation/To_AttachmentPage.action"
+						},
+						{
 							"_Type": "Control.Type.FormCell.ListPicker",
 							"_Name": "AttachmentType",
 							"IsVisible": true,
