@@ -1,3 +1,5 @@
+import CheckforKeyRec from "./CheckforKeyRec";
+
 /**
  * Reports the POD event/Attach the Customer signature
  * @param {IClientAPI} clientAPI
@@ -10,7 +12,7 @@ export default async function ReportPOD(clientAPI) {
   let event_reason, signature, recipient, keyrec, delivery, remarks;
 
   try {
-    context.showActivityIndicator("Processing .......")
+    // context.showActivityIndicator("Processing .......")
 
     //Get UI values
     event_reason  = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
@@ -30,7 +32,7 @@ export default async function ReportPOD(clientAPI) {
     }
     return;
   }
-
+  
   //Validation
   if (!event_reason || event_reason === "") {
     alert("Select an Event Reason!!!")
@@ -48,13 +50,24 @@ export default async function ReportPOD(clientAPI) {
     context.dismissActivityIndicator()
     return
   }
-
-  if (!keyrec) {
-    alert("KeyRec required!!!")
-    context.dismissActivityIndicator()
-    return
+  // Check whether KeyRec can be mandatory
+  try {
+      let isKeyRecMandatory = await CheckforKeyRec(clientAPI); // returns true or false
+        if (!keyrec && isKeyRecMandatory ) {
+          context.dismissActivityIndicator()
+          alert("KeyRec is Required");          
+          return;
+        }
+      }catch (error) {
+        context.dismissActivityIndicator();
+        alert("Error checking KeyRec: " + error.message);   
+        return; 
   }
-  // Fetch CSRF Token
+
+  // Show initial indicator only before async calls
+   context.showActivityIndicator("Reporting Event...");
+
+  //Step 1: Fetch CSRF Token
   let token;
   let targetUrl = `/action/AttachmentSet`;
 
@@ -68,12 +81,12 @@ export default async function ReportPOD(clientAPI) {
     token = response.headers["x-csrf-token"] || response.headers.get("x-csrf-token");
     if (!token) throw new Error("CSRF token missing");
   } catch (err) {
-    alert(`CSRF fetch failed: ${err.message || err}`);
     context.dismissActivityIndicator();
+    alert(`CSRF fetch failed: ${err.message || err}`);
     return;
   }
 
-  // Set action binding for ReportEvent
+  // Step 2: Set action binding for ReportEvent
   context.setActionBinding({
     tor_id: tor_id,
     event_code: 'POD',
@@ -95,14 +108,42 @@ export default async function ReportPOD(clientAPI) {
     recipient: recipient
   };
 
-  context.dismissActivityIndicator()
-  context.showActivityIndicator("Reporting Event......");
+//   context.dismissActivityIndicator()
+//   context.showActivityIndicator("Reporting Event......");
+    
+//   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action")
+//     .then(() => {
+//       context.dismissActivityIndicator()
+//       context.showActivityIndicator("Uploading signature");
 
+//       return context.sendRequest(targetUrl, {
+//         "method": "POST",
+//         'header': {
+//           "Content-Type": signature.contentType,
+//           "x-csrf-token": token,
+//           "Slug": encodeURI(JSON.stringify(slug))
+//         },
+//         "body": signature.content
+//       }).then(() => {
+//         alert("Successfully uploaded");
+//       }).catch((err) => {
+//         alert(`Failed to upload: ${err.message || err}`);
+//       });
+//     })
+//     .catch((err) => {
+//       alert(`Failed to report event: ${err.message || err}`);
+//     })
+//     .finally(() => {
+//       context.dismissActivityIndicator();
+//       return context.executeAction("/driverapp/Actions/ClosePage.action");
+//     });
+// }
+  // Step 3: Report event
   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action")
     .then(() => {
       context.dismissActivityIndicator()
       context.showActivityIndicator("Uploading signature");
-
+ // Step 4: Upload attachment
       return context.sendRequest(targetUrl, {
         "method": "POST",
         'header': {
@@ -112,12 +153,15 @@ export default async function ReportPOD(clientAPI) {
         },
         "body": signature.content
       }).then(() => {
-        alert("Successfully uploaded");
+        context.dismissActivityIndicator();
+        alert("Event reported and signature uploaded successfully");
       }).catch((err) => {
+        context.dismissActivityIndicator();
         alert(`Failed to upload: ${err.message || err}`);
       });
     })
     .catch((err) => {
+      context.dismissActivityIndicator();
       alert(`Failed to report event: ${err.message || err}`);
     })
     .finally(() => {

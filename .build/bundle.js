@@ -97,6 +97,7 @@ let driverapp_pages_errorarchive_errorarchive_list_page = __webpack_require__(/*
 let driverapp_pages_main_page = __webpack_require__(/*! ./driverapp/Pages/Main.page */ "./build.definitions/driverapp/Pages/Main.page")
 let driverapp_pages_podevent_page = __webpack_require__(/*! ./driverapp/Pages/PODEvent.page */ "./build.definitions/driverapp/Pages/PODEvent.page")
 let driverapp_pages_stop_page = __webpack_require__(/*! ./driverapp/Pages/Stop.page */ "./build.definitions/driverapp/Pages/Stop.page")
+let driverapp_rules_action_checkforkeyrec_js = __webpack_require__(/*! ./driverapp/Rules/action/CheckforKeyRec.js */ "./build.definitions/driverapp/Rules/action/CheckforKeyRec.js")
 let driverapp_rules_action_clearattachments_js = __webpack_require__(/*! ./driverapp/Rules/action/ClearAttachments.js */ "./build.definitions/driverapp/Rules/action/ClearAttachments.js")
 let driverapp_rules_action_createfailure_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateFailure.js */ "./build.definitions/driverapp/Rules/action/CreateFailure.js")
 let driverapp_rules_action_createsuccess_js = __webpack_require__(/*! ./driverapp/Rules/action/CreateSuccess.js */ "./build.definitions/driverapp/Rules/action/CreateSuccess.js")
@@ -242,6 +243,7 @@ module.exports = {
 	driverapp_pages_main_page : driverapp_pages_main_page,
 	driverapp_pages_podevent_page : driverapp_pages_podevent_page,
 	driverapp_pages_stop_page : driverapp_pages_stop_page,
+	driverapp_rules_action_checkforkeyrec_js : driverapp_rules_action_checkforkeyrec_js,
 	driverapp_rules_action_clearattachments_js : driverapp_rules_action_clearattachments_js,
 	driverapp_rules_action_createfailure_js : driverapp_rules_action_createfailure_js,
 	driverapp_rules_action_createsuccess_js : driverapp_rules_action_createsuccess_js,
@@ -1393,6 +1395,135 @@ function SyncGlobal(context) {
 
 /***/ }),
 
+/***/ "./build.definitions/driverapp/Rules/action/CheckforKeyRec.js":
+/*!********************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/action/CheckforKeyRec.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CheckforKeyRec)
+/* harmony export */ });
+/**
+ * Check if KeyRec is mandatory based on Party ID related to delivery
+ * @param {IClientAPI} clientAPI
+ */
+function CheckforKeyRec(clientAPI) {
+  const context = clientAPI.getPageProxy();
+  let delivery_seld = context.evaluateTargetPath("#Control:Delivery/#SelectedValue");
+  if (!delivery_seld) {
+    return Promise.resolve(false); // No delivery selected, so KeyRec not mandatory
+  }
+  const service = "/driverapp/Services/main.service";
+  const entitySet = "ZTM_I_DDL_DA_FUIT";
+  const filter = `$filter=base_btd_id eq '${delivery_seld}' and (party_rco eq 'RG' or party_rco eq 'PE')`;
+
+  // return clientAPI.read( service, entitySet, [], `$filter=party_rco eq 'AB'`, {}, {})
+  return clientAPI.read(service, entitySet, [], filter, {}, {}).then(result => {
+    // alert(JSON.stringify(result))
+    // const records = result?.d?.results || [];
+    // alert("Result count: " + records.length);
+    // alert(JSON.stringify(records))
+
+    // alert("party_id: " + (records[0].party_id));
+    // alert(JSON.stringify(result[0]))
+    // alert("party_id: " + (result[0]["tor_id"]));
+    //     return result[0]["tor_id"] !=='';
+
+    if (result.length > 0) {
+      // alert("Result count: " + result.length);
+      return true;
+    } else {
+      alert("No records found for delivery " + delivery_seld);
+      return false;
+    }
+  }).catch(error => {
+    alert("OData read failed: " + (error.message || error));
+    return false;
+  });
+}
+/**
+* Check if KeyRec is mandatory based on Party ID related to delivery
+* @param {IClientAPI} clientAPI
+*/
+// export default function CheckforKeyRec(clientAPI) {
+//     const context = clientAPI.getPageProxy();
+
+//     // Retrieve the selected delivery value from the page control
+//     let delivery_seld = context.evaluateTargetPath("#Control:Delivery/#SelectedValue");
+
+//     // If no delivery is selected, KeyRec is not mandatory
+//     if (!delivery_seld) {
+//         alert("No delivery selected. KeyRec is not mandatory.");
+//         return Promise.resolve(false); 
+//     }
+
+//     // Get the binding context (MDK Binding)
+//     const binding = clientAPI.binding;
+
+//     if (!binding) {
+//         alert("No binding found!");
+//         return Promise.resolve(false); // No binding, so KeyRec is not mandatory
+//     }
+
+//     // Log the binding context for debugging purposes
+//     alert("Binding content: " + JSON.stringify(binding));
+
+//     // Retrieve the readLink from the binding (to dynamically construct the service URL)
+//     const readLink = binding['@odata.readLink'];
+
+//     if (!readLink) {
+//         alert("No readLink found in the binding!");
+//         return Promise.resolve(false);  // No readLink, cannot fetch related data
+//     }
+
+//     // Define the OData service and entity set for 'to_fuit' association
+//     // const service = "/driverapp/Services/main.service";
+//     // const entitySet = `${readLink}/to_fuit`;  // Dynamically build the URL for the associated entity set
+//     alert("Entity Set: " + entitySet); // Debug the entity set
+
+//     // Correct filter query with proper string interpolation
+//     // const queryOptions = `$filter=tor_id eq '${binding.tor_id}' and stop_id eq '${binding.stop_id}' and base_btd_id eq '${delivery_seld}'`;
+//     // const queryOptions = "$top=1";
+//     // Use clientAPI.read() to fetch data from the service with the query options
+
+//     const service = "/driverapp/Services/main.service";
+//     const entitySet = "ZTM_I_DDL_DA_FUIT";
+//     // const filter = `$filter=base_btd_id eq '${delivery_seld}'`;
+//     return clientAPI.read( service, entitySet, [], {}, {}, {}).then(response => {
+//         // Log the response to check its structure
+//         alert("Response data: " + JSON.stringify(response));
+
+//         if (Array.isArray(response) && response.length > 0) {
+//             // Log the filtered data for debugging
+//             alert("Filtered related entities found: " + response.length);
+
+//             // Get the first associated entity from the response
+//             const firstAssociatedEntity = response[0];
+
+//             // Check if the 'party_id' exists in the first related entity
+//             if (firstAssociatedEntity && firstAssociatedEntity.party_id && firstAssociatedEntity.party_id.trim() !== '') {
+//                 alert("Party ID exists: " + firstAssociatedEntity.party_id);
+//                 return Promise.resolve(true);  // Party ID exists, so KeyRec is mandatory
+//             } else {
+//                 alert("Party ID does not exist.");
+//                 return Promise.resolve(false);  // No Party ID, so KeyRec is not mandatory
+//             }
+//         } else {
+//             alert("No related entities found in 'to_fuit' with the specified filter.");
+//             return Promise.resolve(false);  // No related data found, so KeyRec is not mandatory
+//         }
+//     }).catch(error => {
+//         // Handle any errors that occur during the read operation
+//         alert("Error reading data: " + error.message);
+//         return Promise.resolve(false);  // Handle the error gracefully
+//     });
+// }
+
+/***/ }),
+
 /***/ "./build.definitions/driverapp/Rules/action/ClearAttachments.js":
 /*!**********************************************************************!*\
   !*** ./build.definitions/driverapp/Rules/action/ClearAttachments.js ***!
@@ -2235,6 +2366,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ReportPOD)
 /* harmony export */ });
+/* harmony import */ var _CheckforKeyRec__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckforKeyRec */ "./build.definitions/driverapp/Rules/action/CheckforKeyRec.js");
+
+
 /**
  * Reports the POD event/Attach the Customer signature
  * @param {IClientAPI} clientAPI
@@ -2250,7 +2384,7 @@ async function ReportPOD(clientAPI) {
   } = clientAPI.binding;
   let event_reason, signature, recipient, keyrec, delivery, remarks;
   try {
-    context.showActivityIndicator("Processing .......");
+    // context.showActivityIndicator("Processing .......")
 
     //Get UI values
     event_reason = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
@@ -2286,12 +2420,38 @@ async function ReportPOD(clientAPI) {
     context.dismissActivityIndicator();
     return;
   }
-  if (!keyrec) {
-    alert("KeyRec required!!!");
+
+  // if (!keyrec) {
+  //   alert("KeyRec required!!!")
+  //   context.dismissActivityIndicator()
+  //   return
+  // }
+  try {
+    let isKeyRecMandatory = await (0,_CheckforKeyRec__WEBPACK_IMPORTED_MODULE_0__["default"])(clientAPI); // returns true or false
+    if (!keyrec && isKeyRecMandatory) {
+      context.dismissActivityIndicator();
+      alert("KeyRec is Required");
+      return;
+    }
+  } catch (error) {
     context.dismissActivityIndicator();
+    alert("Error checking KeyRec: " + error.message);
     return;
   }
-  // Fetch CSRF Token
+  //     return CheckforKeyRec(clientAPI).then(isKeyRecMandatory => {
+  //   // isKeyRecMandatory is the result from CheckforKeyRec (true or false)    
+  //         if (isKeyRecMandatory) {      
+  //             alert("KeyRec is Required");
+  //             return
+  //           } 
+  //           }).catch(error => {
+  //               alert("Error checking Payee Field: " + error.message);
+  //           });
+  // }
+  // Show initial indicator only before async calls
+  context.showActivityIndicator("Reporting Event...");
+
+  //Step 1: Fetch CSRF Token
   let token;
   let targetUrl = `/action/AttachmentSet`;
   try {
@@ -2304,12 +2464,12 @@ async function ReportPOD(clientAPI) {
     token = response.headers["x-csrf-token"] || response.headers.get("x-csrf-token");
     if (!token) throw new Error("CSRF token missing");
   } catch (err) {
-    alert(`CSRF fetch failed: ${err.message || err}`);
     context.dismissActivityIndicator();
+    alert(`CSRF fetch failed: ${err.message || err}`);
     return;
   }
 
-  // Set action binding for ReportEvent
+  // Step 2: Set action binding for ReportEvent
   context.setActionBinding({
     tor_id: tor_id,
     event_code: 'POD',
@@ -2330,11 +2490,42 @@ async function ReportPOD(clientAPI) {
     keyrec: keyrec,
     recipient: recipient
   };
-  context.dismissActivityIndicator();
-  context.showActivityIndicator("Reporting Event......");
+
+  //   context.dismissActivityIndicator()
+  //   context.showActivityIndicator("Reporting Event......");
+
+  //   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action")
+  //     .then(() => {
+  //       context.dismissActivityIndicator()
+  //       context.showActivityIndicator("Uploading signature");
+
+  //       return context.sendRequest(targetUrl, {
+  //         "method": "POST",
+  //         'header': {
+  //           "Content-Type": signature.contentType,
+  //           "x-csrf-token": token,
+  //           "Slug": encodeURI(JSON.stringify(slug))
+  //         },
+  //         "body": signature.content
+  //       }).then(() => {
+  //         alert("Successfully uploaded");
+  //       }).catch((err) => {
+  //         alert(`Failed to upload: ${err.message || err}`);
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       alert(`Failed to report event: ${err.message || err}`);
+  //     })
+  //     .finally(() => {
+  //       context.dismissActivityIndicator();
+  //       return context.executeAction("/driverapp/Actions/ClosePage.action");
+  //     });
+  // }
+  // Step 3: Report event
   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
     context.dismissActivityIndicator();
     context.showActivityIndicator("Uploading signature");
+    // Step 4: Upload attachment
     return context.sendRequest(targetUrl, {
       "method": "POST",
       'header': {
@@ -2344,11 +2535,14 @@ async function ReportPOD(clientAPI) {
       },
       "body": signature.content
     }).then(() => {
-      alert("Successfully uploaded");
+      context.dismissActivityIndicator();
+      alert("Event reported and signature uploaded successfully");
     }).catch(err => {
+      context.dismissActivityIndicator();
       alert(`Failed to upload: ${err.message || err}`);
     });
   }).catch(err => {
+    context.dismissActivityIndicator();
     alert(`Failed to report event: ${err.message || err}`);
   }).finally(() => {
     context.dismissActivityIndicator();
@@ -2549,7 +2743,7 @@ ActionBar {
   background-color: #06304979;
 }
 .DelvItemTitle {
-  font-color: white;
+  color: white;
   background-color: #0497aabb;
   font-size: medium;
 }
@@ -2562,7 +2756,7 @@ ActionBar {
   background-color: #1a60b1;
   font-size: medium;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,cAAc;AAChB;AACA;EACE,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;AACA;EACE,iBAAiB;EACjB,2BAA2B;EAC3B,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,iBAAiB;EACjB,yBAAyB;EACzB,iBAAiB;AACnB","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n  font-color: #edf6fa;\n  background-color: #0040b0;\n}\n.Pagebkg {\n  color: #EBF8FF;\n}\nActionBar {\n  color: white;\n  background-color: #06304979;\n}\n.ObjectTableTitle {\n  font-color: #0070F2;\n  background-color: #06304979;\n}\n.DelvItemTitle {\n  font-color: white;\n  background-color: #0497aabb;\n  font-size: medium;\n}\n.MainFOTitle {\n  font-color: #1b90ff;\n  background-color: #edf6fa;\n}\n.StopTitle {\n  font-color: white;\n  background-color: #1a60b1;\n  font-size: medium;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,cAAc;AAChB;AACA;EACE,YAAY;EACZ,2BAA2B;AAC7B;AACA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;AACA;EACE,YAAY;EACZ,2BAA2B;EAC3B,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,iBAAiB;EACjB,yBAAyB;EACzB,iBAAiB;AACnB","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n  font-color: #edf6fa;\n  background-color: #0040b0;\n}\n.Pagebkg {\n  color: #EBF8FF;\n}\nActionBar {\n  color: white;\n  background-color: #06304979;\n}\n.ObjectTableTitle {\n  font-color: #0070F2;\n  background-color: #06304979;\n}\n.DelvItemTitle {\n  color: white;\n  background-color: #0497aabb;\n  font-size: medium;\n}\n.MainFOTitle {\n  font-color: #1b90ff;\n  background-color: #edf6fa;\n}\n.StopTitle {\n  font-color: white;\n  background-color: #1a60b1;\n  font-size: medium;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2620,7 +2814,7 @@ ActionBar {
     background-color: #06304979; 
    }
    .DelvItemTitle {
-    font-color: white;
+    color: white;
     background-color: #0497aabb; 
     font-size: medium;
    }
@@ -2634,7 +2828,7 @@ ActionBar {
     font-size: medium;
    }
    
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,2BAA2B;AAC/B;AACA;;IAEI,mBAAmB;IACnB,2BAA2B;GAC5B;GACA;IACC,iBAAiB;IACjB,2BAA2B;IAC3B,iBAAiB;GAClB;AACH;IACI,mBAAmB;IACnB,wBAAwB;GACzB;AACH;IACI,iBAAiB;IACjB,yBAAyB;IACzB,iBAAiB;GAClB","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #06304979; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {    \n    font-color: #0070F2;\n    background-color: #06304979; \n   }\n   .DelvItemTitle {\n    font-color: white;\n    background-color: #0497aabb; \n    font-size: medium;\n   }\n.MainFOTitle {\n    font-color: #1b90ff;\n    background-color:#edf6fa; \n   }\n.StopTitle {\n    font-color: white;\n    background-color: #1a60b1; \n    font-size: medium;\n   }\n   \n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.less"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;CAoBC;AACD;IACI,mBAAmB;IACnB,yBAAyB;AAC7B;AACA;;IAEI,cAAc;GACf;AACH;;IAEI,YAAY;IACZ,2BAA2B;AAC/B;AACA;;IAEI,mBAAmB;IACnB,2BAA2B;GAC5B;GACA;IACC,YAAY;IACZ,2BAA2B;IAC3B,iBAAiB;GAClB;AACH;IACI,mBAAmB;IACnB,wBAAwB;GACzB;AACH;IACI,iBAAiB;IACjB,yBAAyB;IACzB,iBAAiB;GAClB","sourcesContent":["/* The LESS stylesheet provides the ability to define styling styles that can be used to style the UI in the MDK app.\n\nExamples:\n\n@mdkYellow1: #ffbb33;\n@mdkRed1: #ff0000;\n\n//// By-Type style: All Pages in the application will now have a yellow background\nPage\n\n{ background-color: @mdkYellow1; }\n//// By-Name style: All Buttons with _Name == \"BlueButton\" will now have this style\n#BlueButton\n\n{ color: @mdkYellow1; background-color: #0000FF; }\n//// By-Class style: These style classes can be referenced from rules and set using ClientAPI setStyle function\n\n.MyButton\n\n{ color: @mdkYellow1; background-color: @mdkRed1; }\n*/\n.tagStyleBlue {\n    font-color: #edf6fa;\n    background-color: #0040b0; \n}\n//// style for Page background\n.Pagebkg {\n    color: #EBF8FF;\n   }\n//// This style applies to all the ActionBars in the application\nActionBar {\n    color: white;\n    background-color: #06304979; \n}\n//// style for Title property of an Object Table control\n.ObjectTableTitle {    \n    font-color: #0070F2;\n    background-color: #06304979; \n   }\n   .DelvItemTitle {\n    color: white;\n    background-color: #0497aabb; \n    font-size: medium;\n   }\n.MainFOTitle {\n    font-color: #1b90ff;\n    background-color:#edf6fa; \n   }\n.StopTitle {\n    font-color: white;\n    background-color: #1a60b1; \n    font-size: medium;\n   }\n   \n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2668,7 +2862,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ns-light .tagStyleBlue {
 	background-color: #06304979;
 }
 .ns-light .DelvItemTitle {
-	font-color: white;
+	color: white;
 	background-color: #0497aabb;
 	font-size: medium;
 }
@@ -2681,7 +2875,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ns-light .tagStyleBlue {
 	background-color: #1a60b1;
 	font-size: medium;
 }
-`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,cAAc;AACf;AACA;CACC,YAAY;CACZ,2BAA2B;AAC5B;AACA;CACC,mBAAmB;CACnB,2BAA2B;AAC5B;AACA;CACC,iBAAiB;CACjB,2BAA2B;CAC3B,iBAAiB;AAClB;AACA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,iBAAiB;CACjB,yBAAyB;CACzB,iBAAiB;AAClB","sourcesContent":[".ns-light .tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\n.ns-light .Pagebkg {\n\tcolor: #EBF8FF;\n}\n.ns-light ActionBar {\n\tcolor: white;\n\tbackground-color: #06304979;\n}\n.ns-light .ObjectTableTitle {\n\tfont-color: #0070F2;\n\tbackground-color: #06304979;\n}\n.ns-light .DelvItemTitle {\n\tfont-color: white;\n\tbackground-color: #0497aabb;\n\tfont-size: medium;\n}\n.ns-light .MainFOTitle {\n\tfont-color: #1b90ff;\n\tbackground-color: #edf6fa;\n}\n.ns-light .StopTitle {\n\tfont-color: white;\n\tbackground-color: #1a60b1;\n\tfont-size: medium;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./build.definitions/driverapp/Styles/Styles.light.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,cAAc;AACf;AACA;CACC,YAAY;CACZ,2BAA2B;AAC5B;AACA;CACC,mBAAmB;CACnB,2BAA2B;AAC5B;AACA;CACC,YAAY;CACZ,2BAA2B;CAC3B,iBAAiB;AAClB;AACA;CACC,mBAAmB;CACnB,yBAAyB;AAC1B;AACA;CACC,iBAAiB;CACjB,yBAAyB;CACzB,iBAAiB;AAClB","sourcesContent":[".ns-light .tagStyleBlue {\n\tfont-color: #edf6fa;\n\tbackground-color: #0040b0;\n}\n.ns-light .Pagebkg {\n\tcolor: #EBF8FF;\n}\n.ns-light ActionBar {\n\tcolor: white;\n\tbackground-color: #06304979;\n}\n.ns-light .ObjectTableTitle {\n\tfont-color: #0070F2;\n\tbackground-color: #06304979;\n}\n.ns-light .DelvItemTitle {\n\tcolor: white;\n\tbackground-color: #0497aabb;\n\tfont-size: medium;\n}\n.ns-light .MainFOTitle {\n\tfont-color: #1b90ff;\n\tbackground-color: #edf6fa;\n}\n.ns-light .StopTitle {\n\tfont-color: white;\n\tbackground-color: #1a60b1;\n\tfont-size: medium;\n}\n"],"sourceRoot":""}]);
 // Exports
 module.exports = ___CSS_LOADER_EXPORT___;
 
@@ -2902,7 +3096,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \***********************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentTypeNew","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCellNew","IsVisible":true,"Separator":true,"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]},{"_Type":"Control.Type.FormCell.Button","_Name":"UploadAtch","IsVisible":true,"Separator":true,"Title":"Upload Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://upload","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OnMulDocUpload.js"},{"_Type":"Control.Type.FormCell.Button","_Name":"ClrAtch","IsVisible":true,"Separator":true,"Title":"Clear Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://clear-all","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ClearAttachments.js"}],"Layout":{"NumberOfColumns":1},"Header":{"Styles":{"Header":"DelvItemTitle","Caption":"DelvItemTitle"},"_Type":"SectionCommon.Type.Header","_Name":"AttchHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Freight Order Attachments"},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Attachment","ActionBar":{"Items":[],"_Name":"ActionBar4","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentTypeNew","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCellNew","IsVisible":true,"Separator":true,"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]},{"_Type":"Control.Type.FormCell.Button","_Name":"UploadAtch","IsVisible":true,"Separator":true,"Title":"Upload Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://upload","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OnMulDocUpload.js"},{"_Type":"Control.Type.FormCell.Button","_Name":"ClrAtch","IsVisible":true,"Separator":true,"Title":"Clear Attachments","Alignment":"Center","ButtonType":"Secondary","Semantic":"Tint","Image":"sap-icon://clear-all","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ClearAttachments.js"}],"Layout":{"NumberOfColumns":1},"Header":{"Styles":{"Header":"DelvItemTitle","Caption":"DelvItemTitle"},"_Type":"SectionCommon.Type.Header","_Name":"AttchHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Freight Order Attachments"},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Attachment","ActionBar":{"Items":[],"_Name":"ActionBar5","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
@@ -2982,7 +3176,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading","Styles":{"HeadlineText":"MainFOTitle"}},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-arrive","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopArrvButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Arrival_Sign.action"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopDepButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://customer-order-entry","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}]},{"Controls":[{"_Type":"Control.Type.FormCell.Button","_Name":"Delay","IsVisible":true,"Separator":true,"Title":"Delay","Alignment":"Center","ButtonType":"Text","Semantic":"Negative","Image":"sap-icon://lateness","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_DelayEvent.action"},{"_Type":"Control.Type.FormCell.Button","_Name":"Attach","IsVisible":true,"Separator":true,"Title":"Attach","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://attachment","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_AttachmentPage.action"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCell","IsVisible":true,"Separator":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"},{"Header":{"Styles":{"Header":"StopTitle","Caption":"StopTitle"},"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"ShowMap","Caption":"Show map","Icon":"sap-icon://map-2","Position":"Right","IsIconCircular":true,"IconText":"Showmap","Visible":true,"OnPress":"/driverapp/Rules/action/OpenMaps.js"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading","Styles":{"HeadlineText":"MainFOTitle"}},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-arrive","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopArrvButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Arrival_Sign.action"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopDepButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://customer-order-entry","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}]},{"Controls":[{"_Type":"Control.Type.FormCell.Button","_Name":"Delay","IsVisible":true,"Separator":true,"Title":"Delay","Alignment":"Center","ButtonType":"Text","Semantic":"Negative","Image":"sap-icon://lateness","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_DelayEvent.action"},{"_Type":"Control.Type.FormCell.Button","_Name":"Attach","IsVisible":true,"Separator":true,"Title":"Attach File","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://attachment","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_AttachmentPage.action"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","IsVisible":false,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCell","IsVisible":false,"Separator":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"},{"Header":{"Styles":{"Header":"StopTitle","Caption":"StopTitle"},"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"ShowMap","Caption":"Show map","Icon":"sap-icon://map-2","Position":"Right","IsIconCircular":true,"IconText":"Showmap","Visible":true,"OnPress":"/driverapp/Rules/action/OpenMaps.js"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 

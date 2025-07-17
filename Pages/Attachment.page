@@ -86,7 +86,7 @@
 							"Separator": true,
 							"Title": "Clear Attachments",
 							"Alignment": "Center",
-							"ButtonType": "Primary",
+							"ButtonType": "Secondary",
 							"Semantic": "Tint",
 							"Image": "sap-icon://clear-all",
 							"ImagePosition": "Leading",
@@ -122,7 +122,7 @@
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar4",
+		"_Name": "ActionBar5",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

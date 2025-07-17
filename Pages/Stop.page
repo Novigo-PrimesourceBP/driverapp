@@ -152,7 +152,7 @@
 						{
 							"_Type": "Control.Type.FormCell.ListPicker",
 							"_Name": "AttachmentType",
-							"IsVisible": true,
+							"IsVisible": false,
 							"Separator": true,
 							"AllowMultipleSelection": false,
 							"AllowEmptySelection": false,
@@ -189,7 +189,7 @@
 						{
 							"_Type": "Control.Type.FormCell.Attachment",
 							"_Name": "AttachmentFormCell",
-							"IsVisible": true,
+							"IsVisible": false,
 							"Separator": true,
 							"OnValueChange": "/driverapp/Rules/action/OnDocumentUpload.js",
 							"AttachmentActionType": [
