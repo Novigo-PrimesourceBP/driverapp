@@ -1418,25 +1418,11 @@ function CheckforKeyRec(clientAPI) {
   }
   const service = "/driverapp/Services/main.service";
   const entitySet = "ZTM_I_DDL_DA_FUIT";
-  const filter = `$filter=base_btd_id eq '${delivery_seld}' and (party_rco eq 'RG' or party_rco eq 'PE')`;
-
-  // return clientAPI.read( service, entitySet, [], `$filter=party_rco eq 'AB'`, {}, {})
+  const filter = `$filter=base_btd_id eq '${delivery_seld}' and party_rco eq 'PE'`;
   return clientAPI.read(service, entitySet, [], filter, {}, {}).then(result => {
-    // alert(JSON.stringify(result))
-    // const records = result?.d?.results || [];
-    // alert("Result count: " + records.length);
-    // alert(JSON.stringify(records))
-
-    // alert("party_id: " + (records[0].party_id));
-    // alert(JSON.stringify(result[0]))
-    // alert("party_id: " + (result[0]["tor_id"]));
-    //     return result[0]["tor_id"] !=='';
-
     if (result.length > 0) {
-      // alert("Result count: " + result.length);
       return true;
     } else {
-      alert("No records found for delivery " + delivery_seld);
       return false;
     }
   }).catch(error => {
@@ -1444,83 +1430,6 @@ function CheckforKeyRec(clientAPI) {
     return false;
   });
 }
-/**
-* Check if KeyRec is mandatory based on Party ID related to delivery
-* @param {IClientAPI} clientAPI
-*/
-// export default function CheckforKeyRec(clientAPI) {
-//     const context = clientAPI.getPageProxy();
-
-//     // Retrieve the selected delivery value from the page control
-//     let delivery_seld = context.evaluateTargetPath("#Control:Delivery/#SelectedValue");
-
-//     // If no delivery is selected, KeyRec is not mandatory
-//     if (!delivery_seld) {
-//         alert("No delivery selected. KeyRec is not mandatory.");
-//         return Promise.resolve(false); 
-//     }
-
-//     // Get the binding context (MDK Binding)
-//     const binding = clientAPI.binding;
-
-//     if (!binding) {
-//         alert("No binding found!");
-//         return Promise.resolve(false); // No binding, so KeyRec is not mandatory
-//     }
-
-//     // Log the binding context for debugging purposes
-//     alert("Binding content: " + JSON.stringify(binding));
-
-//     // Retrieve the readLink from the binding (to dynamically construct the service URL)
-//     const readLink = binding['@odata.readLink'];
-
-//     if (!readLink) {
-//         alert("No readLink found in the binding!");
-//         return Promise.resolve(false);  // No readLink, cannot fetch related data
-//     }
-
-//     // Define the OData service and entity set for 'to_fuit' association
-//     // const service = "/driverapp/Services/main.service";
-//     // const entitySet = `${readLink}/to_fuit`;  // Dynamically build the URL for the associated entity set
-//     alert("Entity Set: " + entitySet); // Debug the entity set
-
-//     // Correct filter query with proper string interpolation
-//     // const queryOptions = `$filter=tor_id eq '${binding.tor_id}' and stop_id eq '${binding.stop_id}' and base_btd_id eq '${delivery_seld}'`;
-//     // const queryOptions = "$top=1";
-//     // Use clientAPI.read() to fetch data from the service with the query options
-
-//     const service = "/driverapp/Services/main.service";
-//     const entitySet = "ZTM_I_DDL_DA_FUIT";
-//     // const filter = `$filter=base_btd_id eq '${delivery_seld}'`;
-//     return clientAPI.read( service, entitySet, [], {}, {}, {}).then(response => {
-//         // Log the response to check its structure
-//         alert("Response data: " + JSON.stringify(response));
-
-//         if (Array.isArray(response) && response.length > 0) {
-//             // Log the filtered data for debugging
-//             alert("Filtered related entities found: " + response.length);
-
-//             // Get the first associated entity from the response
-//             const firstAssociatedEntity = response[0];
-
-//             // Check if the 'party_id' exists in the first related entity
-//             if (firstAssociatedEntity && firstAssociatedEntity.party_id && firstAssociatedEntity.party_id.trim() !== '') {
-//                 alert("Party ID exists: " + firstAssociatedEntity.party_id);
-//                 return Promise.resolve(true);  // Party ID exists, so KeyRec is mandatory
-//             } else {
-//                 alert("Party ID does not exist.");
-//                 return Promise.resolve(false);  // No Party ID, so KeyRec is not mandatory
-//             }
-//         } else {
-//             alert("No related entities found in 'to_fuit' with the specified filter.");
-//             return Promise.resolve(false);  // No related data found, so KeyRec is not mandatory
-//         }
-//     }).catch(error => {
-//         // Handle any errors that occur during the read operation
-//         alert("Error reading data: " + error.message);
-//         return Promise.resolve(false);  // Handle the error gracefully
-//     });
-// }
 
 /***/ }),
 
@@ -2420,12 +2329,7 @@ async function ReportPOD(clientAPI) {
     context.dismissActivityIndicator();
     return;
   }
-
-  // if (!keyrec) {
-  //   alert("KeyRec required!!!")
-  //   context.dismissActivityIndicator()
-  //   return
-  // }
+  // Check whether KeyRec can be mandatory
   try {
     let isKeyRecMandatory = await (0,_CheckforKeyRec__WEBPACK_IMPORTED_MODULE_0__["default"])(clientAPI); // returns true or false
     if (!keyrec && isKeyRecMandatory) {
@@ -2438,16 +2342,7 @@ async function ReportPOD(clientAPI) {
     alert("Error checking KeyRec: " + error.message);
     return;
   }
-  //     return CheckforKeyRec(clientAPI).then(isKeyRecMandatory => {
-  //   // isKeyRecMandatory is the result from CheckforKeyRec (true or false)    
-  //         if (isKeyRecMandatory) {      
-  //             alert("KeyRec is Required");
-  //             return
-  //           } 
-  //           }).catch(error => {
-  //               alert("Error checking Payee Field: " + error.message);
-  //           });
-  // }
+
   // Show initial indicator only before async calls
   context.showActivityIndicator("Reporting Event...");
 
