@@ -4,6 +4,7 @@
  */
 export default function CheckforKeyRec(clientAPI) {
     const context = clientAPI.getPageProxy();
+    
     let delivery_seld = context.evaluateTargetPath("#Control:Delivery/#SelectedValue");
 
     if (!delivery_seld) {
