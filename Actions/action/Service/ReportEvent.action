@@ -15,6 +15,7 @@
 		"event_code": "{event_code}",
 		"ext_loc_id": "{ext_loc_id}",
 		"event_reason": "{event_reason}",
+		"DelvNumber": "{DelvNumber}",
 		"recipient": "{recipient}",
 		"Keyrec": "{Keyrec}",
 		"DelvRemarks": "{DelvRemarks}"

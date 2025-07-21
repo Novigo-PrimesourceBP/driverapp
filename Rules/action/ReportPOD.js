@@ -50,7 +50,7 @@ export default async function ReportPOD(clientAPI) {
     context.dismissActivityIndicator()
     return
   }
-  // Check whether KeyRec can be mandatory
+  // Check whether KeyRec can be mandatory based on FU Payee
   try {
       let isKeyRecMandatory = await CheckforKeyRec(clientAPI); // returns true or false
         if (!keyrec && isKeyRecMandatory ) {
@@ -93,6 +93,7 @@ export default async function ReportPOD(clientAPI) {
     event_reason: event_reason,
     ext_loc_id: locid,
     event_time: '' + new Date().getTime(),
+    DelvNumber: delivery,
     Keyrec: keyrec,
     recipient: recipient,
     DelvRemarks: remarks
@@ -108,36 +109,6 @@ export default async function ReportPOD(clientAPI) {
     recipient: recipient
   };
 
-//   context.dismissActivityIndicator()
-//   context.showActivityIndicator("Reporting Event......");
-    
-//   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action")
-//     .then(() => {
-//       context.dismissActivityIndicator()
-//       context.showActivityIndicator("Uploading signature");
-
-//       return context.sendRequest(targetUrl, {
-//         "method": "POST",
-//         'header': {
-//           "Content-Type": signature.contentType,
-//           "x-csrf-token": token,
-//           "Slug": encodeURI(JSON.stringify(slug))
-//         },
-//         "body": signature.content
-//       }).then(() => {
-//         alert("Successfully uploaded");
-//       }).catch((err) => {
-//         alert(`Failed to upload: ${err.message || err}`);
-//       });
-//     })
-//     .catch((err) => {
-//       alert(`Failed to report event: ${err.message || err}`);
-//     })
-//     .finally(() => {
-//       context.dismissActivityIndicator();
-//       return context.executeAction("/driverapp/Actions/ClosePage.action");
-//     });
-// }
   // Step 3: Report event
   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action")
     .then(() => {
@@ -154,7 +125,7 @@ export default async function ReportPOD(clientAPI) {
         "body": signature.content
       }).then(() => {
         context.dismissActivityIndicator();
-        alert("Event reported and signature uploaded successfully");
+        alert("Event reported and signature uploaded successfully for {delivery}");
       }).catch((err) => {
         context.dismissActivityIndicator();
         alert(`Failed to upload: ${err.message || err}`);
