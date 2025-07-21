@@ -286,6 +286,16 @@
 		"Items": [
 			{
 				"_Type": "Control.Type.ActionBarItem",
+				"_Name": "Synn_Stop",
+				"Caption": "Sync",
+				"Icon": "sap-icon://synchronize",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"Visible": true,
+				"OnPress": "/driverapp/Rules/SyncGlobal.js"
+			},
+			{
+				"_Type": "Control.Type.ActionBarItem",
 				"_Name": "ShowMap",
 				"Caption": "Show map",
 				"Icon": "sap-icon://map-2",

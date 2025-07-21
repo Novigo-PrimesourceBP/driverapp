@@ -125,7 +125,7 @@ export default async function ReportPOD(clientAPI) {
         "body": signature.content
       }).then(() => {
         context.dismissActivityIndicator();
-        alert("Event reported and signature uploaded successfully for {delivery}");
+        alert(`Event reported and signature uploaded successfully for ${delivery}`);
       }).catch((err) => {
         context.dismissActivityIndicator();
         alert(`Failed to upload: ${err.message || err}`);
