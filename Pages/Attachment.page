@@ -63,7 +63,9 @@
 								"AddPhoto",
 								"TakePhoto",
 								"SelectFile"
-							]
+							],
+							"AttachmentTitle": "Attachments",
+							"AttachmentCancelTitle": "Cancel Upload"
 						},
 						{
 							"_Type": "Control.Type.FormCell.Button",
@@ -122,7 +124,7 @@
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar5",
+		"_Name": "ActionBar6",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

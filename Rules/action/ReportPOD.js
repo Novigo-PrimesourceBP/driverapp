@@ -11,9 +11,7 @@ export default async function ReportPOD(clientAPI) {
 
   let event_reason, signature, recipient, keyrec, delivery, remarks;
 
-  try {
-    // context.showActivityIndicator("Processing .......")
-
+  try {    
     //Get UI values
     event_reason  = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
     signature     = context.evaluateTargetPath("#Control:SignatureSrc/#Value");
@@ -100,7 +98,7 @@ export default async function ReportPOD(clientAPI) {
   });
   const slug = {
     tor_id: tor_id,
-    description: locid + "_Recipient_Sign",
+    description: delivery + "_Recipient_Sign",    
     attachment_type: 'ZSIG',
     alternative_name: 'POD-Signature',
     folder: locid,
@@ -125,7 +123,7 @@ export default async function ReportPOD(clientAPI) {
         "body": signature.content
       }).then(() => {
         context.dismissActivityIndicator();
-        alert(`Event reported and signature uploaded successfully for ${delivery}`);
+        alert(`Event reported and signature uploaded for ${delivery}. Please refresh the app.`);
       }).catch((err) => {
         context.dismissActivityIndicator();
         alert(`Failed to upload: ${err.message || err}`);

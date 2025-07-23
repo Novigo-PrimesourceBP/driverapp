@@ -1695,8 +1695,18 @@ async function OnMulDocUpload(clientAPI) {
   } = clientAPI.binding;
   const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Attachment/#Control:AttachmentFormCellNew");
   const attachmentList = clientAPI.evaluateTargetPath('#Page:Attachment/#Control:AttachmentFormCellNew/#Value');
-  const attachmentType = clientAPI.evaluateTargetPath('#Control:AttachmentTypeNew/#SelectedValue');
-
+  let attachmentType;
+  try {
+    attachmentType = clientAPI.evaluateTargetPath('#Control:AttachmentTypeNew/#SelectedValue');
+  } catch (error) {
+    const errMsg = error?.message || String(error);
+    if (errMsg.includes("No value in the selected element")) {
+      alert("Please select attachment type.");
+    } else {
+      alert("Unexpected error: " + errMsg);
+    }
+    return;
+  }
   // Validation
   if (!attachmentType) {
     alert("Please select attachment type.");
@@ -1717,7 +1727,7 @@ async function OnMulDocUpload(clientAPI) {
         "x-csrf-token": "fetch"
       }
     });
-    token = response.headers["x-csrf-token"];
+    token = response.headers["x-csrf-token"] || response.headers?.["X-CSRF-Token"];
   } catch (tokenError) {
     alert(`Error fetching token: ${tokenError.message || tokenError}`);
     return;
@@ -2293,8 +2303,6 @@ async function ReportPOD(clientAPI) {
   } = clientAPI.binding;
   let event_reason, signature, recipient, keyrec, delivery, remarks;
   try {
-    // context.showActivityIndicator("Processing .......")
-
     //Get UI values
     event_reason = context.evaluateTargetPath("#Control:EventReason/#SelectedValue");
     signature = context.evaluateTargetPath("#Control:SignatureSrc/#Value");
@@ -2378,7 +2386,7 @@ async function ReportPOD(clientAPI) {
   });
   const slug = {
     tor_id: tor_id,
-    description: locid + "_Recipient_Sign",
+    description: delivery + "_Recipient_Sign",
     attachment_type: 'ZSIG',
     alternative_name: 'POD-Signature',
     folder: locid,
@@ -2402,7 +2410,7 @@ async function ReportPOD(clientAPI) {
       "body": signature.content
     }).then(() => {
       context.dismissActivityIndicator();
-      alert(`Event reported and signature uploaded successfully for ${delivery}`);
+      alert(`Event reported and signature uploaded for ${delivery}. Please refresh the app.`);
     }).catch(err => {
       context.dismissActivityIndicator();
       alert(`Failed to upload: ${err.message || err}`);
@@ -2962,7 +2970,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \***********************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentTypeNew","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCellNew","IsVisible":true,"Separator":true,"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]},{"_Type":"Control.Type.FormCell.Button","_Name":"UploadAtch","IsVisible":true,"Separator":true,"Title":"Upload Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://upload","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OnMulDocUpload.js"},{"_Type":"Control.Type.FormCell.Button","_Name":"ClrAtch","IsVisible":true,"Separator":true,"Title":"Clear Attachments","Alignment":"Center","ButtonType":"Secondary","Semantic":"Tint","Image":"sap-icon://clear-all","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ClearAttachments.js"}],"Layout":{"NumberOfColumns":1},"Header":{"Styles":{"Header":"DelvItemTitle","Caption":"DelvItemTitle"},"_Type":"SectionCommon.Type.Header","_Name":"AttchHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Freight Order Attachments"},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Attachment","ActionBar":{"Items":[],"_Name":"ActionBar5","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Controls":[{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentTypeNew","IsVisible":true,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCellNew","IsVisible":true,"Separator":true,"AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"],"AttachmentTitle":"Attachments","AttachmentCancelTitle":"Cancel Upload"},{"_Type":"Control.Type.FormCell.Button","_Name":"UploadAtch","IsVisible":true,"Separator":true,"Title":"Upload Attachments","Alignment":"Center","ButtonType":"Primary","Semantic":"Tint","Image":"sap-icon://upload","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/OnMulDocUpload.js"},{"_Type":"Control.Type.FormCell.Button","_Name":"ClrAtch","IsVisible":true,"Separator":true,"Title":"Clear Attachments","Alignment":"Center","ButtonType":"Secondary","Semantic":"Tint","Image":"sap-icon://clear-all","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Rules/action/ClearAttachments.js"}],"Layout":{"NumberOfColumns":1},"Header":{"Styles":{"Header":"DelvItemTitle","Caption":"DelvItemTitle"},"_Type":"SectionCommon.Type.Header","_Name":"AttchHeader","AccessoryType":"None","UseTopPadding":true,"Caption":"Freight Order Attachments"},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"}]}],"_Type":"Page","_Name":"Attachment","ActionBar":{"Items":[],"_Name":"ActionBar6","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
