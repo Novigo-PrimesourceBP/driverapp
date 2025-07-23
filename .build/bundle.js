@@ -2050,7 +2050,7 @@ async function ReportArrivalSign(clientAPI) {
     stop_id
   } = clientAPI.binding; //Get bindings from page
   let context = clientAPI.getPageProxy();
-  context.showActivityIndicator("Processing .......");
+
   //Get Signature Value
   let signature = context.evaluateTargetPath("#Control:SignatureArrv/#Value");
 
@@ -2060,6 +2060,11 @@ async function ReportArrivalSign(clientAPI) {
     context.dismissActivityIndicator();
     return;
   }
+
+  // Show initial indicator only before async calls
+  context.showActivityIndicator("Reporting Event...");
+
+  //Step 1: Fetch CSRF Token
   let token;
   let targetUrl = `/action/AttachmentSet`;
   try {
@@ -2069,11 +2074,14 @@ async function ReportArrivalSign(clientAPI) {
         "x-csrf-token": "fetch"
       }
     });
-    token = response.headers["x-csrf-token"];
-  } catch (error) {
-    alert(error);
+    token = response.headers["x-csrf-token"] || response.headers.get("x-csrf-token");
+    if (!token) throw new Error("CSRF token missing");
+  } catch (err) {
     context.dismissActivityIndicator();
+    alert(`CSRF fetch failed: ${err.message || err}`);
+    return;
   }
+  // Step 2: Set action binding for ReportEvent
   context.setActionBinding({
     tor_id: tor_id,
     event_code: 'ARRIV_DEST',
@@ -2091,8 +2099,7 @@ async function ReportArrivalSign(clientAPI) {
     keyrec: '',
     recipient: ''
   };
-  context.dismissActivityIndicator(); //End of Processing
-  context.showActivityIndicator("Reporting Event......");
+  // Step 3: Report event
   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
     context.dismissActivityIndicator();
     context.showActivityIndicator("Uploading signature");
@@ -2105,17 +2112,15 @@ async function ReportArrivalSign(clientAPI) {
       },
       "body": signature.content
     }).then(() => {
-      alert("Successfully uploaded");
       context.dismissActivityIndicator();
-      return context.executeAction("/driverapp/Actions/ClosePage.action");
+      alert(`Event reported and signature uploaded for ${locid}. Please refresh the app.`);
     }).catch(err => {
-      alert(`Failed to upload ${err}`);
       context.dismissActivityIndicator();
-      return context.executeAction("/driverapp/Actions/ClosePage.action");
+      alert(`Failed to upload ${err}`);
     });
   }).catch(err => {
-    alert(`Failed to report event ${err}`);
     context.dismissActivityIndicator();
+    alert(`Failed to report event ${err}`);
   }).finally(() => {
     context.dismissActivityIndicator();
     return context.executeAction("/driverapp/Actions/ClosePage.action");
