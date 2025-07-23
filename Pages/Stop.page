@@ -242,7 +242,7 @@
 					"Target": {
 						"Service": "/driverapp/Services/main.service",
 						"EntitySet": "ZTM_I_DDL_DA_STIT",
-						"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"
+						"QueryOptions": "$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id&$top=50"
 					},
 					"_Name": "StopItemsSection",
 					"Visible": true,
@@ -259,12 +259,15 @@
 						},
 						"Title": "{product_id}",
 						"Subhead": "{item_descr}",
-						"Footnote": "{gro_vol_val} {gro_vol_uni}",
+						"Footnote": "/driverapp/Rules/Formatters/StopItemVolume.js",
 						"Description": "{gro_wei_val} {gro_wei_uni}",
 						"StatusText": "{qua_pcs_val} {qua_pcs_uni}",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
-						"Tags": [],
+						"Icons": [
+							"sap-icon://product"
+						],
+						"Tags": [],																						
 						"AvatarStack": {
 							"ImageIsCircular": true,
 							"ImageHasBorder": false

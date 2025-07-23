@@ -139,6 +139,8 @@ let driverapp_rules_formatters_pickuptime_js = __webpack_require__(/*! ./drivera
 let driverapp_rules_formatters_return_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/Return.js */ "./build.definitions/driverapp/Rules/Formatters/Return.js")
 let driverapp_rules_formatters_sourcelocation_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/SourceLocation.js */ "./build.definitions/driverapp/Rules/Formatters/SourceLocation.js")
 let driverapp_rules_formatters_stopaddress_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopAddress.js */ "./build.definitions/driverapp/Rules/Formatters/StopAddress.js")
+let driverapp_rules_formatters_stopitemvalueformatter_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopItemValueFormatter.js */ "./build.definitions/driverapp/Rules/Formatters/StopItemValueFormatter.js")
+let driverapp_rules_formatters_stopitemvolume_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopItemVolume.js */ "./build.definitions/driverapp/Rules/Formatters/StopItemVolume.js")
 let driverapp_rules_formatters_stopstatus_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatus.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatus.js")
 let driverapp_rules_formatters_stopstatusstyle_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopStatusStyle.js */ "./build.definitions/driverapp/Rules/Formatters/StopStatusStyle.js")
 let driverapp_rules_formatters_stoptime_js = __webpack_require__(/*! ./driverapp/Rules/Formatters/StopTime.js */ "./build.definitions/driverapp/Rules/Formatters/StopTime.js")
@@ -285,6 +287,8 @@ module.exports = {
 	driverapp_rules_formatters_return_js : driverapp_rules_formatters_return_js,
 	driverapp_rules_formatters_sourcelocation_js : driverapp_rules_formatters_sourcelocation_js,
 	driverapp_rules_formatters_stopaddress_js : driverapp_rules_formatters_stopaddress_js,
+	driverapp_rules_formatters_stopitemvalueformatter_js : driverapp_rules_formatters_stopitemvalueformatter_js,
+	driverapp_rules_formatters_stopitemvolume_js : driverapp_rules_formatters_stopitemvolume_js,
 	driverapp_rules_formatters_stopstatus_js : driverapp_rules_formatters_stopstatus_js,
 	driverapp_rules_formatters_stopstatusstyle_js : driverapp_rules_formatters_stopstatusstyle_js,
 	driverapp_rules_formatters_stoptime_js : driverapp_rules_formatters_stoptime_js,
@@ -894,6 +898,66 @@ function StopAddress(clientAPI) {
     country
   } = clientAPI.binding;
   return `${name},\n${house_num},${street},\n${city}-${post_code},${region},${country}`;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopItemValueFormatter.js":
+/*!********************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopItemValueFormatter.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopItemValueFormatter)
+/* harmony export */ });
+/**
+ * Formats the value
+ * @param {IClientAPI} clientAPI
+ */
+function StopItemValueFormatter(ItemValue) {
+  const number = parseFloat(ItemValue);
+
+  // If it's a valid number and greater than 0, return it
+  if (!isNaN(number) && number > 0) {
+    return number;
+  }
+  // Otherwise return 0
+  return 0;
+}
+
+/***/ }),
+
+/***/ "./build.definitions/driverapp/Rules/Formatters/StopItemVolume.js":
+/*!************************************************************************!*\
+  !*** ./build.definitions/driverapp/Rules/Formatters/StopItemVolume.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StopItemVolume)
+/* harmony export */ });
+/* harmony import */ var _StopItemValueFormatter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StopItemValueFormatter */ "./build.definitions/driverapp/Rules/Formatters/StopItemValueFormatter.js");
+/**
+ * Formats the Stop Item Volume value 
+ * Returns value only when:
+*  - There is a real (non-zero) value
+*  - The unit is present
+ * @param {IClientAPI} clientAPI
+ */
+
+function StopItemVolume(clientAPI) {
+  let rawVal = clientAPI.binding.gro_vol_val;
+  let unit = clientAPI.binding.gro_vol_uni;
+  let val = (0,_StopItemValueFormatter__WEBPACK_IMPORTED_MODULE_0__["default"])(rawVal);
+
+  // alert(`gro_vol_val: ${rawVal}\nunit: ${unit}\nparsed value: ${val}`);
+
+  return val > 0 && unit && unit.trim() !== "" ? `${val} ${unit.trim()}` : "";
 }
 
 /***/ }),
@@ -3050,7 +3114,7 @@ module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Typ
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading","Styles":{"HeadlineText":"MainFOTitle"}},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-arrive","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopArrvButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Arrival_Sign.action"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopDepButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://customer-order-entry","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}]},{"Controls":[{"_Type":"Control.Type.FormCell.Button","_Name":"Delay","IsVisible":true,"Separator":true,"Title":"Delay","Alignment":"Center","ButtonType":"Text","Semantic":"Negative","Image":"sap-icon://lateness","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_DelayEvent.action"},{"_Type":"Control.Type.FormCell.Button","_Name":"Attach","IsVisible":true,"Separator":true,"Title":"Attach File","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://attachment","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_AttachmentPage.action"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","IsVisible":false,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCell","IsVisible":false,"Separator":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"},{"Header":{"Styles":{"Header":"StopTitle","Caption":"StopTitle"},"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"{gro_vol_val} {gro_vol_uni}","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Synn_Stop","Caption":"Sync","Icon":"sap-icon://synchronize","Position":"Right","IsIconCircular":false,"Visible":true,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"ShowMap","Caption":"Show map","Icon":"sap-icon://map-2","Position":"Right","IsIconCircular":true,"IconText":"Showmap","Visible":true,"OnPress":"/driverapp/Rules/action/OpenMaps.js"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
+module.exports = {"Controls":[{"FilterFeedbackBar":{"ShowAllFilters":false,"_Type":"Control.Type.FilterFeedbackBar"},"_Type":"Control.Type.SectionedTable","_Name":"SectionedTable0","Sections":[{"ObjectHeader":{"Subhead":"{city}","Footnote":"/driverapp/Rules/Formatters/Departure.js","Description":"{region}-{country}","StatusText":"/driverapp/Rules/Formatters/StopStatus.js","DetailImageIsCircular":false,"BodyText":"/driverapp/Rules/Formatters/Arrival.js","HeadlineText":"{name}","StatusPosition":"Stacked","StatusImagePosition":"Leading","SubstatusImagePosition":"Leading","Styles":{"HeadlineText":"MainFOTitle"}},"_Type":"Section.Type.ObjectHeader","_Name":"SectionObjectHeader0","Visible":true},{"KeyAndValues":[{"Value":"/driverapp/Rules/Formatters/StopAddress.js","_Type":"KeyValue.Type.Item","_Name":"KeyValueAddr","KeyName":"Address","Visible":true}],"MaxItemCount":1,"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"_Type":"Section.Type.KeyValue","_Name":"SectionKeyValue0","Visible":true,"EmptySection":{"FooterVisible":false},"Layout":{"NumberOfColumns":2}},{"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Layout":{"LayoutType":"Vertical","HorizontalAlignment":"Leading"},"_Type":"Section.Type.ButtonTable","_Name":"ActionButtons","Visible":true,"EmptySection":{"FooterVisible":false},"Buttons":[{"_Type":"ButtonTable.Type.Button","_Name":"ArrivalBtn","Title":"Arrival","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-arrive","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopArrvButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Arrival_Sign.action"},{"_Type":"ButtonTable.Type.Button","_Name":"DepartureBtn","Title":"Departure","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://journey-depart","ImagePosition":"Leading","FullWidth":true,"Visible":"/driverapp/Rules/action/StopDepButtonVisibility.js","Enabled":true,"OnPress":"/driverapp/Rules/action/ReportDeparture.js"},{"_Type":"ButtonTable.Type.Button","_Name":"PODBtn","Title":"Proof of Delivery","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://customer-order-entry","ImagePosition":"Leading","FullWidth":true,"Visible":true,"Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_Event.action"}]},{"Controls":[{"_Type":"Control.Type.FormCell.Button","_Name":"Delay","IsVisible":true,"Separator":true,"Title":"Delay","Alignment":"Center","ButtonType":"Text","Semantic":"Negative","Image":"sap-icon://lateness","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_DelayEvent.action"},{"_Type":"Control.Type.FormCell.Button","_Name":"Attach","IsVisible":true,"Separator":true,"Title":"Attach File","Alignment":"Center","ButtonType":"Text","Semantic":"Tint","Image":"sap-icon://attachment","ImagePosition":"Leading","Enabled":true,"OnPress":"/driverapp/Actions/Navigation/To_AttachmentPage.action"},{"_Type":"Control.Type.FormCell.ListPicker","_Name":"AttachmentType","IsVisible":false,"Separator":true,"AllowMultipleSelection":false,"AllowEmptySelection":false,"Caption":"Attachment Type","Label":"Attachment Type","HelperText":"Select an attachment type and upload","IsSelectedSectionEnabled":false,"IsPickerDismissedOnSelection":true,"AllowDefaultValueIfOneItem":false,"IsEditable":true,"PickerItems":[{"DisplayValue":"Default","ReturnValue":"ATCMT"},{"DisplayValue":"Key Rec","ReturnValue":"ZKEYR"},{"DisplayValue":"Freight Picture","ReturnValue":"ZFPIC"},{"DisplayValue":"Signature","ReturnValue":"ZSIG"},{"DisplayValue":"Others","ReturnValue":"ZOTHE"}]},{"_Type":"Control.Type.FormCell.Attachment","_Name":"AttachmentFormCell","IsVisible":false,"Separator":true,"OnValueChange":"/driverapp/Rules/action/OnDocumentUpload.js","AttachmentActionType":["AddPhoto","TakePhoto","SelectFile"]}],"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Visible":true,"EmptySection":{"FooterVisible":false},"_Type":"Section.Type.FormCell","_Name":"SectionFormCell0"},{"Header":{"Styles":{"Header":"StopTitle","Caption":"StopTitle"},"_Type":"SectionCommon.Type.Header","_Name":"StopItems","AccessoryType":"None","UseTopPadding":true,"Caption":"Items"},"Separators":{"TopSectionSeparator":false,"BottomSectionSeparator":true,"HeaderSeparator":true,"FooterSeparator":true,"ControlSeparator":true},"Grouping":{"GroupingProperties":[],"Header":{"Items":[]}},"_Type":"Section.Type.ObjectTable","Target":{"Service":"/driverapp/Services/main.service","EntitySet":"ZTM_I_DDL_DA_STIT","QueryOptions":"$filter=tor_id eq '{tor_id}' and stop_id eq '{stop_id}'&$orderby=item_id&$top=50"},"_Name":"StopItemsSection","Visible":true,"EmptySection":{"FooterVisible":false},"ObjectCell":{"ContextMenu":{"Items":[],"PerformFirstActionWithFullSwipe":true,"LeadingItems":[],"TrailingItems":[],"_Type":"ObjectCell.Type.ContextMenu"},"Title":"{product_id}","Subhead":"{item_descr}","Footnote":"/driverapp/Rules/Formatters/StopItemVolume.js","Description":"{gro_wei_val} {gro_wei_uni}","StatusText":"{qua_pcs_val} {qua_pcs_uni}","PreserveIconStackSpacing":false,"AccessoryType":"None","Icons":["sap-icon://product"],"Tags":[],"AvatarStack":{"ImageIsCircular":true,"ImageHasBorder":false},"AvatarGrid":{"ImageIsCircular":true},"_Type":"ObjectTable.Type.ObjectCell","Selected":false},"HighlightSelectedItem":false}]}],"_Type":"Page","_Name":"Stop","ActionBar":{"Items":[{"_Type":"Control.Type.ActionBarItem","_Name":"Synn_Stop","Caption":"Sync","Icon":"sap-icon://synchronize","Position":"Right","IsIconCircular":false,"Visible":true,"OnPress":"/driverapp/Rules/SyncGlobal.js"},{"_Type":"Control.Type.ActionBarItem","_Name":"ShowMap","Caption":"Show map","Icon":"sap-icon://map-2","Position":"Right","IsIconCircular":true,"IconText":"Showmap","Visible":true,"OnPress":"/driverapp/Rules/action/OpenMaps.js"}],"_Name":"ActionBar3","_Type":"Control.Type.ActionBar"}}
 
 /***/ }),
 
