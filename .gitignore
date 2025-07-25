@@ -146,3 +146,4 @@
 .build/driverapp/Web/config.json
 .build/driverapp/Web/App_Resources/README
 .build/driverapp/i18n/i18n.properties
+.build/

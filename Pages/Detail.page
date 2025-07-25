@@ -116,6 +116,9 @@
 						"SubstatusText": "{locid}",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
+						"Icons": [
+							"sap-icon://functional-location"
+						],
 						"Tags": [],
 						"AvatarStack": {
 							"ImageIsCircular": true,

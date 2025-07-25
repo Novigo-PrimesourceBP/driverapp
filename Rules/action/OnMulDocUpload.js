@@ -6,11 +6,23 @@ export default async function OnMulDocUpload(clientAPI) {
 
     const context = clientAPI.getPageProxy();
     const { tor_id, locid } = clientAPI.binding;
-
+    
     const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Attachment/#Control:AttachmentFormCellNew");
     const attachmentList = clientAPI.evaluateTargetPath('#Page:Attachment/#Control:AttachmentFormCellNew/#Value');
-    const attachmentType = clientAPI.evaluateTargetPath('#Control:AttachmentTypeNew/#SelectedValue');
 
+    let attachmentType;
+    try {
+        attachmentType = clientAPI.evaluateTargetPath('#Control:AttachmentTypeNew/#SelectedValue');
+    }catch (error) {        
+        const errMsg = error?.message || String(error);
+    
+        if (errMsg.includes("No value in the selected element")) {
+          alert("Please select attachment type.");
+        } else {
+          alert("Unexpected error: " + errMsg);
+        }
+        return;
+      }
     // Validation
     if (!attachmentType) {
         alert("Please select attachment type.");
@@ -31,7 +43,7 @@ export default async function OnMulDocUpload(clientAPI) {
             method: "GET",
             header: { "x-csrf-token": "fetch" }
         });
-        token = response.headers["x-csrf-token"];
+        token = response.headers["x-csrf-token"] || response.headers?.["X-CSRF-Token"];
     } catch (tokenError) {
         alert(`Error fetching token: ${tokenError.message || tokenError}`);
         return;
