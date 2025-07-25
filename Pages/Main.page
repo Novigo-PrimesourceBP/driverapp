@@ -139,6 +139,9 @@
 		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar",
 		"Caption": "Shipments",
+		"Styles": {
+			"ActionBar": "ActionBar"
+		},
 		"PrefersLargeCaption": true
 	}
 }
