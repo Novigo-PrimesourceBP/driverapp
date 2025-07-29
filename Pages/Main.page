@@ -33,7 +33,7 @@
 					"Target": {
 						"Service": "/driverapp/Services/main.service",
 						"EntitySet": "ZTM_C_DDL_DA_ROOT",
-						"QueryOptions": "$orderby=tor_id desc"
+						"QueryOptions": "$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'&$orderby=tor_id desc"
 					},
 					"_Name": "SectionObjectTable0",
 					"Visible": true,
@@ -139,9 +139,9 @@
 		"_Name": "ActionBar3",
 		"_Type": "Control.Type.ActionBar",
 		"Caption": "Shipments",
+		"PrefersLargeCaption": true,
 		"Styles": {
 			"ActionBar": "ActionBar"
-		},
-		"PrefersLargeCaption": true
+		}
 	}
 }
