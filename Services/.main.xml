@@ -83,6 +83,8 @@
                 <Property Name="pln_arr_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Transp. Plng Date" sap:quickinfo="Transportation Planning Date"/>
                 <Property Name="act_arr_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
                 <Property Name="dep_offset" Type="Edm.Decimal" Precision="15" Scale="0"/>
+                <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
                 <NavigationProperty Name="to_attc" Relationship="cds_ztm_sd_ddl_da.assoc_793B0712938B55F33CD95D4A6ED72551" FromRole="FromRole_assoc_793B0712938B55F33CD95D4A6ED72551" ToRole="ToRole_assoc_793B0712938B55F33CD95D4A6ED72551"/>
                 <NavigationProperty Name="to_evtl" Relationship="cds_ztm_sd_ddl_da.assoc_1B1826F5BF84C377BF8EC39A9DADFB88" FromRole="FromRole_assoc_1B1826F5BF84C377BF8EC39A9DADFB88" ToRole="ToRole_assoc_1B1826F5BF84C377BF8EC39A9DADFB88"/>
                 <NavigationProperty Name="to_stop" Relationship="cds_ztm_sd_ddl_da.assoc_403D2E4A2668CBCC0128B12E7E6D2CBD" FromRole="FromRole_assoc_403D2E4A2668CBCC0128B12E7E6D2CBD" ToRole="ToRole_assoc_403D2E4A2668CBCC0128B12E7E6D2CBD"/>
