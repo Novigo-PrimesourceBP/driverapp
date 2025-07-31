@@ -64,6 +64,40 @@
 					}
 				},
 				{
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0",
+					"Controls": [
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "FormCellSetDeparted",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "Departure",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"Image": "sap-icon://journey-depart",
+							"ImagePosition": "Leading",
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 1
+					}
+				},
+				{
 					"Header": {
 						"Styles": {
 							"Header": "StopTitle",
@@ -162,7 +196,7 @@
 							"Image": "sap-icon://journey-depart",
 							"ImagePosition": "Leading",
 							"FullWidth": true,
-							"Visible": true,
+							"Visible": false,
 							"Enabled": true,
 							"OnPress": "/driverapp/Rules/action/ReportDepartureSource.js"
 						},
