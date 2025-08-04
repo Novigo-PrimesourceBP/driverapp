@@ -1,0 +1,91 @@
+{
+	"Controls": [
+		{
+			"FilterFeedbackBar": {
+				"ShowAllFilters": false,
+				"_Type": "Control.Type.FilterFeedbackBar"
+			},
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable0",
+			"Sections": [
+				{
+					"Header": {
+						"Styles": {
+							"Header": "DelvItemTitle",
+							"Caption": "DelvItemTitle"
+						},
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "ViewAttachmentsHeader",
+						"AccessoryType": "None",
+						"UseTopPadding": true,
+						"Caption": "Display Attachments"
+					},
+					"Separators": {
+						"TopSectionSeparator": false,
+						"BottomSectionSeparator": true,
+						"HeaderSeparator": true,
+						"FooterSeparator": true,
+						"ControlSeparator": true
+					},
+					"Grouping": {
+						"GroupingProperties": [],
+						"Header": {
+							"Items": []
+						}
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"Service": "/driverapp/Services/main.service",
+						"EntitySet": "ZTM_I_DDL_DA_ATTC",
+						"QueryOptions": "$filter=tor_id eq '{tor_id}' and folder eq '{locid}'"
+					},
+					"_Name": "TAttachments",
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"ObjectCell": {
+						"ContextMenu": {
+							"Items": [],
+							"PerformFirstActionWithFullSwipe": true,
+							"LeadingItems": [],
+							"TrailingItems": [],
+							"_Type": "ObjectCell.Type.ContextMenu"
+						},
+						"Title": "{description}",
+						"Subhead": "{folder}",						
+						"Description": "{mimecode}",
+						"Footnote": "/driverapp/Rules/Formatters/AttachmentDate.js",
+						"PreserveIconStackSpacing": false,
+						"AccessoryType": "None",
+						"ProgressIndicator": "/driverapp/Rules/Formatters/DownloadProgress.js",
+						"OnPress": "/driverapp/Rules/action/OnDocumentPress.js",																
+						"Tags": [],
+						"Icons": [
+							"sap-icon://accounting-document-verification"
+						],
+						"AvatarStack": {
+							"ImageIsCircular": true,
+							"ImageHasBorder": false
+						},
+						"AvatarGrid": {
+							"ImageIsCircular": true
+						},
+						"OnPress": "/driverapp/Rules/action/OnDocumentPress.js",
+						"OnAccessoryButtonPress": "/driverapp/Rules/action/OnDocumentPress.js",
+						"_Type": "ObjectTable.Type.ObjectCell",
+						"Selected": false
+					},
+					"HighlightSelectedItem": false
+				}
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "ViewAttachments",
+	"ActionBar": {
+		"Items": [],
+		"_Name": "ActionBar7",
+		"_Type": "Control.Type.ActionBar"
+	}
+}

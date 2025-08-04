@@ -101,6 +101,9 @@
                 <Property Name="alternative_name" Type="Edm.String" MaxLength="255" sap:label="File Name" sap:quickinfo="Relative storage location of physical document"/>
                 <Property Name="description" Type="Edm.String" MaxLength="64" sap:label="Doc. Title" sap:quickinfo="Title of a document"/>
                 <Property Name="filesize_content" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="File Size" sap:quickinfo="File size (in bytes)"/>
+                <Property Name="attachment_type" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Attachment Type"/>
+                <Property Name="created_at" Type="Edm.String" MaxLength="14"/>
+                <Property Name="changed_on" Type="Edm.String" MaxLength="14"/>
                 <Property Name="folder" Type="Edm.String" MaxLength="64" sap:label="Doc. Title" sap:quickinfo="Title of a document"/>
             </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_DLVITType" sap:label="Interface View - Delv Item: Driver app" sap:content-version="1">
