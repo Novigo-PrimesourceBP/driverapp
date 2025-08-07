@@ -1,0 +1,10 @@
+{
+    "_Type": "Action.Type.OfflineOData.Close",
+    "Service": "/driverapp/Services/attachmentdwld.service",
+    "Force": true,
+    "ActionResult": {
+        "_Name": "close"
+    },
+    "OnSuccess": "/driverapp/Actions/attachmentdwld/Service/CloseOfflineSuccessMessage.action",
+    "OnFailure": "/driverapp/Actions/attachmentdwld/Service/CloseOfflineFailureMessage.action"
+}

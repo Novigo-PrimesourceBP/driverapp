@@ -3,5 +3,5 @@
 	"ActionResult": {
 		"_Name": "OpenDocument"
 	},
-	"Path": "\"{FilePath}\""
+	"Path": "{FilePath}"
 }

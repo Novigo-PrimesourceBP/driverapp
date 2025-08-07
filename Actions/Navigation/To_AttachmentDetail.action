@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"ActionResult": {
+		"_Name": "To_AttachmentDetail"
+	},
+	"PageToOpen": "/driverapp/Pages/AttachmentDetail.page",
+	"NavigationType": "Cross"
+}
