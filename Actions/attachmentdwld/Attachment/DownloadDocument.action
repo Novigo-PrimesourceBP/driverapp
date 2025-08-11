@@ -1,0 +1,13 @@
+{
+	"_Type": "Action.Type.ODataService.DownloadMedia",
+	"ActionResult": {
+		"_Name": "DownloadDocument"
+	},
+	"OnFailure": "/driverapp/Actions/attachmentdwld/Attachment/OndownldDocfailure.action",
+	"OnSuccess": "/driverapp/Rules/attachmentdwld/DocumentSave.js",
+	"Target": {
+		"Service": "/driverapp/Services/attachmentdwld.service",
+		"EntitySet": "AttachmentDwld",
+		"ReadLink": "{attachreadLink}"
+	}
+}

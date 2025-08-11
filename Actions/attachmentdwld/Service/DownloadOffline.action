@@ -1,0 +1,16 @@
+{
+	"_Type": "Action.Type.OfflineOData.Download",
+	"ActionResult": {
+		"_Name": "sync"
+	},
+	"OnFailure": "/driverapp/Actions/attachmentdwld/Service/SyncFailureMessage.action",
+	"OnSuccess": "/driverapp/Rules/attachmentdwld/ErrorArchive_CheckForSyncError.js",
+	"Service": "/driverapp/Services/attachmentdwld.service",
+	"DefiningRequests": [
+		{
+			"Name": "AttachmentDwld",
+			"Query": "AttachmentDwld",
+			"AutomaticallyRetrievesStreams": false
+		}
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.OpenDocument",
+	"ActionResult": {
+		"_Name": "OpenDocument"
+	},
+	"Path": "{FilePath}"
+}

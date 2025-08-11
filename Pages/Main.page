@@ -49,12 +49,12 @@
 							"_Type": "ObjectCell.Type.ContextMenu"
 						},
 						"Title": "{tor_id}",
-						"Subhead": "To: {des_city}",
+						"Subhead": "From: {src_city}",
 						"Footnote": "/driverapp/Rules/Formatters/PickupDate.js",
-						"Description": "Util: {max_util}%",
+						"Description": "/driverapp/Rules/Formatters/PickupTime.js",
 						"DisplayDescriptionInMobile": true,
 						"StatusText": "/driverapp/Rules/Formatters/ExecutionStatus.js",
-						"SubstatusText": "/driverapp/Rules/Formatters/PickupTime.js",
+						"SubstatusText": "Util: {max_util}%",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
 						"Icons": [

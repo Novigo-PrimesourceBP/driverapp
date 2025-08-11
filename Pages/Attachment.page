@@ -94,6 +94,20 @@
 							"ImagePosition": "Leading",
 							"Enabled": true,
 							"OnPress": "/driverapp/Rules/action/ClearAttachments.js"
+						},
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "ViewAtch",
+							"IsVisible": true,
+							"Separator": true,
+							"Title": "View Attachments",
+							"Alignment": "Center",
+							"ButtonType": "Primary",
+							"Semantic": "Tint",
+							"Image": "sap-icon://detail-view",
+							"ImagePosition": "Leading",
+							"Enabled": true,
+							"OnPress": "/driverapp/Actions/Navigation/To_ViewAttachments.action"
 						}
 					],
 					"Layout": {
@@ -124,7 +138,7 @@
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar6",
+		"_Name": "ActionBar7",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

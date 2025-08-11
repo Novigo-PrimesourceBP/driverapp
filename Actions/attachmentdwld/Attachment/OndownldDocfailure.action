@@ -1,0 +1,9 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+	"ActionResult": {
+		"_Name": "OndownldDocfailure"
+	},
+	"Message": "Downloading Document failed",
+	"Duration": 7,
+	"Animated": true
+}

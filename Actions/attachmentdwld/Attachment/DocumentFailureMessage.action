@@ -1,0 +1,9 @@
+{
+	"_Type": "Action.Type.Message",
+	"ActionResult": {
+		"_Name": "DocumentFailureMessage"
+	},
+	"Message": "#ActionResults:DownloadDocument/error",
+	"Title": "$(L,'xmsg_document_failure')",
+	"OKCaption": "$(L,'xbut_ok')"
+}
