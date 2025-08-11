@@ -1,4 +1,4 @@
-import GetExtensionfromMIME from '../Formatters/GetExtensionfromMIME';
+import GetExtensionfromMIME from '../attachmentdwld/GetExtensionfromMIME';
 
 /**
  * This function likely builds the full local path (file system path)

@@ -8,6 +8,7 @@
 	"Target": {
 		"Service": "/driverapp/Services/attachmentdwld.service",
 		"EntitySet": "AttachmentDwld",
-		"ReadLink": "{attachreadLink}"
+		"QueryOptions": "$filter=tor_id eq '{tor_id}'",
+		"ReadLink": "{@odata.readLink}"
 	}
 }
