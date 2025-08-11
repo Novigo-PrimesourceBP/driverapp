@@ -98,7 +98,7 @@
 						{
 							"_Type": "Control.Type.FormCell.Button",
 							"_Name": "ViewAtch",
-							"IsVisible": true,
+							"IsVisible": false,
 							"Separator": true,
 							"Title": "View Attachments",
 							"Alignment": "Center",
@@ -138,7 +138,7 @@
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar7",
+		"_Name": "ActionBar8",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
