@@ -58,7 +58,7 @@
 						"Description": "{mimecode}",
 						"PreserveIconStackSpacing": false,
 						"AccessoryType": "None",
-						"ProgressIndicator": "/driverapp/Rules/Formatters/DownloadProgress.js",
+						"ProgressIndicator": "/driverapp/Rules/attachmentdwld/DownloadProgress.js",
 						"Icons": [
 							"sap-icon://accounting-document-verification"
 						],
