@@ -27,19 +27,18 @@
 	"MobileService": {
 		"Type": "standard",
 		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.eu10.hana.ondemand.com/cockpit/v1/org/9ef61833-c6b8-4a41-ad53-26379f360bee/space/6e91c292-34d1-49e9-9672-8ce4c84910da",
-		"AppId": "com.primsourcebp.dev.driverapp",
+		"AppId": "com.primsourcebp.qa.driverapp",
 		"Destination": [
 			"main",
-			"main2",
-			"com.primsourcebp.dev.driverapp",
 			"action",
+			"maindup",
 			"attachmentdwld"
 		]
 	},
 	"Onboarding": {
 		"Schema": "sapmobilesvcs",
 		"TimeZone": "UTC",
-		"URL": "sapmobilesvcs://?AppId=com.primsourcebp.dev.driverapp&ClientId=4e382cf2-af30-40b7-ba18-5f0ea1de937a&ServerUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--4kh5dphf.cfapps.eu10-005.hana.ondemand.com&SapCloudPlatformEndpoint=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--4kh5dphf.cfapps.eu10-005.hana.ondemand.com&AuthorizationEndpointUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--4kh5dphf.cfapps.eu10-005.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--4kh5dphf.cfapps.eu10-005.hana.ondemand.com&TokenUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--4kh5dphf.cfapps.eu10-005.hana.ondemand.com/oauth2/api/v1/token&multiUser=false"
+		"URL": "sapmobilesvcs://?AppId=com.primsourcebp.qa.driverapp&ClientId=310a9f33-6694-45b4-b2c3-cecab11d3454&ServerUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--x0nk0lss.cfapps.eu10-005.hana.ondemand.com&SapCloudPlatformEndpoint=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--x0nk0lss.cfapps.eu10-005.hana.ondemand.com&AuthorizationEndpointUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--x0nk0lss.cfapps.eu10-005.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--x0nk0lss.cfapps.eu10-005.hana.ondemand.com&TokenUrl=https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--x0nk0lss.cfapps.eu10-005.hana.ondemand.com/oauth2/api/v1/token&multiUser=false"
 	},
 	"LCAP": {
 		"FullName": "",
@@ -52,7 +51,6 @@
 	"Build": {
 		"SourceMap": true,
 		"TSTarget": "es6",
-		"WMF": true,
-		"Platform": "iOS & Android"
+		"WMF": true
 	}
 }

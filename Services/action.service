@@ -1,13 +1,5 @@
 {
-    "DestinationName": "action",
-    "OfflineEnabled": true,
-    "LanguageURLParam": "",
-    "OnlineOptions": {},
-    "OfflineOptions": {
-	"StoreParameters": {}
-    
-    },
-    "PathSuffix": "",
-    "SourceType": "Mobile",
-    "ServiceUrl":""
+	"DestinationName": "action",
+	"OfflineEnabled": true,
+	"SourceType": "Mobile"
 }
