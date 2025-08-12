@@ -31,10 +31,10 @@
 							"IsPickerDismissedOnSelection": true,
 							"AllowDefaultValueIfOneItem": false,
 							"IsEditable": true,
-							"PickerItems": [
+							"PickerItems": [								
 								{
-									"DisplayValue": "Default",
-									"ReturnValue": "ATCMT"
+									"DisplayValue": "Bill of Lading",
+									"ReturnValue": "ZBOLF"
 								},
 								{
 									"DisplayValue": "Key Rec",

@@ -48,7 +48,7 @@ export default async function ReportPOD(clientAPI) {
     context.dismissActivityIndicator()
     return
   }
-  // Check whether KeyRec can be mandatory based on FU Payee
+  // Check whether KeyRec can be mandatory based on FU Payer
   try {
       let isKeyRecMandatory = await CheckforKeyRec(clientAPI); // returns true or false
         if (!keyrec && isKeyRecMandatory ) {
