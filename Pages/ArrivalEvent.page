@@ -34,7 +34,7 @@
 							"_Name": "FormCellButton0",
 							"IsVisible": true,
 							"Separator": true,
-							"Title": "Save",
+							"Title": "Report Arrival",
 							"Alignment": "Center",
 							"ButtonType": "Primary",
 							"Semantic": "Tint",

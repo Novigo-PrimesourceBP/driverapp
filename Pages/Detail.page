@@ -10,11 +10,10 @@
 			"Sections": [
 				{
 					"ObjectHeader": {
-						"Subhead": "/driverapp/Rules/Formatters/ExecutionStatus.js",
-						"Footnote": "/driverapp/Rules/Formatters/Return.js",
+						"Subhead": "/driverapp/Rules/Formatters/ExecutionStatus.js",						
 						"DetailImage": "sap-icon://shipping-status",
 						"DetailImageIsCircular": false,
-						"BodyText": "/driverapp/Rules/Formatters/Pickup.js",
+						"BodyText": "/driverapp/Rules/Formatters/FirstActivityDatetime.js",
 						"HeadlineText": "{tor_id}",
 						"StatusPosition": "Stacked",
 						"StatusImagePosition": "Leading",

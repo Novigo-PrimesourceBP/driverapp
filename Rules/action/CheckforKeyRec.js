@@ -12,7 +12,7 @@ export default function CheckforKeyRec(clientAPI) {
     }
     const service = "/driverapp/Services/main.service";
     const entitySet = "ZTM_I_DDL_DA_FUIT";
-    const filter = `$filter=base_btd_id eq '${delivery_seld}' and party_rco eq 'PE'`;
+    const filter = `$filter=base_btd_id eq '${delivery_seld}' and party_rco eq 'PY'`;
     
     return clientAPI.read( service, entitySet, [], filter, {}, {})
         .then(result => {            

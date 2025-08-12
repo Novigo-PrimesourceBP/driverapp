@@ -1,8 +1,8 @@
 /**
- * Describe this function...
+ * Displays the first activity date and time
  * @param {IClientAPI} clientAPI
  */
-export default function FormatPickup(context) {
+export default function FirstActivityDatetime(context) {
     let dt = context.getBindingObject().pln_dep_dt;
     let ti = context.getBindingObject().pln_dep_ti;
     
@@ -14,6 +14,6 @@ export default function FormatPickup(context) {
         Number(ti.substr(2, 2)),
         Number(ti.substr(4, 2)), 
         0);
-    var text = context.formatDate(time);
+    var text = context.formatDatetime(time);
     return `On: ${text}`;
 }
