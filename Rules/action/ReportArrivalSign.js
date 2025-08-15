@@ -5,10 +5,10 @@
 export default async function ReportArrivalSign(clientAPI) {
   let { tor_id, name, locid, stop_id } = clientAPI.binding;//Get bindings from page
   let context = clientAPI.getPageProxy()
-  
+
   //Get Signature Value
   let signature = context.evaluateTargetPath("#Control:SignatureArrv/#Value")
-  
+
   //Validation
   if (!signature) {
     alert("Signature required!!!")
@@ -16,8 +16,8 @@ export default async function ReportArrivalSign(clientAPI) {
     return
   }
 
-    // Show initial indicator only before async calls
-    context.showActivityIndicator("Reporting Event...");
+  // Show initial indicator only before async calls
+  context.showActivityIndicator("Reporting Event...");
 
   //Step 1: Fetch CSRF Token
   let token;
@@ -42,7 +42,7 @@ export default async function ReportArrivalSign(clientAPI) {
     event_code: 'ARRIV_DEST',
     event_reason: '',
     ext_loc_id: locid,
-    event_time: '' + new Date().getTime(),    
+    event_time: '' + new Date().getTime(),
 
   });
   const slug = {
@@ -51,9 +51,9 @@ export default async function ReportArrivalSign(clientAPI) {
     attachment_type: 'ZSIG',
     alternative_name: 'Arrival-Signature',
     folder: locid,
-    delv_number:'',
-    keyrec: '',    
-    recipient:''
+    delv_number: '',
+    keyrec: '',
+    recipient: ''
   };
   // Step 3: Report event
   return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
@@ -64,21 +64,42 @@ export default async function ReportArrivalSign(clientAPI) {
       'header': {
         "Content-Type": signature.contentType,
         "x-csrf-token": token,
-        "Slug": encodeURI(JSON.stringify(slug)) 
+        "Slug": encodeURI(JSON.stringify(slug))
       },
       "body": signature.content
     }).then(() => {
       context.dismissActivityIndicator()
-      alert(`Event reported and signature uploaded for ${locid}. Please refresh the app.`)            
+      // alert(`Event reported and signature uploaded for ${locid}. Please refresh the app.`)   
+      return context.executeAction({
+        Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+        Properties: {
+          Title: "Success",
+          Message: `Event reported and signature uploaded for ${locid}. Please refresh the app.`
+        }
+      });
     }).catch((err) => {
       context.dismissActivityIndicator()
-      alert(`Failed to upload ${err}`)            
+      // alert(`Failed to upload ${err}`)
+      return context.executeAction({
+        Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+        Properties: {
+          Title: "Error",
+          Message: `Failed to upload ${err}`
+        }
+      });
     });
   }).catch((err) => {
     context.dismissActivityIndicator()
-    alert(`Failed to report event ${err}`)    
+    // alert(`Failed to report event ${err}`)
+    return context.executeAction({
+        Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+        Properties: {
+          Title: "Error",
+          Message: `Failed to report event ${err}`
+        }
+      });
   }).finally(() => {
     context.dismissActivityIndicator();
-    return context.executeAction("/driverapp/Actions/ClosePage.action")
+    // return context.executeAction("/driverapp/Actions/ClosePage.action")
   })
 }

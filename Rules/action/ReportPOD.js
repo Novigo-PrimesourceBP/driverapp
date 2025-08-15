@@ -80,8 +80,15 @@ export default async function ReportPOD(clientAPI) {
     if (!token) throw new Error("CSRF token missing");
   } catch (err) {
     context.dismissActivityIndicator();
-    alert(`CSRF fetch failed: ${err.message || err}`);
-    return;
+    // alert(`CSRF fetch failed: ${err.message || err}`);
+    return context.executeAction({
+        Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+        Properties: {
+          Title: "Error",
+          Message: `CSRF fetch failed: ${err.message || err}`
+        }
+      });
+    // return;
   }
 
   // Step 2: Set action binding for ReportEvent
@@ -123,18 +130,39 @@ export default async function ReportPOD(clientAPI) {
         "body": signature.content
       }).then(() => {
         context.dismissActivityIndicator();
-        alert(`Event reported and signature uploaded for ${delivery}. Please refresh the app.`);
+        // alert(`Event reported and signature uploaded for ${delivery}. Please refresh the app.`);
+        return context.executeAction({
+        Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+        Properties: {
+          Title: "Success",
+          Message: `Event reported and signature uploaded for ${delivery}. Please refresh the app.`
+        }
+      });
       }).catch((err) => {
         context.dismissActivityIndicator();
-        alert(`Failed to upload: ${err.message || err}`);
+        // alert(`Failed to upload: ${err.message || err}`);
+        return context.executeAction({
+        Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+        Properties: {
+          Title: "Error",
+          Message: `Failed to upload: ${err.message || err}`
+        }
+      });
       });
     })
     .catch((err) => {
       context.dismissActivityIndicator();
-      alert(`Failed to report event: ${err.message || err}`);
+      // alert(`Failed to report event: ${err.message || err}`);
+      return context.executeAction({
+        Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+        Properties: {
+          Title: "Error",
+          Message: `Failed to report event: ${err.message || err}`
+        }
+      });
     })
     .finally(() => {
       context.dismissActivityIndicator();
-      return context.executeAction("/driverapp/Actions/ClosePage.action");
+      // return context.executeAction("/driverapp/Actions/ClosePage.action");
     });
 }

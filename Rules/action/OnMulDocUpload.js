@@ -6,23 +6,23 @@ export default async function OnMulDocUpload(clientAPI) {
 
     const context = clientAPI.getPageProxy();
     const { tor_id, locid } = clientAPI.binding;
-    
+
     const attachmentFormCell = clientAPI.evaluateTargetPathForAPI("#Page:Attachment/#Control:AttachmentFormCellNew");
     const attachmentList = clientAPI.evaluateTargetPath('#Page:Attachment/#Control:AttachmentFormCellNew/#Value');
 
     let attachmentType;
     try {
         attachmentType = clientAPI.evaluateTargetPath('#Control:AttachmentTypeNew/#SelectedValue');
-    }catch (error) {        
+    } catch (error) {
         const errMsg = error?.message || String(error);
-    
+
         if (errMsg.includes("No value in the selected element")) {
-          alert("Please select attachment type.");
+            alert("Please select attachment type.");
         } else {
-          alert("Unexpected error: " + errMsg);
+            alert("Unexpected error: " + errMsg);
         }
         return;
-      }
+    }
     // Validation
     if (!attachmentType) {
         alert("Please select attachment type.");
@@ -100,14 +100,29 @@ export default async function OnMulDocUpload(clientAPI) {
             summaryMessage += `\n\nErrors:\n${errorMessages.join('\n')}`;
         }
 
-        alert(summaryMessage);
+        // alert(summaryMessage);
+        return context.executeAction({
+            Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+            Properties: {
+                Title: "Upload Message",
+                Message: summaryMessage
+            }
+        });
 
     } catch (error) {
         context.dismissActivityIndicator();
-        alert(`Unexpected error: ${error.message || error}`);
+        // alert(`Unexpected error: ${error.message || error}`);
+        // Show Message - when clicking on Ok closes the current page
+        return context.executeAction({
+            Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+            Properties: {
+                Title: "Unexpected Error",
+                Message: error.message || String(error)
+            }
+        });
     } finally {
         //Cleanup
         attachmentFormCell.setValue([]);
-        return context.executeAction("/driverapp/Actions/ClosePage.action");
+        // return context.executeAction("/driverapp/Actions/ClosePage.action");
     }
 }
