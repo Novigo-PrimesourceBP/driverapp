@@ -77,20 +77,6 @@
 					"Buttons": [
 						{
 							"_Type": "ButtonTable.Type.Button",
-							"_Name": "DepartureBtn",
-							"Title": "Departure",
-							"Alignment": "Center",
-							"ButtonType": "Text",
-							"Semantic": "Tint",
-							"Image": "sap-icon://journey-depart",
-							"ImagePosition": "Leading",
-							"FullWidth": true,
-							"Visible": "/driverapp/Rules/action/StopDepButtonVisibility.js",
-							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/ReportDeparture.js"
-						},
-						{
-							"_Type": "ButtonTable.Type.Button",
 							"_Name": "ArrivalBtn",
 							"Title": "Arrival",
 							"Alignment": "Center",
@@ -116,6 +102,20 @@
 							"Visible": "/driverapp/Rules/action/StopPODButtonVisibility.js",
 							"Enabled": true,
 							"OnPress": "/driverapp/Actions/Navigation/To_Event.action"
+						},
+						{
+							"_Type": "ButtonTable.Type.Button",
+							"_Name": "DepartureBtn",
+							"Title": "Departure",
+							"Alignment": "Center",
+							"ButtonType": "Text",
+							"Semantic": "Tint",
+							"Image": "sap-icon://journey-depart",
+							"ImagePosition": "Leading",
+							"FullWidth": true,
+							"Visible": "/driverapp/Rules/action/StopDepButtonVisibility.js",
+							"Enabled": true,
+							"OnPress": "/driverapp/Rules/action/ReportDeparture.js"
 						}
 					]
 				},
