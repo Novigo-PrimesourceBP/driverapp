@@ -31,7 +31,7 @@
 							"IsPickerDismissedOnSelection": true,
 							"AllowDefaultValueIfOneItem": false,
 							"IsEditable": true,
-							"PickerItems": [								
+							"PickerItems": [
 								{
 									"DisplayValue": "Bill of Lading",
 									"ReturnValue": "ZBOLF"
@@ -107,7 +107,7 @@
 							"Image": "sap-icon://detail-view",
 							"ImagePosition": "Leading",
 							"Enabled": true,
-							"OnPress": "/driverapp/Actions/Navigation/To_ViewAttachments.action"
+							"OnPress": "/driverapp/Rules/attachmentdwld/OnDocumentPress.js"
 						}
 					],
 					"Layout": {
@@ -138,7 +138,7 @@
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar8",
+		"_Name": "ActionBar9",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

@@ -225,7 +225,7 @@ export default async function OnDocumentPress(context) {
 
     const serviceName = '/driverapp/Services/attachmentdwld.service';
     const entitySet = 'AttachmentDwld';    
-    const readLink = `AttachmentDwld(tor_id='${binding.tor_id}',doc_key='${binding.doc_key}')`;
+    const readLink = `AttachmentDwld(tor_id='${binding.tor_id}',doc_key='${binding.doc_key}')/$value`;
 
     clientApi.setActionBinding({
         "@odata.readLink": readLink,
