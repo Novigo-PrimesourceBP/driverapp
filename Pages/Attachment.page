@@ -113,11 +113,7 @@
 					"Layout": {
 						"NumberOfColumns": 1
 					},
-					"Header": {
-						"Styles": {
-							"Header": "DelvItemTitle",
-							"Caption": "DelvItemTitle"
-						},
+					"Header": {						
 						"_Type": "SectionCommon.Type.Header",
 						"_Name": "AttchHeader",
 						"AccessoryType": "None",
@@ -138,7 +134,7 @@
 	"_Name": "Attachment",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar9",
+		"_Name": "ActionBar11",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
