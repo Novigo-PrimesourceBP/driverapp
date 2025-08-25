@@ -1,14 +1,12 @@
 {
-	"_Type": "Action.Type.ODataService.DownloadMedia",
-	"ActionResult": {
-		"_Name": "DownloadDocument"
-	},
-	"OnFailure": "/driverapp/Actions/attachmentdwld/Attachment/OndownldDocfailure.action",
-	"OnSuccess": "/driverapp/Rules/attachmentdwld/DocumentSave.js",
-	"Target": {
-		"Service": "/driverapp/Services/attachmentdwld.service",
-		"EntitySet": "AttachmentDwld",
-		"QueryOptions": "$filter=tor_id eq '{tor_id}'",
-		"ReadLink": "{@odata.readLink}"
-	}
+  "_Type": "Action.Type.ODataService.DownloadMedia",
+  "ActionResult": { "_Name": "DownloadDocument" },
+  "OnFailure": "/driverapp/Actions/attachmentdwld/Attachment/OndownldDocfailure.action",
+  "OnSuccess": "/driverapp/Rules/attachmentdwld/DocumentSave.js",
+  "Target": {
+    "Service": "/driverapp/Services/attachmentdwld.service",
+    "EntitySet": "AttachmentDwld",
+    "QueryOptions": "$filter=tor_id eq '{tor_id}' and doc_key eq '{doc_key}'",
+    "ReadLink": "{@odata.readLink}"
+  }
 }
