@@ -218,32 +218,52 @@
 //         alert('Document processing failed:\n' + err);
 //     });
 // }
-const fs = require('@nativescript/core/file-system');
+// const fs = require('@nativescript/core/file-system');
+// export default async function OnDocumentPress(context) {
+//     const clientApi = context.getPageProxy();
+//     const binding = clientApi.getActionBinding();
+
+//     const serviceName = '/driverapp/Services/attachmentdwld.service';
+//     const entitySet = 'AttachmentDwld';    
+//     const readLink = `AttachmentDwld(tor_id='${binding.tor_id}',doc_key='${binding.doc_key}')`;
+
+//     clientApi.setActionBinding({
+//         '@odata.readLink': readLink,
+//         tor_id: binding.tor_id,
+//         doc_key: binding.doc_key,
+//     });
+//     alert('ReadLink: ' + readLink);
+
+//     try {
+//         const isLocal = await context.isMediaLocal( serviceName, entitySet, readLink);
+//         const actionPath = isLocal
+//             ? '/driverapp/Actions/attachmentdwld/Attachment/OpenDocument.action'
+//             : '/driverapp/Actions/attachmentdwld/Attachment/DownloadDocument.action';
+//         return clientApi.executeAction(actionPath);
+//     } catch (error) {
+//         console.error('Error checking media local or executing action:', error);
+//         alert('Failed to open or download document:\n' + error);
+//         return Promise.reject(error);
+//     }
+
+// }
 export default async function OnDocumentPress(context) {
     const clientApi = context.getPageProxy();
     const binding = clientApi.getActionBinding();
 
-    const serviceName = '/driverapp/Services/attachmentdwld.service';
-    const entitySet = 'AttachmentDwld';    
-    const readLink = `AttachmentDwld(tor_id='${binding.tor_id}',doc_key='${binding.doc_key}')/$value`;
+    const readLink = `AttachmentDwld(tor_id='${binding.tor_id}',doc_key='${binding.doc_key}')`;
 
+    // Set binding for the OpenDocument action
     clientApi.setActionBinding({
-        "@odata.readLink": readLink,
-        tor_id: binding.tor_id,
-        doc_key: binding.doc_key,
+        '@odata.readLink': readLink,
+        // Provide a MIME type hint when backend doesn’t expose @odata.mediaContentType.
+        // If known at runtime, pass the actual value (e.g., 'application/pdf', 'image/jpeg', 'image/png').
+        MimeType: binding.mimecode || 'image/bmp'
     });
-    alert('ReadLink: ' + readLink);
-
-    try {
-        const isLocal = await context.isMediaLocal( serviceName, entitySet, readLink);
-        const actionPath = isLocal
-            ? '/driverapp/Actions/attachmentdwld/Attachment/OpenDocument.action'
-            : '/driverapp/Actions/attachmentdwld/Attachment/DownloadDocument.action';
-        return clientApi.executeAction(actionPath);
-    } catch (error) {
-        console.error('Error checking media local or executing action:', error);
-        alert('Failed to open or download document:\n' + error);
-        return Promise.reject(error);
-    }
-
+    alert(`readLink: ${readLink} MimeType: ${Mim}`)
+    // Directly open via streaming URL; no isMediaLocal, no download
+    return clientApi.executeAction('/driverapp/Actions/attachmentdwld/Attachment/OpenDocument.action')
+        .catch(err => {
+            alert("Error opening document:\n" + err);
+        });
 }

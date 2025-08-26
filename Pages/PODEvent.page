@@ -141,7 +141,7 @@
 							"Image": "sap-icon://save",
 							"ImagePosition": "Leading",
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/attachmentdwld/SavePODSignMedia.js"
+							"OnPress": "/driverapp/Rules/action/ReportPOD.js"
 						}
 					],
 					"Layout": {
@@ -161,7 +161,7 @@
 	"_Name": "Event",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar15",
+		"_Name": "ActionBar16",
 		"_Type": "Control.Type.ActionBar"
 	}
 }

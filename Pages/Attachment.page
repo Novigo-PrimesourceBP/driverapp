@@ -107,7 +107,7 @@
 							"Image": "sap-icon://detail-view",
 							"ImagePosition": "Leading",
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/attachmentdwld/OnDocumentPress.js"
+							"OnPress": "/driverapp/Actions/Navigation/To_ViewAttachments.action"
 						}
 					],
 					"Layout": {
