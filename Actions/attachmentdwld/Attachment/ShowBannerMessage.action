@@ -1,0 +1,10 @@
+{
+	"_Type": "Action.Type.BannerMessage",
+	"ActionResult": {
+		"_Name": "ShowBannerMessage"
+	},
+	"Message": "{Message}",
+	"Duration": "{Duration}",
+	"Animated": true,
+	"Semantic": "Normal"
+}
