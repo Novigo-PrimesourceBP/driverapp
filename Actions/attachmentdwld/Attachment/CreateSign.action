@@ -1,0 +1,19 @@
+{
+	"_Type": "Action.Type.ODataService.CreateMedia",
+	"ActionResult": {
+		"_Name": "SaveArrivSign"
+	},
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "Saving Signature.....",
+	"Target": {
+		"Service": "/driverapp/Services/attachmentdwld.service",
+		"EntitySet": "AttachmentDwld"
+	},
+	"Headers": {
+		"Slug": "{slug}"
+	},
+	"Media": "{media}",
+	"RequestOptions": {
+		"RemoveCreatedEntityAfterUpload": true
+	}
+}
