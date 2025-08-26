@@ -21,7 +21,7 @@
                 <Property Name="attachment_type" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Attachment Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityContainer Name="ZTM_GW_DA_ATTCHMT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="AttachmentDwld" EntityType="ZTM_GW_DA_ATTCHMT_SRV.AttachmentDwld" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="AttachmentDwld" EntityType="ZTM_GW_DA_ATTCHMT_SRV.AttachmentDwld" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
             </EntityContainer>
             <atom:link rel="self" href="https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--x0nk0lss.cfapps.eu10-005.hana.ondemand.com/attachmentdwld/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
             <atom:link rel="latest-version" href="https://primesource-bn4l-dev-qa-oryeggwx-dev-com-primsourcebp--x0nk0lss.cfapps.eu10-005.hana.ondemand.com/attachmentdwld/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>

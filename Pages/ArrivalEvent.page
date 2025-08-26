@@ -41,7 +41,7 @@
 							"Image": "sap-icon://save",
 							"ImagePosition": "Leading",
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/ReportArrivalSign.js"
+							"OnPress": "/driverapp/Rules/attachmentdwld/SaveArrivalSignMedia.js"
 						}
 					],
 					"Layout": {

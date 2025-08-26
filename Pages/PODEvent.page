@@ -141,7 +141,7 @@
 							"Image": "sap-icon://save",
 							"ImagePosition": "Leading",
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/ReportPOD.js"
+							"OnPress": "/driverapp/Rules/attachmentdwld/SavePODSignMedia.js"
 						}
 					],
 					"Layout": {
