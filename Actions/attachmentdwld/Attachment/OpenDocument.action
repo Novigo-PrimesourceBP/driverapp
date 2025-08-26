@@ -3,5 +3,7 @@
 	"ActionResult": {
 		"_Name": "OpenDocument"
 	},
-	 "Path": "{FileName}"
+	 "Path": "/driverapp/Services/attachmentdwld.service/{@odata.readLink}/$value",
+	 "MimeType": "{MimeType}",
+	 "UseExternalViewer": true
 }
