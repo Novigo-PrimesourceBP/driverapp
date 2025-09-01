@@ -41,7 +41,7 @@
 							"Image": "sap-icon://save",
 							"ImagePosition": "Leading",
 							"Enabled": true,
-							"OnPress": "/driverapp/Rules/action/ReportArrivalSign.js"
+							"OnPress": "/driverapp/Rules/action/ReportArrivalEvent.js"
 						}
 					],
 					"Layout": {
@@ -61,7 +61,7 @@
 	"_Name": "ArrivalEvent",
 	"ActionBar": {
 		"Items": [],
-		"_Name": "ActionBar3",
+		"_Name": "ActionBar5",
 		"_Type": "Control.Type.ActionBar"
 	}
 }
