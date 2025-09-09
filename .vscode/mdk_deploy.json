@@ -1,9 +1,9 @@
 {
-	"Application": "/home/user/projects/driverappQA/Application.app",
+	"Application": "/home/user/projects/driverappPRD/Application.app",
 	"Target": "Mobile Services",
 	"OtherApps": [
 		{
-			"Application": "/home/user/projects/driverappQA/Application.app",
+			"Application": "/home/user/projects/driverappPRD/Application.app",
 			"Target": "Mobile Services"
 		}
 	]
