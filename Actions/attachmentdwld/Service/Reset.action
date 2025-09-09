@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.OfflineOData.Clear",
+	"ActionResult": {
+		"_Name": "Reset"
+	},
+	"Service": "/driverapp/Services/attachmentdwld.service",
+	"Force": true
+}
