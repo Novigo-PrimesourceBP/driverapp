@@ -7,13 +7,19 @@ import { Connectivity } from '@nativescript/core'
 export default async function ReportArrivalEvent(clientAPI) {
     let { tor_id, locid, } = clientAPI.binding;//Get bindings from page
     let context = clientAPI.getPageProxy();
-    //get platform
+    //Get platform and Connectivity type
     const platformModule = clientAPI.nativescript.platformModule;
     const connectionType = Connectivity.getConnectionType();
 
-    if (platformModule.isIOS && connectionType === Connectivity.connectionType.none) {
-        alert("No network Connectivity.Try posting when online");
-        return;
+    //Check if IOS and offline - Throw error message and close the Page
+    if (platformModule.isIOS && connectionType === Connectivity.connectionType.none) {        
+        return context.executeAction({
+            Name: "/driverapp/Actions/action/Service/ShowMessage.action",
+            Properties: {
+                Title: "Network Error",
+                Message: "No network Connectivity.Try posting when online"
+            }
+        });        
     }
     //Get Signature Value
     let signature = context.evaluateTargetPath("#Control:SignatureArrv/#Value")
@@ -51,7 +57,7 @@ export default async function ReportArrivalEvent(clientAPI) {
         //Get Content & content type
         const media = context.evaluateTargetPath("#Page:ArrivalEvent/#Control:SignatureArrv/#Value");
         // Step 3: Report event
-        return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(() => {
+        return context.executeAction("/driverapp/Actions/action/Service/ReportEvent.action").then(async () => {
             context.dismissActivityIndicator()
             context.showActivityIndicator("Uploading signature");
             return context.executeAction({
