@@ -2,7 +2,7 @@
     "Service": "/driverapp/Services/main.service",
     "DefiningRequests": [{
             "Name": "ZTM_C_DDL_DA_ROOT",
-            "Query": "ZTM_C_DDL_DA_ROOT"
+            "Query": "ZTM_C_DDL_DA_ROOT?$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'"
         },
         {
             "Name": "ZTM_I_DDL_DA_ATTC",
