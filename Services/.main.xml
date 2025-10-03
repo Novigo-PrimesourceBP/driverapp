@@ -66,6 +66,12 @@
                 <Property Name="pln_dep_ti" Type="Edm.String" MaxLength="6"/>
                 <Property Name="act_dep_dt" Type="Edm.String" MaxLength="8"/>
                 <Property Name="act_dep_ti" Type="Edm.String" MaxLength="6"/>
+                <Property Name="final_start_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Finaliz. Start Date" sap:quickinfo="Finalization Start Date/Time at Stop"/>
+                <Property Name="fin_start_dt" Type="Edm.String" MaxLength="8"/>
+                <Property Name="fin_start_ti" Type="Edm.String" MaxLength="6"/>
+                <Property Name="assgn_start_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Aggreg. Start Date" sap:quickinfo="Aggregated Loading/Unloading Start Date/Time at Stop"/>
+                <Property Name="aggr_start_dt" Type="Edm.String" MaxLength="8"/>
+                <Property Name="aggr_start_ti" Type="Edm.String" MaxLength="6"/>
                 <Property Name="pln_arr_dt" Type="Edm.String" MaxLength="8"/>
                 <Property Name="pln_arr_ti" Type="Edm.String" MaxLength="6"/>
                 <Property Name="act_arr_dt" Type="Edm.String" MaxLength="8"/>
@@ -85,9 +91,6 @@
                 <Property Name="dep_offset" Type="Edm.Decimal" Precision="15" Scale="0"/>
                 <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
                 <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
-                <Property Name="act_pod_tstmp" Type="Edm.Decimal" Precision="15" Scale="0"/>
-                <Property Name="act_pod_dt" Type="Edm.String" MaxLength="8"/>
-                <Property Name="act_pod_ti" Type="Edm.String" MaxLength="6"/>
                 <NavigationProperty Name="to_attc" Relationship="cds_ztm_sd_ddl_da.assoc_793B0712938B55F33CD95D4A6ED72551" FromRole="FromRole_assoc_793B0712938B55F33CD95D4A6ED72551" ToRole="ToRole_assoc_793B0712938B55F33CD95D4A6ED72551"/>
                 <NavigationProperty Name="to_evtl" Relationship="cds_ztm_sd_ddl_da.assoc_1B1826F5BF84C377BF8EC39A9DADFB88" FromRole="FromRole_assoc_1B1826F5BF84C377BF8EC39A9DADFB88" ToRole="ToRole_assoc_1B1826F5BF84C377BF8EC39A9DADFB88"/>
                 <NavigationProperty Name="to_stop" Relationship="cds_ztm_sd_ddl_da.assoc_403D2E4A2668CBCC0128B12E7E6D2CBD" FromRole="FromRole_assoc_403D2E4A2668CBCC0128B12E7E6D2CBD" ToRole="ToRole_assoc_403D2E4A2668CBCC0128B12E7E6D2CBD"/>
