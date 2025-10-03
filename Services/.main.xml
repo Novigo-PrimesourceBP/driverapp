@@ -111,6 +111,10 @@
                 <Property Name="created_at" Type="Edm.String" MaxLength="14"/>
                 <Property Name="changed_on" Type="Edm.String" MaxLength="14"/>
                 <Property Name="folder" Type="Edm.String" MaxLength="64" sap:label="Doc. Title" sap:quickinfo="Title of a document"/>
+                <Property Name="driver1" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="driver2" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
             </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_DLVITType" sap:label="Interface View - Delv Item: Driver app" sap:content-version="1">
                 <Key>
@@ -132,6 +136,10 @@
                 <Property Name="gro_vol_uni" Type="Edm.String" MaxLength="3" sap:label="Gross Vol. UoM" sap:quickinfo="Gross Volume Unit of Measure" sap:semantics="unit-of-measure"/>
                 <Property Name="qua_pcs_val" Type="Edm.Decimal" Precision="31" Scale="14"/>
                 <Property Name="qua_pcs_uni" Type="Edm.String" MaxLength="3" sap:semantics="unit-of-measure"/>
+                <Property Name="driver1" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="driver2" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
             </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_EVTLType" sap:label="Interface View - Event Timeline: Driver app" sap:content-version="1">
                 <Key>
@@ -148,6 +156,10 @@
                 <Property Name="event_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Event Status"/>
                 <Property Name="event_reason" Type="Edm.String" MaxLength="100" sap:label="Event Reason" sap:quickinfo="Reason of Event Occuring for a Transportation Activity"/>
                 <Property Name="description_s" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="driver1" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="driver2" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
             </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_FUITType" sap:label="Interface View - FU&lt;-&gt;Party: Driver app" sap:content-version="1">
                 <Key>
@@ -166,6 +178,10 @@
                 <Property Name="FU" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Document"/>
                 <Property Name="party_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Business Partner" sap:quickinfo="Business Partner Internal ID"/>
                 <Property Name="party_rco" Type="Edm.String" MaxLength="2"/>
+                <Property Name="driver1" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="driver2" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
             </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_STITType" sap:label="Interface View - Stop Item: Driver app" sap:content-version="1">
                 <Key>
@@ -185,6 +201,10 @@
                 <Property Name="gro_vol_uni" Type="Edm.String" MaxLength="3" sap:label="Gross Vol. UoM" sap:quickinfo="Gross Volume Unit of Measure" sap:semantics="unit-of-measure"/>
                 <Property Name="qua_pcs_val" Type="Edm.Decimal" Precision="31" Scale="14"/>
                 <Property Name="qua_pcs_uni" Type="Edm.String" MaxLength="3" sap:semantics="unit-of-measure"/>
+                <Property Name="driver1" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="driver2" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
             </EntityType>
             <EntityType Name="ZTM_I_DDL_DA_STOPType" sap:label="Interface View - Stop: Driver app" sap:content-version="1">
                 <Key>
@@ -223,6 +243,10 @@
                 <Property Name="act_arr_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
                 <Property Name="act_dep_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
                 <Property Name="act_pod_tstmp" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Actual Event Date" sap:quickinfo="Actual Date/Time of Event"/>
+                <Property Name="driver1" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="driver2" Type="Edm.String" MaxLength="40" sap:label="Resource"/>
+                <Property Name="drv_email1" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="drv_email2" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
                 <NavigationProperty Name="to_dlvit" Relationship="cds_ztm_sd_ddl_da.assoc_16FC4DE733E78A918538BDC6956EFA27" FromRole="FromRole_assoc_16FC4DE733E78A918538BDC6956EFA27" ToRole="ToRole_assoc_16FC4DE733E78A918538BDC6956EFA27"/>
                 <NavigationProperty Name="to_fuit" Relationship="cds_ztm_sd_ddl_da.assoc_FFB45546D835F31F3860EA27EB187997" FromRole="FromRole_assoc_FFB45546D835F31F3860EA27EB187997" ToRole="ToRole_assoc_FFB45546D835F31F3860EA27EB187997"/>
                 <NavigationProperty Name="to_stit" Relationship="cds_ztm_sd_ddl_da.assoc_D9F7A901BD36CC2CE698B64C05080D01" FromRole="FromRole_assoc_D9F7A901BD36CC2CE698B64C05080D01" ToRole="ToRole_assoc_D9F7A901BD36CC2CE698B64C05080D01"/>
