@@ -6,27 +6,27 @@
         },
         {
             "Name": "ZTM_I_DDL_DA_ATTC",
-            "Query": "ZTM_I_DDL_DA_ATTC"
+            "Query": "ZTM_I_DDL_DA_ATTC?$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'"
         },
         {
             "Name": "ZTM_I_DDL_DA_EVTL",
-            "Query": "ZTM_I_DDL_DA_EVTL"
+            "Query": "ZTM_I_DDL_DA_EVTL?$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'"
         },
         {
             "Name": "ZTM_I_DDL_DA_STIT",
-            "Query": "ZTM_I_DDL_DA_STIT"
+            "Query": "ZTM_I_DDL_DA_STIT?$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'"
         },
         {
             "Name": "ZTM_I_DDL_DA_STOP",
-            "Query": "ZTM_I_DDL_DA_STOP"
+            "Query": "ZTM_I_DDL_DA_STOP?$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'"
         },
         {
             "Name": "ZTM_I_DDL_DA_DLVIT",
-            "Query": "ZTM_I_DDL_DA_DLVIT"
+            "Query": "ZTM_I_DDL_DA_DLVIT?$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'"
         },
         {
             "Name": "ZTM_I_DDL_DA_FUIT",
-            "Query": "ZTM_I_DDL_DA_FUIT"
+            "Query": "ZTM_I_DDL_DA_FUIT?$filter=drv_email1 eq '{{#Application/#AppData/UserId}}' or drv_email2 eq '{{#Application/#AppData/UserId}}'"
         }
     ],
     "_Type": "Action.Type.ODataService.Initialize",
