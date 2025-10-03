@@ -1,7 +1,14 @@
 import CheckforKeyRec from "./CheckforKeyRec";
 
 /**
- * Reports the POD event/Attach the Customer signature
+ * This function reports the POD event/Attach the Customer signature
+ * Proprietary Notice:
+--The Driver App is proprietary to ArchLynk.
+--Customer is granted a limited, non-transferable license to use this App only 
+--within their internal environment during the engagement.
+--Any modification voids ArchLynk’s support obligations.
+--Disclosure, redistribution, or removal of ArchLynk branding is strictly prohibited.
+--Unauthorized use may result in legal action.
  * @param {IClientAPI} clientAPI
  */
 import { Connectivity } from '@nativescript/core';

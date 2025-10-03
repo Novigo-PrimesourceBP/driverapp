@@ -1,5 +1,12 @@
 /**
- * Describe this function...
+ * This function reports Departure event for the location
+ * Proprietary Notice:
+--The Driver App is proprietary to ArchLynk.
+--Customer is granted a limited, non-transferable license to use this App only 
+--within their internal environment during the engagement.
+--Any modification voids ArchLynk’s support obligations.
+--Disclosure, redistribution, or removal of ArchLynk branding is strictly prohibited.
+--Unauthorized use may result in legal action.
  * @param {IClientAPI} clientAPI
  */
 export default function ReportDeparture(clientAPI) {
